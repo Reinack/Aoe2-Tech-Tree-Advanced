@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ageofempires.fandom.com)",
+      "WebFetch(domain:aoe2techtree.net)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(awk -F/ '{dir=$\\(NF-1\\); print dir}')",
+      "Bash(node extract_icons.js)",
+      "Bash(node -e ' *)",
+      "Bash(node --check \"D:/Practicas/AOE/app.js\")",
+      "Bash(node _update_from_ref.js)",
+      "WebSearch",
+      "PowerShell(Get-ChildItem \"D:\\\\Practicas\\\\AOE\\\\img\\\\Tech\\\\\" -Name | Sort-Object {[int]\\($_ -replace '\\\\.png',''\\)} | Out-String)",
+      "Bash(cd /d D:\\\\Practicas\\\\AOE)",
+      "Bash(node _ref/gen_civs_locale.js)",
+      "Bash(git push *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(command -v gh)",
+      "Bash(gh auth *)",
+      "Bash(git tag -a v1.2.0 -m ' *)",
+      "Bash(git checkout *)"
+    ]
+  }
+}
