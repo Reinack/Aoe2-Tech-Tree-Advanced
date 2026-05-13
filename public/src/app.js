@@ -373,7 +373,19 @@ function costStr(c) {
 function showTip(ev, n) {
   ttName.textContent = tData(n, 'name', n.type === 'unit' ? 'units' : 'techs');
   ttAge.textContent = n.type === 'building' ? t('building') : `${t(n.age, 'ages')} · ${t(n.type)}`;
-  ttCost.textContent = costStr(n.cost);
+
+  let costHtml = '';
+  if (n.build_cost)    costHtml += `<div><strong>${t('build_cost')}:</strong> ${costStr(n.build_cost)}</div>`;
+  if (n.research_cost) costHtml += `<div><strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)}</div>`;
+  if (n.train_cost)    costHtml += `<div><strong>${t('train_cost')}:</strong> ${costStr(n.train_cost)}</div>`;
+
+  // Fallback para nodos que aún usen la clave genérica 'cost'
+  if (!costHtml && n.cost) {
+    const label = n.type === 'building' ? t('build_cost') : (n.type === 'unit' ? t('train_cost') : t('research_cost'));
+    costHtml = `<div><strong>${label}:</strong> ${costStr(n.cost)}</div>`;
+  }
+
+  ttCost.innerHTML = costHtml || '—';
   ttEffect.textContent = tData(n, 'effect');
   const prereqNames = (n.prereqs || []).map(pid => {
     const p = displayNodes.find(x => x.id === pid) || BUILDINGS.find(b => b.id === pid);
@@ -465,7 +477,7 @@ function getStatsForNode(n) {
     }
   }
   // Direct lookup by node ID — generic → regional → unique
-  return UNIT_STATS[n.id] || REGIONAL_UNIT_STATS[n.id] || UNIQUE_UNIT_STATS[n.id] || null;
+  return UNIT_STATS[n.id] || REGIONAL_UNIT_STATS[n.id] || UNIQUE_UNIT_STATS[n.id] || n.stats || null;
 }
 
 function statRow(icon, label, val, sub) {
@@ -524,9 +536,20 @@ function showStatsPanel(ev, n) {
   }
 
   // Coste + tiempo de producción
+  let costHtml = '';
+  if (n.build_cost)    costHtml += `<strong>${t('build_cost')}:</strong> ${costStr(n.build_cost)} `;
+  if (n.research_cost) costHtml += `<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)} `;
+  if (n.train_cost)    costHtml += `<strong>${t('train_cost')}:</strong> ${costStr(n.train_cost)} `;
+
+  // Fallback
+  if (!costHtml && n.cost) {
+    const label = n.type === 'building' ? t('build_cost') : (n.type === 'unit' ? t('train_cost') : t('research_cost'));
+    costHtml = `<strong>${label}:</strong> ${costStr(n.cost)} `;
+  }
+
   const trainStr = stats && stats.train ? `  ⏱️ ${stats.train}s` : '';
   document.getElementById('sp-cost').innerHTML =
-    (costStr(n.cost) + trainStr)
+    (costHtml + trainStr)
       .replace(/🌾/g, '<span>🌾</span>')
       .replace(/🪵/g, '<span>🪵</span>')
       .replace(/💰/g, '<span>💰</span>')

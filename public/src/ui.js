@@ -31,7 +31,14 @@ function costStr(c) {
 function showTip(ev, n) {
   ttName.textContent   = tData(n, 'name', n.type === 'unit' ? 'units' : 'techs');
   ttAge.textContent    = n.type === 'building' ? t('building') : `${t(n.age, 'ages')} · ${t(n.type)}`;
-  ttCost.textContent   = costStr(n.cost);
+  // Costes
+  const costs = [];
+  if (n.build_cost)    costs.push(`<strong>${t('build_cost')}:</strong> ${costStr(n.build_cost)}`);
+  if (n.research_cost) costs.push(`<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)}`);
+  if (n.train_cost)    costs.push(`<strong>${t('train_cost')}:</strong> ${costStr(n.train_cost)}`);
+  if (n.cost)          costs.push(`<strong>${t('cost')}:</strong> ${costStr(n.cost)}`);
+
+  ttCost.innerHTML = costs.join('<br>') || '—';
   ttEffect.textContent = tData(n, 'effect');
   const prereqNames    = (n.prereqs || []).map(pid => {
     const p = displayNodes.find(x => x.id === pid) || BUILDINGS.find(b => b.id === pid);
@@ -122,7 +129,7 @@ function getStatsForNode(n) {
       stats = UNIQUE_UNIT_STATS[key];
     }
   } else {
-    stats = UNIT_STATS[n.id] || REGIONAL_UNIT_STATS[n.id] || UNIQUE_UNIT_STATS[n.id];
+    stats = UNIT_STATS[n.id] || REGIONAL_UNIT_STATS[n.id] || UNIQUE_UNIT_STATS[n.id] || n.stats;
   }
   return stats;
 }
@@ -137,18 +144,6 @@ function statRow(icon, label, val, sub) {
 }
 
 function showStatsPanel(ev, n) {
-  const stats = getStatsForNode(n);
-  if (!stats) {
-    document.getElementById('sp-stats-grid').innerHTML = '';
-    document.getElementById('sp-cost').textContent = '';
-    document.getElementById('sp-effect').textContent = '';
-    document.getElementById('sp-no-stats').textContent = 'No hay estadísticas disponibles';
-    statsPanel.style.display = 'block';
-    return;
-  }
-
-  document.getElementById('sp-no-stats').textContent = '';
-
   // Icon and name
   const iconEl = document.getElementById('sp-icon');
   const imgSrc = n.imgPath || IMG_MAP[n.id];
@@ -161,21 +156,37 @@ function showStatsPanel(ev, n) {
   document.getElementById('sp-name').textContent = tData(n, 'name', n.type === 'unit' ? 'units' : 'techs');
   document.getElementById('sp-sub').textContent = n.variant ? t(n.variant) : '';
 
-  // Stats grid
-  const grid = [];
-  grid.push(statRow('❤️', 'Salud', stats.hp));
-  grid.push(statRow('⚔️', 'Ataque', stats.attack));
-  grid.push(statRow('🛡️', 'Armadura', `${stats.armor[0]}/${stats.armor[1]}`, '(melee/pierce)'));
-  if (stats.range) grid.push(statRow('🏹', 'Alcance', stats.range));
-  grid.push(statRow('🏃', 'Velocidad', stats.speed));
-  if (stats.rof) grid.push(statRow('⏱️', 'Cadencia', `${stats.rof}s`));
-  grid.push(statRow('👁️', 'Visión', stats.los));
-  grid.push(statRow('⏳', 'Entrenamiento', `${stats.train}s`));
-  document.getElementById('sp-stats-grid').innerHTML = grid.join('');
-
   // Cost and effect
-  document.getElementById('sp-cost').innerHTML = `<strong>${t('cost')}:</strong> ${costStr(n.cost)}`;
+  const costLines = [];
+  if (n.build_cost)    costLines.push(`<strong>${t('build_cost')}:</strong> ${costStr(n.build_cost)}`);
+  if (n.research_cost) costLines.push(`<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)}`);
+  if (n.train_cost)    costLines.push(`<strong>${t('train_cost')}:</strong> ${costStr(n.train_cost)}`);
+  if (n.cost)          costLines.push(`<strong>${t('cost')}:</strong> ${costStr(n.cost)}`);
+
+  document.getElementById('sp-cost').innerHTML = costLines.join('<br>');
   document.getElementById('sp-effect').innerHTML = `<strong>${t('effect')}:</strong> ${tData(n, 'effect')}`;
+
+  // Stats grid
+  const stats = getStatsForNode(n);
+  const gridEl = document.getElementById('sp-stats-grid');
+  const noStatsEl = document.getElementById('sp-no-stats');
+
+  if (!stats) {
+    gridEl.innerHTML = '';
+    noStatsEl.textContent = 'No hay estadísticas de combate disponibles';
+  } else {
+    noStatsEl.textContent = '';
+    const grid = [];
+    if (stats.hp)     grid.push(statRow('❤️', 'Salud', stats.hp));
+    if (stats.attack) grid.push(statRow('⚔️', 'Ataque', stats.attack));
+    if (stats.armor)  grid.push(statRow('🛡️', 'Armadura', `${stats.armor[0]}/${stats.armor[1]}`, '(melee/pierce)'));
+    if (stats.range)  grid.push(statRow('🏹', 'Alcance', stats.range));
+    if (stats.speed)  grid.push(statRow('🏃', 'Velocidad', stats.speed));
+    if (stats.rof)    grid.push(statRow('⏱️', 'Cadencia', `${stats.rof}s`));
+    if (stats.los)    grid.push(statRow('👁️', 'Visión', stats.los));
+    if (stats.train)  grid.push(statRow('⏳', n.type === 'unit' ? 'Entrenamiento' : 'Tiempo', `${stats.train}s`));
+    gridEl.innerHTML = grid.join('');
+  }
 
   statsPanel.style.display = 'block';
 }
