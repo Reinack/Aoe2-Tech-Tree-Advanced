@@ -108,12 +108,29 @@ function updateUniqueForCiv() {
 
   if (civ.uniqueTechs && civ.uniqueTechs[0]) {
     const lcT1 = lc.uniqueTechs?.[0] || {};
-    if (ut1) { ut1.name = lcT1.name || ''; ut1.cost = civ.uniqueTechs[0].cost; ut1.effect = lcT1.effect || ''; }
+    if (ut1) { 
+      ut1.name = lcT1.name || ''; 
+      ut1.cost = civ.uniqueTechs[0].cost; 
+      ut1.effect = lcT1.effect || ''; 
+      ut1.imgPath = civ.uniqueTechs[0].imgPic !== undefined ? `img/Tech/${civ.uniqueTechs[0].imgPic}.png` : `img/Tech/33.png`;
+      IMG_MAP['uniquetech1'] = ut1.imgPath;
+    }
   }
   if (civ.uniqueTechs && civ.uniqueTechs[1]) {
     const lcT2 = lc.uniqueTechs?.[1] || {};
-    if (ut2) { ut2.name = lcT2.name || ''; ut2.cost = civ.uniqueTechs[1].cost; ut2.effect = lcT2.effect || ''; }
+    if (ut2) { 
+      ut2.name = lcT2.name || ''; 
+      ut2.cost = civ.uniqueTechs[1].cost; 
+      ut2.effect = lcT2.effect || ''; 
+      ut2.imgPath = civ.uniqueTechs[1].imgPic !== undefined ? `img/Tech/${civ.uniqueTechs[1].imgPic}.png` : `img/Tech/107.png`;
+      IMG_MAP['uniquetech2'] = ut2.imgPath;
+    }
   }
+  // Sincronizar unidades únicas también
+  const uuNode = displayNodes.find(n => n.id === 'uniqueunit');
+  const euNode = displayNodes.find(n => n.id === 'eliteunique');
+  if (uuNode?.imgPath) IMG_MAP['uniqueunit'] = uuNode.imgPath;
+  if (euNode?.imgPath) IMG_MAP['eliteunique'] = euNode.imgPath;
 }
 
 function render() {
@@ -264,7 +281,7 @@ function render() {
 
   // ── Helper to draw node ──────────────────────────────────
   function drawNode(g, id, label, iconText, typeClass, miss, evData) {
-    const isStatNode = ['unit', 'upgrade', 'unique'].includes(evData.type);
+    const isStatNode = ['unit', 'upgrade', 'unique', 'building', 'tech'].includes(evData.type);
     g.attr('class', `node ${typeClass} ${miss ? 'unavailable' : ''}`)
       .on('mouseover', ev => showTip(ev, evData))
       .on('mousemove', ev => moveTip(ev))
@@ -326,7 +343,13 @@ function render() {
     const bName = t(b.id, 'buildings');
     const miss = isMissing(b.id);
     // Buildings are usually always available, we just pass an empty node for tip
-    const bNode = { name: bName, age: 0, type: 'building', cost: null, effect: currentLang === 'es' ? 'Produce unidades o tecnologías.' : 'Produces units or technologies.', prereqs: [] };
+    const bNode = { 
+      ...b, 
+      name: bName, 
+      type: 'building', 
+      effect: b.effect || (currentLang === 'es' ? 'Produce unidades o tecnologías.' : 'Produces units or technologies.'),
+      prereqs: b.prereqs || [] 
+    };
     drawNode(g, b.id, bName, b.icon, 'n-building', miss, bNode);
   });
 
@@ -363,11 +386,11 @@ const ttMissing = document.getElementById('tt-missing');
 function costStr(c) {
   if (!c) return '—';
   const p = [];
-  if (c.food) p.push(`🌾 ${c.food}`);
-  if (c.wood) p.push(`🪵 ${c.wood}`);
-  if (c.gold) p.push(`💰 ${c.gold}`);
-  if (c.stone) p.push(`🪨 ${c.stone}`);
-  return p.join('  ') || 'Gratis';
+  if (c.food)  p.push(`<img src="img/food.png" class="res-icon" alt="Comida"> ${c.food}`);
+  if (c.wood)  p.push(`<img src="img/wood.png" class="res-icon" alt="Madera"> ${c.wood}`);
+  if (c.gold)  p.push(`<img src="img/gold.png" class="res-icon" alt="Oro"> ${c.gold}`);
+  if (c.stone) p.push(`<img src="img/stone.png" class="res-icon" alt="Piedra"> ${c.stone}`);
+  return p.join('  ') || (currentLang === 'es' ? 'Gratis' : 'Free');
 }
 
 function showTip(ev, n) {
@@ -519,14 +542,22 @@ function showStatsPanel(ev, n) {
   if (stats) {
     noStats.style.display = 'none';
     gridEl.style.display = 'grid';
-    gridEl.innerHTML =
-      statRow('❤️', t('hp'), stats.hp) +
-      statRow('⚔️', t('attack'), stats.attack) +
-      statRow('🛡️', t('armor_m'), stats.armor[0]) +
-      statRow('🔰', t('armor_p'), stats.armor[1]) +
-      (stats.range ? statRow('🏹', t('range'), stats.range) : statRow('⚔️', t('melee_range'), '—')) +
-      statRow('🏃', t('speed'), stats.speed) +
-      statRow('👁️', t('los'), stats.los);
+    const rows = [];
+    rows.push(statRow('❤️', t('hp'), stats.hp || '—'));
+    if (stats.attack !== undefined) rows.push(statRow('⚔️', t('attack'), stats.attack));
+    rows.push(statRow('🛡️', t('armor_m'), (stats.armor && stats.armor[0] !== undefined) ? stats.armor[0] : '—'));
+    rows.push(statRow('🔰', t('armor_p'), (stats.armor && stats.armor[1] !== undefined) ? stats.armor[1] : '—'));
+    
+    if (stats.range) {
+      rows.push(statRow('🏹', t('range'), stats.range));
+    } else if (n.type === 'unit') {
+      rows.push(statRow('⚔️', t('melee_range'), '—'));
+    }
+
+    if (stats.speed) rows.push(statRow('🏃', t('speed'), stats.speed));
+    if (stats.los)   rows.push(statRow('👁️', t('los'), stats.los));
+    
+    gridEl.innerHTML = rows.join('');
   } else {
     gridEl.style.display = 'none';
     noStats.style.display = 'block';
@@ -548,19 +579,59 @@ function showStatsPanel(ev, n) {
   }
 
   const trainStr = stats && stats.train ? `  ⏱️ ${stats.train}s` : '';
-  document.getElementById('sp-cost').innerHTML =
-    (costHtml + trainStr)
-      .replace(/🌾/g, '<span>🌾</span>')
-      .replace(/🪵/g, '<span>🪵</span>')
-      .replace(/💰/g, '<span>💰</span>')
-      .replace(/🪨/g, '<span>🪨</span>')
-      .replace(/⏱️/g, '<span>⏱️</span>');
+  document.getElementById('sp-cost').innerHTML = costHtml + trainStr;
 
   // Efecto
   const effEl = document.getElementById('sp-effect');
   const eff = tData(n, 'effect');
   if (eff) { effEl.textContent = eff; effEl.style.display = 'block'; }
   else { effEl.style.display = 'none'; }
+
+  // Afecta a (solo para tecnologías)
+  const appEl = document.getElementById('sp-applies');
+  if (n.type === 'tech' || n.type === 'upgrade' || n.type === 'unique') {
+    let affects = TECH_AFFECTS[n.id] || [];
+    // Si es una tecnología única genérica, buscar la específica de la civ
+    if (n.id === 'uniquetech1' || n.id === 'uniquetech2') {
+      const compositeId = `${currentCiv}_${n.id}`;
+      if (TECH_AFFECTS[compositeId]) affects = TECH_AFFECTS[compositeId];
+    }
+
+    if (affects.length > 0) {
+      // Resolver clases a unidades individuales
+      let unitIds = [];
+      affects.forEach(a => {
+        if (UNIT_CLASSES[a]) {
+          unitIds = unitIds.concat(UNIT_CLASSES[a]);
+        } else {
+          unitIds.push(a);
+        }
+      });
+
+      // Filtrar por disponibilidad y resolver placeholders únicos
+      const availableUnits = [...new Set(unitIds)].filter(uid => !isMissing(uid));
+      
+      if (availableUnits.length > 0) {
+        appEl.style.display = 'block';
+        let html = `<div class="sp-applies-title">${currentLang === 'es' ? 'Afecta a:' : 'Applies to:'}</div>`;
+        html += `<div class="sp-applies-grid">`;
+        availableUnits.forEach(uid => {
+          const img = IMG_MAP[uid];
+          if (img) {
+            html += `<div class="sp-applies-icon" title="${uid}"><img src="${img}"></div>`;
+          }
+        });
+        html += `</div>`;
+        appEl.innerHTML = html;
+      } else {
+        appEl.style.display = 'none';
+      }
+    } else {
+      appEl.style.display = 'none';
+    }
+  } else {
+    appEl.style.display = 'none';
+  }
 
   // Posición: aparece junto al cursor sin salirse de pantalla
   const PW = 274, PH = 260;
@@ -886,19 +957,19 @@ function makeEuIcon(id, typeClass) {
     img.alt = '';
     div.appendChild(img);
   } else {
-    div.textContent = typeClass.includes('tech') ? '🔬' : '⚔️';
+    div.textContent = typeClass.includes('tech') ? '🔬' : '⌚';
   }
   return div;
 }
 
-function makeCostStr(cost) {
-  if (!cost) return '';
+function costStr(c) {
+  if (!c) return '—';
   const p = [];
-  if (cost.food) p.push(`🍖 ${cost.food}`);
-  if (cost.wood) p.push(`🪵 ${cost.wood}`);
-  if (cost.gold) p.push(`💰 ${cost.gold}`);
-  if (cost.stone) p.push(`🪨 ${cost.stone}`);
-  return p.join('  ');
+  if (c.food)  p.push(`<img src="img/food.png" class="res-icon" alt="Comida"> ${c.food}`);
+  if (c.wood)  p.push(`<img src="img/wood.png" class="res-icon" alt="Madera"> ${c.wood}`);
+  if (c.gold)  p.push(`<img src="img/gold.png" class="res-icon" alt="Oro"> ${c.gold}`);
+  if (c.stone) p.push(`<img src="img/stone.png" class="res-icon" alt="Piedra"> ${c.stone}`);
+  return p.join('  ') || (currentLang === 'es' ? 'Gratis' : 'Free');
 }
 
 function makeAgeBadge(age) {

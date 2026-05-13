@@ -21,11 +21,11 @@ const ttMissing= document.getElementById('tt-missing');
 function costStr(c) {
   if (!c) return '—';
   const p = [];
-  if (c.food)  p.push(`🌾 ${c.food}`);
-  if (c.wood)  p.push(`🪵 ${c.wood}`);
-  if (c.gold)  p.push(`💰 ${c.gold}`);
-  if (c.stone) p.push(`🪨 ${c.stone}`);
-  return p.join('  ') || 'Gratis';
+  if (c.food)  p.push(`<img src="img/food.png" class="res-icon" alt="Comida"> ${c.food}`);
+  if (c.wood)  p.push(`<img src="img/wood.png" class="res-icon" alt="Madera"> ${c.wood}`);
+  if (c.gold)  p.push(`<img src="img/gold.png" class="res-icon" alt="Oro"> ${c.gold}`);
+  if (c.stone) p.push(`<img src="img/stone.png" class="res-icon" alt="Piedra"> ${c.stone}`);
+  return p.join('  ') || (currentLang === 'es' ? 'Gratis' : 'Free');
 }
 
 function showTip(ev, n) {
@@ -177,9 +177,9 @@ function showStatsPanel(ev, n) {
   } else {
     noStatsEl.textContent = '';
     const grid = [];
-    if (stats.hp)     grid.push(statRow('❤️', 'Salud', stats.hp));
-    if (stats.attack) grid.push(statRow('⚔️', 'Ataque', stats.attack));
-    if (stats.armor)  grid.push(statRow('🛡️', 'Armadura', `${stats.armor[0]}/${stats.armor[1]}`, '(melee/pierce)'));
+    grid.push(statRow('❤️', 'Salud', stats.hp || '—'));
+    if (stats.attack !== undefined) grid.push(statRow('⚔️', 'Ataque', stats.attack));
+    grid.push(statRow('🛡️', 'Armadura', (stats.armor) ? `${stats.armor[0]}/${stats.armor[1]}` : '—/—'));
     if (stats.range)  grid.push(statRow('🏹', 'Alcance', stats.range));
     if (stats.speed)  grid.push(statRow('🏃', 'Velocidad', stats.speed));
     if (stats.rof)    grid.push(statRow('⏱️', 'Cadencia', `${stats.rof}s`));

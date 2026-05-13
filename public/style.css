@@ -354,9 +354,40 @@ svg { width: 100%; height: 100%; display: block; }
 #sp-effect {
   font-size: 11px;
   color: #3a2a10;
-  padding: 5px 10px 10px;
+  padding: 5px 10px 8px;
   border-top: 1px solid #c8a870;
   line-height: 1.4;
+}
+
+#sp-applies {
+  font-size: 11px;
+  padding: 5px 10px 10px;
+  border-top: 1px solid rgba(139, 90, 43, 0.2);
+  display: none;
+}
+.sp-applies-title {
+  font-weight: bold;
+  color: #8b5a2b;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 9px;
+}
+.sp-applies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.sp-applies-icon {
+  width: 24px; height: 24px;
+  background: #111;
+  border: 1px solid #8b5a2b;
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.sp-applies-icon img {
+  width: 100%; height: 100%;
+  object-fit: contain;
 }
 
 #sp-no-stats {
@@ -510,6 +541,14 @@ svg { width: 100%; height: 100%; display: block; }
 
 .stat-icon { width: 14px; text-align: center; }
 .stat-val { font-weight: bold; color: #000; }
+
+.res-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 2px;
+  object-fit: contain;
+}
 
 /* ═══════════════════════════════════════════════════════════
    TOGGLE BUTTON
