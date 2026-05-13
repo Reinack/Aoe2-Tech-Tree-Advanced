@@ -165,6 +165,9 @@ const TEUTONS = {
     "incendiaries",
     "stonewall",
     "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
     "bombardtower"
   ],
   "uniqueTechs": [

@@ -179,7 +179,8 @@ const DRAVIDIANS = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {

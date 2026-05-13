@@ -168,7 +168,8 @@ const FRANKS = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {

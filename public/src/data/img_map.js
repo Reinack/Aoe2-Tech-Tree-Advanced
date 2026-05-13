@@ -153,7 +153,7 @@ const IMG_MAP = {
   'fishing_lines': 'img/Tech/140.png',
   'gillnets': 'img/Tech/41.png',
   'medium_warships': 'img/Tech/147.png',
-  'heavy_warships': 'img/Tech/142.png',
+  'heavy_warships': 'img/Tech/148.png',
   // Especiales Muelle
   'dragon_ship': 'img/Unit/178.png',
   'hulk': 'img/Unit/566.png',
@@ -187,16 +187,16 @@ const IMG_MAP = {
   // ── TORRES ──────────────────────────────────────────────
   'outpost': 'img/Building/38.png',
   'watchtower': 'img/Building/25.png',
-  'guardtower_b': 'img/Building/27.png',
-  'keep_b': 'img/Building/26.png',
-  'bombardtower_b': 'img/Building/42.png',
+  'guardtower': 'img/Building/27.png',
+  'keep': 'img/Building/26.png',
+  'bombardtower': 'img/Building/42.png',
 
   // ── MURALLAS ────────────────────────────────────────────
   'palisadewall': 'img/Building/30.png',
   'palisadegate': 'img/Building/44.png',
   'stonewall': 'img/Building/31.png',
   'gate': 'img/Building/36.png',
-  'fortifiedwall_b': 'img/Building/32.png',
+  'fortifiedwall': 'img/Building/32.png',
 
   // ── MONASTERY ─────────────────────────────────────────────
   'monk': 'img/Unit/33.png',

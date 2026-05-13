@@ -157,7 +157,10 @@ const SICILIANS = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "donjon"
+    "donjon",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {

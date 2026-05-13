@@ -161,7 +161,11 @@ const BOHEMIANS = {
     "siphons",
     "incendiaries",
     "stonewall",
+    "gate",
     "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
     "arrowslits"
   ],
   "uniqueTechs": [

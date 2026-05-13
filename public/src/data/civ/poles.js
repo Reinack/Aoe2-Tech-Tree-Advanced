@@ -165,6 +165,9 @@ const POLES = {
     "folwark",
     "stonewall",
     "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
     "bombardtower",
     "arrowslits"
   ],

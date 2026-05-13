@@ -174,8 +174,13 @@ const HINDUSTANIS = {
     "stonewall",
     "watchtower",
     "palisadewall",
+    "palisadegate",    
+    "stonewall",
+    "watchtower",
+    "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {

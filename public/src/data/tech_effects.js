@@ -46,18 +46,18 @@ export const UNIT_CLASSES = {
     'skirmisher', 'eliteskirm', 'imp_skirmisher', 'genitour'
   ],
   'gunpowder': [
-    'handcannon', 'bombadcannon', 'cannongalleon', 'elitecannon', 'bombardtower_b', 'janissary', 'conquistador'
+    'handcannon', 'bombadcannon', 'cannongalleon', 'elitecannon', 'bombardtower', 'janissary', 'conquistador'
   ],
   'trade_units': [
     'tradecart', 'tradecog'
   ],
   'buildings': [
-    'watchtower', 'guardtower_b', 'keep_b', 'bombardtower_b', 'castle', 'tc', 'krepost', 'donjon'
+    'watchtower', 'guardtower', 'keep', 'bombardtower', 'castle', 'tc', 'krepost', 'donjon'
   ],
 
   // --- Clases de Edificios ---
   'towers': [
-    'watchtower', 'guardtower_b', 'keep_b', 'bombardtower_b'
+    'watchtower', 'guardtower', 'keep', 'bombardtower'
   ],
   'castles': [
     'castle', 'krepost', 'donjon'
@@ -66,7 +66,7 @@ export const UNIT_CLASSES = {
     'tc'
   ],
   'walls': [
-    'stonewall', 'gate', 'fortifiedwall_b'
+    'stonewall', 'gate', 'fortifiedwall'
   ]
 };
 
@@ -171,8 +171,8 @@ export const TECH_AFFECTS = {
   'architecture': ['buildings'],
   'fortifiedwall': ['walls'],
   'guardtower': ['watchtower'],
-  'keep': ['guardtower_b'],
-  'bombardtower': ['keep_b'],
+  'keep': ['guardtower'],
+  'bombardtower': ['keep'],
   'murderhole': ['buildings'],
   'treadmillcrane': ['buildings'],
   'heatedshot': ['buildings'],
@@ -221,7 +221,7 @@ export const TECH_AFFECTS = {
   'bohemians_uniquetech2': ['religious'], // Hussite Reforms
 
   // Britanos
-  'britons_uniquetech1': ['foot_archer', 'watchtower', 'guardtower_b', 'keep_b'], // Yeomen
+  'britons_uniquetech1': ['foot_archer', 'watchtower', 'guardtower', 'keep'], // Yeomen
   'britons_uniquetech2': ['trebuchet'], // Warwolf
 
   // Búlgaros
@@ -237,15 +237,15 @@ export const TECH_AFFECTS = {
   'burmese_uniquetech2': ['battleeleph', 'eliteeleph'], // Howdah
 
   // Bizantinos
-  'byzantines_uniquetech1': ['firegalley', 'fireship', 'fastfireship', 'bombardtower_b', 'dromon'], // Greek Fire
+  'byzantines_uniquetech1': ['firegalley', 'fireship', 'fastfireship', 'bombardtower', 'dromon'], // Greek Fire
   'byzantines_uniquetech2': ['uniqueunit', 'eliteunique'], // Logistica
 
   // Celtas
-  'celts_uniquetech1': ['castle', 'watchtower', 'guardtower_b', 'keep_b'], // Stronghold
+  'celts_uniquetech1': ['castle', 'watchtower', 'guardtower', 'keep'], // Stronghold
   'celts_uniquetech2': ['siege'], // Furor Celtica
 
   // Chinos
-  'chinese_uniquetech1': ['stonewall', 'gate', 'watchtower', 'guardtower_b', 'keep_b'], // Great Wall
+  'chinese_uniquetech1': ['walls'], // Great Wall
   'chinese_uniquetech2': ['scorpion', 'heavyscorp', 'uniqueunit', 'eliteunique'], // Rocketry
 
   // Cumanos
@@ -293,7 +293,7 @@ export const TECH_AFFECTS = {
   'italians_uniquetech2': ['handcannon'], // Pirotechnia
 
   // Japoneses
-  'japanese_uniquetech1': ['watchtower', 'guardtower_b', 'keep_b'], // Yasama
+  'japanese_uniquetech1': ['watchtower', 'guardtower', 'keep'], // Yasama
   'japanese_uniquetech2': ['trebuchet'], // Kataparuto
 
   // Jurchens
@@ -309,7 +309,7 @@ export const TECH_AFFECTS = {
   'khmer_uniquetech2': ['uniqueunit', 'eliteunique', 'scorpion', 'heavyscorp'], // Double Crossbow
 
   // Coreanos
-  'koreans_uniquetech1': ['watchtower', 'guardtower_b', 'keep_b'], // Eupseong
+  'koreans_uniquetech1': ['watchtower', 'guardtower', 'keep'], // Eupseong
   'koreans_uniquetech2': ['uniqueunit', 'eliteunique', 'navy'], // Shinkichon
 
   // Lituanos
@@ -366,14 +366,14 @@ export const TECH_AFFECTS = {
 
   // Shu
   'shu_uniquetech1': ['spearman', 'pikeman', 'halberdier', 'uniqueunit', 'eliteunique'], // Coiled Serpent Array
-  'shu_uniquetech2': ['archer', 'crossbow', 'arbalester', 'uniqueunit', 'eliteunique', 'navy'], // Bolt Magazine
+  'shu_uniquetech2': ['monks'], // Bolt Magazine
 
   // Sicilianos
   'sicilians_uniquetech1': ['tc', 'uniqueunit', 'eliteunique'], // First Crusade
   'sicilians_uniquetech2': ['knight', 'cavalier', 'paladin'], // Hauberk
 
   // Eslavos
-  'slavs_uniquetech1': ['castle', 'watchtower', 'guardtower_b', 'keep_b'], // Detinets
+  'slavs_uniquetech1': ['castle', 'watchtower', 'guardtower', 'keep'], // Detinets
   'slavs_uniquetech2': ['infantry'], // Druzhina
 
   // Españoles
@@ -394,7 +394,7 @@ export const TECH_AFFECTS = {
 
   // Turcos
   'turks_uniquetech1': ['mounted_archer'], // Sipahi
-  'turks_uniquetech2': ['bombardtower_b', 'bombadcannon', 'cannongalleon'], // Artillery
+  'turks_uniquetech2': ['bombadcannon'], // Artillery
 
   // Vietnamitas
   'vietnamese_uniquetech1': ['battleeleph', 'eliteeleph'], // Chatras

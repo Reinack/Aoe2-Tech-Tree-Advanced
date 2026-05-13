@@ -96,7 +96,6 @@ const TUPI = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -148,7 +147,11 @@ const TUPI = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {

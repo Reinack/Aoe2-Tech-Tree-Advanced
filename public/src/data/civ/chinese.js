@@ -174,7 +174,8 @@ const CHINESE = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {

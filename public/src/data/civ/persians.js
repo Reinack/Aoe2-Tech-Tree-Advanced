@@ -169,6 +169,9 @@ const PERSIANS = {
     "caravanserai",
     "stonewall",
     "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
     "arrowslits"
   ],
   "uniqueTechs": [

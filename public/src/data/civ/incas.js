@@ -42,9 +42,6 @@ const INCAS = {
     "halberdier",
     "squires",
     "arson",
-    "eaglescout",
-    "eaglewarrior",
-    "eliteeagle",
     "champiscout",
     "champirunner",
     "champiwarrior",
@@ -97,7 +94,6 @@ const INCAS = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "heresy",
@@ -148,7 +144,13 @@ const INCAS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {

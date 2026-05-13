@@ -161,8 +161,11 @@ const PORTUGUESE = {
     "siphons",
     "incendiaries",
     "feitoria",
-    "stonewall",
+    "stonewall",    
     "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
     "bombardtower"
   ],
   "uniqueTechs": [

@@ -160,7 +160,8 @@ const ETHIOPIANS = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {

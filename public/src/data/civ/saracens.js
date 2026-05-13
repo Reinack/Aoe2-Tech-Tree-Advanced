@@ -174,6 +174,9 @@ const SARACENS = {
     "incendiaries",
     "stonewall",
     "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
     "keep"
   ],
   "uniqueTechs": [

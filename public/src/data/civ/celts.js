@@ -163,8 +163,12 @@ const CELTS = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "stonewall",
-    "watchtower",
+    "stonewall", 
+    "watchtower",  
+    "gate",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
     "arrowslits"
   ],
   "uniqueTechs": [

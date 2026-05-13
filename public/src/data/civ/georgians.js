@@ -164,7 +164,13 @@ const GEORGIANS = {
     "fortified_church",
     "stonewall",
     "watchtower",
-    "arrowslits"
+    "arrowslits",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {

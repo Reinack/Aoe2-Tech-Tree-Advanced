@@ -156,7 +156,12 @@ const HUNS = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {
