@@ -239,7 +239,7 @@ const LOCALE_EN = {
     harbor:       { name: 'Harbor',                 effect: '[Malay only] Defensive dock that shoots arrows.' },
 
     // ── University ───────────────────────────────────────────
-    masonry:          { name: 'Masonry',                 effect: 'Buildings +5% HP and +3/+3 armor.' },
+    masonry:          { name: 'Masonry',                 effect: 'Buildings +10% HP, +1 melee/+1 pierce armor and +3 building armor.' },
     architecture:     { name: 'Architecture',            effect: 'Faster construction; buildings +5% HP and armor.' },
     ballistics:       { name: 'Ballistics',              effect: 'Towers and TCs aim at moving units.' },
     chemistry:        { name: 'Chemistry',               effect: '+1 projectile attack. Enables Hand Cannoneers and Bombard Cannons.' },

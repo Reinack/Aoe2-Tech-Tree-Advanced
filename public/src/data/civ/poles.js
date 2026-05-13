@@ -162,7 +162,11 @@ const POLES = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "folwark"
+    "folwark",
+    "stonewall",
+    "watchtower",
+    "bombardtower",
+    "arrowslits"
   ],
   "uniqueTechs": [
     {
@@ -194,3 +198,4 @@ const POLES = {
 
 window.POLES = POLES;
 export default POLES;
+

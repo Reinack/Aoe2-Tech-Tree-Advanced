@@ -104,13 +104,7 @@ const HUNS = {
     "masonry",
     "ballistics",
     "chemistry",
-    "guardtower",
-    "arrowslits",
     "murderhole",
-    "fortifiedwall",
-    "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -125,7 +119,6 @@ const HUNS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -158,7 +151,12 @@ const HUNS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -190,3 +188,4 @@ const HUNS = {
 
 window.HUNS = HUNS;
 export default HUNS;
+

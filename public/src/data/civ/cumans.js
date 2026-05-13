@@ -91,7 +91,6 @@ const CUMANS = {
     "platebarding",
     "fletching",
     "bodkinarrow",
-    "bracer",
     "fishingship",
     "transportship",
     "tradecog",
@@ -107,13 +106,9 @@ const CUMANS = {
     "masonry",
     "ballistics",
     "chemistry",
-    "guardtower",
     "murderhole",
     "siegeengineers",
-    "fortifiedwall",
-    "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "atonement",
     "heresy",
@@ -164,7 +159,11 @@ const CUMANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -204,3 +203,4 @@ const CUMANS = {
 
 window.CUMANS = CUMANS;
 export default CUMANS;
+

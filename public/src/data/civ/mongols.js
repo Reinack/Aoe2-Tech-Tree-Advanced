@@ -161,7 +161,13 @@ const MONGOLS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "fortifiedwall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -193,3 +199,4 @@ const MONGOLS = {
 
 window.MONGOLS = MONGOLS;
 export default MONGOLS;
+

@@ -96,9 +96,7 @@ const AZTECS = {
     "murderhole",
     "treadmillcrane",
     "fortifiedwall",
-    "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -116,7 +114,6 @@ const AZTECS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "warrior_priest",
@@ -154,7 +151,12 @@ const AZTECS = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "shipwright"
+    "shipwright",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -186,3 +188,4 @@ const AZTECS = {
 
 window.AZTECS = AZTECS;
 export default AZTECS;
+

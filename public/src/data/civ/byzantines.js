@@ -124,7 +124,6 @@ const BYZANTINES = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
     "bombardtower",
     "monk",
     "redemption",
@@ -176,7 +175,12 @@ const BYZANTINES = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -208,3 +212,4 @@ const BYZANTINES = {
 
 window.BYZANTINES = BYZANTINES;
 export default BYZANTINES;
+

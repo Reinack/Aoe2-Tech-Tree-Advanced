@@ -119,8 +119,6 @@ const JURCHENS = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -171,7 +169,12 @@ const JURCHENS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -203,3 +206,4 @@ const JURCHENS = {
 
 window.JURCHENS = JURCHENS;
 export default JURCHENS;
+

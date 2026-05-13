@@ -117,9 +117,7 @@ const BERBERS = {
     "siegeengineers",
     "treadmillcrane",
     "fortifiedwall",
-    "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -168,7 +166,12 @@ const BERBERS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -200,3 +203,4 @@ const BERBERS = {
 
 window.BERBERS = BERBERS;
 export default BERBERS;
+

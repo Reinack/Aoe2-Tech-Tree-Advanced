@@ -83,7 +83,6 @@ const ROMANS = {
     "platebarding",
     "fletching",
     "bodkinarrow",
-    "bracer",
     "fishingship",
     "transportship",
     "tradecog",
@@ -102,7 +101,6 @@ const ROMANS = {
     "ballistics",
     "chemistry",
     "guardtower",
-    "arrowslits",
     "murderhole",
     "siegeengineers",
     "fortifiedwall",
@@ -124,7 +122,6 @@ const ROMANS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -156,7 +153,12 @@ const ROMANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -188,3 +190,4 @@ const ROMANS = {
 
 window.ROMANS = ROMANS;
 export default ROMANS;
+

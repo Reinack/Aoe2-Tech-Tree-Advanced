@@ -163,7 +163,10 @@ const LITHUANIANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "bombardtower"
   ],
   "uniqueTechs": [
     {
@@ -195,3 +198,4 @@ const LITHUANIANS = {
 
 window.LITHUANIANS = LITHUANIANS;
 export default LITHUANIANS;
+

@@ -109,10 +109,8 @@ const BULGARIANS = {
     "guardtower",
     "murderhole",
     "siegeengineers",
-    "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -128,7 +126,6 @@ const BULGARIANS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -163,7 +160,12 @@ const BULGARIANS = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "krepost"
+    "krepost",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -195,3 +197,4 @@ const BULGARIANS = {
 
 window.BULGARIANS = BULGARIANS;
 export default BULGARIANS;
+

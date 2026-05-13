@@ -103,11 +103,9 @@ const ETHIOPIANS = {
     "guardtower",
     "murderhole",
     "siegeengineers",
-    "treadmillcrane",
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "atonement",
     "heresy",
@@ -123,7 +121,6 @@ const ETHIOPIANS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -157,7 +154,13 @@ const ETHIOPIANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "architecture",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -189,3 +192,4 @@ const ETHIOPIANS = {
 
 window.ETHIOPIANS = ETHIOPIANS;
 export default ETHIOPIANS;
+

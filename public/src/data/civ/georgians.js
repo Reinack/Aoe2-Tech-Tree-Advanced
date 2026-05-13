@@ -110,8 +110,6 @@ const GEORGIANS = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "heresy",
@@ -163,7 +161,10 @@ const GEORGIANS = {
     "siphons",
     "incendiaries",
     "mule_cart",
-    "fortified_church"
+    "fortified_church",
+    "stonewall",
+    "watchtower",
+    "arrowslits"
   ],
   "uniqueTechs": [
     {
@@ -195,3 +196,4 @@ const GEORGIANS = {
 
 window.GEORGIANS = GEORGIANS;
 export default GEORGIANS;
+

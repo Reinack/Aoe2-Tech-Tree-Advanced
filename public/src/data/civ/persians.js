@@ -93,7 +93,6 @@ const PERSIANS = {
     "platebarding",
     "fletching",
     "bodkinarrow",
-    "bracer",
     "fishingship",
     "transportship",
     "tradecog",
@@ -132,7 +131,6 @@ const PERSIANS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -168,7 +166,10 @@ const PERSIANS = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "caravanserai"
+    "caravanserai",
+    "stonewall",
+    "watchtower",
+    "arrowslits"
   ],
   "uniqueTechs": [
     {
@@ -200,3 +201,4 @@ const PERSIANS = {
 
 window.PERSIANS = PERSIANS;
 export default PERSIANS;
+

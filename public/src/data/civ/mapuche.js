@@ -184,3 +184,4 @@ const MAPUCHE = {
 
 window.MAPUCHE = MAPUCHE;
 export default MAPUCHE;
+

@@ -180,3 +180,4 @@ const GENERIC = {
 
 window.GENERIC = GENERIC;
 export default GENERIC;
+

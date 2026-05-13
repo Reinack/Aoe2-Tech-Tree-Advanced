@@ -116,7 +116,6 @@ const BURMESE = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -133,7 +132,6 @@ const BURMESE = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -167,7 +165,12 @@ const BURMESE = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -199,3 +202,4 @@ const BURMESE = {
 
 window.BURMESE = BURMESE;
 export default BURMESE;
+

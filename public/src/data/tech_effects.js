@@ -53,6 +53,20 @@ export const UNIT_CLASSES = {
   ],
   'buildings': [
     'watchtower', 'guardtower_b', 'keep_b', 'bombardtower_b', 'castle', 'tc', 'krepost', 'donjon'
+  ],
+
+  // --- Clases de Edificios ---
+  'towers': [
+    'watchtower', 'guardtower_b', 'keep_b', 'bombardtower_b'
+  ],
+  'castles': [
+    'castle', 'krepost', 'donjon'
+  ],
+  'town_centers': [
+    'tc'
+  ],
+  'walls': [
+    'stonewall', 'gate', 'fortifiedwall_b'
   ]
 };
 
@@ -132,37 +146,44 @@ export const TECH_AFFECTS = {
 
   // Herrería - Ataque
   'fletching': ['foot_archer', 'mounted_archer', 'buildings'],
-  'bodkin': ['foot_archer', 'mounted_archer', 'buildings'],
+  'bodkinarrow': ['foot_archer', 'mounted_archer', 'buildings'],
   'bracer': ['foot_archer', 'mounted_archer', 'buildings'],
   'forging': ['infantry', 'cavalry'],
   'ironcasting': ['infantry', 'cavalry'],
   'blastfurnace': ['infantry', 'cavalry'],
 
   // Herrería - Armadura
-  'padded_archer_armor': ['foot_archer', 'mounted_archer'],
-  'leather_archer_armor': ['foot_archer', 'mounted_archer'],
-  'ring_archer_armor': ['foot_archer', 'mounted_archer'],
-  'scale_mail': ['infantry'],
-  'chain_mail': ['infantry'],
-  'plate_mail': ['infantry'],
-  'scale_barding': ['cavalry'],
-  'chain_barding': ['cavalry'],
-  'plate_barding': ['cavalry'],
+  'paddedarcharmor': ['foot_archer', 'mounted_archer'],
+  'leatherarcharmor': ['foot_archer', 'mounted_archer'],
+  'ringarcherarmor': ['foot_archer', 'mounted_archer'],
+  'scalemailarmor': ['infantry'],
+  'chainmailarmor': ['infantry'],
+  'platemailarmor': ['infantry'],
+  'scalebarding': ['cavalry'],
+  'chainbarding': ['cavalry'],
+  'platebarding': ['cavalry'],
 
   // Universidad
-  'ballistics': ['foot_archer', 'mounted_archer', 'buildings', 'navy'],
-  'chemistry': ['foot_archer', 'mounted_archer', 'gunpowder', 'buildings', 'navy', 'siege'],
-  'siegeengineers': ['siege', 'buildings'],
+  'ballistics': ['foot_archer', 'mounted_archer', 'buildings', 'navy', 'siege'],
+  'chemistry': ['foot_archer', 'mounted_archer', 'gunpowder', 'buildings', 'navy'],
+  'siegeengineers': ['siege'],
   'masonry': ['buildings'],
   'architecture': ['buildings'],
-  'fortifiedwall': ['stonewall'],
+  'fortifiedwall': ['walls'],
   'guardtower': ['watchtower'],
   'keep': ['guardtower_b'],
   'bombardtower': ['keep_b'],
-
-  // Muelle
+  'murderhole': ['buildings'],
+  'treadmillcrane': ['buildings'],
+  'heatedshot': ['buildings'],
   'careening': ['navy'],
   'drydock': ['navy'],
+  'clinker_construction': ['navy'],
+  'carvel_hull': ['navy'],
+  'siphons': ['navy'],
+  'incendiaries': ['navy'],
+
+  // Muelle
   'shipwright': ['navy'],
 
   // Monasterio
@@ -170,6 +191,12 @@ export const TECH_AFFECTS = {
   'fervor': ['monk'],
   'theocracy': ['monk'],
   'blockprinting': ['monk'],
+  'redemption': ['monk'],
+  'atonement': ['monk'],
+  'heresy': ['monk'],
+  'herbalmedicine': ['monk'],
+  'illumination': ['monk'],
+  'faith': ['monk'],
 
   // --- TECNOLOGÍAS ÚNICAS POR CIVILIZACIÓN ---
 

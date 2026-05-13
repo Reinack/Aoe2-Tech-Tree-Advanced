@@ -105,12 +105,9 @@ const ARMENIANS = {
     "ballistics",
     "chemistry",
     "guardtower",
-    "arrowslits",
     "murderhole",
     "siegeengineers",
-    "treadmillcrane",
     "fortifiedwall",
-    "keep",
     "heatedshot",
     "bombardtower",
     "monk",
@@ -165,7 +162,13 @@ const ARMENIANS = {
     "siphons",
     "incendiaries",
     "mule_cart",
-    "fortified_church"
+    "fortified_church",
+    "architecture",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -214,3 +217,4 @@ const ARMENIANS = {
 
 window.ARMENIANS = ARMENIANS;
 export default ARMENIANS;
+

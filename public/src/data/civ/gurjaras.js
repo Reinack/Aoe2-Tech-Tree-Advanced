@@ -114,7 +114,6 @@ const GURJARAS = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -164,7 +163,12 @@ const GURJARAS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -196,3 +200,4 @@ const GURJARAS = {
 
 window.GURJARAS = GURJARAS;
 export default GURJARAS;
+

@@ -171,7 +171,10 @@ const SARACENS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "keep"
   ],
   "uniqueTechs": [
     {
@@ -203,3 +206,4 @@ const SARACENS = {
 
 window.SARACENS = SARACENS;
 export default SARACENS;
+

@@ -174,10 +174,9 @@ export const NODES = [
   { id: 'cannongalleon', type: 'unit', age: 3, building: 'dock', row: 7, prereqs: [], train_cost: { wood: 200, gold: 150 } },
   { id: 'elitecannon', type: 'upgrade', age: 3, building: 'dock', row: 7, prereqs: ['cannongalleon'], research_cost: { food: 525, gold: 500 }, train_cost: { wood: 200, gold: 150 } },
 
-  { id: 'shipwright', type: 'tech', age: 3, building: 'dock', row: 9, prereqs: [], research_cost: { food: 200, gold: 300 } },
 
-  { id: 'fishing_lines', type: 'tech', age: 1, building: 'dock', row: 11, prereqs: [], research_cost: { wood: 100, gold: 100 } },
-  { id: 'gillnets', type: 'tech', age: 2, building: 'dock', row: 11, prereqs: ['fishing_lines'], research_cost: { food: 150, gold: 200 } },
+  { id: 'fishing_lines', type: 'tech', age: 1, building: 'dock', row: 8, prereqs: [], research_cost: { wood: 100, gold: 100 } },
+  { id: 'gillnets', type: 'tech', age: 2, building: 'dock', row: 8, prereqs: ['fishing_lines'], research_cost: { food: 150, gold: 200 } },
 
   // ── Dock special / unique ────────────────────────────────
   { id: 'dragon_ship', type: 'unit', age: 3, building: 'dock', row: 4, special: true, variant: 'unique', prereqs: ['fireship'], train_cost: { wood: 75, gold: 45 } },
@@ -205,6 +204,7 @@ export const NODES = [
   { id: 'carvel_hull', type: 'tech', age: 3, building: 'university', row: 6, prereqs: ['clinker_construction'], research_cost: { wood: 300, gold: 200 } },
   { id: 'siphons', type: 'tech', age: 2, building: 'university', row: 7, prereqs: [], research_cost: { wood: 150, gold: 100 } },
   { id: 'incendiaries', type: 'tech', age: 3, building: 'university', row: 7, prereqs: ['siphons'], research_cost: { wood: 250, gold: 200 } },
+  { id: 'shipwright', type: 'tech', age: 3, building: 'university', row: 8, prereqs: [], research_cost: { food: 200, gold: 300 } },
 
 
   // ── MONASTERY ───────────────────────────────────────────

@@ -181,7 +181,12 @@ const ITALIANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -213,3 +218,4 @@ const ITALIANS = {
 
 window.ITALIANS = ITALIANS;
 export default ITALIANS;
+

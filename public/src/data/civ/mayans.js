@@ -181,3 +181,4 @@ const MAYANS = {
 
 window.MAYANS = MAYANS;
 export default MAYANS;
+

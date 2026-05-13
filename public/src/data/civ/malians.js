@@ -90,7 +90,6 @@ const MALIANS = {
     "platebarding",
     "fletching",
     "bodkinarrow",
-    "bracer",
     "fishingship",
     "transportship",
     "tradecog",
@@ -166,7 +165,12 @@ const MALIANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -198,3 +202,4 @@ const MALIANS = {
 
 window.MALIANS = MALIANS;
 export default MALIANS;
+
