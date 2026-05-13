@@ -207,6 +207,14 @@ export const NODES = [
   { id: 'incendiaries', type: 'tech', age: 3, building: 'university', row: 7, prereqs: ['siphons'], cost: { wood: 250, gold: 200 } },
 
 
+  // ── Torres ────────────────────────────────────
+  { id: 'outpost', name: 'Puesto Avanz.', icon: '🗼', age: 0, row: 0, prereqs: [],cost: { wood: 25, stone: 5 }},
+  { id: 'watchtower', type: 'tech', building: 'outpost', name: 'Torre Vigía', icon: '🏗️', age: 1,  row: 0, prereqs: [],cost: { wood: 35, stone: 125 }},
+  { id: 'guardtower_b', type: 'tech', name: 'Torre Guardia', icon: '🏗️', row: 0,  prereqs: ['watchtower'], cost: { wood: 35, stone: 125 }},
+  { id: 'keep_b', type: 'tech', name: 'Torreón', icon: '🏗️', age: 3, row: 0, prereqs: ['guardtower_b'] ,cost: { wood: 35, stone: 125 } },
+  { id: 'bombardtower_b', type: 'tech', name: 'Torre Bombarda', icon: '💣', age: 3, row: 0, cost: { gold: 100, stone: 125 } },
+
+
   // ── MONASTERY ───────────────────────────────────────────
 
   { id: 'monk', type: 'unit', age: 2, building: 'monastery', row: 0, prereqs: [], cost: { gold: 100 } },

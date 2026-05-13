@@ -7,7 +7,7 @@ export const BUILDINGS = [
   { id: 'dock', name: 'Muelle', icon: '⚓', age: 0, prereqs: [] },
   { id: 'university', name: 'Universidad', icon: '🎓', age: 2, prereqs: [] },
   // ── Torres ────────────────────────────────────
-  { id: 'outpost', name: 'Puesto Avanz.', icon: '🗼', age: 0, prereqs: [] },
+  { id: 'outpost', name: 'Puesto Avanz.', icon: '🗼', age: 0, prereqs: [] , cost: { wood: 25, stone: 5 }} ,
   { id: 'watchtower', name: 'Torre Vigía', icon: '🏗️', age: 1, prereqs: ['outpost'] },
   { id: 'guardtower_b', name: 'Torre Guardia', icon: '🏗️', age: 2, prereqs: ['watchtower'] },
   { id: 'keep_b', name: 'Torreón', icon: '🏗️', age: 3, prereqs: ['guardtower_b'] },
