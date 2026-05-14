@@ -19,8 +19,9 @@ export const BUILDINGS = [
   { id: 'stonewall',    name: 'Muro de Piedra',   icon: '🧱', age: 1, prereqs: ['palisadewall'], build_cost: { stone: 5  }, stats: { hp: 1800, armor: [ 8, 10] }, layout_col: 'walls' },
   { id: 'gate',         name: 'Puerta',           icon: '🚪', age: 1, prereqs: [],               build_cost: { stone: 30 }, stats: { hp: 2750, armor: [ 6,  6] }, layout_col: 'walls' },
   { id: 'fortifiedwall',name: 'Muro Fortificado', icon: '🧱', age: 2, prereqs: ['stonewall'],    build_cost: { stone: 5  }, stats: { hp: 3000, armor: [12, 12] }, layout_col: 'walls' },
-  { id: 'castle',    name: 'Castillo',           icon: '🏯', age: 2, prereqs: [],           build_cost: { stone: 650 }, stats: { hp: 4800, armor: [8, 11], attack: 11, range: 8 } },
+  
 
+  { id: 'castle',    name: 'Castillo',           icon: '🏯', age: 2, prereqs: [],           build_cost: { stone: 650 }, stats: { hp: 4800, armor: [8, 11], attack: 11, range: 8 } },
   { id: 'monastery', name: 'Monasterio',         icon: '⛪', age: 2, prereqs: [],           build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
   // ── Economía ──────────────────────────────────────────────  
   { id: 'tc',      name: 'Centro Urbano',  icon: '🏰', age: 0, prereqs: [], build_cost: { wood: 275, stone: 100 }, stats: { hp: 2400, armor: [3, 5], attack: 5, range: 6 } },

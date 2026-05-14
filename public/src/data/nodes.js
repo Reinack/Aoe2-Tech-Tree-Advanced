@@ -149,44 +149,44 @@ export const NODES = [
 
   // ── DOCK ────────────────────────────────────────────────
 
-  { id: 'medium_warships', type: 'tech', age: 2, building: 'dock', row: 2, prereqs: [], research_cost: { wood: 150, gold: 100 } },
-  { id: 'heavy_warships', type: 'tech', age: 3, building: 'dock', row: 2, prereqs: ['medium_warships'], research_cost: { wood: 400, gold: 315 } },
+  { id: 'medium_warships', type: 'tech', age: 2, building: 'dock', row: 5, prereqs: [], research_cost: { wood: 150, gold: 100 } },
+  { id: 'heavy_warships', type: 'tech', age: 3, building: 'dock', row: 5, prereqs: ['medium_warships'], research_cost: { wood: 400, gold: 315 } },
   { id: 'fishingship', type: 'unit', age: 0, building: 'dock', row: 0, prereqs: [], train_cost: { wood: 75 } },
-  { id: 'transportship', type: 'unit', age: 1, building: 'dock', row: 1, prereqs: [], train_cost: { wood: 125, gold: 50 } },
-  { id: 'tradecog', type: 'unit', age: 1, building: 'dock', row: 2, prereqs: [], train_cost: { wood: 80, gold: 80 } },
+  { id: 'transportship', type: 'unit', age: 0, building: 'dock', row: 1, prereqs: [], train_cost: { wood: 125, gold: 50 } },
+  { id: 'tradecog', type: 'unit', age: 1, building: 'dock', row: 5, prereqs: [], train_cost: { wood: 80, gold: 80 } },
 
-  { id: 'galley', type: 'unit', age: 1, building: 'dock', row: 4, prereqs: [], train_cost: { wood: 90, gold: 30 } },
-  { id: 'wargalley', type: 'upgrade', age: 2, building: 'dock', row: 4, prereqs: ['galley'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 90, gold: 30 } },
-  { id: 'galleon', type: 'upgrade', age: 3, building: 'dock', row: 4, prereqs: ['wargalley'], research_cost: { food: 400, gold: 315 }, train_cost: { wood: 90, gold: 30 } },
+  { id: 'galley', type: 'unit', age: 1, building: 'dock', row: 2, prereqs: [], train_cost: { wood: 90, gold: 30 } },
+  { id: 'wargalley', type: 'upgrade', age: 2, building: 'dock', row: 2, prereqs: ['galley'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 90, gold: 30 } },
+  { id: 'galleon', type: 'upgrade', age: 3, building: 'dock', row: 2, prereqs: ['wargalley'], research_cost: { food: 400, gold: 315 }, train_cost: { wood: 90, gold: 30 } },
 
-  { id: 'firegalley', type: 'unit', age: 1, building: 'dock', row: 3, prereqs: [], train_cost: { wood: 75, gold: 45 } },
-  { id: 'fireship', type: 'upgrade', age: 2, building: 'dock', row: 3, prereqs: ['firegalley'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 75, gold: 45 } },
-  { id: 'fastfireship', type: 'upgrade', age: 3, building: 'dock', row: 3, prereqs: ['fireship'], research_cost: { food: 280, gold: 250 }, train_cost: { wood: 75, gold: 45 } },
+  { id: 'firegalley', type: 'unit', age: 1, building: 'dock', row: 1, prereqs: [], train_cost: { wood: 75, gold: 45 } },
+  { id: 'fireship', type: 'upgrade', age: 2, building: 'dock', row: 1, prereqs: ['firegalley'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 75, gold: 45 } },
+  { id: 'fastfireship', type: 'upgrade', age: 3, building: 'dock', row: 1, prereqs: ['fireship'], research_cost: { food: 280, gold: 250 }, train_cost: { wood: 75, gold: 45 } },
 
-  { id: 'hulk', type: 'unit', age: 1, building: 'dock', row: 5, prereqs: [], train_cost: { wood: 90, gold: 30 } },
-  { id: 'war_hulk', type: 'upgrade', age: 2, building: 'dock', row: 5, prereqs: ['hulk'], research_cost: { food: 100, wood: 50 }, train_cost: { wood: 90, gold: 30 } },
-  { id: 'carrack', type: 'upgrade', age: 3, building: 'dock', row: 5, prereqs: ['war_hulk'], research_cost: { food: 400, gold: 300 }, train_cost: { wood: 90, gold: 30 } },
+  { id: 'hulk', type: 'unit', age: 1, building: 'dock', row: 3, prereqs: [], train_cost: { wood: 90, gold: 30 } },
+  { id: 'war_hulk', type: 'upgrade', age: 2, building: 'dock', row: 3, prereqs: ['hulk'], research_cost: { food: 100, wood: 50 }, train_cost: { wood: 90, gold: 30 } },
+  { id: 'carrack', type: 'upgrade', age: 3, building: 'dock', row: 3, prereqs: ['war_hulk'], research_cost: { food: 400, gold: 300 }, train_cost: { wood: 90, gold: 30 } },
 
-  { id: 'demoraft', type: 'unit', age: 1, building: 'dock', row: 6, prereqs: [], train_cost: { wood: 70, gold: 50 } },
-  { id: 'demoship', type: 'upgrade', age: 2, building: 'dock', row: 6, prereqs: ['demoraft'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 70, gold: 50 } },
-  { id: 'heavydemo', type: 'upgrade', age: 3, building: 'dock', row: 6, prereqs: ['demoship'], research_cost: { food: 200, gold: 200 }, train_cost: { wood: 70, gold: 50 } },
+  { id: 'demoraft', type: 'unit', age: 1, building: 'dock', row: 4, prereqs: [], train_cost: { wood: 70, gold: 50 } },
+  { id: 'demoship', type: 'upgrade', age: 2, building: 'dock', row: 4, prereqs: ['demoraft'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 70, gold: 50 } },
+  { id: 'heavydemo', type: 'upgrade', age: 3, building: 'dock', row: 4, prereqs: ['demoship'], research_cost: { food: 200, gold: 200 }, train_cost: { wood: 70, gold: 50 } },
 
-  { id: 'cannongalleon', type: 'unit', age: 3, building: 'dock', row: 7, prereqs: [], train_cost: { wood: 200, gold: 150 } },
-  { id: 'elitecannon', type: 'upgrade', age: 3, building: 'dock', row: 7, prereqs: ['cannongalleon'], research_cost: { food: 525, gold: 500 }, train_cost: { wood: 200, gold: 150 } },
+  { id: 'cannongalleon', type: 'unit', age: 3, building: 'dock', row: 6, prereqs: [], train_cost: { wood: 200, gold: 150 } },
+  { id: 'elitecannon', type: 'upgrade', age: 3, building: 'dock', row: 6, prereqs: ['cannongalleon'], research_cost: { food: 525, gold: 500 }, train_cost: { wood: 200, gold: 150 } },
 
 
-  { id: 'fishing_lines', type: 'tech', age: 1, building: 'dock', row: 8, prereqs: [], research_cost: { wood: 100, gold: 100 } },
-  { id: 'gillnets', type: 'tech', age: 2, building: 'dock', row: 8, prereqs: ['fishing_lines'], research_cost: { food: 150, gold: 200 } },
+  { id: 'fishing_lines', type: 'tech', age: 1, building: 'dock', row: 0, prereqs: [], research_cost: { wood: 100, gold: 100 } },
+  { id: 'gillnets', type: 'tech', age: 2, building: 'dock', row: 0, prereqs: ['fishing_lines'], research_cost: { food: 150, gold: 200 } },
 
   // ── Dock special / unique ────────────────────────────────
-  { id: 'dragon_ship', type: 'unit', age: 3, building: 'dock', row: 4, special: true, variant: 'unique', prereqs: ['fireship'], train_cost: { wood: 75, gold: 45 } },
-  { id: 'dromon', type: 'unit', age: 3, building: 'dock', row: 7, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 150 } },
-  { id: 'lou_chuan', type: 'unit', age: 3, building: 'dock', row: 7, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
-  { id: 'catapult_gall', type: 'unit', age: 3, building: 'dock', row: 7, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
-  { id: 'turtle_ship', type: 'unit', age: 2, building: 'dock', row: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 180, gold: 180 } },
-  { id: 'longboat', type: 'unit', age: 2, building: 'dock', row: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 75, gold: 40 } },
-  { id: 'caravel_d', type: 'unit', age: 2, building: 'dock', row: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 90, gold: 40 } },
-  { id: 'thirisadai', type: 'unit', age: 3, building: 'dock', row: 10, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 300, gold: 250 } },
+  { id: 'dragon_ship', type: 'unit', age: 3, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: ['fireship'], train_cost: { wood: 75, gold: 45 } },
+  { id: 'dromon', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 150 } },
+  { id: 'lou_chuan', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
+  { id: 'catapult_gall', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
+  { id: 'turtle_ship', type: 'unit', age: 2, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 180, gold: 180 } },
+  { id: 'longboat', type: 'unit', age: 2, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 75, gold: 40 } },
+  { id: 'caravel_d', type: 'unit', age: 2, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 90, gold: 40 } },
+  { id: 'thirisadai', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 300, gold: 250 } },
 
 
   // ── UNIVERSITY ──────────────────────────────────────────────
