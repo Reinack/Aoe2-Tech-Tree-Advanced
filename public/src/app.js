@@ -608,6 +608,16 @@ function showStatsPanel(ev, n) {
         }
       });
 
+      // Incluir unidad única si su clase coincide con las clases afectadas
+      const uuName = LOCALE['es']?.civs?.[currentCiv]?.uniqueUnits?.[0]?.name;
+      if (uuName && UNIQUE_UNIT_CLASSES[uuName]) {
+        const uuClasses = UNIQUE_UNIT_CLASSES[uuName];
+        const hasMatch = affects.some(a => uuClasses.includes(a));
+        if (hasMatch) {
+          unitIds.push('uniqueunit', 'eliteunique');
+        }
+      }
+
       // Filtrar por disponibilidad y resolver placeholders únicos
       const availableUnits = [...new Set(unitIds)].filter(uid => !isMissing(uid));
       
