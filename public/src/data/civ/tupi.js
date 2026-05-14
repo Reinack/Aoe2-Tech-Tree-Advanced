@@ -92,7 +92,7 @@ const TUPI = {
     "arrowslits",
     "murderhole",
     "treadmillcrane",
-    "fortifiedwall",
+    "stonewall",
     "keep",
     "heatedshot",
     "monk",

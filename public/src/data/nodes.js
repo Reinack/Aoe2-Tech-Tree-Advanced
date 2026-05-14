@@ -224,7 +224,7 @@ export const NODES = [
   // ── Monastery special / unique ───────────────────────────
   { id: 'warrior_priest', type: 'unit', age: 2, building: 'monastery', row: 8, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
   { id: 'missionary', type: 'unit', age: 2, building: 'monastery', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
-  { id: 'fortified_church', type: 'unit', age: 2, building: 'monastery', row: 9, special: true, variant: 'regional', prereqs: [], build_cost: { wood: 200 } },
+   { id: 'fortified_church', type: 'building', age: 2, row: 9, special: true, variant: 'regional', prereqs: [], build_cost: { wood: 175 } },
 
 
   // ── CASTLE ──────────────────────────────────────────────

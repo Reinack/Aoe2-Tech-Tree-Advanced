@@ -90,7 +90,6 @@ const MUISCA = {
     "arrowslits",
     "murderhole",
     "treadmillcrane",
-    "fortifiedwall",
     "keep",
     "heatedshot",
     "monk",
@@ -150,7 +149,7 @@ const MUISCA = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost", 
+    "outpost",
     "stonewall",
     "gate"
   ],

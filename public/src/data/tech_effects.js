@@ -13,7 +13,7 @@ export const UNIT_CLASSES = {
   ],
   'archer': [
     'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher',
-    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'handcannon'
+    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour'
   ],
   'siege': [
     'batteram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager',

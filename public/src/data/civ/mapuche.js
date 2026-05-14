@@ -87,12 +87,9 @@ const MAPUCHE = {
     "masonry",
     "ballistics",
     "chemistry",
-    "guardtower",
     "arrowslits",
     "murderhole",
     "treadmillcrane",
-    "fortifiedwall",
-    "keep",
     "heatedshot",
     "bombardtower",
     "monk",
@@ -148,7 +145,11 @@ const MAPUCHE = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "stonewall",
   ],
   "uniqueTechs": [
     {
