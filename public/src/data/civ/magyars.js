@@ -149,7 +149,12 @@ const MAGYARS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -181,3 +186,4 @@ const MAGYARS = {
 
 window.MAGYARS = MAGYARS;
 export default MAGYARS;
+

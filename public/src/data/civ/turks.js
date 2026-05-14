@@ -169,7 +169,13 @@ const TURKS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "bombardtower"
   ],
   "uniqueTechs": [
     {
@@ -201,3 +207,4 @@ const TURKS = {
 
 window.TURKS = TURKS;
 export default TURKS;
+

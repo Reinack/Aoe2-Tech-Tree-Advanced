@@ -123,7 +123,6 @@ const DRAVIDIANS = {
     "arrowslits",
     "murderhole",
     "siegeengineers",
-    "treadmillcrane",
     "fortifiedwall",
     "keep",
     "heatedshot",
@@ -175,7 +174,13 @@ const DRAVIDIANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {
@@ -207,3 +212,4 @@ const DRAVIDIANS = {
 
 window.DRAVIDIANS = DRAVIDIANS;
 export default DRAVIDIANS;
+

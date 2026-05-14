@@ -90,7 +90,6 @@ const FRANKS = {
     "platebarding",
     "fletching",
     "bodkinarrow",
-    "bracer",
     "fishingship",
     "transportship",
     "tradecog",
@@ -112,11 +111,7 @@ const FRANKS = {
     "arrowslits",
     "murderhole",
     "siegeengineers",
-    "treadmillcrane",
     "fortifiedwall",
-    "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "heresy",
     "sanctity",
@@ -168,7 +163,13 @@ const FRANKS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {
@@ -200,3 +201,4 @@ const FRANKS = {
 
 window.FRANKS = FRANKS;
 export default FRANKS;
+

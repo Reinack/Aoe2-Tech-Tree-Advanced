@@ -27,6 +27,9 @@ const LOCALE_ES = {
     los:                "LDV",
     train:              "Prod.",
     cost:               "Costo",
+    build_cost:         "Costo de Construcción",
+    research_cost:      "Costo de Investigación",
+    train_cost:         "Costo de Entrenamiento",
     prereq:             "Requisitos",
     missing:            "No disponible para esta civilización",
   },
@@ -66,6 +69,7 @@ const LOCALE_ES = {
     lumber:         "Camp. Maderero",
     mining:         "Camp. Minero",
     tahsili:        "Asentamiento",
+    mulecart:       "Mula de Carga",
     // Torres
     outpost:        "Puesto Avanzado",
     watchtower:     "Torre de Vigilancia",
@@ -236,19 +240,19 @@ const LOCALE_ES = {
     harbor:       { name: 'Puerto',                effect: '[Solo Malayos] Muelle defensivo que dispara flechas.' },
 
     // ── Universidad ──────────────────────────────────────────
-    masonry:          { name: 'Albañilería',              effect: 'Edificios +5% PV y +3/+3 armadura.' },
-    architecture:     { name: 'Arquitectura',             effect: 'Construcción más rápida; edificios +5% PV y armadura.' },
-    ballistics:       { name: 'Balística',                effect: 'Torres y CU apuntan a unidades en movimiento.' },
-    chemistry:        { name: 'Química',                  effect: '+1 ataque proyectiles. Habilita arcabuceros y cañones.' },
-    murderhole:       { name: 'Troneras',                 effect: 'Castillos y Torres sin rango mínimo.' },
-    siegeengineers:   { name: 'Ingenieros de Asedio',     effect: '+1 rango y +20% ataque para asedio.' },
-    treadmillcrane:   { name: 'Grúa de Rueda',           effect: 'Edificios se construyen 20% más rápido.' },
-    heatedshot:       { name: 'Balas Rojas',              effect: 'Torres +4 ataque vs barcos.' },
-    careening:        { name: 'Carenado',                 effect: 'Incrementa +1 armadura antiproyectil.' },
-    clinker_construction: { name: 'Construcción a Tingladillo', effect: 'Incrementa la velocidad en 10%.' },
-    carvel_hull:      { name: 'Casco de Carabela',        effect: 'Mejora la navegación.' },
-    siphons:          { name: 'Sifones',                  effect: 'Galeras de Fuego obtienen un ataque de carga explosiva.' },
-    incendiaries:     { name: 'Incendiarios',             effect: 'Galeras de Fuego detonan al hundirse.' },
+    masonry:          { name: 'Albañilería',              effect: 'Edificios +10% PV, +1 melee/+1 perforante y +3 armadura de edificio.' },
+    architecture:     { name: 'Arquitectura',             effect: 'Edificios +10% PV, +1 melee/+1 perforante y +3 armadura de edificio.' },
+    ballistics:       { name: 'Balística',                effect: 'Arqueros a pie, Escaramuzadores, Arqueros montados, Barcos de guerra de rango, Fortificaciones de rango y algunas Armas de Asedio disparan con más precisión a objetivos en movimiento.' },
+    chemistry:        { name: 'Química',                  effect: 'Arqueros a pie, Escaramuzadores, Arqueros montados, Barcos de guerra de rango y Fortificaciones de rango +1 ataque. Requerido para Unidades de Pólvora (Arcabucero, Galeón Cañonero, Cañón Bombardero, Torre Bombardera).' },
+    murderhole:       { name: 'Troneras',                 effect: 'Elimina el rango mínimo de Fortificaciones para que puedan atacar a enemigos en su base.' },
+    siegeengineers:   { name: 'Ingenieros de Asedio',     effect: 'Armas de Asedio de rango y Barcos de Guerra de Asedio +1 rango. Todas las Armas de Asedio y Barcos de Guerra de Asedio +20% ataque vs. edificios; Unidades de Demolición +40% ataque vs. edificios.' },
+    treadmillcrane:   { name: 'Grúa de Rueda',           effect: 'Aldeanos construyen edificios +20% más rápido.' },
+    heatedshot:       { name: 'Balas Rojas',              effect: 'Torres +125% ataque vs. barcos; Castillos y Puertos +4 ataque vs. barcos.' },
+    careening:        { name: 'Carenado',                 effect: 'Barcos +1 armadura perforante.' },
+    clinker_construction: { name: 'Construcción a Tingladillo', effect: 'Barcos se mueven +10% más rápido.' },
+    carvel_hull:      { name: 'Casco de Carabela',        effect: 'Barcos se mueven +10% más rápido.' },
+    siphons:          { name: 'Sifones',                  effect: 'Barcos de Fuego obtienen un ataque de carga explosiva.' },
+    incendiaries:     { name: 'Incendiarios',             effect: 'Barcos de Fuego detonan al hundirse, ganando radio de explosión.' },
 
     // ── Monasterio ───────────────────────────────────────────
     monk:         { name: 'Monje',                 effect: 'Cura aliados y convierte enemigos.' },
@@ -314,7 +318,10 @@ const LOCALE_ES = {
     stonemining:  { name: 'Minería de Piedra',     effect: 'Minería de piedra +15% velocidad.' },
     stoneshaft:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
 
-    // ── Tahsili ──────────────────────────────────────────
+    // ── Tahsili (Asentamiento) ───────────────────────────────
+    horsecollar_t:  { name: 'Collarín para Caballo', effect: 'Granjas producen 75 de comida extra.' },
+    heavyplow_t:    { name: 'Arado Pesado',          effect: 'Granjas producen 125 de comida extra.' },
+    croprotation_t: { name: 'Rotación de Cultivos',  effect: 'Granjas producen 375 de comida extra.' },
     doublebitaxe_t: { name: 'Hacha Doble Filo',      effect: 'Tala de madera +20% velocidad.' },
     bowsaw_t:       { name: 'Sierra de Arco',        effect: 'Tala de madera +20% velocidad.' },
     twomansaw_t:    { name: 'Sierra de Dos Hombres', effect: 'Tala de madera +10% velocidad.' },
@@ -322,6 +329,15 @@ const LOCALE_ES = {
     goldshaft_t:    { name: 'Pozos de Oro',          effect: 'Minería de oro +15% velocidad.' },
     stonemining_t:  { name: 'Minería de Piedra',     effect: 'Minería de piedra +15% velocidad.' },
     stoneshaft_t:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
+
+    // ── Mula de Carga ────────────────────────────────────────
+    doublebitaxe_m: { name: 'Hacha Doble Filo',      effect: 'Tala de madera +20% velocidad.' },
+    bowsaw_m:       { name: 'Sierra de Arco',        effect: 'Tala de madera +20% velocidad.' },
+    twomansaw_m:    { name: 'Sierra de Dos Hombres', effect: 'Tala de madera +10% velocidad.' },
+    goldmining_m:   { name: 'Minería de Oro',        effect: 'Minería de oro +15% velocidad.' },
+    goldshaft_m:    { name: 'Pozos de Oro',          effect: 'Minería de oro +15% velocidad.' },
+    stonemining_m:  { name: 'Minería de Piedra',     effect: 'Minería de piedra +15% velocidad.' },
+    stoneshaft_m:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
   },
 
   civs: {

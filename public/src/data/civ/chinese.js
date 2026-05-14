@@ -137,7 +137,6 @@ const CHINESE = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -170,7 +169,13 @@ const CHINESE = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {
@@ -202,3 +207,4 @@ const CHINESE = {
 
 window.CHINESE = CHINESE;
 export default CHINESE;
+

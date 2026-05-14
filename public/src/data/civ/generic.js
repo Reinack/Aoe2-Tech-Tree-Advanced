@@ -57,7 +57,6 @@ const GENERIC = {
     "siegeonager",
     "scorpion",
     "heavyscorpion",
-    "bombcannon",
     "forging",
     "ironcasting",
     "blastfurnace",
@@ -98,7 +97,6 @@ const GENERIC = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -150,7 +148,8 @@ const GENERIC = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "gate"
   ],
   "uniqueTechs": [
     {
@@ -180,3 +179,4 @@ const GENERIC = {
 
 window.GENERIC = GENERIC;
 export default GENERIC;
+

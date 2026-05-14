@@ -153,7 +153,13 @@ const VIKINGS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "architecture",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -185,3 +191,4 @@ const VIKINGS = {
 
 window.VIKINGS = VIKINGS;
 export default VIKINGS;
+

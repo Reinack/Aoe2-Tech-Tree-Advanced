@@ -34,7 +34,6 @@ const TUPI = {
     "castle",
     "market",
     "tc",
-    "mill",
     "tahsili",
     "spearman",
     "pikeman",
@@ -96,7 +95,6 @@ const TUPI = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -128,16 +126,16 @@ const TUPI = {
     "townwatch",
     "handcart",
     "townpatrol",
-    "horsecollar",
-    "heavyplow",
-    "croprotation",
-    "doublebitaxe",
-    "bowsaw",
-    "twomansaw",
-    "goldmining",
-    "goldshaft",
-    "stonemining",
-    "stoneshaft",
+    "horsecollar_t",
+    "heavyplow_t",
+    "croprotation_t",
+    "doublebitaxe_t",
+    "bowsaw_t",
+    "twomansaw_t",
+    "goldmining_t",
+    "goldshaft_t",
+    "stonemining_t",
+    "stoneshaft_t",
     "galleon",
     "fireship",
     "fishing_lines",
@@ -148,7 +146,11 @@ const TUPI = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -183,3 +185,4 @@ const TUPI = {
 
 window.TUPI = TUPI;
 export default TUPI;
+

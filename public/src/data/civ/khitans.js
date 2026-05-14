@@ -108,13 +108,10 @@ const KHITANS = {
     "ballistics",
     "chemistry",
     "guardtower",
-    "arrowslits",
     "murderhole",
     "siegeengineers",
     "fortifiedwall",
-    "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -129,7 +126,6 @@ const KHITANS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -163,7 +159,12 @@ const KHITANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -195,3 +196,4 @@ const KHITANS = {
 
 window.KHITANS = KHITANS;
 export default KHITANS;
+

@@ -133,7 +133,6 @@ const KOREANS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "turtle_ship",
@@ -167,7 +166,12 @@ const KOREANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -199,3 +203,4 @@ const KOREANS = {
 
 window.KOREANS = KOREANS;
 export default KOREANS;
+

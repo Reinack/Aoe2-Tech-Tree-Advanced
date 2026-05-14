@@ -157,7 +157,10 @@ const SICILIANS = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "donjon"
+    "donjon",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -189,3 +192,4 @@ const SICILIANS = {
 
 window.SICILIANS = SICILIANS;
 export default SICILIANS;
+

@@ -87,7 +87,6 @@ const TEUTONS = {
     "platebarding",
     "fletching",
     "bodkinarrow",
-    "bracer",
     "fishingship",
     "transportship",
     "tradecog",
@@ -163,7 +162,13 @@ const TEUTONS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "bombardtower"
   ],
   "uniqueTechs": [
     {
@@ -195,3 +200,4 @@ const TEUTONS = {
 
 window.TEUTONS = TEUTONS;
 export default TEUTONS;
+

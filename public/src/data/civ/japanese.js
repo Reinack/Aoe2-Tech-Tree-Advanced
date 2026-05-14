@@ -119,8 +119,6 @@ const JAPANESE = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "atonement",
@@ -170,7 +168,12 @@ const JAPANESE = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -202,3 +205,4 @@ const JAPANESE = {
 
 window.JAPANESE = JAPANESE;
 export default JAPANESE;
+

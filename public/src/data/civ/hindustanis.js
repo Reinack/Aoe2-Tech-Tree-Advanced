@@ -120,9 +120,6 @@ const HINDUSTANIS = {
     "murderhole",
     "siegeengineers",
     "fortifiedwall",
-    "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "sanctity",
@@ -173,7 +170,17 @@ const HINDUSTANIS = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "caravanserai"
+    "caravanserai",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",    
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {
@@ -205,3 +212,4 @@ const HINDUSTANIS = {
 
 window.HINDUSTANIS = HINDUSTANIS;
 export default HINDUSTANIS;
+

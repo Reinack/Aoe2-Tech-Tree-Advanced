@@ -27,6 +27,9 @@ const LOCALE_EN = {
     los:                "LoS",
     train:              "Train",
     cost:               "Cost",
+    build_cost:         "Build Cost",
+    research_cost:      "Research Cost",
+    train_cost:         "Train Cost",
     prereq:             "Prerequisites",
     missing:            "Not available for this civilization",
   },
@@ -65,7 +68,8 @@ const LOCALE_EN = {
     mill:           "Mill",
     lumber:         "Lumber Camp",
     mining:         "Mining Camp",
-    tahsili:        "Tahsili",
+    tahsili:        "Settlement",
+    mulecart:       "Mule Cart",
     // Towers
     outpost:        "Outpost",
     watchtower:     "Watch Tower",
@@ -236,7 +240,7 @@ const LOCALE_EN = {
     harbor:       { name: 'Harbor',                 effect: '[Malay only] Defensive dock that shoots arrows.' },
 
     // ── University ───────────────────────────────────────────
-    masonry:          { name: 'Masonry',                 effect: 'Buildings +5% HP and +3/+3 armor.' },
+    masonry:          { name: 'Masonry',                 effect: 'Buildings +10% HP, +1 melee/+1 pierce armor and +3 building armor.' },
     architecture:     { name: 'Architecture',            effect: 'Faster construction; buildings +5% HP and armor.' },
     ballistics:       { name: 'Ballistics',              effect: 'Towers and TCs aim at moving units.' },
     chemistry:        { name: 'Chemistry',               effect: '+1 projectile attack. Enables Hand Cannoneers and Bombard Cannons.' },
@@ -314,14 +318,26 @@ const LOCALE_EN = {
     stonemining:  { name: 'Stone Mining',           effect: 'Stone mining +15% speed.' },
     stoneshaft:   { name: 'Stone Shaft Mining',     effect: 'Stone shaft mining +15% speed.' },
 
-    // ── Tahsili ──────────────────────────────────────────
-    doublebitaxe_t: { name: 'Double-Bit Axe',         effect: 'Wood chopping +20% speed.' },
-    bowsaw_t:       { name: 'Bow Saw',                effect: 'Wood chopping +20% speed.' },
-    twomansaw_t:    { name: 'Two-Man Saw',            effect: 'Wood chopping +10% speed.' },
-    goldmining_t:   { name: 'Gold Mining',            effect: 'Gold mining +15% speed.' },
-    goldshaft_t:    { name: 'Gold Shaft Mining',      effect: 'Gold shaft mining +15% speed.' },
-    stonemining_t:  { name: 'Stone Mining',           effect: 'Stone mining +15% speed.' },
-    stoneshaft_t:   { name: 'Stone Shaft Mining',     effect: 'Stone shaft mining +15% speed.' },
+    // ── Settlement (Tahsili) ─────────────────────────────────
+    horsecollar_t:  { name: 'Horse Collar',        effect: 'Farms produce 75 extra food.' },
+    heavyplow_t:    { name: 'Heavy Plow',          effect: 'Farms produce 125 extra food.' },
+    croprotation_t: { name: 'Crop Rotation',       effect: 'Farms produce 375 extra food.' },
+    doublebitaxe_t: { name: 'Double-Bit Axe',     effect: 'Wood chopping +20% speed.' },
+    bowsaw_t:       { name: 'Bow Saw',            effect: 'Wood chopping +20% speed.' },
+    twomansaw_t:    { name: 'Two-Man Saw',        effect: 'Wood chopping +10% speed.' },
+    goldmining_t:   { name: 'Gold Mining',        effect: 'Gold mining +15% speed.' },
+    goldshaft_t:    { name: 'Gold Shaft Mining',  effect: 'Gold shaft mining +15% speed.' },
+    stonemining_t:  { name: 'Stone Mining',       effect: 'Stone mining +15% speed.' },
+    stoneshaft_t:   { name: 'Stone Shaft Mining', effect: 'Stone shaft mining +15% speed.' },
+
+    // ── Mule Cart ────────────────────────────────────────────
+    doublebitaxe_m: { name: 'Double-Bit Axe',     effect: 'Wood chopping +20% speed.' },
+    bowsaw_m:       { name: 'Bow Saw',            effect: 'Wood chopping +20% speed.' },
+    twomansaw_m:    { name: 'Two-Man Saw',        effect: 'Wood chopping +10% speed.' },
+    goldmining_m:   { name: 'Gold Mining',        effect: 'Gold mining +15% speed.' },
+    goldshaft_m:    { name: 'Gold Shaft Mining',  effect: 'Gold shaft mining +15% speed.' },
+    stonemining_m:  { name: 'Stone Mining',       effect: 'Stone mining +15% speed.' },
+    stoneshaft_m:   { name: 'Stone Shaft Mining', effect: 'Stone shaft mining +15% speed.' },
   },
 
   civs: {

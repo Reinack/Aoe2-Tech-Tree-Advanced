@@ -91,7 +91,6 @@ const SLAVS = {
     "platebarding",
     "fletching",
     "bodkinarrow",
-    "bracer",
     "fishingship",
     "transportship",
     "tradecog",
@@ -112,9 +111,6 @@ const SLAVS = {
     "murderhole",
     "siegeengineers",
     "fortifiedwall",
-    "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "heresy",
@@ -164,7 +160,12 @@ const SLAVS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -196,3 +197,4 @@ const SLAVS = {
 
 window.SLAVS = SLAVS;
 export default SLAVS;
+

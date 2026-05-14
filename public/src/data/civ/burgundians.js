@@ -117,7 +117,6 @@ const BURGUNDIANS = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
     "bombardtower",
     "monk",
     "redemption",
@@ -169,7 +168,12 @@ const BURGUNDIANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -206,3 +210,4 @@ const BURGUNDIANS = {
 
 window.BURGUNDIANS = BURGUNDIANS;
 export default BURGUNDIANS;
+

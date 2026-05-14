@@ -117,7 +117,6 @@ const SPANISH = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
     "bombardtower",
     "monk",
     "redemption",
@@ -170,7 +169,12 @@ const SPANISH = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -202,3 +206,4 @@ const SPANISH = {
 
 window.SPANISH = SPANISH;
 export default SPANISH;
+

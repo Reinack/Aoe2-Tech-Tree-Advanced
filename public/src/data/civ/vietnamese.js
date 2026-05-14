@@ -162,7 +162,13 @@ const VIETNAMESE = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "bombardtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -194,3 +200,4 @@ const VIETNAMESE = {
 
 window.VIETNAMESE = VIETNAMESE;
 export default VIETNAMESE;
+

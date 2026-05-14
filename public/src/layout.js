@@ -3,30 +3,63 @@
 // ═══════════════════════════════════════════════════════════
 
 const NW = 68, NH = 68, NPADX = 14, NPADY = 10;
-const SLOT_H = 80;   // Height of a sub-row (node + padding)
+const SLOT_H = 80;          // Height of a sub-row (node + padding)
 const LEFT_LABEL_W = 175;
-const TOP_PAD = 10;  // Espacio superior antes de la primera edad
-const BLD_ROW_H = NH + NPADY + 16; // Altura reservada para fila de edificios al inicio de cada edad
-const BLD_GAP = 22;  // Separación entre grupos de edificios
+const TOP_PAD = 10;         // Espacio superior antes de la primera edad
+const BLD_ROW_H = NH + NPADY + 16;  // Altura reservada por fila de edificios
+const BLD_GAP = 22;         // Separación entre grupos de edificios
 
 function computeLayout(currentNodes, currentBuildings) {
   const maxRow = {};
   currentBuildings.forEach(b => { maxRow[b.id] = -1; });
   currentNodes.forEach(n => { maxRow[n.building] = Math.max(maxRow[n.building] ?? -1, n.row); });
 
-  const bldX = {};
-  let x = LEFT_LABEL_W;
+  // ── Col-group analysis ────────────────────────────────────
+  // Buildings with the same layout_col share one horizontal slot and stack
+  // vertically within each age band (outpost/watchtower/etc. in "towers",
+  // palisadewall/stonewall/etc. in "walls").
+  const colGroupAgeCount = {}; // `${layout_col}_${age}` → count of buildings
   currentBuildings.forEach(b => {
-    bldX[b.id] = x;
-    const cols = Math.max((maxRow[b.id] ?? 0) + 1, 1);
-    x += cols * (NW + NPADX) + BLD_GAP;
+    if (!b.layout_col) return;
+    const key = `${b.layout_col}_${b.age}`;
+    colGroupAgeCount[key] = (colGroupAgeCount[key] || 0) + 1;
   });
 
-  // Calcular la profundidad de cada nodo en su edad
+  // Maximum stacked buildings per age (may be >1 when e.g. palisadewall+palisadegate share age 0)
+  const ageMaxBldRows = [1, 1, 1, 1];
+  Object.entries(colGroupAgeCount).forEach(([key, cnt]) => {
+    const age = parseInt(key.split('_').pop());
+    if (!isNaN(age) && age >= 0 && age <= 3) {
+      ageMaxBldRows[age] = Math.max(ageMaxBldRows[age], cnt);
+    }
+  });
+
+  // ── X allocation ─────────────────────────────────────────
+  const bldX = {};
+  const colGroupX = {};
+  let x = LEFT_LABEL_W;
+  const allocatedColGroups = new Set();
+
+  currentBuildings.forEach(b => {
+    if (b.layout_col) {
+      if (!allocatedColGroups.has(b.layout_col)) {
+        allocatedColGroups.add(b.layout_col);
+        colGroupX[b.layout_col] = x;
+        x += (NW + NPADX) + BLD_GAP;   // one column wide for the whole group
+      }
+      bldX[b.id] = colGroupX[b.layout_col];
+    } else {
+      bldX[b.id] = x;
+      const cols = Math.max((maxRow[b.id] ?? 0) + 1, 1);
+      x += cols * (NW + NPADX) + BLD_GAP;
+    }
+  });
+
+  // ── Node depth within each age band ──────────────────────
   const depth = {};
   currentNodes.forEach(n => { depth[n.id] = 0; });
   let changed = true;
-  while(changed) {
+  while (changed) {
     changed = false;
     currentNodes.forEach(n => {
       if (n.prereqs && n.prereqs.length > 0) {
@@ -42,68 +75,78 @@ function computeLayout(currentNodes, currentBuildings) {
     });
   }
 
-  // Determinar la altura máxima de cada edad en base a la profundidad de los nodos
   const ageMaxDepth = [0, 0, 0, 0];
   currentNodes.forEach(n => {
     ageMaxDepth[n.age] = Math.max(ageMaxDepth[n.age], depth[n.id]);
   });
-  
-  // Calcular las posiciones Y (y acumulado por edad)
+
+  // ── Age band heights ──────────────────────────────────────
+  // Building rows (potentially multiple when col-group buildings stack) + node rows
   const ageYStart = [TOP_PAD, 0, 0, 0];
   const ageHArray = [0, 0, 0, 0];
   for (let i = 0; i < 4; i++) {
-    // Fila de edificios arriba + mínimo 2 sub-filas de nodos
-    ageHArray[i] = BLD_ROW_H + (Math.max(ageMaxDepth[i], 1) + 1) * SLOT_H + 20;
-    if (i > 0) {
-      ageYStart[i] = ageYStart[i-1] + ageHArray[i-1];
-    }
+    ageHArray[i] = ageMaxBldRows[i] * BLD_ROW_H
+      + (Math.max(ageMaxDepth[i], 1) + 1) * SLOT_H + 20;
+    if (i > 0) ageYStart[i] = ageYStart[i - 1] + ageHArray[i - 1];
   }
 
-  // Asignar posiciones finales
+  // ── Node positions ────────────────────────────────────────
   const pos = {};
   currentNodes.forEach(n => {
-    // Si la unidad es Campeón (que en data.js tiene row:1 para esquivarse), 
-    // forzamos que use la misma columna que su prerrequisito si están en la misma línea
     let colIndex = n.row;
     if (n.prereqs && n.prereqs.length > 0) {
-       const pId = n.prereqs[0];
-       const pNode = currentNodes.find(x => x.id === pId);
-       // Si es un upgrade directo en la misma edad, lo forzamos a la misma columna
-       if (pNode && pNode.age === n.age && pNode.building === n.building) {
-           colIndex = pNode.row;
-       }
+      const pId = n.prereqs[0];
+      const pNode = currentNodes.find(x => x.id === pId);
+      if (pNode && pNode.age === n.age && pNode.building === n.building) {
+        colIndex = pNode.row;
+      }
     }
     pos[n.id] = {
       x: bldX[n.building] + colIndex * (NW + NPADX),
-      y: ageYStart[n.age] + BLD_ROW_H + depth[n.id] * SLOT_H + 10,
+      y: ageYStart[n.age] + ageMaxBldRows[n.age] * BLD_ROW_H + depth[n.id] * SLOT_H + 10,
     };
   });
 
-  // Edificio centrado sobre el rango real de columnas de sus nodos
+  // ── Building positions ────────────────────────────────────
   const bldPos = {};
+  const colGroupAgeIdx = {};  // tracks vertical stack index within col_group + age
+
   currentBuildings.forEach(b => {
-    const bldNodes = currentNodes.filter(n => n.building === b.id);
-    let minRow = Infinity, maxRowVal = -Infinity;
-    bldNodes.forEach(n => {
-      // Usar el colIndex efectivo (mismo cálculo que pos)
-      let colIndex = n.row;
-      if (n.prereqs && n.prereqs.length > 0) {
-        const pId = n.prereqs[0];
-        const pNode = currentNodes.find(x => x.id === pId);
-        if (pNode && pNode.age === n.age && pNode.building === n.building) {
-          colIndex = pNode.row;
+    if (b.layout_col) {
+      const key = `${b.layout_col}_${b.age}`;
+      const idx = colGroupAgeIdx[key] || 0;
+      colGroupAgeIdx[key] = idx + 1;
+      bldPos[b.id] = {
+        x: bldX[b.id],
+        y: ageYStart[b.age] + 8 + idx * BLD_ROW_H,
+      };
+    } else {
+      // Center building over the horizontal span of its nodes
+      const bldNodes = currentNodes.filter(n => n.building === b.id);
+      let minRow = Infinity, maxRowVal = -Infinity;
+      bldNodes.forEach(n => {
+        let colIndex = n.row;
+        if (n.prereqs && n.prereqs.length > 0) {
+          const pId = n.prereqs[0];
+          const pNode = currentNodes.find(x => x.id === pId);
+          if (pNode && pNode.age === n.age && pNode.building === n.building) {
+            colIndex = pNode.row;
+          }
         }
-      }
-      if (colIndex < minRow) minRow = colIndex;
-      if (colIndex > maxRowVal) maxRowVal = colIndex;
-    });
-    if (minRow === Infinity) { minRow = 0; maxRowVal = 0; }
-    const centerCol = (minRow + maxRowVal) / 2;
-    bldPos[b.id] = {
-      x: bldX[b.id] + centerCol * (NW + NPADX),
-      y: ageYStart[b.age] + 8,
-    };
+        if (colIndex < minRow) minRow = colIndex;
+        if (colIndex > maxRowVal) maxRowVal = colIndex;
+      });
+      if (minRow === Infinity) { minRow = 0; maxRowVal = 0; }
+      const centerCol = (minRow + maxRowVal) / 2;
+      bldPos[b.id] = {
+        x: bldX[b.id] + centerCol * (NW + NPADX),
+        y: ageYStart[b.age] + 8,
+      };
+    }
   });
 
-  return { bldX, bldPos, maxRow, pos, ageYStart, ageHArray, totalW: x, totalH: ageYStart[3] + ageHArray[3] + 20 };
+  return {
+    bldX, bldPos, maxRow, pos, ageYStart, ageHArray,
+    totalW: x, totalH: ageYStart[3] + ageHArray[3] + 20,
+  };
 }

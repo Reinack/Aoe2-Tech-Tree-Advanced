@@ -40,8 +40,7 @@ const ARMENIANS = {
     "market",
     "tc",
     "mill",
-    "lumber",
-    "mining",
+    "mulecart",
     "militia",
     "manatarms",
     "longsword",
@@ -105,12 +104,9 @@ const ARMENIANS = {
     "ballistics",
     "chemistry",
     "guardtower",
-    "arrowslits",
     "murderhole",
     "siegeengineers",
-    "treadmillcrane",
     "fortifiedwall",
-    "keep",
     "heatedshot",
     "bombardtower",
     "monk",
@@ -147,13 +143,13 @@ const ARMENIANS = {
     "horsecollar",
     "heavyplow",
     "croprotation",
-    "doublebitaxe",
-    "bowsaw",
-    "twomansaw",
-    "goldmining",
-    "goldshaft",
-    "stonemining",
-    "stoneshaft",
+    "doublebitaxe_m",
+    "bowsaw_m",
+    "twomansaw_m",
+    "goldmining_m",
+    "goldshaft_m",
+    "stonemining_m",
+    "stoneshaft_m",
     "fireship",
     "fishing_lines",
     "gillnets",
@@ -165,7 +161,13 @@ const ARMENIANS = {
     "siphons",
     "incendiaries",
     "mule_cart",
-    "fortified_church"
+    "fortified_church",
+    "architecture",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -214,3 +216,4 @@ const ARMENIANS = {
 
 window.ARMENIANS = ARMENIANS;
 export default ARMENIANS;
+

@@ -110,7 +110,6 @@ const BRITONS = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "sanctity",
     "fervor",
@@ -159,7 +158,12 @@ const BRITONS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -191,3 +195,4 @@ const BRITONS = {
 
 window.BRITONS = BRITONS;
 export default BRITONS;
+

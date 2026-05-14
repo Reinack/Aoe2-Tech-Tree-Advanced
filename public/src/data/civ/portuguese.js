@@ -160,7 +160,13 @@ const PORTUGUESE = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "feitoria"
+    "feitoria",
+    "stonewall",    
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "bombardtower"
   ],
   "uniqueTechs": [
     {
@@ -192,3 +198,4 @@ const PORTUGUESE = {
 
 window.PORTUGUESE = PORTUGUESE;
 export default PORTUGUESE;
+

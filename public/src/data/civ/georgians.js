@@ -37,8 +37,7 @@ const GEORGIANS = {
     "market",
     "tc",
     "mill",
-    "lumber",
-    "mining",
+    "mulecart",
     "militia",
     "manatarms",
     "longsword",
@@ -110,8 +109,6 @@ const GEORGIANS = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
-    "bombardtower",
     "monk",
     "redemption",
     "heresy",
@@ -143,13 +140,13 @@ const GEORGIANS = {
     "horsecollar",
     "heavyplow",
     "croprotation",
-    "doublebitaxe",
-    "bowsaw",
-    "twomansaw",
-    "goldmining",
-    "goldshaft",
-    "stonemining",
-    "stoneshaft",
+    "doublebitaxe_m",
+    "bowsaw_m",
+    "twomansaw_m",
+    "goldmining_m",
+    "goldshaft_m",
+    "stonemining_m",
+    "stoneshaft_m",
     "fastfireship",
     "galleon",
     "fireship",
@@ -163,7 +160,16 @@ const GEORGIANS = {
     "siphons",
     "incendiaries",
     "mule_cart",
-    "fortified_church"
+    "fortified_church",
+    "stonewall",
+    "watchtower",
+    "arrowslits",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "gate"
   ],
   "uniqueTechs": [
     {
@@ -195,3 +201,4 @@ const GEORGIANS = {
 
 window.GEORGIANS = GEORGIANS;
 export default GEORGIANS;
+

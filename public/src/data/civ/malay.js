@@ -125,7 +125,6 @@ const MALAY = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -159,7 +158,10 @@ const MALAY = {
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "harbor"
+    "harbor",
+    "stonewall",
+    "watchtower",
+    "bombardtower"
   ],
   "uniqueTechs": [
     {
@@ -191,3 +193,4 @@ const MALAY = {
 
 window.MALAY = MALAY;
 export default MALAY;
+

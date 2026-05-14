@@ -51,28 +51,28 @@ const UNIT_STATS = {
   'bombcannon':    { hp: 80,  attack: 40,  armor: [2, 5],   range: 12, speed: 0.70, rof: 6.5,  los: 14, train: 56 },
 
   // ── MUELLE ────────────────────────────────────────────────────────────────
-  'fishingship':   { hp: 50,  attack: 0,   armor: [1, 1],   range: 0,  speed: 1.26, rof: 0,    los: 5,  train: 40 },
-  'transportship': { hp: 70,  attack: 0,   armor: [0, 2],   range: 0,  speed: 1.45, rof: 0,    los: 5,  train: 46 },
+  'fishingship':   { hp: 60,  attack: 0,   armor: [1, 1],   range: 0,  speed: 1.26, rof: 0,    los: 5,  train: 40 },
+  'transportship': { hp: 100, attack: 0,   armor: [4, 8],   range: 0,  speed: 1.45, rof: 0,    los: 5,  train: 46 },
   'tradecog':      { hp: 80,  attack: 0,   armor: [0, 6],   range: 0,  speed: 1.65, rof: 0,    los: 6,  train: 36 },
   // Galera
-  'galley':        { hp: 110, attack: 6,   armor: [0, 3],   range: 5,  speed: 1.36, rof: 3.0,  los: 7,  train: 45 },
-  'wargalley':     { hp: 135, attack: 7,   armor: [0, 5],   range: 6,  speed: 1.43, rof: 3.0,  los: 8,  train: 60 },
-  'galleon':       { hp: 165, attack: 8,   armor: [0, 6],   range: 7,  speed: 1.43, rof: 3.0,  los: 9,  train: 60 },
+  'galley':        { hp: 120, attack: 6,   armor: [0, 6],   range: 5,  speed: 1.43, rof: 3.0,  los: 7,  train: 45 },
+  'wargalley':     { hp: 135, attack: 7,   armor: [0, 6],   range: 6,  speed: 1.43, rof: 3.0,  los: 8,  train: 60 },
+  'galleon':       { hp: 165, attack: 8,   armor: [0, 8],   range: 7,  speed: 1.43, rof: 3.0,  los: 9,  train: 60 },
   // Barco de Fuego
-  'firegalley':    { hp: 110, attack: 2,   armor: [1, 4],   range: 2.5, speed: 1.36, rof: 0.25, los: 5, train: 49 },
-  'fireship':      { hp: 150, attack: 3,   armor: [1, 6],   range: 2.5, speed: 1.40, rof: 0.25, los: 6, train: 60 },
-  'fastfireship':  { hp: 200, attack: 4,   armor: [1, 8],   range: 2.5, speed: 1.43, rof: 0.25, los: 7, train: 60 },
+  'firegalley':    { hp: 100, attack: 1,   armor: [0, 4],   range: 2.49, speed: 1.30, rof: 0.25, los: 5, train: 49 },
+  'fireship':      { hp: 120, attack: 2,   armor: [0, 6],   range: 2.49, speed: 1.35, rof: 0.25, los: 6, train: 60 },
+  'fastfireship':  { hp: 140, attack: 3,   armor: [0, 8],   range: 2.49, speed: 1.43, rof: 0.25, los: 7, train: 60 },
   // Barco de Demolición
-  'demoraft':      { hp: 40,  attack: 75,  armor: [0, 0],   range: 0,  speed: 1.42, rof: 0,    los: 6,  train: 45 },
-  'demoship':      { hp: 50,  attack: 95,  armor: [1, 0],   range: 0,  speed: 1.52, rof: 0,    los: 6,  train: 31 },
-  'heavydemo':     { hp: 70,  attack: 120, armor: [2, 0],   range: 0,  speed: 1.52, rof: 0,    los: 6,  train: 31 },
+  'demoraft':      { hp: 45,  attack: 90,  armor: [0, 2],   range: 0,  speed: 1.50, rof: 0,    los: 6,  train: 45 },
+  'demoship':      { hp: 60,  attack: 110, armor: [0, 3],   range: 0,  speed: 1.60, rof: 0,    los: 6,  train: 31 },
+  'heavydemo':     { hp: 70,  attack: 140, armor: [0, 5],   range: 0,  speed: 1.60, rof: 0,    los: 6,  train: 31 },
   // Hulk
   'hulk':          { hp: 90,  attack: 4,   armor: [4, 1],   range: 1,  speed: 1.42, rof: 1.75, los: 5,  train: 42 },
   'war_hulk':      { hp: 130, attack: 6,   armor: [5, 2],   range: 1,  speed: 1.43, rof: 1.75, los: 6,  train: 60 },
   'carrack':       { hp: 180, attack: 8,   armor: [6, 4],   range: 2,  speed: 1.43, rof: 1.75, los: 7,  train: 60 },
   // Galeón de Artillería
-  'cannongalleon': { hp: 120, attack: 50,  armor: [0, 5],   range: 13, speed: 1.05, rof: 10,   los: 15, train: 46 },
-  'elitecannon':   { hp: 150, attack: 45,  armor: [0, 7],   range: 15, speed: 1.10, rof: 10,   los: 17, train: 70 },
+  'cannongalleon': { hp: 120, attack: 50,  armor: [0, 6],   range: 13, speed: 1.10, rof: 10,   los: 15, train: 46 },
+  'elitecannon':   { hp: 150, attack: 60,  armor: [0, 8],   range: 15, speed: 1.10, rof: 10,   los: 17, train: 70 },
 
   // ── CASTILLO ──────────────────────────────────────────────────────────────
   'trebuchet':     { hp: 150, attack: 200, armor: [2, 8],   range: 16, speed: 0,    rof: 10,   los: 19, train: 50 },
@@ -145,7 +145,7 @@ const REGIONAL_UNIT_STATS = {
   'traction_treb':    { hp: 100, attack: 150, armor: [1, 5],  range: 14, speed: 0.70, rof: 10,   los: 16, train: 50 },
 
   // ── MUELLE — Navíos Regionales ────────────────────────────────────────────
-  'dromon':        { hp: 125, attack: 40,  armor: [2, 6],   range: 10, speed: 1.20, rof: 6.0,  los: 12, train: 60 },
+  'dromon':        { hp: 125, attack: 50,  armor: [1, 6],   range: 12, speed: 1.20, rof: 8.0,  los: 12, train: 60 },
   'lou_chuan':     { hp: 250, attack: 10,  armor: [0, 10],  range: 7,  speed: 1.10, rof: 3.0,  los: 10, train: 60 },
   'catapult_gall': { hp: 150, attack: 50,  armor: [0, 8],   range: 11, speed: 1.10, rof: 8.0,  los: 13, train: 80 },
 };
@@ -182,10 +182,10 @@ const UNIQUE_UNIT_STATS = {
   'war_chariot_s': { hp: 150, attack: 12,  armor: [0, 5],   range: 5,  speed: 0.85, rof: 2.5,  los: 8,  train: 25 }, // Shu
 
   // Muelle exclusivos
-  'turtle_ship':   { hp: 200, attack: 50,  armor: [6, 5],   range: 6,  speed: 0.90, rof: 6.0,  los: 8,  train: 50 }, // Coreanos
+  'turtle_ship':   { hp: 200, attack: 50,  armor: [6, 5],   range: 6,  speed: 1.05, rof: 6.0,  los: 8,  train: 50 }, // Coreanos
   'longboat':      { hp: 130, attack: 7,   armor: [0, 6],   range: 6,  speed: 1.54, rof: 3.0,  los: 8,  train: 36 }, // Vikingos
-  'caravel_d':     { hp: 100, attack: 6,   armor: [0, 8],   range: 6,  speed: 1.43, rof: 3.0,  los: 9,  train: 36 }, // Portugueses
-  'thirisadai':    { hp: 350, attack: 15,  armor: [0, 12],  range: 8,  speed: 1.00, rof: 3.5,  los: 11, train: 60 }, // Dravídicos
+  'caravel_d':     { hp: 130, attack: 6,   armor: [0, 8],   range: 6,  speed: 1.43, rof: 3.0,  los: 9,  train: 36 }, // Portugueses
+  'thirisadai':    { hp: 250, attack: 9,   armor: [2, 10],  range: 7,  speed: 1.30, rof: 3.45, los: 11, train: 60 }, // Dravídicos
   'dragon_ship':   { hp: 120, attack: 3,   armor: [0, 6],   range: 3,  speed: 1.35, rof: 0.25, los: 6,  train: 60 }, // Chinos
 
   // Monasterio exclusivos

@@ -116,7 +116,6 @@ const CELTS = {
     "fortifiedwall",
     "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "heresy",
     "sanctity",
@@ -163,7 +162,14 @@ const CELTS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall", 
+    "watchtower",  
+    "gate",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "arrowslits"
   ],
   "uniqueTechs": [
     {
@@ -195,3 +201,4 @@ const CELTS = {
 
 window.CELTS = CELTS;
 export default CELTS;
+

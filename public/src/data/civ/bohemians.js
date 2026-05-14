@@ -108,7 +108,6 @@ const BOHEMIANS = {
     "treadmillcrane",
     "fortifiedwall",
     "keep",
-    "heatedshot",
     "bombardtower",
     "monk",
     "redemption",
@@ -127,7 +126,6 @@ const BOHEMIANS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -161,7 +159,14 @@ const BOHEMIANS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "gate",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "arrowslits"
   ],
   "uniqueTechs": [
     {
@@ -193,3 +198,4 @@ const BOHEMIANS = {
 
 window.BOHEMIANS = BOHEMIANS;
 export default BOHEMIANS;
+

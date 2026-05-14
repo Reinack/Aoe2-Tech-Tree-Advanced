@@ -110,14 +110,9 @@ const GOTHS = {
     "architecture",
     "ballistics",
     "chemistry",
-    "guardtower",
-    "arrowslits",
     "murderhole",
     "siegeengineers",
-    "fortifiedwall",
-    "keep",
     "heatedshot",
-    "bombardtower",
     "monk",
     "sanctity",
     "fervor",
@@ -131,7 +126,6 @@ const GOTHS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -165,7 +159,11 @@ const GOTHS = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries"
+    "incendiaries",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost"
   ],
   "uniqueTechs": [
     {
@@ -197,3 +195,4 @@ const GOTHS = {
 
 window.GOTHS = GOTHS;
 export default GOTHS;
+

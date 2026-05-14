@@ -122,7 +122,6 @@ const TATARS = {
     "eliteunique",
     "uniquetech1",
     "uniquetech2",
-    "hoardings",
     "conscription",
     "sappers",
     "tradecart",
@@ -158,7 +157,13 @@ const TATARS = {
     "carvel_hull",
     "siphons",
     "flaming_camel",
-    "incendiaries"
+    "incendiaries",
+    "stonewall",
+    "watchtower",
+    "palisadewall",
+    "palisadegate",
+    "outpost",
+    "bombardtower"
   ],
   "uniqueTechs": [
     {
@@ -190,3 +195,4 @@ const TATARS = {
 
 window.TATARS = TATARS;
 export default TATARS;
+

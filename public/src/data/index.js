@@ -4,8 +4,9 @@
 import { AGES, AGE_COLORS } from './ages.js';
 import { BUILDINGS } from './buildings.js';
 import { NODES } from './nodes.js';
-import { UNIT_STATS } from './units.js';
+import { UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS } from './units.js';
 import { IMG_MAP } from './img_map.js';
+import { UNIT_CLASSES, UNIQUE_UNIT_CLASSES, TECH_AFFECTS } from './tech_effects.js';
 
 // ── CIVILIZATIONS INDEX ──────────────────────────────────────────────
 // Re-export all civ definitions from data/civ/
@@ -128,8 +129,13 @@ window.AGE_COLORS = AGE_COLORS;
 window.BUILDINGS = BUILDINGS;
 window.NODES = NODES;
 window.UNIT_STATS = UNIT_STATS;
+window.REGIONAL_UNIT_STATS = REGIONAL_UNIT_STATS;
+window.UNIQUE_UNIT_STATS = UNIQUE_UNIT_STATS;
 window.IMG_MAP = IMG_MAP;
 window.CIVS = CIVS;
+window.UNIT_CLASSES = UNIT_CLASSES;
+window.UNIQUE_UNIT_CLASSES = UNIQUE_UNIT_CLASSES;
+window.TECH_AFFECTS = TECH_AFFECTS;
 
 export default CIVS;
-export { AGES, AGE_COLORS, BUILDINGS, NODES, UNIT_STATS, IMG_MAP, CIVS };
+export { AGES, AGE_COLORS, BUILDINGS, NODES, UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS, IMG_MAP, CIVS };
