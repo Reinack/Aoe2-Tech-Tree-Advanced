@@ -319,6 +319,9 @@ const LOCALE_EN = {
     stoneshaft:   { name: 'Stone Shaft Mining',     effect: 'Stone shaft mining +15% speed.' },
 
     // ── Settlement (Tahsili) ─────────────────────────────────
+    horsecollar_t:  { name: 'Horse Collar',        effect: 'Farms produce 75 extra food.' },
+    heavyplow_t:    { name: 'Heavy Plow',          effect: 'Farms produce 125 extra food.' },
+    croprotation_t: { name: 'Crop Rotation',       effect: 'Farms produce 375 extra food.' },
     doublebitaxe_t: { name: 'Double-Bit Axe',     effect: 'Wood chopping +20% speed.' },
     bowsaw_t:       { name: 'Bow Saw',            effect: 'Wood chopping +20% speed.' },
     twomansaw_t:    { name: 'Two-Man Saw',        effect: 'Wood chopping +10% speed.' },

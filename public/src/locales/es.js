@@ -319,6 +319,9 @@ const LOCALE_ES = {
     stoneshaft:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
 
     // ── Tahsili (Asentamiento) ───────────────────────────────
+    horsecollar_t:  { name: 'Collarín para Caballo', effect: 'Granjas producen 75 de comida extra.' },
+    heavyplow_t:    { name: 'Arado Pesado',          effect: 'Granjas producen 125 de comida extra.' },
+    croprotation_t: { name: 'Rotación de Cultivos',  effect: 'Granjas producen 375 de comida extra.' },
     doublebitaxe_t: { name: 'Hacha Doble Filo',      effect: 'Tala de madera +20% velocidad.' },
     bowsaw_t:       { name: 'Sierra de Arco',        effect: 'Tala de madera +20% velocidad.' },
     twomansaw_t:    { name: 'Sierra de Dos Hombres', effect: 'Tala de madera +10% velocidad.' },

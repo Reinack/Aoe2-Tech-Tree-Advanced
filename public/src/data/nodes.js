@@ -286,6 +286,9 @@ export const NODES = [
   { id: 'stoneshaft', type: 'tech', age: 2, building: 'mining', row: 1, prereqs: ['stonemining'], research_cost: { food: 200, wood: 100 } },
 
   // ── TAHSILI (Asentamiento) ────────────────────────────────
+  { id: 'horsecollar_t',  type: 'tech', age: 1, building: 'tahsili', row: 3, prereqs: [], research_cost: { food: 75, wood: 75 } },
+  { id: 'heavyplow_t',    type: 'tech', age: 2, building: 'tahsili', row: 3, prereqs: ['horsecollar_t'], research_cost: { food: 125, wood: 125 } },
+  { id: 'croprotation_t', type: 'tech', age: 3, building: 'tahsili', row: 3, prereqs: ['heavyplow_t'], research_cost: { food: 250, wood: 250, gold: 60 } },
   { id: 'doublebitaxe_t', type: 'tech', age: 1, building: 'tahsili', row: 0, prereqs: [], research_cost: { food: 100, wood: 50 } },
   { id: 'bowsaw_t',       type: 'tech', age: 2, building: 'tahsili', row: 0, prereqs: ['doublebitaxe_t'], research_cost: { food: 150, wood: 100 } },
   { id: 'twomansaw_t',   type: 'tech', age: 3, building: 'tahsili', row: 0, prereqs: ['bowsaw_t'], research_cost: { food: 300, wood: 200 } },

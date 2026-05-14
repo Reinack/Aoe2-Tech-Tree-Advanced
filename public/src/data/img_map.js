@@ -262,6 +262,9 @@ const IMG_MAP = {
   'stoneshaft': 'img/Tech/88.png',
 
   // ── TAHSILI (Asentamiento) ────────────────────────────────
+  'horsecollar_t':  'img/Tech/2.png',
+  'heavyplow_t':    'img/Tech/1.png',
+  'croprotation_t': 'img/Tech/0.png',
   'doublebitaxe_t': 'img/Tech/70.png',
   'bowsaw_t':       'img/Tech/71.png',
   'twomansaw_t':    'img/Tech/81.png',
