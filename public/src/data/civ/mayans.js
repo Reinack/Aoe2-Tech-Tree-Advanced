@@ -15,7 +15,8 @@ const MAYANS = {
       "resource": "all",
       "op": "multiply",
       "value": 0.9
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "cost_modifier",

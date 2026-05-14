@@ -165,7 +165,8 @@ const BULGARIANS = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "house"
   ],
   "uniqueTechs": [
     {

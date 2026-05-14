@@ -160,7 +160,8 @@ const SICILIANS = {
     "donjon",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "house"
   ],
   "uniqueTechs": [
     {

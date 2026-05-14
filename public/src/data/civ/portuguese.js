@@ -15,7 +15,8 @@ const PORTUGUESE = {
     },
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "building_work_speed",

@@ -174,7 +174,8 @@ const SPANISH = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "house"
   ],
   "uniqueTechs": [
     {

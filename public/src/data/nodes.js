@@ -260,6 +260,7 @@ export const NODES = [
   { id: 'townwatch', type: 'tech', age: 1, building: 'tc', row: 1, prereqs: [], research_cost: { food: 75 } },
   { id: 'handcart', type: 'tech', age: 2, building: 'tc', row: 0, prereqs: ['wheelbarrow'], research_cost: { food: 300, wood: 200 } },
   { id: 'townpatrol', type: 'tech', age: 2, building: 'tc', row: 1, prereqs: ['townwatch'], research_cost: { food: 500 } },
+  { id: 'house', type: 'building', age: 0, building: '', row: 2, prereqs: [], build_cost: { wood: 25 } },
 
 
   // ── MILL ────────────────────────────────────────────────

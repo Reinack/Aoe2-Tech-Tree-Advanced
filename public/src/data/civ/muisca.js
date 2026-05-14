@@ -16,7 +16,8 @@ const MUISCA = {
     },
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "special"
@@ -152,7 +153,8 @@ const MUISCA = {
     "palisadegate",
     "outpost", 
     "stonewall",
-    "gate"
+    "gate",
+    "house"
   ],
   "uniqueTechs": [
     {

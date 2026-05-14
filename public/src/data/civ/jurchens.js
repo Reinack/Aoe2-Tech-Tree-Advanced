@@ -174,7 +174,8 @@ const JURCHENS = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "house"
   ],
   "uniqueTechs": [
     {

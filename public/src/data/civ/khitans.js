@@ -164,7 +164,8 @@ const KHITANS = {
     "watchtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "house"
   ],
   "uniqueTechs": [
     {

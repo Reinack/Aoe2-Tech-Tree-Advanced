@@ -14,7 +14,8 @@ const MAPUCHE = {
     },
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "stat_modifier",

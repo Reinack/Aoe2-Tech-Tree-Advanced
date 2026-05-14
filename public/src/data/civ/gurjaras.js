@@ -11,7 +11,8 @@ const GURJARAS = {
     },
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "creation_speed",

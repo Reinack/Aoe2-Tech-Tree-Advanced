@@ -168,7 +168,8 @@ const VIETNAMESE = {
     "bombardtower",
     "palisadewall",
     "palisadegate",
-    "outpost"
+    "outpost",
+    "house"
   ],
   "uniqueTechs": [
     {

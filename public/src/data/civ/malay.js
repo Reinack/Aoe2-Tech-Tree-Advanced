@@ -19,7 +19,8 @@ const MALAY = {
       "resource": "all",
       "op": "multiply",
       "value": 0.67
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "stat_modifier",

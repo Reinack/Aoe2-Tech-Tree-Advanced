@@ -22,7 +22,8 @@ const TEUTONS = {
     },
     {
       "type": "free_tech"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "special"

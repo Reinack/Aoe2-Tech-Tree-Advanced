@@ -24,7 +24,8 @@ const HINDUSTANIS = {
     },
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "stat_modifier",

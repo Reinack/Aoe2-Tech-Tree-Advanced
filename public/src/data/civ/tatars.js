@@ -11,7 +11,8 @@ const TATARS = {
     },
     {
       "type": "free_tech"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "stat_modifier",

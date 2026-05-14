@@ -15,7 +15,8 @@ const GEORGIANS = {
     },
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "cost_modifier",

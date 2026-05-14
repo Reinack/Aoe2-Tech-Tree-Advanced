@@ -26,7 +26,8 @@ const DRAVIDIANS = {
       "resource": "all",
       "op": "multiply",
       "value": 0.67
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "special"

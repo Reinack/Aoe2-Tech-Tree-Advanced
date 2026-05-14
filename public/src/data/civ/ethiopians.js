@@ -12,7 +12,8 @@ const ETHIOPIANS = {
     },
     {
       "type": "free_tech"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "stat_modifier",

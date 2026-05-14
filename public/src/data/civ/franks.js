@@ -22,7 +22,8 @@ const FRANKS = {
       "resource": "all",
       "op": "multiply",
       "value": 0.85
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "stat_modifier",

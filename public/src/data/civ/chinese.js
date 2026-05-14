@@ -26,7 +26,8 @@ const CHINESE = {
       "stat": "speed",
       "op": "multiply",
       "value": 1.1
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "special"

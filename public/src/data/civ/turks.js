@@ -22,7 +22,8 @@ const TURKS = {
       "stat": "hp",
       "op": "multiply",
       "value": 1.25
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "creation_speed",

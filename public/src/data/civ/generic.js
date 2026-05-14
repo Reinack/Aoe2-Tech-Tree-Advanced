@@ -2,7 +2,8 @@ const GENERIC = {
   "bonuses": [
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": null,
   "available": [

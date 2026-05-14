@@ -19,6 +19,7 @@ const IMG_MAP = {
   'mining': 'img/Building/39.png',
   'tahsili':  'img/Building/98.png',
   'mulecart': 'img/Building/89.png',
+  'house': 'img/Building/11.png',
 
   // ── BARRACKS — Infantería ──────────────────────────────────
   'militia': 'img/Unit/8.png',

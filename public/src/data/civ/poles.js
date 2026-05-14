@@ -19,7 +19,8 @@ const POLES = {
       "resource": "all",
       "op": "multiply",
       "value": 0.5
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "stat_modifier",

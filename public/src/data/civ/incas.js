@@ -19,7 +19,8 @@ const INCAS = {
     },
     {
       "type": "special"
-    }
+    },
+    "house",
   ],
   "teamBonus": {
     "type": "free_tech"
