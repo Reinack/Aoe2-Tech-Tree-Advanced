@@ -69,6 +69,7 @@ const LOCALE_ES = {
     lumber:         "Camp. Maderero",
     mining:         "Camp. Minero",
     tahsili:        "Asentamiento",
+    mulecart:       "Mula de Carga",
     // Torres
     outpost:        "Puesto Avanzado",
     watchtower:     "Torre de Vigilancia",
@@ -317,7 +318,7 @@ const LOCALE_ES = {
     stonemining:  { name: 'Minería de Piedra',     effect: 'Minería de piedra +15% velocidad.' },
     stoneshaft:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
 
-    // ── Tahsili ──────────────────────────────────────────
+    // ── Tahsili (Asentamiento) ───────────────────────────────
     doublebitaxe_t: { name: 'Hacha Doble Filo',      effect: 'Tala de madera +20% velocidad.' },
     bowsaw_t:       { name: 'Sierra de Arco',        effect: 'Tala de madera +20% velocidad.' },
     twomansaw_t:    { name: 'Sierra de Dos Hombres', effect: 'Tala de madera +10% velocidad.' },
@@ -325,6 +326,15 @@ const LOCALE_ES = {
     goldshaft_t:    { name: 'Pozos de Oro',          effect: 'Minería de oro +15% velocidad.' },
     stonemining_t:  { name: 'Minería de Piedra',     effect: 'Minería de piedra +15% velocidad.' },
     stoneshaft_t:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
+
+    // ── Mula de Carga ────────────────────────────────────────
+    doublebitaxe_m: { name: 'Hacha Doble Filo',      effect: 'Tala de madera +20% velocidad.' },
+    bowsaw_m:       { name: 'Sierra de Arco',        effect: 'Tala de madera +20% velocidad.' },
+    twomansaw_m:    { name: 'Sierra de Dos Hombres', effect: 'Tala de madera +10% velocidad.' },
+    goldmining_m:   { name: 'Minería de Oro',        effect: 'Minería de oro +15% velocidad.' },
+    goldshaft_m:    { name: 'Pozos de Oro',          effect: 'Minería de oro +15% velocidad.' },
+    stonemining_m:  { name: 'Minería de Piedra',     effect: 'Minería de piedra +15% velocidad.' },
+    stoneshaft_m:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
   },
 
   civs: {

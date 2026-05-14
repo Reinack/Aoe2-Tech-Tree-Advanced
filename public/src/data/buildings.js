@@ -26,5 +26,6 @@ export const BUILDINGS = [
   { id: 'mill', name: 'Molino', icon: '🌾', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
   { id: 'lumber', name: 'Camp. Maderero', icon: '🪵', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
   { id: 'mining', name: 'Camp. Minero', icon: '⛏️', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
-  { id: 'tahsili', name: 'Tahsili', icon: '🏠', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
+  { id: 'tahsili',  name: 'Asentamiento', icon: '🏠', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'mulecart'] },
+  { id: 'mulecart', name: 'Mula de Carga', icon: '🫏', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'tahsili'] },
 ];

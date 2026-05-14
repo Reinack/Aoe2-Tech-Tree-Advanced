@@ -17,6 +17,8 @@ const IMG_MAP = {
   'mill': 'img/Building/19.png',
   'lumber': 'img/Building/40.png',
   'mining': 'img/Building/39.png',
+  'tahsili':  'img/Building/98.png',
+  'mulecart': 'img/Building/89.png',
 
   // ── BARRACKS — Infantería ──────────────────────────────────
   'militia': 'img/Unit/8.png',
@@ -258,6 +260,24 @@ const IMG_MAP = {
   'goldshaft': 'img/Tech/62.png',
   'stonemining': 'img/Tech/87.png',
   'stoneshaft': 'img/Tech/88.png',
+
+  // ── TAHSILI (Asentamiento) ────────────────────────────────
+  'doublebitaxe_t': 'img/Tech/70.png',
+  'bowsaw_t':       'img/Tech/71.png',
+  'twomansaw_t':    'img/Tech/81.png',
+  'goldmining_t':   'img/Tech/15.png',
+  'goldshaft_t':    'img/Tech/62.png',
+  'stonemining_t':  'img/Tech/87.png',
+  'stoneshaft_t':   'img/Tech/88.png',
+
+  // ── MULECART (Mula de Carga) ──────────────────────────────
+  'doublebitaxe_m': 'img/Tech/70.png',
+  'bowsaw_m':       'img/Tech/71.png',
+  'twomansaw_m':    'img/Tech/81.png',
+  'goldmining_m':   'img/Tech/15.png',
+  'goldshaft_m':    'img/Tech/62.png',
+  'stonemining_m':  'img/Tech/87.png',
+  'stoneshaft_m':   'img/Tech/88.png',
 };
 
 export { IMG_MAP };

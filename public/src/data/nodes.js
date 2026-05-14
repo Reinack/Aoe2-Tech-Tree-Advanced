@@ -285,15 +285,21 @@ export const NODES = [
   { id: 'stonemining', type: 'tech', age: 1, building: 'mining', row: 1, prereqs: [], research_cost: { food: 100, wood: 75 } },
   { id: 'stoneshaft', type: 'tech', age: 2, building: 'mining', row: 1, prereqs: ['stonemining'], research_cost: { food: 200, wood: 100 } },
 
-  // ── TAHSILI ─────────────────────────────────────────
-  // Lumber camp techs under Tahsili
+  // ── TAHSILI (Asentamiento) ────────────────────────────────
   { id: 'doublebitaxe_t', type: 'tech', age: 1, building: 'tahsili', row: 0, prereqs: [], research_cost: { food: 100, wood: 50 } },
-  { id: 'bowsaw_t', type: 'tech', age: 2, building: 'tahsili', row: 0, prereqs: ['doublebitaxe_t'], research_cost: { food: 150, wood: 100 } },
-  { id: 'twomansaw_t', type: 'tech', age: 3, building: 'tahsili', row: 0, prereqs: ['bowsaw_t'], research_cost: { food: 300, wood: 200 } },
-
-  // Mining camp techs under Tahsili
-  { id: 'goldmining_t', type: 'tech', age: 1, building: 'tahsili', row: 1, prereqs: [], research_cost: { food: 100, wood: 75 } },
-  { id: 'goldshaft_t', type: 'tech', age: 2, building: 'tahsili', row: 1, prereqs: ['goldmining_t'], research_cost: { food: 200, wood: 100 } },
+  { id: 'bowsaw_t',       type: 'tech', age: 2, building: 'tahsili', row: 0, prereqs: ['doublebitaxe_t'], research_cost: { food: 150, wood: 100 } },
+  { id: 'twomansaw_t',   type: 'tech', age: 3, building: 'tahsili', row: 0, prereqs: ['bowsaw_t'], research_cost: { food: 300, wood: 200 } },
+  { id: 'goldmining_t',  type: 'tech', age: 1, building: 'tahsili', row: 1, prereqs: [], research_cost: { food: 100, wood: 75 } },
+  { id: 'goldshaft_t',   type: 'tech', age: 2, building: 'tahsili', row: 1, prereqs: ['goldmining_t'], research_cost: { food: 200, wood: 100 } },
   { id: 'stonemining_t', type: 'tech', age: 1, building: 'tahsili', row: 2, prereqs: [], research_cost: { food: 100, wood: 75 } },
-  { id: 'stoneshaft_t', type: 'tech', age: 2, building: 'tahsili', row: 2, prereqs: ['stonemining_t'], research_cost: { food: 200, wood: 100 } },
+  { id: 'stoneshaft_t',  type: 'tech', age: 2, building: 'tahsili', row: 2, prereqs: ['stonemining_t'], research_cost: { food: 200, wood: 100 } },
+
+  // ── MULECART (Mula de Carga) ──────────────────────────────
+  { id: 'doublebitaxe_m', type: 'tech', age: 1, building: 'mulecart', row: 0, prereqs: [], research_cost: { food: 100, wood: 50 } },
+  { id: 'bowsaw_m',       type: 'tech', age: 2, building: 'mulecart', row: 0, prereqs: ['doublebitaxe_m'], research_cost: { food: 150, wood: 100 } },
+  { id: 'twomansaw_m',   type: 'tech', age: 3, building: 'mulecart', row: 0, prereqs: ['bowsaw_m'], research_cost: { food: 300, wood: 200 } },
+  { id: 'goldmining_m',  type: 'tech', age: 1, building: 'mulecart', row: 1, prereqs: [], research_cost: { food: 100, wood: 75 } },
+  { id: 'goldshaft_m',   type: 'tech', age: 2, building: 'mulecart', row: 1, prereqs: ['goldmining_m'], research_cost: { food: 200, wood: 100 } },
+  { id: 'stonemining_m', type: 'tech', age: 1, building: 'mulecart', row: 2, prereqs: [], research_cost: { food: 100, wood: 75 } },
+  { id: 'stoneshaft_m',  type: 'tech', age: 2, building: 'mulecart', row: 2, prereqs: ['stonemining_m'], research_cost: { food: 200, wood: 100 } },
 ];

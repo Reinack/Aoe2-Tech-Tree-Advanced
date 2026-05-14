@@ -141,6 +141,19 @@ function render() {
   let activeBuildings = BUILDINGS.map(b => ({ ...b }));
   let activeNodes = NODES.map(n => ({ ...n }));
 
+  // Handle regional replacement buildings (e.g. tahsili, mulecart):
+  // - If a civ has one available, remove the buildings it replaces from the layout
+  // - If a civ doesn't have it, remove the replacement building itself (don't show grey column)
+  const replacedIds = new Set();
+  activeBuildings.forEach(b => {
+    if (b.replaces && !isMissing(b.id)) b.replaces.forEach(id => replacedIds.add(id));
+  });
+  activeBuildings = activeBuildings.filter(b => {
+    if (replacedIds.has(b.id)) return false;
+    if (b.replaces && isMissing(b.id)) return false;
+    return true;
+  });
+
   if (civ.overrides) {
     Object.entries(civ.overrides).forEach(([id, ov]) => {
       // Check if it's a building

@@ -68,7 +68,8 @@ const LOCALE_EN = {
     mill:           "Mill",
     lumber:         "Lumber Camp",
     mining:         "Mining Camp",
-    tahsili:        "Tahsili",
+    tahsili:        "Settlement",
+    mulecart:       "Mule Cart",
     // Towers
     outpost:        "Outpost",
     watchtower:     "Watch Tower",
@@ -317,14 +318,23 @@ const LOCALE_EN = {
     stonemining:  { name: 'Stone Mining',           effect: 'Stone mining +15% speed.' },
     stoneshaft:   { name: 'Stone Shaft Mining',     effect: 'Stone shaft mining +15% speed.' },
 
-    // ── Tahsili ──────────────────────────────────────────
-    doublebitaxe_t: { name: 'Double-Bit Axe',         effect: 'Wood chopping +20% speed.' },
-    bowsaw_t:       { name: 'Bow Saw',                effect: 'Wood chopping +20% speed.' },
-    twomansaw_t:    { name: 'Two-Man Saw',            effect: 'Wood chopping +10% speed.' },
-    goldmining_t:   { name: 'Gold Mining',            effect: 'Gold mining +15% speed.' },
-    goldshaft_t:    { name: 'Gold Shaft Mining',      effect: 'Gold shaft mining +15% speed.' },
-    stonemining_t:  { name: 'Stone Mining',           effect: 'Stone mining +15% speed.' },
-    stoneshaft_t:   { name: 'Stone Shaft Mining',     effect: 'Stone shaft mining +15% speed.' },
+    // ── Settlement (Tahsili) ─────────────────────────────────
+    doublebitaxe_t: { name: 'Double-Bit Axe',     effect: 'Wood chopping +20% speed.' },
+    bowsaw_t:       { name: 'Bow Saw',            effect: 'Wood chopping +20% speed.' },
+    twomansaw_t:    { name: 'Two-Man Saw',        effect: 'Wood chopping +10% speed.' },
+    goldmining_t:   { name: 'Gold Mining',        effect: 'Gold mining +15% speed.' },
+    goldshaft_t:    { name: 'Gold Shaft Mining',  effect: 'Gold shaft mining +15% speed.' },
+    stonemining_t:  { name: 'Stone Mining',       effect: 'Stone mining +15% speed.' },
+    stoneshaft_t:   { name: 'Stone Shaft Mining', effect: 'Stone shaft mining +15% speed.' },
+
+    // ── Mule Cart ────────────────────────────────────────────
+    doublebitaxe_m: { name: 'Double-Bit Axe',     effect: 'Wood chopping +20% speed.' },
+    bowsaw_m:       { name: 'Bow Saw',            effect: 'Wood chopping +20% speed.' },
+    twomansaw_m:    { name: 'Two-Man Saw',        effect: 'Wood chopping +10% speed.' },
+    goldmining_m:   { name: 'Gold Mining',        effect: 'Gold mining +15% speed.' },
+    goldshaft_m:    { name: 'Gold Shaft Mining',  effect: 'Gold shaft mining +15% speed.' },
+    stonemining_m:  { name: 'Stone Mining',       effect: 'Stone mining +15% speed.' },
+    stoneshaft_m:   { name: 'Stone Shaft Mining', effect: 'Stone shaft mining +15% speed.' },
   },
 
   civs: {
