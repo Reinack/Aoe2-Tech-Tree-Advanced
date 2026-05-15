@@ -56,8 +56,10 @@ function computeLayout(currentNodes, currentBuildings) {
   // Place defensive group (towers/walls by col) AFTER university
   if (maxRow['defencive'] !== undefined) {
     const uniX = bldX['university'] ?? x;
-    colGroupX['defencive'] = uniX + (NW + NPADX) + BLD_GAP;
-    x = colGroupX['defencive'] + ((maxRow['defencive'] ?? 0) + 1) * (NW + NPADX) + BLD_GAP;
+    const uniCols = (maxRow['university'] ?? 0) + 1;
+    colGroupX['defencive'] = uniX + uniCols * (NW + NPADX) + BLD_GAP;
+    const defEnd = colGroupX['defencive'] + ((maxRow['defencive'] ?? 0) + 1) * (NW + NPADX) + BLD_GAP;
+    x = Math.max(x, defEnd);
   }
 
   // (depth calculation removed — vertical position comes from n.row directly)
