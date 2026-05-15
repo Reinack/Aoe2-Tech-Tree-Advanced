@@ -37,10 +37,10 @@ export const NODES = [
 
 
   // ── ARCHERY RANGE ───────────────────────────────────────
-  { id: 'archer', type: 'unit', age: 1, building: 'archery', row: 2, col: 0, prereqs: [], train_cost: { wood: 25, gold: 45 } },
+  { id: 'archer', type: 'unit', age: 1, building: 'archery', row: 3, col: 0, prereqs: [], train_cost: { wood: 25, gold: 45 } },
   { id: 'crossbow', type: 'upgrade', age: 2, building: 'archery', row: 4, col: 0, prereqs: ['archer'], research_cost: { food: 125, gold: 75 }, train_cost: { wood: 25, gold: 45 } },
   { id: 'arbalester', type: 'upgrade', age: 3, building: 'archery', row: 6, col: 0, prereqs: ['crossbow'], research_cost: { food: 300, gold: 700 }, train_cost: { wood: 25, gold: 45 } },
-  { id: 'skirmisher', type: 'unit', age: 1, building: 'archery', row: 2, col: 1, prereqs: [], train_cost: { food: 35, wood: 25 } },
+  { id: 'skirmisher', type: 'unit', age: 1, building: 'archery', row: 3, col: 1, prereqs: [], train_cost: { food: 35, wood: 25 } },
   { id: 'eliteskirm', type: 'upgrade', age: 2, building: 'archery', row: 4, col: 1, prereqs: ['skirmisher'], research_cost: { food: 240, gold: 60 }, train_cost: { food: 35, wood: 25 } },
   { id: 'handcannon', type: 'unit', age: 3, building: 'archery', row: 6, col: 1, prereqs: [], train_cost: { food: 45, gold: 50 } },
   { id: 'cavarcher', type: 'unit', age: 2, building: 'archery', row: 4, col: 2, prereqs: [], train_cost: { wood: 40, gold: 60 } },
@@ -60,7 +60,7 @@ export const NODES = [
 
 
   // ── STABLE ──────────────────────────────────────────────
-  { id: 'scout', type: 'unit', age: 1, building: 'stable', row: 2, col: 0, prereqs: [], train_cost: { food: 80 } },
+  { id: 'scout', type: 'unit', age: 1, building: 'stable', row: 3, col: 0, prereqs: [], train_cost: { food: 80 } },
   { id: 'lightcav', type: 'upgrade', age: 2, building: 'stable', row: 4, col: 0, prereqs: ['scout'], research_cost: { food: 150, gold: 75 }, train_cost: { food: 80 } },
   { id: 'hussar', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 0, prereqs: ['lightcav'], research_cost: { food: 250, gold: 300 }, train_cost: { food: 80 } },
   { id: 'knight', type: 'unit', age: 2, building: 'stable', row: 4, col: 2, prereqs: [], train_cost: { food: 60, gold: 75 } },
@@ -76,7 +76,7 @@ export const NODES = [
   // ── Stable special / unique ──────────────────────────────
   { id: 'winged_hussar', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 0, special: true, variant: 'regional', prereqs: ['lightcav'], research_cost: { food: 600, gold: 400 }, train_cost: { food: 80 } },
   { id: 'savar', type: 'upgrade', age: 3, building: 'stable', row: 7, col: 3, special: true, variant: 'unique', prereqs: ['cavalier'], research_cost: { food: 1000, gold: 600 }, train_cost: { food: 60, gold: 75 } },
-  { id: 'camel_scout', type: 'unit', age: 1, building: 'stable', row: 2, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 70, gold: 30 } },
+  { id: 'camel_scout', type: 'unit', age: 1, building: 'stable', row: 3, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 70, gold: 30 } },
   { id: 'imp_camel', type: 'upgrade', age: 3, building: 'stable', row: 7, col: 5, special: true, variant: 'regional', prereqs: ['heavycamel'], research_cost: { food: 1200, gold: 600 }, train_cost: { food: 55, gold: 60 } },
   { id: 'steppe_lancer', type: 'unit', age: 2, building: 'stable', row: 4, col: 4, special: true, variant: 'regional', prereqs: [], train_cost: { food: 70, gold: 45 } },
   { id: 'elite_steppe_lancer', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 4, special: true, variant: 'regional', prereqs: ['steppe_lancer'], research_cost: { food: 900, gold: 550 }, train_cost: { food: 70, gold: 45 } },
@@ -134,8 +134,8 @@ export const NODES = [
 
   { id: 'medium_warships', type: 'tech', age: 2, building: 'dock', row: 4, col: 5, prereqs: [], research_cost: { wood: 150, gold: 100 } },
   { id: 'heavy_warships', type: 'tech', age: 3, building: 'dock', row: 6, col: 5, prereqs: ['medium_warships'], research_cost: { wood: 400, gold: 315 } },
-  { id: 'fishingship', type: 'unit', age: 0, building: 'dock', row: 0, col: 0, prereqs: [], train_cost: { wood: 75 } },
-  { id: 'transportship', type: 'unit', age: 0, building: 'dock', row: 0, col: 1, prereqs: [], train_cost: { wood: 125, gold: 50 } },
+  { id: 'fishingship', type: 'unit', age: 0, building: 'dock', row: 1, col: 0, prereqs: [], train_cost: { wood: 75 } },
+  { id: 'transportship', type: 'unit', age: 0, building: 'dock', row: 1, col: 1, prereqs: [], train_cost: { wood: 125, gold: 50 } },
   { id: 'tradecog', type: 'unit', age: 1, building: 'dock', row: 2, col: 5, prereqs: [], train_cost: { wood: 80, gold: 80 } },
 
   { id: 'galley', type: 'unit', age: 1, building: 'dock', row: 2, col: 2, prereqs: [], train_cost: { wood: 90, gold: 30 } },
@@ -158,18 +158,18 @@ export const NODES = [
   { id: 'elitecannon', type: 'upgrade', age: 3, building: 'dock', row: 7, col: 6, prereqs: ['cannongalleon'], research_cost: { food: 525, gold: 500 }, train_cost: { wood: 200, gold: 150 } },
 
 
-  { id: 'fishing_lines', type: 'tech', age: 1, building: 'dock', row: 2, col: 0, prereqs: [], research_cost: { wood: 100, gold: 100 } },
+  { id: 'fishing_lines', type: 'tech', age: 1, building: 'dock', row: 3, col: 0, prereqs: [], research_cost: { wood: 100, gold: 100 } },
   { id: 'gillnets', type: 'tech', age: 2, building: 'dock', row: 4, col: 0, prereqs: ['fishing_lines'], research_cost: { food: 150, gold: 200 } },
 
   // ── Dock special / unique ────────────────────────────────
   { id: 'dragon_ship', type: 'unit', age: 3, building: 'dock', row: 6, col: 1, special: true, variant: 'unique', prereqs: ['fireship'], train_cost: { wood: 75, gold: 45 } },
-  { id: 'dromon', type: 'unit', age: 3, building: 'dock', row: 6, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 150 } },
-  { id: 'lou_chuan', type: 'unit', age: 3, building: 'dock', row: 6, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
-  { id: 'catapult_gall', type: 'unit', age: 3, building: 'dock', row: 6, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
+  { id: 'dromon', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 150 } },
+  { id: 'lou_chuan', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
+  { id: 'catapult_gall', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
   { id: 'turtle_ship', type: 'unit', age: 2, building: 'dock', row: 4, col: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 180, gold: 180 } },
   { id: 'longboat', type: 'unit', age: 2, building: 'dock', row: 4, col: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 75, gold: 40 } },
   { id: 'caravel_d', type: 'unit', age: 2, building: 'dock', row: 4, col: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 90, gold: 40 } },
-  { id: 'thirisadai', type: 'unit', age: 3, building: 'dock', row: 6, col: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 300, gold: 250 } },
+  { id: 'thirisadai', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 300, gold: 250 } },
 
 
   // ── UNIVERSITY ──────────────────────────────────────────────

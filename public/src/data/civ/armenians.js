@@ -198,6 +198,9 @@ const ARMENIANS = {
     }
   ],
   "overrides": {
+    "spearmen": {
+      "age": 0
+    },
     "pikeman": {
       "age": 1
     },
@@ -205,10 +208,15 @@ const ARMENIANS = {
       "age": 2
     },
     "longsword": {
-      "age": 1
+      "age": 1,       
+      "row": 4
     },
     "twohanded": {
       "age": 2
+    },
+    "champion": {
+      "age": 2,       
+      "row": 6
     }
   }
 };

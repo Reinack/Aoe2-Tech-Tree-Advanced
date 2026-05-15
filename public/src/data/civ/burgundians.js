@@ -202,7 +202,8 @@ const BURGUNDIANS = {
   ],
   "overrides": {
     "cavalier": {
-      "age": 2
+      "age": 2,       
+      "row": 5
     }
   }
 };
