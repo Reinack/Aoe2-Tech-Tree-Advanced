@@ -2,8 +2,8 @@
 // Consolidated exports for all data
 
 import { AGES, AGE_COLORS } from './ages.js';
-import { BUILDINGS } from './buildings.js';
 import { NODES } from './nodes.js';
+const BUILDINGS = NODES.filter(n => n.type === 'building');
 import { UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS } from './units.js';
 import { IMG_MAP } from './img_map.js';
 import { UNIT_CLASSES, UNIQUE_UNIT_CLASSES, TECH_AFFECTS } from './tech_effects.js';

@@ -74,7 +74,7 @@ function civLocale(civId) {
   return LOCALE[currentLang]?.civs?.[civId ?? currentCiv] || {};
 }
 
-let displayNodes = NODES.map(n => ({ ...n }));
+let displayNodes = NODES.filter(n => n.type !== 'building').map(n => ({ ...n }));
 
 function updateUniqueForCiv() {
   const civ = getCiv();
@@ -139,8 +139,8 @@ function render() {
   const civ = getCiv();
 
   // Clone and apply overrides
-  let activeBuildings = BUILDINGS.map(b => ({ ...b }));
-  let activeNodes = NODES.map(n => ({ ...n }));
+  let activeBuildings = NODES.filter(n => n.type === 'building').map(b => ({ ...b }));
+  let activeNodes = NODES.filter(n => n.type !== 'building').map(n => ({ ...n }));
 
   // Handle regional replacement buildings (e.g. tahsili, mulecart):
   // - If a civ has one available, remove the buildings it replaces from the layout
@@ -798,8 +798,8 @@ civSelect.addEventListener('change', () => {
 // ═══════════════════════════════════════════════════════════
 
 function fitView() {
-  const activeBuildings = BUILDINGS.map(b => ({ ...b }));
-  const nodes = displayNodes.length ? displayNodes : NODES.map(n => ({ ...n }));
+  const activeBuildings = NODES.filter(n => n.type === 'building').map(b => ({ ...b }));
+  const nodes = displayNodes.length ? displayNodes : NODES.filter(n => n.type !== 'building').map(n => ({ ...n }));
   const { totalH, totalW } = computeLayout(nodes, activeBuildings);
   const W = svgEl.clientWidth, H = svgEl.clientHeight;
   // Escalar para que todas las edades quepan verticalmente
