@@ -15,24 +15,17 @@ function computeLayout(currentNodes, currentBuildings) {
   currentBuildings.forEach(b => { maxRow[b.id] = -1; });
   currentNodes.forEach(n => { maxRow[n.building] = Math.max(maxRow[n.building] ?? -1, n.col); });
 
-  // ── Col-group analysis ────────────────────────────────────
-  // Buildings with the same layout_col share one horizontal slot and stack
-  // vertically within each age band (outpost/watchtower/etc. in "towers",
-  // palisadewall/stonewall/etc. in "walls").
-  const colGroupAgeCount = {}; // `${layout_col}_${age}` → count of buildings
-  currentBuildings.forEach(b => {
-    if (!b.layout_col) return;
-    const key = `${b.layout_col}_${b.age}`;
-    colGroupAgeCount[key] = (colGroupAgeCount[key] || 0) + 1;
-  });
+  // ── Col-group: allocate one horizontal slot per layout_col group ────────────
+  // layout_col buildings (towers, walls) share a column; their vertical
+  // position is now controlled by b.row (0-7) like all other buildings.
 
-  // Maximum stacked buildings per age (may be >1 when e.g. palisadewall+palisadegate share age 0)
+  // Max building sub-rows per age band (derived from b.row % 2)
   const ageMaxBldRows = [1, 1, 1, 1];
-  Object.entries(colGroupAgeCount).forEach(([key, cnt]) => {
-    const age = parseInt(key.split('_').pop());
-    if (!isNaN(age) && age >= 0 && age <= 3) {
-      ageMaxBldRows[age] = Math.max(ageMaxBldRows[age], cnt);
-    }
+  currentBuildings.forEach(b => {
+    if (b.row === undefined) return;
+    const ageIdx = Math.floor(b.row / 2);
+    const subRow = b.row % 2;
+    if (subRow + 1 > ageMaxBldRows[ageIdx]) ageMaxBldRows[ageIdx] = subRow + 1;
   });
 
   // ── X allocation ─────────────────────────────────────────
@@ -94,16 +87,14 @@ function computeLayout(currentNodes, currentBuildings) {
 
   // ── Building positions ────────────────────────────────────
   const bldPos = {};
-  const colGroupAgeIdx = {};  // tracks vertical stack index within col_group + age
 
   currentBuildings.forEach(b => {
+    const ageIdx = Math.floor((b.row ?? b.age * 2) / 2);
+    const subRow = (b.row ?? b.age * 2) % 2;
     if (b.layout_col) {
-      const key = `${b.layout_col}_${b.age}`;
-      const idx = colGroupAgeIdx[key] || 0;
-      colGroupAgeIdx[key] = idx + 1;
       bldPos[b.id] = {
         x: bldX[b.id],
-        y: ageYStart[b.age] + 8 + idx * BLD_ROW_H,
+        y: ageYStart[ageIdx] + 8 + subRow * BLD_ROW_H,
       };
     } else {
       // Center building over the horizontal span of its nodes
@@ -125,7 +116,7 @@ function computeLayout(currentNodes, currentBuildings) {
       const centerCol = (minRow + maxRowVal) / 2;
       bldPos[b.id] = {
         x: bldX[b.id] + centerCol * (NW + NPADX),
-        y: ageYStart[b.age] + 8,
+        y: ageYStart[ageIdx] + 8 + subRow * BLD_ROW_H,
       };
     }
   });
