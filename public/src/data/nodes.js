@@ -42,9 +42,9 @@ export const NODES = [
   { id: 'arbalester', type: 'upgrade', age: 3, building: 'archery', row: 0, prereqs: ['crossbow'], research_cost: { food: 300, gold: 700 }, train_cost: { wood: 25, gold: 45 } },
   { id: 'skirmisher', type: 'unit', age: 1, building: 'archery', row: 1, prereqs: [], train_cost: { food: 35, wood: 25 } },
   { id: 'eliteskirm', type: 'upgrade', age: 2, building: 'archery', row: 1, prereqs: ['skirmisher'], research_cost: { food: 240, gold: 60 }, train_cost: { food: 35, wood: 25 } },
-  { id: 'handcannon', type: 'unit', age: 3, building: 'archery', row: 2, prereqs: [], train_cost: { food: 45, gold: 50 } },
-  { id: 'cavarcher', type: 'unit', age: 2, building: 'archery', row: 3, prereqs: [], train_cost: { wood: 40, gold: 60 } },
-  { id: 'hcavarcher', type: 'upgrade', age: 3, building: 'archery', row: 3, prereqs: ['cavarcher'], research_cost: { food: 400, gold: 175 }, train_cost: { wood: 40, gold: 60 } },
+  { id: 'handcannon', type: 'unit', age: 3, building: 'archery', row: 1, prereqs: [], train_cost: { food: 45, gold: 50 } },
+  { id: 'cavarcher', type: 'unit', age: 2, building: 'archery', row: 2, prereqs: [], train_cost: { wood: 40, gold: 60 } },
+  { id: 'hcavarcher', type: 'upgrade', age: 3, building: 'archery', row: 2, prereqs: ['cavarcher'], research_cost: { food: 400, gold: 175 }, train_cost: { wood: 40, gold: 60 } },
   { id: 'thumbring', type: 'tech', age: 2, building: 'archery', row: 4, prereqs: [], research_cost: { food: 300, gold: 250 } },
   { id: 'parthian', type: 'tech', age: 3, building: 'archery', row: 4, prereqs: ['thumbring'], research_cost: { food: 200, gold: 250 } },
 
@@ -55,8 +55,8 @@ export const NODES = [
   { id: 'grenadier', type: 'unit', age: 2, building: 'archery', row: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 60, gold: 60 } },
   { id: 'xianbei_raider', type: 'unit', age: 2, building: 'archery', row: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 40, gold: 35 } },
   { id: 'bolas_rider', type: 'unit', age: 2, building: 'archery', row: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, gold: 50 } },
-  { id: 'slinger', type: 'unit', age: 2, building: 'archery', row: 2, special: true, variant: 'regional', prereqs: [], train_cost: { food: 30, gold: 40 } },
-  { id: 'genitour', type: 'unit', age: 2, building: 'archery', row: 5, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, wood: 35 } },
+  { id: 'slinger', type: 'unit', age: 2, building: 'archery', row: 4, special: true, variant: 'regional', prereqs: [], train_cost: { food: 30, gold: 40 } },
+  { id: 'genitour', type: 'unit', age: 2, building: 'archery', row: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, wood: 35 } },
 
 
   // ── STABLE ──────────────────────────────────────────────
