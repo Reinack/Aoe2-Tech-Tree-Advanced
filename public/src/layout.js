@@ -13,7 +13,10 @@ const BLD_GAP = 22;         // Separación entre grupos de edificios
 function computeLayout(currentNodes, currentBuildings) {
   const maxRow = {};
   currentBuildings.forEach(b => { maxRow[b.id] = -1; });
-  currentNodes.forEach(n => { maxRow[n.building] = Math.max(maxRow[n.building] ?? -1, n.col); });
+  currentNodes.forEach(n => {
+    const key = n.type === 'defencive' ? 'defencive' : n.building;
+    maxRow[key] = Math.max(maxRow[key] ?? -1, n.col);
+  });
 
   // ── Col-group: allocate one horizontal slot per layout_col group ────────────
   // layout_col buildings (towers, walls) share a column; their vertical
@@ -30,7 +33,7 @@ function computeLayout(currentNodes, currentBuildings) {
 
   // ── X allocation ─────────────────────────────────────────
   const bldX = {};
-  const colGroupX = {};
+  const colGroupX = { defencive: LEFT_LABEL_W + 20 };
   let x = LEFT_LABEL_W;
   const allocatedColGroups = new Set();
 
@@ -39,15 +42,22 @@ function computeLayout(currentNodes, currentBuildings) {
       if (!allocatedColGroups.has(b.layout_col)) {
         allocatedColGroups.add(b.layout_col);
         colGroupX[b.layout_col] = x;
-        x += (NW + NPADX) + BLD_GAP;   // one column wide for the whole group
+        x += (NW + NPADX) + BLD_GAP;
       }
       bldX[b.id] = colGroupX[b.layout_col];
     } else {
       bldX[b.id] = x;
-      const cols = Math.max((maxRow[b.id] ?? 0) + 1, 1);
+      const key = b.id;
+      const cols = Math.max((maxRow[key] ?? 0) + 1, 1);
       x += cols * (NW + NPADX) + BLD_GAP;
     }
   });
+
+  // Defensive col groups (towers col=0, walls col=1) handled via maxRow['defencive']
+  if (maxRow['defencive'] !== undefined) {
+    const defCols = (maxRow['defencive'] ?? 0) + 1;
+    // allocate space for defensive group if needed
+  }
 
   // (depth calculation removed — vertical position comes from n.row directly)
 
@@ -69,18 +79,21 @@ function computeLayout(currentNodes, currentBuildings) {
   const pos = {};
   currentNodes.forEach(n => {
     let colIndex = n.col;
+    const isDef = n.type === 'defencive';
+    const bKey = isDef ? 'defencive' : n.building;
     if (n.prereqs && n.prereqs.length > 0) {
       const pId = n.prereqs[0];
       const pNode = currentNodes.find(x => x.id === pId);
-      if (pNode && pNode.building === n.building && Math.floor(pNode.row / 2) === Math.floor(n.row / 2)) {
+      if (pNode && ((isDef && pNode.type==='defencive') || pNode.building === n.building) && Math.floor(pNode.row / 2) === Math.floor(n.row / 2)) {
         colIndex = pNode.col;
       }
     }
     const ageIndex = Math.floor(n.row / 2);
     const subRow = n.row % 2;
     const topH = ageHasBuildings[ageIndex] ? ageMaxBldRows[ageIndex] * BLD_ROW_H : AGE_TOP_H;
+    const baseX = isDef ? (colGroupX['defencive'] ?? LEFT_LABEL_W) : bldX[n.building];
     pos[n.id] = {
-      x: bldX[n.building] + colIndex * (NW + NPADX),
+      x: baseX + colIndex * (NW + NPADX),
       y: ageYStart[ageIndex] + topH + subRow * SLOT_H + 10,
     };
   });

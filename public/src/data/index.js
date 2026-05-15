@@ -4,6 +4,7 @@
 import { AGES, AGE_COLORS } from './ages.js';
 import { NODES } from './nodes.js';
 const BUILDINGS = NODES.filter(n => n.type === 'building');
+const DEFENSIVES = NODES.filter(n => n.type === 'defencive');
 import { UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS } from './units.js';
 import { IMG_MAP } from './img_map.js';
 import { UNIT_CLASSES, UNIQUE_UNIT_CLASSES, TECH_AFFECTS } from './tech_effects.js';
@@ -127,6 +128,7 @@ const CIVS = {
 window.AGES = AGES;
 window.AGE_COLORS = AGE_COLORS;
 window.BUILDINGS = BUILDINGS;
+window.DEFENSIVES = DEFENSIVES;
 window.NODES = NODES;
 window.UNIT_STATS = UNIT_STATS;
 window.REGIONAL_UNIT_STATS = REGIONAL_UNIT_STATS;
@@ -138,4 +140,4 @@ window.UNIQUE_UNIT_CLASSES = UNIQUE_UNIT_CLASSES;
 window.TECH_AFFECTS = TECH_AFFECTS;
 
 export default CIVS;
-export { AGES, AGE_COLORS, BUILDINGS, NODES, UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS, IMG_MAP, CIVS };
+export { AGES, AGE_COLORS, BUILDINGS, DEFENSIVES, NODES, UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS, IMG_MAP, CIVS };
