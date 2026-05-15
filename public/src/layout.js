@@ -33,7 +33,7 @@ function computeLayout(currentNodes, currentBuildings) {
 
   // ── X allocation ─────────────────────────────────────────
   const bldX = {};
-  const colGroupX = { defencive: LEFT_LABEL_W + 20 };
+  const colGroupX = {};
   let x = LEFT_LABEL_W;
   const allocatedColGroups = new Set();
 
@@ -53,10 +53,11 @@ function computeLayout(currentNodes, currentBuildings) {
     }
   });
 
-  // Defensive col groups (towers col=0, walls col=1) handled via maxRow['defencive']
+  // Place defensive group (towers/walls by col) AFTER university
   if (maxRow['defencive'] !== undefined) {
-    const defCols = (maxRow['defencive'] ?? 0) + 1;
-    // allocate space for defensive group if needed
+    const uniX = bldX['university'] ?? x;
+    colGroupX['defencive'] = uniX + (NW + NPADX) + BLD_GAP;
+    x = colGroupX['defencive'] + ((maxRow['defencive'] ?? 0) + 1) * (NW + NPADX) + BLD_GAP;
   }
 
   // (depth calculation removed — vertical position comes from n.row directly)
@@ -91,7 +92,7 @@ function computeLayout(currentNodes, currentBuildings) {
     const ageIndex = Math.floor(n.row / 2);
     const subRow = n.row % 2;
     const topH = ageHasBuildings[ageIndex] ? ageMaxBldRows[ageIndex] * BLD_ROW_H : AGE_TOP_H;
-    const baseX = isDef ? (colGroupX['defencive'] ?? LEFT_LABEL_W) : bldX[n.building];
+    const baseX = isDef ? (colGroupX['defencive'] ?? x) : bldX[n.building];
     pos[n.id] = {
       x: baseX + colIndex * (NW + NPADX),
       y: ageYStart[ageIndex] + topH + subRow * SLOT_H + 10,
