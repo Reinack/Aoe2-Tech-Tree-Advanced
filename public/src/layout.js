@@ -91,7 +91,7 @@ function computeLayout(currentNodes, currentBuildings) {
   const ageHArray = [0, 0, 0, 0];
   for (let i = 0; i < 4; i++) {
     const topH = ageHasBuildings[i] ? ageMaxBldRows[i] * BLD_ROW_H : AGE_TOP_H;
-    ageHArray[i] = topH + (Math.max(ageMaxDepth[i], 1) + 1) * SLOT_H + 10;
+    ageHArray[i] = topH + (ageMaxDepth[i] + 1) * SLOT_H + 10;
     if (i > 0) ageYStart[i] = ageYStart[i - 1] + ageHArray[i - 1];
   }
 
