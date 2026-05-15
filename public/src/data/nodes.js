@@ -242,6 +242,11 @@ export const NODES = [
   { id: 'townpatrol', type: 'tech', age: 2, building: 'tc', row: 1, prereqs: ['townwatch'], research_cost: { food: 500 } },
   { id: 'house', type: 'building', age: 0, building: '', row: 2, prereqs: [], build_cost: { wood: 25 } },
 
+  // ── Age Advancement Techs ────────────────────────────────
+  { id: 'feudalage', type: 'tech', age: 0, building: 'tc', row: 2, prereqs: [], research_cost: { food: 500 } },
+  { id: 'castleage', type: 'tech', age: 1, building: 'tc', row: 3, prereqs: ['feudalage'], research_cost: { food: 800, gold: 200 } },
+  { id: 'imperialage', type: 'tech', age: 2, building: 'tc', row: 4, prereqs: ['castleage'], research_cost: { food: 1000, gold: 800 } },
+
 
   // ── MILL ────────────────────────────────────────────────
   { id: 'horsecollar', type: 'tech', age: 1, building: 'mill', row: 0, prereqs: [], research_cost: { food: 75, wood: 75 } },

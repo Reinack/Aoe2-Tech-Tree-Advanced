@@ -250,6 +250,9 @@ const IMG_MAP = {
   'townwatch': 'img/Tech/69.png',
   'handcart': 'img/Tech/42.png',
   'townpatrol': 'img/Tech/89.png',
+  'feudalage': 'img/Tech/30.png',
+  'castleage': 'img/Tech/31.png',
+  'imperialage': 'img/Tech/32.png',
 
   // ── MILL ──────────────────────────────────────────────────
   'horsecollar': 'img/Tech/2.png',
@@ -286,7 +289,8 @@ const IMG_MAP = {
   'goldmining_m':   'img/Tech/15.png',
   'goldshaft_m':    'img/Tech/62.png',
   'stonemining_m':  'img/Tech/87.png',
-  'stoneshaft_m':   'img/Tech/88.png',
+   'stoneshaft_m':  'img/Tech/88.png',
+  'wonder': 'img/Building/31.png',
 };
 
 export { IMG_MAP };

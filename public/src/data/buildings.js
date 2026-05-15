@@ -23,6 +23,7 @@ export const BUILDINGS = [
   
 
   { id: 'castle',    name: 'Castillo',           icon: '🏯', age: 2, prereqs: [],           build_cost: { stone: 650 }, stats: { hp: 4800, armor: [8, 11], attack: 11, range: 8 } },
+  { id: 'wonder',    name: 'Maravilla',          icon: '🏰', age: 3, prereqs: [],           build_cost: { wood: 1000, stone: 1000, gold: 1000 }, stats: { hp: 4800, armor: [3, 5] } },
   { id: 'monastery', name: 'Monasterio',         icon: '⛪', age: 2, prereqs: [],           build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
   { id: 'fortified_church', name: 'Iglesia Fort.', icon: '⛪', age: 2, prereqs: [],     build_cost: { wood: 200 }, stats: { hp: 2500, armor: [0, 8] }, replaces: ['monastery'] },
   // ── Economía ──────────────────────────────────────────────  
