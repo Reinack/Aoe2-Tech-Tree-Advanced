@@ -70,12 +70,13 @@ function showTip(ev, n) {
     statsContainer.style.display = 'block';
     statsContainer.innerHTML = `
       <div class="tt-stats-grid">
-        <div class="tt-stat-item"><span class="stat-icon">❤️</span> <span class="stat-val">${stats.hp}</span></div>
-        <div class="tt-stat-item"><span class="stat-icon">⚔️</span> <span class="stat-val">${stats.attack}</span></div>
-        <div class="tt-stat-item"><span class="stat-icon">🛡️</span> <span class="stat-val">${stats.armor[0]}/${stats.armor[1]}</span></div>
-        ${stats.range ? `<div class="tt-stat-item"><span class="stat-icon">🏹</span> <span class="stat-val">${stats.range}</span></div>` : ''}
-        <div class="tt-stat-item"><span class="stat-icon">🏃</span> <span class="stat-val">${stats.speed}</span></div>
-        ${stats.rof ? `<div class="tt-stat-item"><span class="stat-icon">⏱️</span> <span class="stat-val">${stats.rof}s</span></div>` : ''}
+        <div class="tt-stat-item">${statIcon('hp')} <span class="stat-val">${stats.hp}</span></div>
+        <div class="tt-stat-item">${statIcon('attack')} <span class="stat-val">${stats.attack}</span></div>
+        <div class="tt-stat-item">${statIcon('armor')} <span class="stat-val">${stats.armor[0]}</span></div>
+        <div class="tt-stat-item">${statIcon('parmor')} <span class="stat-val">${stats.armor[1]}</span></div>
+        ${stats.range ? `<div class="tt-stat-item">${statIcon('range')} <span class="stat-val">${stats.range}</span></div>` : ''}
+        <div class="tt-stat-item">${statIcon('speed')} <span class="stat-val">${stats.speed}</span></div>
+        ${stats.rof ? `<div class="tt-stat-item">${statIcon('rof')} <span class="stat-val">${stats.rof}s</span></div>` : ''}
       </div>
     `;
   } else {
@@ -134,6 +135,25 @@ function getStatsForNode(n) {
   return stats;
 }
 
+const STAT_ICONS = {
+  hp:            'img/Icon/hp.webp',
+  attack:        'img/Icon/attack.webp',
+  armor:         'img/Icon/armor.webp',
+  parmor:        'img/Icon/pierce_armor.webp',
+  range:         'img/Icon/range.webp',
+  speed:         'img/Icon/speed.webp',
+  rof:           'img/Icon/reload.webp',
+  pierce_attack: 'img/Icon/pierce_attack.webp',
+  garrison:      'img/Icon/garrison.webp',
+  los:           'img/Icon/los.webp',
+};
+
+function statIcon(key) {
+  const src = STAT_ICONS[key];
+  if (src) return `<img src="${src}" class="stat-img-icon" alt="${key}">`;
+  return key;
+}
+
 function statRow(icon, label, val, sub) {
   return `<div class="sp-stat-row">
     <span class="sp-stat-icon">${icon}</span>
@@ -177,14 +197,15 @@ function showStatsPanel(ev, n) {
   } else {
     noStatsEl.textContent = '';
     const grid = [];
-    grid.push(statRow('❤️', 'Salud', stats.hp || '—'));
-    if (stats.attack !== undefined) grid.push(statRow('⚔️', 'Ataque', stats.attack));
-    grid.push(statRow('🛡️', 'Armadura', (stats.armor) ? `${stats.armor[0]}/${stats.armor[1]}` : '—/—'));
-    if (stats.range)  grid.push(statRow('🏹', 'Alcance', stats.range));
-    if (stats.speed)  grid.push(statRow('🏃', 'Velocidad', stats.speed));
-    if (stats.rof)    grid.push(statRow('⏱️', 'Cadencia', `${stats.rof}s`));
-    if (stats.los)    grid.push(statRow('👁️', 'Visión', stats.los));
-    if (stats.train)  grid.push(statRow('⏳', n.type === 'unit' ? 'Entrenamiento' : 'Tiempo', `${stats.train}s`));
+    grid.push(statRow(statIcon('hp'), 'Salud', stats.hp || '—'));
+    if (stats.attack !== undefined) grid.push(statRow(statIcon('attack'), 'Ataque', stats.attack));
+    grid.push(statRow(statIcon('armor'), 'Armadura mele', (stats.armor) ? stats.armor[0] : '—'));
+    grid.push(statRow(statIcon('parmor'), 'Armadura perfo.', (stats.armor) ? stats.armor[1] : '—'));
+    if (stats.range)  grid.push(statRow(statIcon('range'), 'Alcance', stats.range));
+    if (stats.speed)  grid.push(statRow(statIcon('speed'), 'Velocidad', stats.speed));
+    if (stats.rof)    grid.push(statRow(statIcon('rof'), 'Cadencia', `${stats.rof}s`));
+    if (stats.los)    grid.push(statRow(statIcon('los'), 'Visión', stats.los));
+    if (stats.train)  grid.push(statRow(statIcon('rof'), n.type === 'unit' ? 'Entrenamiento' : 'Tiempo', `${stats.train}s`));
     gridEl.innerHTML = grid.join('');
   }
 

@@ -525,6 +525,25 @@ function getStatsForNode(n) {
   return UNIT_STATS[n.id] || REGIONAL_UNIT_STATS[n.id] || UNIQUE_UNIT_STATS[n.id] || n.stats || null;
 }
 
+const STAT_ICONS = {
+  hp:            'img/Icon/hp.webp',
+  attack:        'img/Icon/attack.webp',
+  armor:         'img/Icon/armor.webp',
+  parmor:        'img/Icon/pierce_armor.webp',
+  range:         'img/Icon/range.webp',
+  speed:         'img/Icon/speed.webp',
+  rof:           'img/Icon/reload.webp',
+  pierce_attack: 'img/Icon/pierce_attack.webp',
+  garrison:      'img/Icon/garrison.webp',
+  los:           'img/Icon/los.webp',
+};
+
+function statIcon(key) {
+  const src = STAT_ICONS[key];
+  if (src) return `<img src="${src}" class="stat-img-icon" alt="${key}">`;
+  return key;
+}
+
 function statRow(icon, label, val, sub) {
   return `<div class="sp-stat">
     <span class="sp-stat-icon">${icon}</span>
@@ -565,19 +584,19 @@ function showStatsPanel(ev, n) {
     noStats.style.display = 'none';
     gridEl.style.display = 'grid';
     const rows = [];
-    rows.push(statRow('❤️', t('hp'), stats.hp || '—'));
-    if (stats.attack !== undefined) rows.push(statRow('⚔️', t('attack'), stats.attack));
-    rows.push(statRow('🛡️', t('armor_m'), (stats.armor && stats.armor[0] !== undefined) ? stats.armor[0] : '—'));
-    rows.push(statRow('🔰', t('armor_p'), (stats.armor && stats.armor[1] !== undefined) ? stats.armor[1] : '—'));
-    
+    rows.push(statRow(statIcon('hp'), t('hp'), stats.hp || '—'));
+    if (stats.attack !== undefined) rows.push(statRow(statIcon('attack'), t('attack'), stats.attack));
+    rows.push(statRow(statIcon('armor'), t('armor_m'), (stats.armor && stats.armor[0] !== undefined) ? stats.armor[0] : '—'));
+    rows.push(statRow(statIcon('parmor'), t('armor_p'), (stats.armor && stats.armor[1] !== undefined) ? stats.armor[1] : '—'));
+
     if (stats.range) {
-      rows.push(statRow('🏹', t('range'), stats.range));
+      rows.push(statRow(statIcon('range'), t('range'), stats.range));
     } else if (n.type === 'unit') {
-      rows.push(statRow('⚔️', t('melee_range'), '—'));
+      rows.push(statRow(statIcon('attack'), t('melee_range'), '—'));
     }
 
-    if (stats.speed) rows.push(statRow('🏃', t('speed'), stats.speed));
-    if (stats.los)   rows.push(statRow('👁️', t('los'), stats.los));
+    if (stats.speed) rows.push(statRow(statIcon('speed'), t('speed'), stats.speed));
+    if (stats.los)   rows.push(statRow(statIcon('los'), t('los'), stats.los));
     
     gridEl.innerHTML = rows.join('');
   } else {
