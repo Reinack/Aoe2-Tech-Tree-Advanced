@@ -247,9 +247,7 @@ export const NODES = [
   { id: 'horsecollar', type: 'tech', age: 1, building: 'mill', row: 0, prereqs: [], research_cost: { food: 75, wood: 75 } },
   { id: 'heavyplow', type: 'tech', age: 2, building: 'mill', row: 0, prereqs: ['horsecollar'], research_cost: { food: 125, wood: 125 } },
   { id: 'croprotation', type: 'tech', age: 3, building: 'mill', row: 0, prereqs: ['heavyplow'], research_cost: { food: 250, wood: 250, gold: 60 } },
-  { id: 'mule_cart', type: 'unit', age: 0, building: 'lumber', row: 1, special: true, variant: 'regional', prereqs: [], build_cost: { wood: 100, food: 20 } },
-
-
+ 
   // ── LUMBER CAMP ─────────────────────────────────────────
   { id: 'doublebitaxe', type: 'tech', age: 1, building: 'lumber', row: 0, prereqs: [], research_cost: { food: 100, wood: 50 } },
   { id: 'bowsaw', type: 'tech', age: 2, building: 'lumber', row: 0, prereqs: ['doublebitaxe'], research_cost: { food: 150, wood: 100 } },
