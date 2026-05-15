@@ -61,6 +61,7 @@ const LOCALE_ES = {
     monastery:      "Monasterio",
     university:     "Universidad",
     castle:         "Castillo",
+    wonder:         "Maravilla",
     market:         "Mercado",
     blacksmith:     "Herrería",
     tc:             "Centro Urbano",
@@ -301,6 +302,9 @@ const LOCALE_ES = {
     townwatch:    { name: 'Guardia Municipal',     effect: '+4 línea de visión para Centros Urbanos.' },
     handcart:     { name: 'Carro de Mano',         effect: 'Aldeanos +7 carga, +10% velocidad.' },
     townpatrol:   { name: 'Patrulla Urbana',       effect: '+6 LDV para Torres y CU.' },
+    feudalage:    { name: 'Edad Feudal',           effect: 'Avanza a la Edad Feudal.' },
+    castleage:    { name: 'Edad de los Castillos', effect: 'Avanza a la Edad de los Castillos.' },
+    imperialage:  { name: 'Edad Imperial',         effect: 'Avanza a la Edad Imperial.' },
 
     // ── Molino ───────────────────────────────────────────────
     horsecollar:  { name: 'Collarín para Caballo', effect: 'Granjas producen 75 de comida extra.' },

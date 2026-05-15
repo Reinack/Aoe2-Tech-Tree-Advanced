@@ -61,6 +61,7 @@ const LOCALE_EN = {
     monastery:      "Monastery",
     university:     "University",
     castle:         "Castle",
+    wonder:         "Wonder",
     market:         "Market",
     blacksmith:     "Blacksmith",
     tc:             "Town Center",
@@ -301,6 +302,9 @@ const LOCALE_EN = {
     townwatch:    { name: 'Town Watch',             effect: '+4 line of sight for Town Centers.' },
     handcart:     { name: 'Hand Cart',              effect: 'Villagers +7 carry capacity, +10% speed.' },
     townpatrol:   { name: 'Town Patrol',            effect: '+6 LoS for Towers and Town Centers.' },
+    feudalage:    { name: 'Feudal Age',             effect: 'Advance to the Feudal Age.' },
+    castleage:    { name: 'Castle Age',             effect: 'Advance to the Castle Age.' },
+    imperialage:  { name: 'Imperial Age',           effect: 'Advance to the Imperial Age.' },
 
     // ── Mill ─────────────────────────────────────────────────
     horsecollar:  { name: 'Horse Collar',           effect: 'Farms produce 75 extra food.' },

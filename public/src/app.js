@@ -66,7 +66,8 @@ svgD3.on('wheel', event => {
 }, { passive: false });
 
 function getCiv() { return CIVS[currentCiv] || CIVS.generic; }
-function isMissing(id) { return !getCiv().available.includes(id); }
+const ALWAYS_AVAILABLE = new Set(['feudalage', 'castleage', 'imperialage', 'wonder']);
+function isMissing(id) { return !ALWAYS_AVAILABLE.has(id) && !getCiv().available.includes(id); }
 
 // ── Helper: locale data for a civ ────────────────────────────────────────────
 function civLocale(civId) {
