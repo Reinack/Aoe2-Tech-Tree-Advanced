@@ -181,14 +181,14 @@ export const NODES = [
   { id: 'gillnets', type: 'tech', age: 2, building: 'dock', row: 0, prereqs: ['fishing_lines'], research_cost: { food: 150, gold: 200 } },
 
   // ── Dock special / unique ────────────────────────────────
-  { id: 'dragon_ship', type: 'unit', age: 3, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: ['fireship'], train_cost: { wood: 75, gold: 45 } },
+  { id: 'dragon_ship', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'unique', prereqs: ['fireship'], train_cost: { wood: 75, gold: 45 } },
   { id: 'dromon', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 150 } },
   { id: 'lou_chuan', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
   { id: 'catapult_gall', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
-  { id: 'turtle_ship', type: 'unit', age: 2, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 180, gold: 180 } },
-  { id: 'longboat', type: 'unit', age: 2, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 75, gold: 40 } },
-  { id: 'caravel_d', type: 'unit', age: 2, building: 'dock', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 90, gold: 40 } },
-  { id: 'thirisadai', type: 'unit', age: 3, building: 'dock', row: 1, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 300, gold: 250 } },
+  { id: 'turtle_ship', type: 'unit', age: 2, building: 'dock', row: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 180, gold: 180 } },
+  { id: 'longboat', type: 'unit', age: 2, building: 'dock', row: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 75, gold: 40 } },
+  { id: 'caravel_d', type: 'unit', age: 2, building: 'dock', row: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 90, gold: 40 } },
+  { id: 'thirisadai', type: 'unit', age: 3, building: 'dock', row: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 300, gold: 250 } },
 
 
   // ── UNIVERSITY ──────────────────────────────────────────────
