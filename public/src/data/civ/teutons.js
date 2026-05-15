@@ -65,6 +65,7 @@ const TEUTONS = {
     "cavalier",
     "paladin",
     "bloodlines",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

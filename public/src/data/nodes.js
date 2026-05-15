@@ -116,6 +116,8 @@ export const NODES = [
 
   { id: 'bombcannon', type: 'unit', age: 3, building: 'siege', row: 3, prereqs: [], train_cost: { wood: 225, gold: 225 } },
 
+  { id: 'siegetower', type: 'unit', age: 2, building: 'siege', row: 3, prereqs: [], train_cost: { wood: 160, gold: 160 } },
+
   // ── Siege special / unique ───────────────────────────────
   { id: 'houfnice', type: 'upgrade', age: 3, building: 'siege', row: 3, special: true, variant: 'unique', prereqs: ['bombcannon'], research_cost: { food: 950, gold: 750 }, train_cost: { wood: 225, gold: 225 } },
   { id: 'traction_treb', type: 'unit', age: 3, building: 'siege', row: 3, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 200 } },
@@ -204,6 +206,7 @@ export const NODES = [
   { id: 'carvel_hull', type: 'tech', age: 3, building: 'university', row: 6, prereqs: ['clinker_construction'], research_cost: { wood: 300, gold: 200 } },
   { id: 'siphons', type: 'tech', age: 2, building: 'university', row: 7, prereqs: [], research_cost: { wood: 150, gold: 100 } },
   { id: 'incendiaries', type: 'tech', age: 3, building: 'university', row: 7, prereqs: ['siphons'], research_cost: { wood: 250, gold: 200 } },
+  { id: 'arrowslits', type: 'tech', age: 3, building: 'university', row: 4, prereqs: [], research_cost: { food: 250, wood: 250 } },
   { id: 'shipwright', type: 'tech', age: 3, building: 'university', row: 8, prereqs: [], research_cost: { food: 200, gold: 300 } },
 
 
@@ -224,7 +227,6 @@ export const NODES = [
   // ── Monastery special / unique ───────────────────────────
   { id: 'warrior_priest', type: 'unit', age: 2, building: 'monastery', row: 8, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
   { id: 'missionary', type: 'unit', age: 2, building: 'monastery', row: 7, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
-  { id: 'fortified_church', type: 'unit', age: 2, building: 'monastery', row: 9, special: true, variant: 'regional', prereqs: [], build_cost: { wood: 200 } },
 
 
   // ── CASTLE ──────────────────────────────────────────────
@@ -268,7 +270,6 @@ export const NODES = [
   { id: 'horsecollar', type: 'tech', age: 1, building: 'mill', row: 0, prereqs: [], research_cost: { food: 75, wood: 75 } },
   { id: 'heavyplow', type: 'tech', age: 2, building: 'mill', row: 0, prereqs: ['horsecollar'], research_cost: { food: 125, wood: 125 } },
   { id: 'croprotation', type: 'tech', age: 3, building: 'mill', row: 0, prereqs: ['heavyplow'], research_cost: { food: 250, wood: 250, gold: 60 } },
-  { id: 'folwark', type: 'unit', age: 1, building: 'mill', row: 1, special: true, variant: 'unique', prereqs: [], build_cost: { wood: 100 } },
   { id: 'mule_cart', type: 'unit', age: 0, building: 'lumber', row: 1, special: true, variant: 'regional', prereqs: [], build_cost: { wood: 100, food: 20 } },
 
 

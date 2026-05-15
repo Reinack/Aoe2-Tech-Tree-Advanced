@@ -61,6 +61,7 @@ const MAGYARS = {
     "paladin",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

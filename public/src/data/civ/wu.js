@@ -67,6 +67,7 @@ const WU = {
     "husbandry",
     "hei_guang",
     "heavy_hei_guang",
+    "siegetower",
     "batteringram",
     "mangonel",
     "onager",

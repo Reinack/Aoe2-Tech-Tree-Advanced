@@ -68,6 +68,7 @@ const MALAY = {
     "battleeleph",
     "eliteeleph",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

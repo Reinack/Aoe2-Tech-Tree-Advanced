@@ -81,6 +81,7 @@ const ITALIANS = {
     "cavalier",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

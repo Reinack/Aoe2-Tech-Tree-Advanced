@@ -62,6 +62,7 @@ const ROMANS = {
     "cavalier",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

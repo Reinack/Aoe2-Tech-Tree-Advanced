@@ -68,6 +68,7 @@ const GURJARAS = {
     "camel_scout",
     "shrivamsha",
     "elite_shrivamsha",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

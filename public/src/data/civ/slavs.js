@@ -69,6 +69,7 @@ const SLAVS = {
     "paladin",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

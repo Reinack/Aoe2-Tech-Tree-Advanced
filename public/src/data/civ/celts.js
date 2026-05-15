@@ -72,6 +72,7 @@ const CELTS = {
     "paladin",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

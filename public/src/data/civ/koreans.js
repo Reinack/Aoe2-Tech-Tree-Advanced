@@ -74,6 +74,7 @@ const KOREANS = {
     "knight",
     "cavalier",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

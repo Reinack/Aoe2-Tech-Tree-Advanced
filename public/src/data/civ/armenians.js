@@ -64,6 +64,7 @@ const ARMENIANS = {
     "cavalier",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

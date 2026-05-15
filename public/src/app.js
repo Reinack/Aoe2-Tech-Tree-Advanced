@@ -148,10 +148,19 @@ function render() {
   activeBuildings.forEach(b => {
     if (b.replaces && !isMissing(b.id)) b.replaces.forEach(id => replacedIds.add(id));
   });
+  const buildingRemap = {};
+  activeBuildings.forEach(b => {
+    if (b.replaces && !isMissing(b.id)) {
+      b.replaces.forEach(id => { buildingRemap[id] = b.id; });
+    }
+  });
   activeBuildings = activeBuildings.filter(b => {
     if (replacedIds.has(b.id)) return false;
     if (b.replaces && isMissing(b.id)) return false;
     return true;
+  });
+  activeNodes.forEach(n => {
+    if (buildingRemap[n.building]) n.building = buildingRemap[n.building];
   });
 
   if (civ.overrides) {

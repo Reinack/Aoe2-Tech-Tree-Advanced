@@ -74,6 +74,7 @@ const JAPANESE = {
     "cavalier",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

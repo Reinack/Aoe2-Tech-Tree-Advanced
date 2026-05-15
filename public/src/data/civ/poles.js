@@ -69,6 +69,7 @@ const POLES = {
     "bloodlines",
     "husbandry",
     "winged_hussar",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

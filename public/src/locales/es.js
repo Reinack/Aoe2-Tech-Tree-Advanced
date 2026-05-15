@@ -177,6 +177,7 @@ const LOCALE_ES = {
     scorpion:     { name: 'Escorpión',             effect: 'Ballesta de asedio anti-infantería.' },
     heavyscorpion:{ name: 'Escorpión Pesado',      effect: '+1 rango, más daño.' },
     bombcannon:   { name: 'Cañón de Bombarda',     effect: '[Requiere Química] Cañón de pólvora.' },
+    siegetower:   { name: 'Torre de Asedio',       effect: 'Transporte terrestre rápido que permite a la infantería pasar por encima de muros enemigos.' },
 
     houfnice:     { name: 'Houfnice',              effect: '[Solo Bohemios] Máxima mejora de cañón.' },
     traction_treb:{ name: 'Lanzapiedras Tracción', effect: '[Civs Tres Reinos] Lanzapiedras temprano.' },
@@ -253,6 +254,7 @@ const LOCALE_ES = {
     carvel_hull:      { name: 'Casco de Carabela',        effect: 'Barcos se mueven +10% más rápido.' },
     siphons:          { name: 'Sifones',                  effect: 'Barcos de Fuego obtienen un ataque de carga explosiva.' },
     incendiaries:     { name: 'Incendiarios',             effect: 'Barcos de Fuego detonan al hundirse, ganando radio de explosión.' },
+    arrowslits:       { name: 'Aspilleras',               effect: 'Torres +1 ataque.' },
 
     // ── Monasterio ───────────────────────────────────────────
     monk:         { name: 'Monje',                 effect: 'Cura aliados y convierte enemigos.' },

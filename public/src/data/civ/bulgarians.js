@@ -68,6 +68,7 @@ const BULGARIANS = {
     "cavalier",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

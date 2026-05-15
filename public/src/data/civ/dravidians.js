@@ -74,6 +74,7 @@ const DRAVIDIANS = {
     "battleeleph",
     "eliteeleph",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

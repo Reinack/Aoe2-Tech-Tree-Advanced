@@ -72,6 +72,7 @@ const PERSIANS = {
     "bloodlines",
     "husbandry",
     "savar",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

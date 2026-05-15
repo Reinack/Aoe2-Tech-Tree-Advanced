@@ -67,6 +67,7 @@ const VIETNAMESE = {
     "eliteeleph",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

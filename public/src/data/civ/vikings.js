@@ -60,6 +60,7 @@ const VIKINGS = {
     "lightcav",
     "knight",
     "cavalier",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

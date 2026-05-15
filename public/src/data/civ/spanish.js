@@ -68,6 +68,7 @@ const SPANISH = {
     "paladin",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

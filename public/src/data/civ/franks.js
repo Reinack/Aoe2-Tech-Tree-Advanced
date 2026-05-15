@@ -70,6 +70,7 @@ const FRANKS = {
     "cavalier",
     "paladin",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

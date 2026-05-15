@@ -63,6 +63,7 @@ const ETHIOPIANS = {
     "cavalier",
     "camel",
     "bloodlines",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

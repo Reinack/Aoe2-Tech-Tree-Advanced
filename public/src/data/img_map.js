@@ -20,6 +20,9 @@ const IMG_MAP = {
   'tahsili':  'img/Building/98.png',
   'mulecart': 'img/Building/89.png',
   'house': 'img/Building/11.png',
+  'harbor': 'img/Building/56.png',
+  'fortified_church': 'img/Building/88.png',
+  'folwark': 'img/Building/86.png',
 
   // ── BARRACKS — Infantería ──────────────────────────────────
   'militia': 'img/Unit/8.png',
@@ -110,6 +113,7 @@ const IMG_MAP = {
   'scorpion': 'img/Unit/80.png',
   'heavyscorpion': 'img/Unit/89.png',
   'bombcannon': 'img/Unit/30.png',
+  'siegetower': 'img/Unit/212.png',
   // Especiales Asedio
   'houfnice': 'img/Unit/372.png',
   'rocket_cart': 'img/Unit/459.png',
@@ -180,11 +184,12 @@ const IMG_MAP = {
   'treadmillcrane': 'img/Tech/60.png',
   'heatedshot': 'img/Tech/104.png',
   'clinker_construction': 'img/Tech/142.png',
-  'caravel_hull': 'img/Tech/141.png',
+  'carvel_hull': 'img/Tech/141.png',
   'siphons': 'img/Tech/40.png',
   'incendiaries': 'img/Tech/143.png',
   'careening': 'img/Tech/98.png',
   'drydock': 'img/Tech/99.png',
+  'arrowslits': 'img/Tech/119.png',
   'shipwright': 'img/Tech/97.png',
 
   // ── TORRES ──────────────────────────────────────────────

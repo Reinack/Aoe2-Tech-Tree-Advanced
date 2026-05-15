@@ -76,6 +76,7 @@ const SARACENS = {
     "heavycamel",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

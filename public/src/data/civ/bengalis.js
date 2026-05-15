@@ -73,6 +73,7 @@ const BENGALIS = {
     "eliteeleph",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

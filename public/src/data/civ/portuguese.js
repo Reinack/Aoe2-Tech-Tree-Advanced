@@ -65,6 +65,7 @@ const PORTUGUESE = {
     "paladin",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

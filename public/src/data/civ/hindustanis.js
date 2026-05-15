@@ -78,6 +78,7 @@ const HINDUSTANIS = {
     "bloodlines",
     "husbandry",
     "imp_camel",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

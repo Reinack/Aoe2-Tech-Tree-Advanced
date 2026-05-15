@@ -76,6 +76,7 @@ const BYZANTINES = {
     "heavycamel",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

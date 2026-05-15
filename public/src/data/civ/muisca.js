@@ -49,6 +49,7 @@ const MUISCA = {
     "arbalester",
     "skirmisher",
     "eliteskirm",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

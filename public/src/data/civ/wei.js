@@ -67,6 +67,7 @@ const WEI = {
     "husbandry",
     "hei_guang",
     "heavy_hei_guang",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

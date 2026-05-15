@@ -58,6 +58,7 @@ const GENERIC = {
     "siegeonager",
     "scorpion",
     "heavyscorpion",
+    "siegetower",
     "forging",
     "ironcasting",
     "blastfurnace",

@@ -58,6 +58,7 @@ const AZTECS = {
     "arbalester",
     "skirmisher",
     "eliteskirm",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

@@ -67,6 +67,7 @@ const KHITANS = {
     "hussar",
     "cavalier",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

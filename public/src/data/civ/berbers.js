@@ -67,6 +67,7 @@ const BERBERS = {
     "heavycamel",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

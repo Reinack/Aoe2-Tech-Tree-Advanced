@@ -65,6 +65,7 @@ const KHMER = {
     "eliteeleph",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

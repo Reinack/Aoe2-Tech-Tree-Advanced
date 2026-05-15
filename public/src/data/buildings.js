@@ -6,6 +6,7 @@ export const BUILDINGS = [
   { id: 'blacksmith',name: 'Herrería',           icon: '🔨', age: 1, prereqs: [],           build_cost: { wood: 150 }, stats: { hp: 2100, armor: [0, 7] } },
   { id: 'siege',     name: 'Taller de Asedio',   icon: '⚒️', age: 2, prereqs: ['blacksmith'], build_cost: { wood: 200 }, stats: { hp: 2100, armor: [0, 7] } },
   { id: 'dock',      name: 'Muelle',             icon: '⚓', age: 0, prereqs: [],           build_cost: { wood: 150 }, stats: { hp: 1500, armor: [0, 7] } },
+  { id: 'harbor',   name: 'Puerto',             icon: '⚓', age: 0, prereqs: [],           build_cost: { wood: 150 }, stats: { hp: 2000, armor: [0, 7], attack: 4, range: 6 }, replaces: ['dock'] },
   { id: 'university',name: 'Universidad',        icon: '🎓', age: 2, prereqs: [],           build_cost: { wood: 200 }, stats: { hp: 2100, armor: [0, 7] } },
     // ── Torres (columna vertical compartida) ──────────────────
   { id: 'outpost',      name: 'Puesto Avanz.',   icon: '🗼', age: 0, prereqs: [],              build_cost: { wood: 25,  stone: 5   }, stats: { hp:  500, armor: [0, 0]               }, layout_col: 'towers' },
@@ -23,6 +24,7 @@ export const BUILDINGS = [
 
   { id: 'castle',    name: 'Castillo',           icon: '🏯', age: 2, prereqs: [],           build_cost: { stone: 650 }, stats: { hp: 4800, armor: [8, 11], attack: 11, range: 8 } },
   { id: 'monastery', name: 'Monasterio',         icon: '⛪', age: 2, prereqs: [],           build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
+  { id: 'fortified_church', name: 'Iglesia Fort.', icon: '⛪', age: 2, prereqs: [],     build_cost: { wood: 200 }, stats: { hp: 2500, armor: [0, 8] }, replaces: ['monastery'] },
   // ── Economía ──────────────────────────────────────────────  
   { id: 'tc',      name: 'Centro Urbano',  icon: '🏰', age: 0, prereqs: [], build_cost: { wood: 275, stone: 100 }, stats: { hp: 2400, armor: [3, 5], attack: 5, range: 6 } },
   { id: 'house',  name: 'Casa',   icon: '', age: 0, prereqs: [], build_cost: { wood: 25 }, stats: { hp: 1000, armor: [0, 7] } },
@@ -32,4 +34,5 @@ export const BUILDINGS = [
   { id: 'mulecart',name: 'Mula de Carga',  icon: '🫏', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'tahsili'] },
   { id: 'market',    name: 'Mercado',            icon: '💰', age: 1, prereqs: ['mill'],     build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
   { id: 'mill',    name: 'Molino',         icon: '🌾', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
+  { id: 'folwark', name: 'Folwark',        icon: '🌾', age: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['mill'] },
 ];

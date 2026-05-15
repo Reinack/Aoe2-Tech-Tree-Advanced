@@ -67,6 +67,7 @@ const LITHUANIANS = {
     "bloodlines",
     "husbandry",
     "winged_hussar",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",

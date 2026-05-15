@@ -71,6 +71,7 @@ const BURGUNDIANS = {
     "paladin",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

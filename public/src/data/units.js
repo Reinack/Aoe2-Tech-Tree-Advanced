@@ -49,6 +49,7 @@ const UNIT_STATS = {
   'scorpion':      { hp: 40,  attack: 12,  armor: [0, 7],   range: 7,  speed: 0.65, rof: 3.6,  los: 9,  train: 30 },
   'heavyscorp':    { hp: 50,  attack: 16,  armor: [0, 8],   range: 7,  speed: 0.65, rof: 3.6,  los: 9,  train: 30 },
   'bombcannon':    { hp: 80,  attack: 40,  armor: [2, 5],   range: 12, speed: 0.70, rof: 6.5,  los: 14, train: 56 },
+  'siegetower':    { hp: 220, attack: 0,   armor: [-2, 100], range: 0, speed: 0.80, rof: 0,    los: 8,  train: 36 },
 
   // ── MUELLE ────────────────────────────────────────────────────────────────
   'fishingship':   { hp: 60,  attack: 0,   armor: [1, 1],   range: 0,  speed: 1.26, rof: 0,    los: 5,  train: 40 },

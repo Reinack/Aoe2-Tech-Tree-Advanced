@@ -177,6 +177,7 @@ const LOCALE_EN = {
     scorpion:     { name: 'Scorpion',               effect: 'Anti-infantry siege bolt thrower.' },
     heavyscorpion:{ name: 'Heavy Scorpion',         effect: '+1 range, more damage.' },
     bombcannon:   { name: 'Bombard Cannon',         effect: '[Requires Chemistry] Gunpowder cannon.' },
+    siegetower:   { name: 'Siege Tower',             effect: 'Quick land transport used to unload infantry over enemy walls.' },
 
     houfnice:     { name: 'Houfnice',               effect: '[Bohemians only] Ultimate Bombard Cannon upgrade.' },
     traction_treb:{ name: 'Traction Trebuchet',     effect: '[Three Kingdoms civs] Early-age trebuchet.' },
@@ -253,6 +254,7 @@ const LOCALE_EN = {
     carvel_hull:      { name: 'Carvel Hull',             effect: 'Improves navigation.' },
     siphons:          { name: 'Greek Fire Siphons',      effect: 'Fire Galleys gain an explosive charge attack.' },
     incendiaries:     { name: 'Incendiaries',            effect: 'Fire Galleys detonate when sunk, dealing damage around them.' },
+    arrowslits:       { name: 'Arrowslits',              effect: 'Towers +1 attack.' },
 
     // ── Monastery ────────────────────────────────────────────
     monk:         { name: 'Monk',                   effect: 'Heals allies and converts enemies.' },

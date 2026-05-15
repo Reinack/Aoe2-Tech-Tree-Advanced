@@ -65,6 +65,7 @@ const TATARS = {
     "husbandry",
     "steppe_lancer",
     "elite_steppe_lancer",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

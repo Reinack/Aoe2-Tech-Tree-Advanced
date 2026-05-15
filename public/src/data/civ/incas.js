@@ -52,6 +52,7 @@ const INCAS = {
     "skirmisher",
     "eliteskirm",
     "thumbring",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

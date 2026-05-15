@@ -50,6 +50,7 @@ const MAPUCHE = {
     "skirmisher",
     "eliteskirm",
     "bolas_rider",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

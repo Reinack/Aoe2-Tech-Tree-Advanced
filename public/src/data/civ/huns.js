@@ -66,6 +66,7 @@ const HUNS = {
     "bloodlines",
     "husbandry",
     "tarkan_s",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

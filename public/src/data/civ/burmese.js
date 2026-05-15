@@ -71,6 +71,7 @@ const BURMESE = {
     "eliteeleph",
     "bloodlines",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "siegeram",

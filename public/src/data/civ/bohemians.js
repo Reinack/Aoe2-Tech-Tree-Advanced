@@ -65,6 +65,7 @@ const BOHEMIANS = {
     "knight",
     "cavalier",
     "husbandry",
+    "siegetower",
     "batteringram",
     "cappedram",
     "mangonel",
