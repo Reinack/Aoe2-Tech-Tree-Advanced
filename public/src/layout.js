@@ -3,10 +3,11 @@
 // ═══════════════════════════════════════════════════════════
 
 const NW = 68, NH = 68, NPADX = 14, NPADY = 10;
-const SLOT_H = 80;          // Height of a sub-row (node + padding)
+const SLOT_H = 72;          // Height of a sub-row (node + padding)
 const LEFT_LABEL_W = 175;
 const TOP_PAD = 10;         // Espacio superior antes de la primera edad
 const BLD_ROW_H = NH + NPADY + 16;  // Altura reservada por fila de edificios
+const AGE_TOP_H = 18;       // Space at top of age bands that have no buildings
 const BLD_GAP = 22;         // Separación entre grupos de edificios
 
 function computeLayout(currentNodes, currentBuildings) {
@@ -80,13 +81,17 @@ function computeLayout(currentNodes, currentBuildings) {
     ageMaxDepth[n.age] = Math.max(ageMaxDepth[n.age], depth[n.id]);
   });
 
+  // ── Which ages actually have buildings ───────────────────
+  const ageHasBuildings = [false, false, false, false];
+  currentBuildings.forEach(b => { ageHasBuildings[b.age] = true; });
+
   // ── Age band heights ──────────────────────────────────────
-  // Building rows (potentially multiple when col-group buildings stack) + node rows
+  // Ages with buildings: full BLD_ROW_H. Ages without: just AGE_TOP_H for label space.
   const ageYStart = [TOP_PAD, 0, 0, 0];
   const ageHArray = [0, 0, 0, 0];
   for (let i = 0; i < 4; i++) {
-    ageHArray[i] = ageMaxBldRows[i] * BLD_ROW_H
-      + (Math.max(ageMaxDepth[i], 1) + 1) * SLOT_H + 20;
+    const topH = ageHasBuildings[i] ? ageMaxBldRows[i] * BLD_ROW_H : AGE_TOP_H;
+    ageHArray[i] = topH + (Math.max(ageMaxDepth[i], 1) + 1) * SLOT_H + 10;
     if (i > 0) ageYStart[i] = ageYStart[i - 1] + ageHArray[i - 1];
   }
 
@@ -101,9 +106,10 @@ function computeLayout(currentNodes, currentBuildings) {
         colIndex = pNode.row;
       }
     }
+    const topH = ageHasBuildings[n.age] ? ageMaxBldRows[n.age] * BLD_ROW_H : AGE_TOP_H;
     pos[n.id] = {
       x: bldX[n.building] + colIndex * (NW + NPADX),
-      y: ageYStart[n.age] + ageMaxBldRows[n.age] * BLD_ROW_H + depth[n.id] * SLOT_H + 10,
+      y: ageYStart[n.age] + topH + depth[n.id] * SLOT_H + 10,
     };
   });
 

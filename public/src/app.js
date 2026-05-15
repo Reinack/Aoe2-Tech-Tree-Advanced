@@ -283,8 +283,12 @@ function render() {
         .attr('opacity', miss ? 0.3 : 1);
     });
 
-    // Connect to building if no prereqs
+    // Connect to building if no prereqs — only when node is in the same age as its building
     if (n.prereqs.length === 0 && bldPos[n.building]) {
+      const bld = activeBuildings.find(b => b.id === n.building);
+      const bldAge = bld ? (bld.age ?? 0) : 0;
+      if (n.age !== bldAge) return; // Skip false cross-age connections
+
       const fp = bldPos[n.building];
       const tp = pos[n.id];
       const miss = isMissing(n.id);
