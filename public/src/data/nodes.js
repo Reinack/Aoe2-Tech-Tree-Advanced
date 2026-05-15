@@ -230,9 +230,9 @@ export const NODES = [
 
   // ── MARKET ──────────────────────────────────────────────
   { id: 'tradecart', type: 'unit', age: 1, building: 'market', row: 2, col: 0, prereqs: [], train_cost: { food: 100, wood: 50 } },
-  { id: 'coinage', type: 'tech', age: 2, building: 'market', row: 4, col: 1, prereqs: [], research_cost: { food: 200, gold: 50 } },
-  { id: 'banking', type: 'tech', age: 3, building: 'market', row: 6, col: 1, prereqs: ['coinage'], research_cost: { food: 300, gold: 200 } },
-  { id: 'guilds', type: 'tech', age: 3, building: 'market', row: 6, col: 2, prereqs: [], research_cost: { food: 150, gold: 100 } },
+  { id: 'coinage', type: 'tech', age: 2, building: 'market', row: 4, col: 0, prereqs: [], research_cost: { food: 200, gold: 50 } },
+  { id: 'banking', type: 'tech', age: 3, building: 'market', row: 6, col: 0, prereqs: ['coinage'], research_cost: { food: 300, gold: 200 } },
+  { id: 'guilds', type: 'tech', age: 3, building: 'market', row: 7, col: 0, prereqs: [], research_cost: { food: 150, gold: 100 } },
   { id: 'feitoria', type: 'unit', age: 3, building: 'market', row: 6, col: 3, special: true, variant: 'unique', prereqs: [], build_cost: { wood: 250, gold: 250, stone: 250 } },
   { id: 'caravanserai', type: 'unit', age: 3, building: 'market', row: 6, col: 4, special: true, variant: 'regional', prereqs: [], build_cost: { wood: 150 } },
 
