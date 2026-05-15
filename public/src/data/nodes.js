@@ -305,9 +305,9 @@ export const NODES = [
   // ── Murallas (columna vertical compartida) ────────────────
   { type: 'building', id: 'palisadewall',  name: 'Empalizada',      icon: '🪵', age: 0, row: 0,col: 1, prereqs: [],               build_cost: { wood: 2   }, stats: { hp:  250, armor: [ 2,  2] }},
   { type: 'building', id: 'palisadegate',  name: 'Puerta Empaliz.', icon: '🚪', age: 0, row: 1,col: 1, prereqs: [],               build_cost: { wood: 20  }, stats: { hp:  400, armor: [ 2,  2] }},
-  { type: 'building', id: 'stonewall',     name: 'Muro de Piedra',  icon: '🧱', age: 1, row: 2,col: 1, prereqs: ['palisadewall'], build_cost: { stone: 5  }, stats: { hp: 1800, armor: [ 8, 10] }},
+  { type: 'building', id: 'stonewall',     name: 'Muro de Piedra',  icon: '🧱', age: 1, row: 2,col: 1, prereqs: [], build_cost: { stone: 5  }, stats: { hp: 1800, armor: [ 8, 10] }},
   { type: 'building', id: 'gate',          name: 'Puerta',          icon: '🚪', age: 1, row: 3,col: 1, prereqs: [],               build_cost: { stone: 30 }, stats: { hp: 2750, armor: [ 6,  6] }},
-  { type: 'building', id: 'fortifiedwall', name: 'Muro Fortificado',icon: '🧱', age: 2, row: 4, col: 1,prereqs: ['stonewall'],    build_cost: { stone: 5  }, stats: { hp: 3000, armor: [12, 12] }},
+  { type: 'building', id: 'fortifiedwall', name: 'Muro Fortificado',icon: '🧱', age: 2, row: 4, col: 1,prereqs: [],    build_cost: { stone: 5  }, stats: { hp: 3000, armor: [12, 12] }},
   // ── Castillo / Maravilla / Monasterio ─────────────────────
   { type: 'building', id: 'castle',         name: 'Castillo',         icon: '🏯', age: 2, row: 4, prereqs: [],         build_cost: { stone: 650 }, stats: { hp: 4800, armor: [8, 11], attack: 11, range: 8 } },
   { type: 'building', id: 'wonder',         name: 'Maravilla',        icon: '🏰', age: 3, row: 6, prereqs: [],         build_cost: { wood: 1000, stone: 1000, gold: 1000 }, stats: { hp: 4800, armor: [3, 5] } },
