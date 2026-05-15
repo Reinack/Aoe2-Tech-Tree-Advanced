@@ -174,8 +174,15 @@ function render() {
       // Check if it's a node
       const node = activeNodes.find(n => n.id === id);
       if (node) {
-        if (ov.age !== undefined) node.age = ov.age;
+        if (ov.age !== undefined) {
+          const subRow = node.row % 2;
+          node.age = ov.age;
+          if (ov.row === undefined) {
+            node.row = ov.age * 2 + subRow;
+          }
+        }
         if (ov.row !== undefined) node.row = ov.row;
+        if (ov.col !== undefined) node.col = ov.col;
       }
     });
   }
