@@ -210,15 +210,17 @@ export const NODES = [
 
 
   // ── CASTLE ──────────────────────────────────────────────
-  { id: 'trebuchet', type: 'unit', age: 2, building: 'castle', row: 4, col: 0, prereqs: [], train_cost: { food: 200, gold: 200 } },
-  { id: 'petard', type: 'unit', age: 2, building: 'castle', row: 4, col: 1, prereqs: [], train_cost: { food: 65, gold: 35 } },
-  { id: 'uniqueunit', type: 'unique', age: 2, building: 'castle', row: 4, col: 2, prereqs: [], train_cost: { food: 0, gold: 0 } },
-  { id: 'eliteunique', type: 'unique', age: 3, building: 'castle', row: 6, col: 2, prereqs: ['uniqueunit'], research_cost: { food: 0, gold: 0 }, train_cost: { food: 0, gold: 0 } },
-  { id: 'uniquetech1', type: 'unique', age: 2, building: 'castle', row: 4, col: 3, prereqs: [], research_cost: { food: 300, gold: 300 } },
-  { id: 'uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 3, prereqs: ['uniquetech1'], research_cost: { food: 500, gold: 500 } },
-  { id: 'hoardings', type: 'tech', age: 3, building: 'castle', row: 6, col: 4, prereqs: [], research_cost: { food: 400, stone: 400 } },
-  { id: 'conscription', type: 'tech', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 150, gold: 150 } },
-  { id: 'sappers', type: 'tech', age: 3, building: 'castle', row: 6, col: 6, prereqs: [], research_cost: { food: 75, gold: 75 } },
+  { id: 'trebuchet', type: 'unit', age: 2, building: 'castle', row: 4, col: 2, prereqs: [], train_cost: { food: 200, gold: 200 } },
+  { id: 'petard', type: 'unit', age: 2, building: 'castle', row: 4, col: 3, prereqs: [], train_cost: { food: 65, gold: 35 } },
+  { id: 'uniqueunit', type: 'unique', age: 2, building: 'castle', row: 4, col: 4, prereqs: [], train_cost: { food: 0, gold: 0 } },
+  { id: 'eliteunique', type: 'unique', age: 3, building: 'castle', row: 6, col: 4, prereqs: ['uniqueunit'], research_cost: { food: 0, gold: 0 }, train_cost: { food: 0, gold: 0 } },
+  { id: 'uniquetech1', type: 'unique', age: 2, building: 'castle', row: 4, col: 5, prereqs: [], research_cost: { food: 300, gold: 300 } },
+  { id: 'uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: ['uniquetech1'], research_cost: { food: 500, gold: 500 } },
+  
+  { id: 'hoardings', type: 'tech', age: 3, building: 'castle', row: 6, col: 6, prereqs: [], research_cost: { food: 400, stone: 400 } },
+  { id: 'conscription', type: 'tech', age: 3, building: 'castle', row: 6, col: 7, prereqs: [], research_cost: { food: 150, gold: 150 } },
+  { id: 'sappers', type: 'tech', age: 3, building: 'castle', row: 7, col: 6, prereqs: [], research_cost: { food: 75, gold: 75 } },
+  { id: 'spy', type: 'tech', age: 3, building: 'castle', row: 7, col: 7, prereqs: [], research_cost: { gold: 200 } },
 
   // ── Castle special / unique ──────────────────────────────
   { id: 'kipchak_c', type: 'unit', age: 3, building: 'castle', row: 6, col: 6, special: true, variant: 'unique', prereqs: [], train_cost: { food: 40, gold: 35 } },
