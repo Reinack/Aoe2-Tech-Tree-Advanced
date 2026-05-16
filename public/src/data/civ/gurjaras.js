@@ -61,8 +61,6 @@ const GURJARAS = {
     "cavalier",
     "camel",
     "heavycamel",
-    "battleeleph",
-    "eliteeleph",
     "bloodlines",
     "husbandry",
     "camel_scout",

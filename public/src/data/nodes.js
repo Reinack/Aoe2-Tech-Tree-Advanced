@@ -82,7 +82,7 @@ export const NODES = [
   { id: 'elite_steppe_lancer', type: 'upgrade', age: 3, building: 'stable', row: 3, col: 4, special: true, variant: 'regional', prereqs: ['steppe_lancer'], research_cost: { food: 900, gold: 550 }, train_cost: { food: 70, gold: 45 } },
   { id: 'xolotl_warrior', type: 'unit', age: 2, building: 'stable', row: 4, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 60, gold: 75 } },
   { id: 'shrivamsha', type: 'unit', age: 2, building: 'stable', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 70, gold: 40 } },
-  { id: 'elite_shrivamsha', type: 'upgrade', age: 3, building: 'stable', row: 3, col: 2, special: true, variant: 'unique', prereqs: ['shrivamsha'], research_cost: { food: 600, gold: 400 }, train_cost: { food: 70, gold: 40 } },
+  { id: 'elite_shrivamsha', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 3, special: true, variant: 'unique', prereqs: ['shrivamsha'], research_cost: { food: 600, gold: 400 }, train_cost: { food: 70, gold: 40 } },
   { id: 'hei_guang', type: 'unit', age: 2, building: 'stable', row: 4, col: 2, special: true, variant: 'regional', prereqs: [], train_cost: { food: 80, gold: 40 } },
   { id: 'heavy_hei_guang', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 2, special: true, variant: 'regional', prereqs: ['hei_guang'], research_cost: { food: 500, gold: 300 }, train_cost: { food: 80, gold: 40 } },
   { id: 'tarkan_s', type: 'unit', age: 2, building: 'stable', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 60, gold: 60 } },
