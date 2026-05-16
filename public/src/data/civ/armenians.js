@@ -204,19 +204,26 @@ const ARMENIANS = {
     "pikeman": {
       "age": 1
     },
+    
+    "manatarms": {
+      "age": 1,   
+      "row": 2
+    },
+
     "halberdier": {
       "age": 2
     },
     "longsword": {
       "age": 1,       
-      "row": 4
+      "row": 3
     },
     "twohanded": {
-      "age": 2
+      "age": 2,       
+      "row": 4
     },
     "champion": {
       "age": 2,       
-      "row": 6
+      "row": 5
     }
   }
 };

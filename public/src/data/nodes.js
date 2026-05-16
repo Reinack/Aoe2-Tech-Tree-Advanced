@@ -5,13 +5,13 @@ export const NODES = [
   { id: 'manatarms', type: 'upgrade', age: 1, building: 'barracks', row: 2, col: 0, prereqs: ['militia'], research_cost: { food: 100, gold: 40 }, train_cost: { food: 60, gold: 20 } },
   { id: 'longsword', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 0, prereqs: ['manatarms'], research_cost: { food: 200, gold: 100 }, train_cost: { food: 60, gold: 20 } },
   { id: 'twohanded', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, prereqs: ['longsword'], research_cost: { food: 300, gold: 150 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'champion', type: 'upgrade', age: 3, building: 'barracks', row: 7, col: 1, prereqs: ['twohanded'], research_cost: { food: 600, gold: 200 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'spearman', type: 'unit', age: 1, building: 'barracks', row: 2, col: 2, prereqs: [], train_cost: { food: 35, wood: 25 } },
-  { id: 'pikeman', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 2, prereqs: ['spearman'], research_cost: { food: 160, gold: 60 }, train_cost: { food: 35, wood: 25 } },
-  { id: 'halberdier', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 2, prereqs: ['pikeman'], research_cost: { food: 75, gold: 25 }, train_cost: { food: 35, wood: 25 } },
-  { id: 'squires', type: 'tech', age: 2, building: 'barracks', row: 4, col: 4, prereqs: [], research_cost: { food: 100 } },
-  { id: 'arson', type: 'tech', age: 1, building: 'barracks', row: 2, col: 4, prereqs: [], research_cost: { food: 150, gold: 50 } },
-  { id: 'gambesons', type: 'tech', age: 2, building: 'barracks', row: 4, col: 1, prereqs: [], research_cost: { food: 100, gold: 40 } },
+  { id: 'champion', type: 'upgrade', age: 3, building: 'barracks', row: 7, col: 0, prereqs: ['twohanded'], research_cost: { food: 600, gold: 200 }, train_cost: { food: 60, gold: 20 } },
+  { id: 'spearman', type: 'unit', age: 1, building: 'barracks', row: 2, col: 1, prereqs: [], train_cost: { food: 35, wood: 25 } },
+  { id: 'pikeman', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 1, prereqs: ['spearman'], research_cost: { food: 160, gold: 60 }, train_cost: { food: 35, wood: 25 } },
+  { id: 'halberdier', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 1, prereqs: ['pikeman'], research_cost: { food: 75, gold: 25 }, train_cost: { food: 35, wood: 25 } },
+  { id: 'squires', type: 'tech', age: 2, building: 'barracks', row: 5, col: 5, prereqs: [], research_cost: { food: 100 } },
+  { id: 'arson', type: 'tech', age: 1, building: 'barracks', row: 2, col: 5, prereqs: [], research_cost: { food: 150, gold: 50 } },
+  { id: 'gambesons', type: 'tech', age: 2, building: 'barracks', row: 4, col: 5, prereqs: [], research_cost: { food: 100, gold: 40 } },
 
   // ── Eagle Line (Mesoamerican regional) ──────────────────
   { id: 'eaglescout', type: 'unit', age: 1, building: 'barracks', row: 2, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 20, gold: 50 } },
@@ -26,14 +26,14 @@ export const NODES = [
 
   // ── Barracks special / unique ────────────────────────────
   { id: 'legionary', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, special: true, variant: 'unique', prereqs: ['longsword'], research_cost: { food: 300, gold: 200 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'fire_lancer', type: 'unit', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 60, gold: 20 } },
-  { id: 'elite_fire_lancer', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 3, special: true, variant: 'regional', prereqs: ['fire_lancer'], research_cost: { food: 300, gold: 200 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'flemish_militia', type: 'unit', age: 1, building: 'barracks', row: 2, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 60, gold: 25 } },
-  { id: 'jian_swordsman', type: 'unit', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 45, gold: 20 } },
+  { id: 'fire_lancer', type: 'unit', age: 2, building: 'barracks', row: 4, col: 2, special: true, variant: 'regional', prereqs: [], train_cost: { food: 60, gold: 20 } },
+  { id: 'elite_fire_lancer', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 2, special: true, variant: 'regional', prereqs: ['fire_lancer'], research_cost: { food: 300, gold: 200 }, train_cost: { food: 60, gold: 20 } },
+  { id: 'flemish_militia', type: 'unit', age: 1, building: 'barracks', row: 2, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 60, gold: 25 } },
+  { id: 'jian_swordsman', type: 'unit', age: 2, building: 'barracks', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 45, gold: 20 } },
   { id: 'temple_guard', type: 'unit', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, gold: 30 } },
   { id: 'ibirapema', type: 'unit', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 40, gold: 20 } },
-  { id: 'condottiero', type: 'unit', age: 3, building: 'barracks', row: 6, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, gold: 35 } },
-  { id: 'huskarl_b', type: 'unit', age: 2, building: 'barracks', row: 4, col: 1, special: true, variant: 'unique', prereqs: [], train_cost: { food: 52, gold: 26 } },
+  { id: 'condottiero', type: 'unit', age: 3, building: 'barracks', row: 6, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, gold: 35 } },
+  { id: 'huskarl_b', type: 'unit', age: 2, building: 'barracks', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 52, gold: 26 } },
 
 
   // ── ARCHERY RANGE ───────────────────────────────────────
