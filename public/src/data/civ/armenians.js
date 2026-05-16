@@ -199,7 +199,8 @@ const ARMENIANS = {
   ],
   "overrides": {
     "spearmen": {
-      "age": 0
+      "age": 0,   
+      "row": 1
     },
     "pikeman": {
       "age": 1
