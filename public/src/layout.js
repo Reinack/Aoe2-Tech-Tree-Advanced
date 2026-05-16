@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════
 
 const NW = 68, NH = 68, NPADX = 14, NPADY = 10;
-const SLOT_H = 72;          // Height of a sub-row (node + padding)
+const SLOT_H = 108;         // Height of a sub-row (node + 40px padding)
 const LEFT_LABEL_W = 175;
 const TOP_PAD = 10;         // Espacio superior antes de la primera edad
 const AGE_TOP_H = 18;       // Space at top of age bands
