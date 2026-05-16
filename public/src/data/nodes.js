@@ -1,7 +1,7 @@
 export const NODES = [
 
   // ── BARRACKS ────────────────────────────────────────────
-  { id: 'militia', type: 'unit', age: 0, building: 'barracks', row: 0, col: 0, prereqs: [], train_cost: { food: 60, gold: 20 } },
+  { id: 'militia', type: 'unit', age: 0, building: 'barracks', row: 1, col: 0, prereqs: [], train_cost: { food: 60, gold: 20 } },
   { id: 'manatarms', type: 'upgrade', age: 1, building: 'barracks', row: 2, col: 0, prereqs: ['militia'], research_cost: { food: 100, gold: 40 }, train_cost: { food: 60, gold: 20 } },
   { id: 'longsword', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 0, prereqs: ['manatarms'], research_cost: { food: 200, gold: 100 }, train_cost: { food: 60, gold: 20 } },
   { id: 'twohanded', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, prereqs: ['longsword'], research_cost: { food: 300, gold: 150 }, train_cost: { food: 60, gold: 20 } },
@@ -113,19 +113,19 @@ export const NODES = [
 
 
   // ── BLACKSMITH ──────────────────────────────────────────
-  { id: 'forging', type: 'tech', age: 1, building: 'blacksmith', row: 2, col: 0, prereqs: [], research_cost: { food: 150 } },
+  { id: 'forging', type: 'tech', age: 1, building: 'blacksmith', row: 3, col: 0, prereqs: [], research_cost: { food: 150 } },
   { id: 'ironcasting', type: 'tech', age: 2, building: 'blacksmith', row: 4, col: 0, prereqs: ['forging'], research_cost: { food: 220, gold: 75 } },
   { id: 'blastfurnace', type: 'tech', age: 3, building: 'blacksmith', row: 6, col: 0, prereqs: ['ironcasting'], research_cost: { food: 275, gold: 225 } },
-  { id: 'scalemailarmor', type: 'tech', age: 1, building: 'blacksmith', row: 2, col: 1, prereqs: [], research_cost: { food: 100 } },
+  { id: 'scalemailarmor', type: 'tech', age: 1, building: 'blacksmith', row: 3, col: 1, prereqs: [], research_cost: { food: 100 } },
   { id: 'chainmailarmor', type: 'tech', age: 2, building: 'blacksmith', row: 4, col: 1, prereqs: ['scalemailarmor'], research_cost: { food: 200, gold: 100 } },
   { id: 'platemailarmor', type: 'tech', age: 3, building: 'blacksmith', row: 6, col: 1, prereqs: ['chainmailarmor'], research_cost: { food: 300, gold: 200 } },
-  { id: 'paddedarcharmor', type: 'tech', age: 1, building: 'blacksmith', row: 2, col: 2, prereqs: [], research_cost: { food: 100 } },
+  { id: 'paddedarcharmor', type: 'tech', age: 1, building: 'blacksmith', row: 3, col: 2, prereqs: [], research_cost: { food: 100 } },
   { id: 'leatherarcharmor', type: 'tech', age: 2, building: 'blacksmith', row: 4, col: 2, prereqs: ['paddedarcharmor'], research_cost: { food: 150, gold: 100 } },
   { id: 'ringarcherarmor', type: 'tech', age: 3, building: 'blacksmith', row: 6, col: 2, prereqs: ['leatherarcharmor'], research_cost: { food: 250, gold: 250 } },
-  { id: 'scalebarding', type: 'tech', age: 1, building: 'blacksmith', row: 2, col: 3, prereqs: [], research_cost: { food: 150 } },
+  { id: 'scalebarding', type: 'tech', age: 1, building: 'blacksmith', row: 3, col: 3, prereqs: [], research_cost: { food: 150 } },
   { id: 'chainbarding', type: 'tech', age: 2, building: 'blacksmith', row: 4, col: 3, prereqs: ['scalebarding'], research_cost: { food: 250, gold: 130 } },
   { id: 'platebarding', type: 'tech', age: 3, building: 'blacksmith', row: 6, col: 3, prereqs: ['chainbarding'], research_cost: { food: 350, gold: 200 } },
-  { id: 'fletching', type: 'tech', age: 1, building: 'blacksmith', row: 2, col: 4, prereqs: [], research_cost: { food: 100, gold: 50 } },
+  { id: 'fletching', type: 'tech', age: 1, building: 'blacksmith', row: 3, col: 4, prereqs: [], research_cost: { food: 100, gold: 50 } },
   { id: 'bodkinarrow', type: 'tech', age: 2, building: 'blacksmith', row: 4, col: 4, prereqs: ['fletching'], research_cost: { food: 200, gold: 100 } },
   { id: 'bracer', type: 'tech', age: 3, building: 'blacksmith', row: 6, col: 4, prereqs: ['bodkinarrow'], research_cost: { food: 300, gold: 200 } },
 
@@ -192,21 +192,21 @@ export const NODES = [
 
 
   // ── MONASTERY ───────────────────────────────────────────
-  { id: 'monk', type: 'unit', age: 2, building: 'monastery', row: 4, col: 0, prereqs: [], train_cost: { gold: 100 } },
-  { id: 'redemption', type: 'tech', age: 2, building: 'monastery', row: 4, col: 1, prereqs: [], research_cost: { gold: 475 } },
-  { id: 'atonement', type: 'tech', age: 2, building: 'monastery', row: 4, col: 2, prereqs: [], research_cost: { gold: 325 } },
-  { id: 'heresy', type: 'tech', age: 2, building: 'monastery', row: 4, col: 3, prereqs: [], research_cost: { gold: 1000 } },
-  { id: 'sanctity', type: 'tech', age: 2, building: 'monastery', row: 4, col: 4, prereqs: [], research_cost: { gold: 120 } },
-  { id: 'fervor', type: 'tech', age: 2, building: 'monastery', row: 4, col: 5, prereqs: [], research_cost: { gold: 140 } },
-  { id: 'herbalmedicine', type: 'tech', age: 2, building: 'monastery', row: 4, col: 6, prereqs: [], research_cost: { gold: 350 } },
+  { id: 'monk', type: 'unit', age: 2, building: 'monastery', row: 5, col: 0, prereqs: [], train_cost: { gold: 100 } },
+  { id: 'redemption', type: 'tech', age: 2, building: 'monastery', row: 5, col: 1, prereqs: [], research_cost: { gold: 475 } },
+  { id: 'atonement', type: 'tech', age: 2, building: 'monastery', row: 5, col: 2, prereqs: [], research_cost: { gold: 325 } },
+  { id: 'heresy', type: 'tech', age: 2, building: 'monastery', row: 5, col: 3, prereqs: [], research_cost: { gold: 1000 } },
+  { id: 'sanctity', type: 'tech', age: 2, building: 'monastery', row: 5, col: 4, prereqs: [], research_cost: { gold: 120 } },
+  { id: 'fervor', type: 'tech', age: 2, building: 'monastery', row: 5, col: 5, prereqs: [], research_cost: { gold: 140 } },
+  { id: 'herbalmedicine', type: 'tech', age: 2, building: 'monastery', row: 5, col: 6, prereqs: [], research_cost: { gold: 350 } },
   { id: 'illumination', type: 'tech', age: 3, building: 'monastery', row: 6, col: 1, prereqs: ['redemption'], research_cost: { food: 120, gold: 150 } },
   { id: 'blockprinting', type: 'tech', age: 3, building: 'monastery', row: 6, col: 2, prereqs: ['atonement'], research_cost: { gold: 200 } },
   { id: 'theocracy', type: 'tech', age: 3, building: 'monastery', row: 6, col: 4, prereqs: ['sanctity'], research_cost: { food: 200, gold: 250 } },
   { id: 'faith', type: 'tech', age: 3, building: 'monastery', row: 6, col: 5, prereqs: ['fervor'], research_cost: { food: 750, gold: 900 } },
 
   // ── Monastery special / unique ───────────────────────────
-  { id: 'warrior_priest', type: 'unit', age: 2, building: 'monastery', row: 4, col: 8, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
-  { id: 'missionary', type: 'unit', age: 2, building: 'monastery', row: 4, col: 7, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
+  { id: 'warrior_priest', type: 'unit', age: 2, building: 'monastery', row: 5, col: 7, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
+  { id: 'missionary', type: 'unit', age: 2, building: 'monastery', row: 5, col: 7, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
 
 
   // ── CASTLE ──────────────────────────────────────────────
@@ -229,24 +229,26 @@ export const NODES = [
 
 
   // ── MARKET ──────────────────────────────────────────────
-  { id: 'tradecart', type: 'unit', age: 1, building: 'market', row: 2, col: 0, prereqs: [], train_cost: { food: 100, wood: 50 } },
+  { id: 'tradecart', type: 'unit', age: 1, building: 'market', row: 3, col: 0, prereqs: [], train_cost: { food: 100, wood: 50 } },
   { id: 'coinage', type: 'tech', age: 2, building: 'market', row: 4, col: 0, prereqs: [], research_cost: { food: 200, gold: 50 } },
   { id: 'banking', type: 'tech', age: 3, building: 'market', row: 6, col: 0, prereqs: ['coinage'], research_cost: { food: 300, gold: 200 } },
   { id: 'guilds', type: 'tech', age: 3, building: 'market', row: 7, col: 0, prereqs: [], research_cost: { food: 150, gold: 100 } },
   { id: 'feitoria', type: 'unit', age: 3, building: 'market', row: 6, col: 3, special: true, variant: 'unique', prereqs: [], build_cost: { wood: 250, gold: 250, stone: 250 } },
   { id: 'caravanserai', type: 'unit', age: 3, building: 'market', row: 6, col: 4, special: true, variant: 'regional', prereqs: [], build_cost: { wood: 150 } },
 
-  { id: 'villager', type: 'unit', age: 0, building: 'tc', row: 0, col: 0, prereqs: [], train_cost: { food: 50 } },
-  { id: 'loom', type: 'tech', age: 0, building: 'tc', row: 0, col: 1, prereqs: [], research_cost: { gold: 50 } },
+  { id: 'villager', type: 'unit', age: 0, building: 'tc', row: 1, col: 0, prereqs: [], train_cost: { food: 50 } },
+  { id: 'loom', type: 'tech', age: 0, building: 'tc', row: 1, col: 2, prereqs: [], research_cost: { gold: 50 } },
   { id: 'wheelbarrow', type: 'tech', age: 1, building: 'tc', row: 2, col: 0, prereqs: [], research_cost: { food: 175, wood: 50 } },
-  { id: 'townwatch', type: 'tech', age: 1, building: 'tc', row: 2, col: 1, prereqs: [], research_cost: { food: 75 } },
+  { id: 'townwatch', type: 'tech', age: 1, building: 'tc', row: 2, col: 2, prereqs: [], research_cost: { food: 75 } },
   { id: 'handcart', type: 'tech', age: 2, building: 'tc', row: 4, col: 0, prereqs: ['wheelbarrow'], research_cost: { food: 300, wood: 200 } },
-  { id: 'townpatrol', type: 'tech', age: 2, building: 'tc', row: 4, col: 1, prereqs: ['townwatch'], research_cost: { food: 500 } },
+  { id: 'townpatrol', type: 'tech', age: 2, building: 'tc', row: 4, col: 2, prereqs: ['townwatch'], research_cost: { food: 500 } },
+
+
 
   // ── Age Advancement Techs ────────────────────────────────
-  { id: 'feudalage', type: 'tech', age: 0, building: 'tc', row: 0, col: 2, prereqs: [], research_cost: { food: 500 } },
-  { id: 'castleage', type: 'tech', age: 1, building: 'tc', row: 2, col: 2, prereqs: ['feudalage'], research_cost: { food: 800, gold: 200 } },
-  { id: 'imperialage', type: 'tech', age: 2, building: 'tc', row: 4, col: 2, prereqs: ['castleage'], research_cost: { food: 1000, gold: 800 } },
+  { id: 'feudalage', type: 'tech', age: 0, building: 'tc', row: 1, col: 1, prereqs: [], research_cost: { food: 500 } },
+  { id: 'castleage', type: 'tech', age: 1, building: 'tc', row: 2, col: 1, prereqs: ['feudalage'], research_cost: { food: 800, gold: 200 } },
+  { id: 'imperialage', type: 'tech', age: 2, building: 'tc', row: 4, col: 1, prereqs: ['castleage'], research_cost: { food: 1000, gold: 800 } },
 
 
   // ── MILL ────────────────────────────────────────────────
@@ -314,14 +316,14 @@ export const NODES = [
   { type: 'building', id: 'castle',         name: 'Castillo',         icon: '🏯', age: 2, row: 4, prereqs: [],         build_cost: { stone: 650 }, stats: { hp: 4800, armor: [8, 11], attack: 11, range: 8 } },
   { type: 'building', id: 'wonder',         name: 'Maravilla',        icon: '🏰', age: 3, row: 6, prereqs: [],         build_cost: { wood: 1000, stone: 1000, gold: 1000 }, stats: { hp: 4800, armor: [3, 5] } },
   { type: 'building', id: 'monastery',      name: 'Monasterio',       icon: '⛪', age: 2, row: 4, prereqs: [],         build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
-  { type: 'building', id: 'fortified_church', name: 'Iglesia Fort.',  icon: '⛪', age: 2, row: 4, prereqs: [],         build_cost: { wood: 200 }, stats: { hp: 2500, armor: [0, 8] }, replaces: ['monastery'] },
+  { type: 'building', id: 'fortified_church', name: 'Iglesia Fort.',variant: 'regional',  icon: '⛪', age: 2, row: 4, prereqs: [],         build_cost: { wood: 200 }, stats: { hp: 2500, armor: [0, 8] }, replaces: ['monastery'] },
   // ── Economía ──────────────────────────────────────────────
   { type: 'building', id: 'tc',      name: 'Centro Urbano', icon: '🏰', age: 0, row: 0, prereqs: [], build_cost: { wood: 275, stone: 100 }, stats: { hp: 2400, armor: [3, 5], attack: 5, range: 6 } },
   { type: 'building', id: 'house',   name: 'Casa',          icon: '',   age: 0, row: 0, prereqs: [], build_cost: { wood: 25  }, stats: { hp: 1000, armor: [0, 7] } },
   { type: 'building', id: 'mining',  name: 'Camp. Minero',  icon: '⛏️', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
   { type: 'building', id: 'lumber',  name: 'Camp. Maderero',icon: '🪵', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
-  { type: 'building', id: 'tahsili', name: 'Asentamiento',  icon: '🏠', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'mill', 'mulecart'] },
-  { type: 'building', id: 'mulecart',name: 'Mula de Carga', icon: '🫏', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'tahsili'] },
+  { type: 'building', id: 'tahsili', name: 'Asentamiento',  icon: '🏠', variant: 'regional',age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'mill', 'mulecart'] },
+  { type: 'building', id: 'mulecart',name: 'Mula de Carga', icon: '🫏', variant: 'regional',age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'tahsili'] },
   { type: 'building', id: 'market',  name: 'Mercado',       icon: '💰', age: 1, row: 2, prereqs: ['mill'], build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
   { type: 'building', id: 'mill',    name: 'Molino',        icon: '🌾', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
   { type: 'building', id: 'folwark', name: 'Folwark',       icon: '🌾', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['mill'] },
