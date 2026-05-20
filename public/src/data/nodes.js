@@ -3,9 +3,9 @@ export const NODES = [
   // ── BARRACKS ────────────────────────────────────────────
   { id: 'militia', type: 'unit', age: 0, building: 'barracks', row: 1, col: 0, prereqs: [], train_cost: { food: 60, gold: 20 } },
   { id: 'manatarms', type: 'upgrade', age: 1, building: 'barracks', row: 2, col: 0, prereqs: ['militia'], research_cost: { food: 100, gold: 40 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'longsword', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 0, prereqs: ['manatarms'], research_cost: { food: 200, gold: 100 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'twohanded', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, prereqs: ['longsword'], research_cost: { food: 300, gold: 150 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'champion', type: 'upgrade', age: 3, building: 'barracks', row: 7, col: 0, prereqs: ['twohanded'], research_cost: { food: 600, gold: 200 }, train_cost: { food: 60, gold: 20 } },
+  { id: 'longsword', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 0, prereqs: ['manatarms'], research_cost: { food: 150, gold: 65 }, train_cost: { food: 60, gold: 20 } },
+  { id: 'twohanded', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, prereqs: ['longsword'], research_cost: { food: 200, gold: 100 }, train_cost: { food: 60, gold: 20 } },
+  { id: 'champion', type: 'upgrade', age: 3, building: 'barracks', row: 7, col: 0, prereqs: ['twohanded'], research_cost: { food: 650, gold: 350 }, train_cost: { food: 60, gold: 20 } },
   { id: 'spearman', type: 'unit', age: 1, building: 'barracks', row: 2, col: 1, prereqs: [], train_cost: { food: 35, wood: 25 } },
   { id: 'pikeman', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 1, prereqs: ['spearman'], research_cost: { food: 160, gold: 60 }, train_cost: { food: 35, wood: 25 } },
   { id: 'halberdier', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 1, prereqs: ['pikeman'], research_cost: { food: 75, gold: 25 }, train_cost: { food: 35, wood: 25 } },
@@ -15,21 +15,21 @@ export const NODES = [
 
   // ── Eagle Line (Mesoamerican regional) ──────────────────
   { id: 'eaglescout', type: 'unit', age: 1, building: 'barracks', row: 2, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 20, gold: 50 } },
-  { id: 'eaglewarrior', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'regional', prereqs: ['eaglescout'], research_cost: { food: 200, gold: 100 }, train_cost: { food: 20, gold: 50 } },
-  { id: 'eliteeagle', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 3, special: true, variant: 'regional', prereqs: ['eaglewarrior'], research_cost: { food: 500, gold: 400 }, train_cost: { food: 20, gold: 50 } },
+  { id: 'eaglewarrior', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'regional', prereqs: ['eaglescout'], research_cost: { food: 200, gold: 200 }, train_cost: { food: 20, gold: 50 } },
+  { id: 'eliteeagle', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 3, special: true, variant: 'regional', prereqs: ['eaglewarrior'], research_cost: { food: 800, gold: 500 }, train_cost: { food: 20, gold: 50 } },
 
   // ── Champi Line (South American regional) ───────────────
-  { id: 'champiscout', type: 'unit', age: 0, building: 'barracks', row: 1, col: 0, special: true, variant: 'regional', prereqs: [], train_cost: { food: 50, gold: 20 } },
-  { id: 'champirunner', type: 'upgrade', age: 1, building: 'barracks', row: 2, col: 0, special: true, variant: 'regional', prereqs: ['champiscout'], research_cost: { food: 100, gold: 40 }, train_cost: { food: 50, gold: 20 } },
-  { id: 'champiwarrior', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 0, special: true, variant: 'regional', prereqs: ['champirunner'], research_cost: { food: 150, gold: 80 }, train_cost: { food: 50, gold: 20 } },
-  { id: 'elitechampi', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, special: true, variant: 'regional', prereqs: ['champiwarrior'], research_cost: { food: 400, gold: 200 }, train_cost: { food: 50, gold: 20 } },
+  { id: 'champiscout', type: 'unit', age: 0, building: 'barracks', row: 1, col: 0, special: true, variant: 'regional', prereqs: [], train_cost: { food: 50, gold: 25 } },
+  { id: 'champirunner', type: 'upgrade', age: 1, building: 'barracks', row: 2, col: 0, special: true, variant: 'regional', prereqs: ['champiscout'], research_cost: { food: 120, gold: 60 }, train_cost: { food: 50, gold: 25 } },
+  { id: 'champiwarrior', type: 'upgrade', age: 2, building: 'barracks', row: 4, col: 0, special: true, variant: 'regional', prereqs: ['champirunner'], research_cost: { food: 200, gold: 175 }, train_cost: { food: 50, gold: 25 } },
+  { id: 'elitechampi', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, special: true, variant: 'regional', prereqs: ['champiwarrior'], research_cost: { food: 650, gold: 450 }, train_cost: { food: 50, gold: 25 } },
 
   // ── Barracks special / unique ────────────────────────────
   { id: 'legionary', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 0, special: true, variant: 'unique', prereqs: ['longsword'], research_cost: { food: 300, gold: 200 }, train_cost: { food: 60, gold: 20 } },
-  { id: 'fire_lancer', type: 'unit', age: 2, building: 'barracks', row: 4, col: 2, special: true, variant: 'regional', prereqs: [], train_cost: { food: 60, gold: 20 } },
-  { id: 'elite_fire_lancer', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 2, special: true, variant: 'regional', prereqs: ['fire_lancer'], research_cost: { food: 300, gold: 200 }, train_cost: { food: 60, gold: 20 } },
+  { id: 'fire_lancer', type: 'unit', age: 2, building: 'barracks', row: 4, col: 2, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 45, gold: 45 } },
+  { id: 'elite_fire_lancer', type: 'upgrade', age: 3, building: 'barracks', row: 6, col: 2, special: true, variant: 'regional', prereqs: ['fire_lancer'], research_cost: { food: 750, gold: 400 }, train_cost: { wood: 45, gold: 45 } },
   { id: 'flemish_militia', type: 'unit', age: 1, building: 'barracks', row: 2, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 60, gold: 25 } },
-  { id: 'jian_swordsman', type: 'unit', age: 2, building: 'barracks', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 45, gold: 20 } },
+  { id: 'jian_swordsman', type: 'unit', age: 2, building: 'barracks', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 45, gold: 50 } },
   { id: 'temple_guard', type: 'unit', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, gold: 30 } },
   { id: 'ibirapema', type: 'unit', age: 2, building: 'barracks', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 40, gold: 20 } },
   { id: 'condottiero', type: 'unit', age: 3, building: 'barracks', row: 6, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, gold: 35 } },
@@ -52,8 +52,8 @@ export const NODES = [
   { id: 'imp_skirmisher', type: 'upgrade', age: 3, building: 'archery', row: 6, col: 1, special: true, variant: 'unique', prereqs: ['eliteskirm'], research_cost: { food: 300, gold: 450 }, train_cost: { food: 35, wood: 25 } },
   { id: 'elephant_archer', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 100, gold: 70 } },
   { id: 'elite_elephant_archer', type: 'upgrade', age: 3, building: 'archery', row: 6, col: 3, special: true, variant: 'regional', prereqs: ['elephant_archer'], research_cost: { food: 1000, gold: 800 }, train_cost: { food: 100, gold: 70 } },
-  { id: 'grenadier', type: 'unit', age: 2, building: 'archery', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 60, gold: 60 } },
-  { id: 'xianbei_raider', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 40, gold: 35 } },
+  { id: 'grenadier', type: 'unit', age: 2, building: 'archery', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 35, gold: 65 } },
+  { id: 'xianbei_raider', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 60, gold: 25 } },
   { id: 'bolas_rider', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, gold: 50 } },
   { id: 'slinger', type: 'unit', age: 2, building: 'archery', row: 4, col: 4, special: true, variant: 'regional', prereqs: [], train_cost: { food: 30, gold: 40 } },
   { id: 'genitour', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, wood: 35 } },
@@ -83,8 +83,8 @@ export const NODES = [
   { id: 'xolotl_warrior', type: 'unit', age: 2, building: 'stable', row: 4, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 60, gold: 75 } },
   { id: 'shrivamsha', type: 'unit', age: 2, building: 'stable', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 70, gold: 40 } },
   { id: 'elite_shrivamsha', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 3, special: true, variant: 'unique', prereqs: ['shrivamsha'], research_cost: { food: 600, gold: 400 }, train_cost: { food: 70, gold: 40 } },
-  { id: 'hei_guang', type: 'unit', age: 2, building: 'stable', row: 4, col: 2, special: true, variant: 'regional', prereqs: [], train_cost: { food: 80, gold: 40 } },
-  { id: 'heavy_hei_guang', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 2, special: true, variant: 'regional', prereqs: ['hei_guang'], research_cost: { food: 500, gold: 300 }, train_cost: { food: 80, gold: 40 } },
+  { id: 'hei_guang', type: 'unit', age: 2, building: 'stable', row: 4, col: 2, special: true, variant: 'regional', prereqs: [], train_cost: { food: 65, gold: 65 } },
+  { id: 'heavy_hei_guang', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 2, special: true, variant: 'regional', prereqs: ['hei_guang'], research_cost: { food: 350, gold: 250 }, train_cost: { food: 65, gold: 65 } },
   { id: 'tarkan_s', type: 'unit', age: 2, building: 'stable', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 60, gold: 60 } },
 
 
@@ -102,14 +102,14 @@ export const NODES = [
 
   // ── Siege special / unique ───────────────────────────────
   { id: 'houfnice', type: 'upgrade', age: 3, building: 'siege', row: 7, col: 3, special: true, variant: 'unique', prereqs: ['bombcannon'], research_cost: { food: 950, gold: 750 }, train_cost: { wood: 225, gold: 225 } },
-  { id: 'traction_treb', type: 'unit', age: 3, building: 'siege', row: 6, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 200 } },
+  { id: 'traction_treb', type: 'unit', age: 3, building: 'siege', row: 6, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 210 } },
   { id: 'mounted_treb', type: 'unit', age: 3, building: 'siege', row: 6, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 200, gold: 200 } },
-  { id: 'rocket_cart', type: 'unit', age: 2, building: 'siege', row: 5, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
-  { id: 'heavy_rocket_cart', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 1, special: true, variant: 'regional', prereqs: ['rocket_cart'], research_cost: { food: 500, gold: 400 }, train_cost: { wood: 200, gold: 150 } },
+  { id: 'rocket_cart', type: 'unit', age: 2, building: 'siege', row: 5, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 135, gold: 155 } },
+  { id: 'heavy_rocket_cart', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 1, special: true, variant: 'regional', prereqs: ['rocket_cart'], research_cost: { wood: 800, gold: 600 }, train_cost: { wood: 135, gold: 155 } },
   { id: 'flaming_camel', type: 'unit', age: 3, building: 'siege', row: 6, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 75, gold: 30 } },
   { id: 'armored_elephant', type: 'unit', age: 2, building: 'siege', row: 5, col: 0, special: true, variant: 'regional', prereqs: [], train_cost: { food: 120, gold: 95 } },
   { id: 'siege_elephant', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 0, special: true, variant: 'regional', prereqs: ['armored_elephant'], research_cost: { food: 650, gold: 0 }, train_cost: { food: 120, gold: 95 } },
-  { id: 'war_chariot_s', type: 'unit', age: 2, building: 'siege', row: 5, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 150, gold: 150 } },
+  { id: 'war_chariot_s', type: 'unit', age: 2, building: 'siege', row: 5, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 65, gold: 90 } },
 
 
   // ── BLACKSMITH ──────────────────────────────────────────
@@ -164,7 +164,7 @@ export const NODES = [
   // ── Dock special / unique ────────────────────────────────
   { id: 'dragon_ship', type: 'unit', age: 3, building: 'dock', row: 6, col: 1, special: true, variant: 'unique', prereqs: ['fireship'], train_cost: { wood: 75, gold: 45 } },
   { id: 'dromon', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 150 } },
-  { id: 'lou_chuan', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
+  { id: 'lou_chuan', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 250, gold: 225 } },
   { id: 'catapult_gall', type: 'unit', age: 3, building: 'dock', row: 7, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 200, gold: 150 } },
   { id: 'turtle_ship', type: 'unit', age: 2, building: 'dock', row: 4, col: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 180, gold: 180 } },
   { id: 'longboat', type: 'unit', age: 2, building: 'dock', row: 4, col: 6, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 75, gold: 40 } },
@@ -322,7 +322,7 @@ export const NODES = [
   { type: 'building', id: 'house',   name: 'Casa',          icon: '',   age: 0, row: 0, prereqs: [], build_cost: { wood: 25  }, stats: { hp: 1000, armor: [0, 7] } },
   { type: 'building', id: 'mining',  name: 'Camp. Minero',  icon: '⛏️', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
   { type: 'building', id: 'lumber',  name: 'Camp. Maderero',icon: '🪵', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },
-  { type: 'building', id: 'tahsili', name: 'Asentamiento',  icon: '🏠', variant: 'regional',age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'mill', 'mulecart'] },
+  { type: 'building', id: 'tahsili', name: 'Asentamiento',  icon: '🏠', variant: 'regional',age: 0, row: 0, prereqs: [], build_cost: { wood: 125 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'mill', 'mulecart'] },
   { type: 'building', id: 'mulecart',name: 'Mula de Carga', icon: '🫏', variant: 'regional',age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] }, replaces: ['lumber', 'mining', 'tahsili'] },
   { type: 'building', id: 'market',  name: 'Mercado',       icon: '💰', age: 1, row: 2, prereqs: ['mill'], build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
   { type: 'building', id: 'mill',    name: 'Molino',        icon: '🌾', age: 0, row: 0, prereqs: [], build_cost: { wood: 100 }, stats: { hp: 1000, armor: [0, 7] } },

@@ -77,6 +77,7 @@ export const TECH_MODIFIERS = {
   'celts_uniquetech2':       { hp_pct: 40 },             // Furor Celtica: asedio +40% PV
 
   // Chinos ───────────────────────────────────────────────────────────────────
+  'chinese_uniquetech1':     { hp_pct: 30 },              // Great Wall: muros/torres +30% PV
   'chinese_uniquetech2':     { attack_pct: 25 },          // Rocketry: escorpión/asedio +25% atq
 
   // Francos ──────────────────────────────────────────────────────────────────
@@ -102,7 +103,8 @@ export const TECH_MODIFIERS = {
   'khmer_uniquetech1':       { attack: 3 },              // Tusk Swords: elefantes +3 atq
 
   // Coreanos ─────────────────────────────────────────────────────────────────
-  'koreans_uniquetech2':     { range: 1 },               // Shinkichon: mangonela/onagro +1 rng
+  'koreans_uniquetech1':     { range: 2 },               // Eupseong: línea Torres de Vigilancia +2 rng
+  'koreans_uniquetech2':     { range: 1 },               // Shinkichon: Barco Tortuga/Carro Cohetes +1 rng
 
   // Lituanos ─────────────────────────────────────────────────────────────────
   'lithuanians_uniquetech2': { armor_pierce: 2 },        // Tower Shields: lanceros/esc +2 arm pierce
@@ -121,6 +123,7 @@ export const TECH_MODIFIERS = {
   'mongols_uniquetech2':     { speed_pct: 50 },          // Drill: asedio +50% vel
 
   // Muisca ───────────────────────────────────────────────────────────────────
+  'muisca_uniquetech1':      { speed_pct: 15 },           // Herbalismo: línea arquero +15% vel
   'muisca_uniquetech2':      { range: 1 },               // Huaracas: honderos +1 rng (entrenamiento más rápido = COMPLEJO)
 
   // Romanos ──────────────────────────────────────────────────────────────────
@@ -151,5 +154,5 @@ export const TECH_MODIFIERS = {
   'vietnamese_uniquetech1':  { hp: 100 },                // Chatras: elefantes combate +100 PV
 
   // Wei ──────────────────────────────────────────────────────────────────────
-  'wei_uniquetech2':         { armor_pierce: 2 },        // Ming Guang Armor: montados +2 arm pierce
+  'wei_uniquetech2':         { armor_melee: 4 },          // Ming Guang Armor: montados +4 arm cuerpo
 };

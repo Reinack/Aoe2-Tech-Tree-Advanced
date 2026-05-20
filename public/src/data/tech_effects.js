@@ -1,15 +1,19 @@
 export const UNIT_CLASSES = {
   // --- Clases Base ---
   'infantry': [
-    'militia', 'manatarms', 'longsword', 'twohanded', 'champion', 
+    'militia', 'manatarms', 'longsword', 'twohanded', 'champion',
     'spearman', 'pikeman', 'halberdier',
     'eaglescout', 'eaglewarrior', 'eliteeagle',
-    'condottiero', 'gbeto', 'woad_raider', 'shotel', 'karambit', 'obuch'
+    'condottiero', 'gbeto', 'woad_raider', 'shotel', 'karambit', 'obuch',
+    'fire_lancer', 'elite_fire_lancer',
+    'champiscout', 'champirunner', 'champiwarrior', 'elitechampi',
+    'jian_swordsman'
   ],
   'mounted': [
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
     'camel', 'heavycamel', 'imp_camel', 'battleeleph', 'eliteeleph', 'steppe_lancer', 'elite_steppe_lancer',
-    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'missionary'
+    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'missionary',
+    'hei_guang', 'heavy_hei_guang', 'war_chariot_s', 'xianbei_raider'
   ],
   'archer': [
     'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher',
@@ -17,12 +21,13 @@ export const UNIT_CLASSES = {
   ],
   'siege': [
     'batteram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager',
-    'scorpion', 'heavyscorp', 'bombadcannon', 'trebuchet', 'petard'
+    'scorpion', 'heavyscorp', 'bombadcannon', 'trebuchet', 'petard',
+    'rocket_cart', 'heavy_rocket_cart', 'traction_treb', 'war_chariot_s'
   ],
   'navy': [
     'galley', 'wargalley', 'galleon', 'firegalley', 'fireship', 'fastfireship',
     'demoraft', 'demoship', 'heavydemo', 'cannongalleon', 'elitecannon',
-    'dromon', 'turtle_ship', 'longboat', 'carvel_hull'
+    'dromon', 'turtle_ship', 'longboat', 'carvel_hull', 'lou_chuan'
   ],
   'civilians': [
     'villager', 'tradecart', 'tradecog', 'fishingship'
@@ -33,20 +38,23 @@ export const UNIT_CLASSES = {
 
   // --- Sub-clases y Combinaciones ---
   'foot_archer': [
-    'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher', 'handcannon'
+    'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher'
   ],
   'mounted_archer': [
-    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour'
+    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour',
+    'xianbei_raider'
   ],
   'cavalry': [
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
-    'camel', 'heavycamel', 'imp_camel', 'battleeleph', 'eliteeleph', 'steppe_lancer', 'elite_steppe_lancer'
+    'camel', 'heavycamel', 'imp_camel', 'battleeleph', 'eliteeleph', 'steppe_lancer', 'elite_steppe_lancer',
+    'hei_guang', 'heavy_hei_guang', 'war_chariot_s'
   ],
   'skirmishers': [
     'skirmisher', 'eliteskirm', 'imp_skirmisher', 'genitour'
   ],
   'gunpowder': [
-    'handcannon', 'bombadcannon', 'cannongalleon', 'elitecannon', 'bombardtower', 'janissary', 'conquistador'
+    'handcannon', 'bombadcannon', 'cannongalleon', 'elitecannon', 'bombardtower', 'janissary', 'conquistador',
+    'rocket_cart', 'heavy_rocket_cart'
   ],
   'trade_units': [
     'tradecart', 'tradecog'
@@ -145,17 +153,17 @@ export const TECH_AFFECTS = {
   'husbandry': ['mounted'],
 
   // Herrería - Ataque
-  'fletching': ['foot_archer', 'mounted_archer', 'buildings'],
-  'bodkinarrow': ['foot_archer', 'mounted_archer', 'buildings'],
-  'bracer': ['foot_archer', 'mounted_archer', 'buildings'],
+  'fletching': ['foot_archer', 'mounted_archer', 'buildings', 'lou_chuan'],   // Lou Chuan: modo anti-unidad
+  'bodkinarrow': ['foot_archer', 'mounted_archer', 'buildings', 'lou_chuan'],
+  'bracer': ['foot_archer', 'mounted_archer', 'buildings', 'lou_chuan'],
   'forging': ['infantry', 'cavalry'],
   'ironcasting': ['infantry', 'cavalry'],
   'blastfurnace': ['infantry', 'cavalry'],
 
   // Herrería - Armadura
-  'paddedarcharmor': ['foot_archer', 'mounted_archer'],
-  'leatherarcharmor': ['foot_archer', 'mounted_archer'],
-  'ringarcherarmor': ['foot_archer', 'mounted_archer'],
+  'paddedarcharmor': ['foot_archer', 'mounted_archer', 'handcannon', 'grenadier'],
+  'leatherarcharmor': ['foot_archer', 'mounted_archer', 'handcannon', 'grenadier'],
+  'ringarcherarmor': ['foot_archer', 'mounted_archer', 'handcannon', 'grenadier'],
   'scalemailarmor': ['infantry'],
   'chainmailarmor': ['infantry'],
   'platemailarmor': ['infantry'],
@@ -164,9 +172,9 @@ export const TECH_AFFECTS = {
   'platebarding': ['cavalry'],
 
   // Universidad
-  'ballistics': ['foot_archer', 'mounted_archer', 'buildings', 'navy', 'siege'],
-  'chemistry': ['foot_archer', 'mounted_archer', 'gunpowder', 'buildings', 'navy'],
-  'siegeengineers': ['siege'],
+  'ballistics': ['foot_archer', 'mounted_archer', 'buildings', 'navy', 'siege', 'grenadier'],
+  'chemistry': ['foot_archer', 'mounted_archer', 'gunpowder', 'buildings', 'navy', 'traction_treb', 'war_chariot_s'],
+  'siegeengineers': ['siege', 'lou_chuan', 'grenadier'], // Lou Chuan: modo anti-edificio; Grenadier: foot archer con bonus edificios
   'masonry': ['buildings'],
   'architecture': ['buildings'],
   'fortifiedwall': ['walls'],
@@ -245,8 +253,8 @@ export const TECH_AFFECTS = {
   'celts_uniquetech2': ['siege'], // Furor Celtica
 
   // Chinos
-  'chinese_uniquetech1': ['walls'], // Great Wall
-  'chinese_uniquetech2': ['scorpion', 'heavyscorp', 'uniqueunit', 'eliteunique'], // Rocketry
+  'chinese_uniquetech1': ['walls', 'watchtower', 'guardtower', 'keep', 'bombardtower'], // Great Wall (+30% HP muros + línea torres)
+  'chinese_uniquetech2': ['scorpion', 'heavyscorp', 'rocket_cart', 'heavy_rocket_cart', 'lou_chuan'], // Rocketry
 
   // Cumanos
   'cumans_uniquetech1': ['scout', 'lightcav', 'hussar', 'steppe_lancer', 'elite_steppe_lancer', 'cavarcher', 'hcavarcher'], // Steppe Husbandry
@@ -285,7 +293,7 @@ export const TECH_AFFECTS = {
   'huns_uniquetech2': ['religious'], // Atheism
 
   // Incas
-  'incas_uniquetech1': ['skirmishers', 'uniqueunit', 'eliteunique'], // Andean Sling
+  'incas_uniquetech1': ['skirmishers'], // Andean Sling (Kamayuk infantería NO se ve afectado)
   'incas_uniquetech2': ['uniqueunit', 'eliteunique', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], // Fabric Shields
 
   // Italianos
@@ -298,7 +306,7 @@ export const TECH_AFFECTS = {
 
   // Jurchens
   'jurchens_uniquetech1': ['buildings'], // Fortified Bastions
-  'jurchens_uniquetech2': ['uniqueunit', 'eliteunique'], // Thunderclap Bombs
+  'jurchens_uniquetech2': ['grenadier', 'navy', 'rocket_cart', 'heavy_rocket_cart'], // Thunderclap Bombs
 
   // Khitán
   'khitans_uniquetech1': ['infantry', 'skirmishers'], // Lamellar Armor
@@ -309,8 +317,8 @@ export const TECH_AFFECTS = {
   'khmer_uniquetech2': ['uniqueunit', 'eliteunique', 'scorpion', 'heavyscorp'], // Double Crossbow
 
   // Coreanos
-  'koreans_uniquetech1': ['watchtower', 'guardtower', 'keep'], // Eupseong
-  'koreans_uniquetech2': ['uniqueunit', 'eliteunique', 'navy'], // Shinkichon
+  'koreans_uniquetech1': ['watchtower', 'guardtower', 'keep'], // Eupseong (+2 rango torres)
+  'koreans_uniquetech2': ['turtle_ship', 'rocket_cart', 'heavy_rocket_cart'], // Shinkichon (+1 rng + proyectiles extra)
 
   // Lituanos
   'lithuanians_uniquetech1': ['tc'], // Hill Forts
@@ -329,7 +337,7 @@ export const TECH_AFFECTS = {
   'malians_uniquetech2': ['cavalry'], // Farimba
 
   // Mapuche
-  'mapuche_uniquetech1': ['uniqueunit', 'eliteunique', 'skirmishers'], // Malon
+  'mapuche_uniquetech1': ['skirmishers'], // Malon (Kona caballería NO afectado; Bolas Rider sin ID genérico)
   'mapuche_uniquetech2': ['castle'], // Butalmapu
 
   // Mayas
@@ -341,8 +349,8 @@ export const TECH_AFFECTS = {
   'mongols_uniquetech2': ['siege'], // Drill
 
   // Muisca
-  'muisca_uniquetech1': ['archer', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], // Herbalism
-  'muisca_uniquetech2': ['uniqueunit', 'eliteunique'], // Huaracas
+  'muisca_uniquetech1': ['archer', 'crossbow', 'arbalester', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], // Herbalism (línea arquero: no clase entera)
+  'muisca_uniquetech2': ['uniqueunit', 'eliteunique'], // Huaracas (Guerrero Guecha = hondero)
 
   // Persas
   'persians_uniquetech1': ['archer', 'crossbow', 'arbalester'], // Kamandaran
@@ -366,7 +374,7 @@ export const TECH_AFFECTS = {
 
   // Shu
   'shu_uniquetech1': ['spearman', 'pikeman', 'halberdier', 'uniqueunit', 'eliteunique'], // Coiled Serpent Array
-  'shu_uniquetech2': ['monks'], // Bolt Magazine
+  'shu_uniquetech2': ['foot_archer', 'siege', 'navy'], // Bolt Magazine (Guardián de Pluma Blanca NO afectado; War Chariots = siege, Lou Chuans = navy)
 
   // Sicilianos
   'sicilians_uniquetech1': ['tc', 'uniqueunit', 'eliteunique'], // First Crusade
@@ -402,13 +410,13 @@ export const TECH_AFFECTS = {
 
   // Vikingos
   'vikings_uniquetech1': ['infantry'], // Chieftains
-  'vikings_uniquetech2': ['archer', 'crossbow', 'arbalester', 'uniqueunit', 'eliteunique', 'navy'], // Bogsveigar
+  'vikings_uniquetech2': ['foot_archer', 'navy'], // Bogsveigar (arqueros a pie + Longboats)
 
   // Wei
   'wei_uniquetech1': ['infantry', 'archer', 'cavalry', 'siege', 'navy'], // Tuntian (Military generate food)
   'wei_uniquetech2': ['mounted'], // Ming Guang Armor
 
   // Wu
-  'wu_uniquetech1': ['demoship', 'archer'], // Red Cliffs Tactics
-  'wu_uniquetech2': ['trebuchet', 'navy'], // Sitting Tiger
+  'wu_uniquetech1': ['demoship', 'uniqueunit', 'eliteunique'], // Red Cliffs Tactics (barcos demolición + Arqueros de Fuego)
+  'wu_uniquetech2': ['traction_treb', 'navy'], // Sitting Tiger
 };

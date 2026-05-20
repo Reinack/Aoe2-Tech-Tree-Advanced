@@ -13,10 +13,10 @@ const UNIT_STATS = {
 
   // ── CUARTEL ───────────────────────────────────────────────────────────────
   'militia':       { hp: 40,  attack: 4,   armor: [0, 1],   range: 0,  speed: 0.90, rof: 2.0,  los: 4,  train: 21 },
-  'manatarms':     { hp: 45,  attack: 6,   armor: [0, 1],   range: 0,  speed: 0.90, rof: 2.0,  los: 4,  train: 21 },
-  'longsword':     { hp: 60,  attack: 9,   armor: [1, 1],   range: 0,  speed: 0.90, rof: 2.0,  los: 4,  train: 21 },
-  'twohanded':     { hp: 60,  attack: 12,  armor: [1, 1],   range: 0,  speed: 0.90, rof: 2.0,  los: 5,  train: 21 },
-  'champion':      { hp: 70,  attack: 13,  armor: [1, 1],   range: 0,  speed: 0.90, rof: 2.0,  los: 5,  train: 21 },
+  'manatarms':     { hp: 45,  attack: 6,   armor: [0, 1],   range: 0,  speed: 0.96, rof: 2.0,  los: 6,  train: 21 },
+  'longsword':     { hp: 60,  attack: 9,   armor: [1, 1],   range: 0,  speed: 0.96, rof: 2.0,  los: 6,  train: 21 },
+  'twohanded':     { hp: 65,  attack: 12,  armor: [1, 1],   range: 0,  speed: 0.96, rof: 2.0,  los: 7,  train: 21 },
+  'champion':      { hp: 70,  attack: 14,  armor: [1, 1],   range: 0,  speed: 0.96, rof: 2.0,  los: 7,  train: 21 },
   'spearman':      { hp: 45,  attack: 3,   armor: [0, 0],   range: 0,  speed: 1.00, rof: 3.0,  los: 4,  train: 22 },
   'pikeman':       { hp: 55,  attack: 4,   armor: [0, 0],   range: 0,  speed: 1.00, rof: 3.0,  los: 4,  train: 22 },
   'halberdier':    { hp: 60,  attack: 6,   armor: [0, 0],   range: 0,  speed: 1.00, rof: 3.0,  los: 4,  train: 22 },
@@ -89,19 +89,19 @@ const UNIT_STATS = {
 const REGIONAL_UNIT_STATS = {
 
   // ── CUARTEL — Línea Águila (civs mesoamericanas) ──────────────────────────
-  'eaglescout':    { hp: 50,  attack: 7,   armor: [0, 2],   range: 0,  speed: 1.10, rof: 2.0,  los: 6,  train: 35 },
-  'eaglewarrior':  { hp: 50,  attack: 8,   armor: [0, 3],   range: 0,  speed: 1.15, rof: 2.0,  los: 6,  train: 35 },
-  'eliteeagle':    { hp: 60,  attack: 9,   armor: [0, 4],   range: 0,  speed: 1.30, rof: 2.0,  los: 6,  train: 35 },
+  'eaglescout':    { hp: 50,  attack: 4,   armor: [0, 2],   range: 0,  speed: 1.10, rof: 2.0,  los: 5,  train: 50 },
+  'eaglewarrior':  { hp: 55,  attack: 7,   armor: [0, 3],   range: 0,  speed: 1.15, rof: 2.0,  los: 8,  train: 35 },
+  'eliteeagle':    { hp: 60,  attack: 9,   armor: [0, 4],   range: 0,  speed: 1.30, rof: 2.0,  los: 8,  train: 20 },
 
   // ── CUARTEL — Línea Champi (civs sudamericanas) ───────────────────────────
-  'champiscout':   { hp: 50,  attack: 7,   armor: [0, 2],   range: 0,  speed: 1.20, rof: 2.0,  los: 6,  train: 30 },
-  'champirunner':  { hp: 55,  attack: 8,   armor: [0, 2],   range: 0,  speed: 1.20, rof: 2.0,  los: 6,  train: 30 },
-  'champiwarrior': { hp: 60,  attack: 9,   armor: [0, 3],   range: 0,  speed: 1.20, rof: 2.0,  los: 6,  train: 30 },
-  'elitechampi':   { hp: 70,  attack: 11,  armor: [1, 4],   range: 0,  speed: 1.30, rof: 2.0,  los: 7,  train: 30 },
+  'champiscout':   { hp: 35,  attack: 3,   armor: [0, 2],   range: 0,  speed: 1.00, rof: 2.0,  los: 5,  train: 45 },
+  'champirunner':  { hp: 40,  attack: 5,   armor: [0, 2],   range: 0,  speed: 1.10, rof: 2.0,  los: 7,  train: 40 },
+  'champiwarrior': { hp: 55,  attack: 9,   armor: [0, 3],   range: 0,  speed: 1.10, rof: 2.0,  los: 7,  train: 26 },
+  'elitechampi':   { hp: 65,  attack: 11,  armor: [0, 4],   range: 0,  speed: 1.10, rof: 2.0,  los: 7,  train: 21 },
 
-  // ── CUARTEL — Lancero de Fuego (civs dinásticas chinas) ──────────────────
-  'fire_lancer':       { hp: 60,  attack: 8,  armor: [0, 1],   range: 0,  speed: 1.25, rof: 1.9,  los: 4,  train: 16 },
-  'elite_fire_lancer': { hp: 75,  attack: 10, armor: [0, 2],   range: 0,  speed: 1.25, rof: 1.9,  los: 5,  train: 13 },
+  // ── CUARTEL — Lancero de Fuego (civs dinásticas chinas + Vietnam) ────────
+  'fire_lancer':       { hp: 65,  attack:  9, armor: [1, 0],   range: 0,  speed: 0.96, rof: 2.0,  los: 7,  train: 35 },
+  'elite_fire_lancer': { hp: 85,  attack: 10, armor: [2, 1],   range: 0,  speed: 0.96, rof: 2.0,  los: 8,  train: 25 },
 
   // ── GALERÍA — Hondero (civs americanas) ──────────────────────────────────
   'slinger':           { hp: 30,  attack: 4,  armor: [0, 0],   range: 4,  speed: 0.96, rof: 2.0,  los: 6,  train: 25 },
@@ -113,7 +113,7 @@ const REGIONAL_UNIT_STATS = {
   // ── ESTABLO — Camello (civs orientales) ───────────────────────────────────
   'camel':         { hp: 100, attack: 6,   armor: [0, 0],   range: 0,  speed: 1.45, rof: 2.0,  los: 4,  train: 22 },
   'heavycamel':    { hp: 120, attack: 7,   armor: [0, 0],   range: 0,  speed: 1.45, rof: 2.0,  los: 5,  train: 22 },
-  'camel_scout':   { hp: 60,  attack: 5,   armor: [0, 0],   range: 0,  speed: 1.45, rof: 2.0,  los: 4,  train: 22 },
+  'camel_scout':   { hp: 70,  attack: 2,   armor: [0, 0],   range: 0,  speed: 1.20, rof: 2.0,  los: 4,  train: 22 },
   'imp_camel':     { hp: 140, attack: 9,   armor: [0, 0],   range: 0,  speed: 1.45, rof: 2.0,  los: 5,  train: 22 },
 
   // ── ESTABLO — Elefante de Combate (civs SE asiáticas) ────────────────────
@@ -131,23 +131,23 @@ const REGIONAL_UNIT_STATS = {
   'xolotl_warrior': { hp: 100, attack: 10, armor: [2, 2],   range: 0,  speed: 1.35, rof: 1.8,  los: 4,  train: 30 },
 
   // ── ESTABLO — Caballería Hei Guang (civs Tres Reinos) ────────────────────
-  'hei_guang':       { hp: 100, attack: 10, armor: [2, 2],   range: 0,  speed: 1.35, rof: 1.8,  los: 4,  train: 25 },
-  'heavy_hei_guang': { hp: 120, attack: 12, armor: [2, 2],   range: 0,  speed: 1.35, rof: 1.8,  los: 5,  train: 25 },
+  'hei_guang':       { hp: 60,  attack: 11, armor: [4, 3],   range: 0,  speed: 1.35, rof: 1.8,  los: 4,  train: 28 },
+  'heavy_hei_guang': { hp: 90,  attack: 12, armor: [4, 3],   range: 0,  speed: 1.35, rof: 1.8,  los: 4,  train: 28 },
 
   // ── ASEDIO — Carro de Cohetes (civs dinásticas chinas) ───────────────────
-  'rocket_cart':       { hp: 100, attack: 10, armor: [2, 5],   range: 8,  speed: 0.70, rof: 4.0,  los: 10, train: 40 },
-  'heavy_rocket_cart': { hp: 120, attack: 12, armor: [2, 6],   range: 9,  speed: 0.70, rof: 4.0,  los: 11, train: 40 },
+  'rocket_cart':       { hp:  45, attack:  5, armor: [0, 6],   range: 7,  speed: 0.60, rof: 5.73, los:  9, train: 40 },
+  'heavy_rocket_cart': { hp:  55, attack:  6, armor: [0, 7],   range: 8,  speed: 0.60, rof: 5.73, los: 10, train: 40 },
 
   // ── ASEDIO — Elefante de Asedio (civs indias) ─────────────────────────────
   'armored_elephant': { hp: 200, attack: 4,  armor: [0, 150], range: 0,  speed: 0.60, rof: 5.0,  los: 4,  train: 24 },
   'siege_elephant':   { hp: 250, attack: 5,  armor: [0, 180], range: 0,  speed: 0.60, rof: 5.0,  los: 4,  train: 24 },
 
   // ── ASEDIO — Lanzapiedras de Tracción (civs Tres Reinos) ─────────────────
-  'traction_treb':    { hp: 100, attack: 150, armor: [1, 5],  range: 14, speed: 0.70, rof: 10,   los: 16, train: 50 },
+  'traction_treb':    { hp: 115, attack: 50,  armor: [1, 8],  range: 14, speed: 0.57, rof: 11,   los: 18, train: 70 },
 
   // ── MUELLE — Navíos Regionales ────────────────────────────────────────────
   'dromon':        { hp: 125, attack: 50,  armor: [1, 6],   range: 12, speed: 1.20, rof: 8.0,  los: 12, train: 60 },
-  'lou_chuan':     { hp: 250, attack: 10,  armor: [0, 10],  range: 7,  speed: 1.10, rof: 3.0,  los: 10, train: 60 },
+  'lou_chuan':     { hp: 175, attack: 25,  armor: [0,  9],  range: 13, speed: 1.15, rof: 5.5,  los: 15, train: 60 },
   'catapult_gall': { hp: 150, attack: 50,  armor: [0, 8],   range: 11, speed: 1.10, rof: 8.0,  los: 13, train: 80 },
 };
 
@@ -162,13 +162,13 @@ const UNIQUE_UNIT_STATS = {
   'condottiero':   { hp: 80,  attack: 9,   armor: [1, 0],   range: 0,  speed: 1.20, rof: 1.9,  los: 4,  train: 17 }, // Italianos / aliados
   'flemish_militia':{ hp: 75, attack: 12,  armor: [1, 1],   range: 0,  speed: 0.90, rof: 2.0,  los: 4,  train: 14 }, // Borgoñones
   'legionary':     { hp: 75,  attack: 12,  armor: [2, 2],   range: 0,  speed: 0.90, rof: 2.0,  los: 5,  train: 16 }, // Romanos
-  'jian_swordsman':{ hp: 60,  attack: 9,   armor: [1, 1],   range: 0,  speed: 1.05, rof: 2.0,  los: 4,  train: 16 }, // Wu
+  'jian_swordsman':{ hp: 70,  attack: 8,   armor: [0, 5],   range: 0,  speed: 1.00, rof: 2.0,  los: 6,  train: 35 }, // Wu (Shielded form)
 
   // Galería exclusivos
   'imp_skirmisher':{ hp: 40,  attack: 4,   armor: [0, 5],   range: 5,  speed: 0.96, rof: 3.0,  los: 7,  train: 22 }, // Vietnamitas / aliados
   'genitour':      { hp: 50,  attack: 3,   armor: [0, 3],   range: 4,  speed: 1.35, rof: 3.0,  los: 5,  train: 25 }, // Bereberes / aliados
-  'grenadier':     { hp: 50,  attack: 15,  armor: [1, 0],   range: 5,  speed: 0.96, rof: 3.0,  los: 6,  train: 25 }, // Jurchens
-  'xianbei_raider':{ hp: 55,  attack: 6,   armor: [0, 0],   range: 4,  speed: 1.45, rof: 2.1,  los: 6,  train: 25 }, // Wei
+  'grenadier':     { hp: 40,  attack: 12,  armor: [1, 1],   range: 6,  speed: 0.96, rof: 3.45, los: 9,  train: 21 }, // Jurchens
+  'xianbei_raider':{ hp: 30,  attack: 5,   armor: [0, 0],   range: 4,  speed: 1.40, rof: 1.8,  los: 6,  train: 26 }, // Wei
 
   // Establo exclusivos
   'tarkan_s':      { hp: 100, attack: 8,   armor: [1, 2],   range: 0,  speed: 1.35, rof: 2.1,  los: 4,  train: 14 }, // Hunos (Establo)
@@ -180,7 +180,7 @@ const UNIQUE_UNIT_STATS = {
   'houfnice':      { hp: 100, attack: 55,  armor: [2, 5],   range: 13, speed: 0.70, rof: 6.5,  los: 15, train: 56 }, // Bohemios
   'flaming_camel': { hp: 55,  attack: 20,  armor: [0, 0],   range: 0,  speed: 1.45, rof: 0,    los: 4,  train: 25 }, // Tártaros
   'mounted_treb':  { hp: 150, attack: 200, armor: [2, 8],   range: 16, speed: 1.10, rof: 10,   los: 19, train: 50 }, // Khitanos
-  'war_chariot_s': { hp: 150, attack: 12,  armor: [0, 5],   range: 5,  speed: 0.85, rof: 2.5,  los: 8,  train: 25 }, // Shu
+  'war_chariot_s': { hp: 65,  attack: 8,   armor: [0, 5],   range: 6,  speed: 0.90, rof: 6.5,  los: 8,  train: 28 }, // Shu
 
   // Muelle exclusivos
   'turtle_ship':   { hp: 200, attack: 50,  armor: [6, 5],   range: 6,  speed: 1.05, rof: 6.0,  los: 8,  train: 50 }, // Coreanos

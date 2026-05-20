@@ -233,7 +233,7 @@ const LOCALE_ES = {
     gillnets:     { name: 'Redes de Malla',        effect: 'Barcos pesqueros trabajan 10% más rápido y cargan +5 recursos.' },
     dragon_ship:  { name: 'Barco Dragón',          effect: '[Solo Chinos] Mejora del Barco de Fuego.' },
     dromon:       { name: 'Dromón',                effect: 'Navío de asedio que lanza fuego.' },
-    lou_chuan:    { name: 'Lou Chuan',             effect: '[Civs Chinas] Gran navío de guerra.' },
+    lou_chuan:    { name: 'Lou Chuan',             effect: '[Civs Dinásticas] Navío de guerra de asedio. Modo anti-edificio: trebuchet (rng 13). Modo anti-unidad: flechas (rng 10).' },
     catapult_gall:{ name: 'Galera de Catapulta',   effect: '[Solo Americanos] Barco de asedio.' },
     turtle_ship:  { name: 'Barco Tortuga',         effect: '[Solo Coreanos] Barco acorazado de corto alcance.' },
     longboat:     { name: 'Drakkar',               effect: '[Solo Vikingos] Barco de guerra que dispara múltiples flechas.' },
@@ -573,11 +573,12 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las granjas producen +10% de comida",
       uniqueTechs: [
-        { name: "Gran Muralla", effect: "Muros +30% PV." },
-        { name: "Cohetes", effect: "Escorpiones, Carros de Cohetes y Lou Chuans +25% ataque." }
+        { name: "Gran Muralla", effect: "Muros, línea de Torres de Vigilancia y Torres de Bombardeo +30% PV." },
+        { name: "Cohetes", effect: "Escorpiones, Carros de Cohetes y Lou Chuans +25% ataque; Lou Chuans disparan cohetes." }
       ],
       uniqueUnits: [
-        { name: "Chu Ko Nu", upgradeName: "Chu Ko Nu Elite" }
+        { name: "Chu Ko Nu", upgradeName: "Chu Ko Nu Elite" },
+        { name: "Barco Dragón", subtitle: "barco de guerra", upgradeName: "Barco Dragón Elite" }
       ]
     },
     koreans: {
@@ -595,7 +596,8 @@ const LOCALE_ES = {
         { name: "Shinkichon", effect: "Carros de Cohetes y Barcos Tortuga +1 rango; disparan cohetes adicionales." }
       ],
       uniqueUnits: [
-        { name: "Carro de Guerra", upgradeName: "Carro de Guerra Elite" }
+        { name: "Carro de Guerra", subtitle: "arquero montado", upgradeName: "Carro de Guerra Elite" },
+        { name: "Barco Tortuga", subtitle: "barco de guerra", upgradeName: "Barco Tortuga Elite" }
       ]
     },
     cumans: {
@@ -869,7 +871,8 @@ const LOCALE_ES = {
         { name: "Bombas de Trueno", effect: "Carros de Cohetes, Granaderos y Lou Chuans detonan al morir." }
       ],
       uniqueUnits: [
-        { name: "Pagoda de Hierro", upgradeName: "Pagoda de Hierro Elite" }
+        { name: "Pagoda de Hierro", subtitle: "caballería pesada", upgradeName: "Pagoda de Hierro Elite" },
+        { name: "Granadero", subtitle: "unidad de pólvora", upgradeName: "Granadero Elite" }
       ]
     },
     khmer: {
@@ -1038,7 +1041,7 @@ const LOCALE_ES = {
         "Avanzar a la siguiente era cuesta -50% de oro",
         "Los asentamientos cuestan -25% y curan las unidades cercanas",
         "Los Guerreros Champi y las unidades de Galería de Tiro tienen +1/2/3 de armadura cuerpo a cuerpo en Edad Feudal/Castillos/Imperial",
-        "Los monjes recuperan fe +100% más rápido",
+        "Los monjes recuperan fe +50% más rápido",
         "Caravana y Gremios son gratuitos"
       ],
       teamBonus: "Las fuentes de oro naturales duran +15% más",
@@ -1263,10 +1266,11 @@ const LOCALE_ES = {
       teamBonus: "La mejora de Escaramuzador Imperial disponible en la Edad Imperial",
       uniqueTechs: [
         { name: "Chatras", effect: "Elefantes de Batalla +100 PV." },
-        { name: "Paper Money", effect: "Cada aliado recibe 500 oro." }
+        { name: "Paper Money", effect: "Los leñadores generan oro lentamente en adición a la madera." }
       ],
       uniqueUnits: [
-        { name: "Rattan Archer", upgradeName: "Rattan Archer Elite" }
+        { name: "Rattan Archer", upgradeName: "Rattan Archer Elite" },
+        { name: "Escaramuzador Imperial", subtitle: "escaramuzador", upgradeName: "Escaramuzador Imperial Elite" }
       ]
     },
     vikings: {
@@ -1300,7 +1304,8 @@ const LOCALE_ES = {
         { name: "Armadura Ming Guang", effect: "Unidades montadas +4 armadura cuerpo a cuerpo." }
       ],
       uniqueUnits: [
-        { name: "Caballería Tigre", upgradeName: "Caballería Tigre Elite" }
+        { name: "Caballería Tigre", subtitle: "caballería", upgradeName: "Caballería Tigre Elite" },
+        { name: "Xianbei Raider", subtitle: "arquero montado", upgradeName: "Xianbei Raider Elite" }
       ]
     },
     wu: {
@@ -1318,7 +1323,8 @@ const LOCALE_ES = {
         { name: "Tigre Sentado", effect: "Trebuchets de Tracción y Lou Chuans disparan proyectiles adicionales." }
       ],
       uniqueUnits: [
-        { name: "Arquero de Fuego", upgradeName: "Arquero de Fuego Elite" }
+        { name: "Arquero de Fuego", subtitle: "arquero a pie", upgradeName: "Arquero de Fuego Elite" },
+        { name: "Espadachín Jian", subtitle: "infantería", upgradeName: "Espadachín Jian Elite" }
       ]
     }
   },

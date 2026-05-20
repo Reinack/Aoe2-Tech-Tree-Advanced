@@ -20,7 +20,11 @@
       "Bash(command -v gh)",
       "Bash(gh auth *)",
       "Bash(git tag -a v1.2.0 -m ' *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "WebFetch(domain:liquipedia.net)",
+      "WebFetch(domain:www.aoe2insights.com)",
+      "WebFetch(domain:ageofempires.wiki.gg)",
+      "WebFetch(domain:www.aoe2.gg)"
     ]
   }
 }
