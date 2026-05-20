@@ -235,6 +235,9 @@ svg { width: 100%; height: 100%; display: block; }
 
 .n-building.n-unique .node-icon-bg  { fill: #8a1848; stroke: #c83878; stroke-width: 2; }
 
+/* ── Edificio Defensivo ──────────────────────────────── */
+.n-defencive .node-icon-bg          { fill: #7a3820; stroke: #aa6040; }
+
 /* ═══════════════════════════════════════════════════════════
    STATS PANEL (click)
 ══════════════════════════════════════════════════════════ */
@@ -247,7 +250,8 @@ svg { width: 100%; height: 100%; display: block; }
   box-shadow: 3px 4px 12px rgba(0,0,0,0.45);
   z-index: 200;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
 }
 
 .sp-header {
@@ -396,6 +400,129 @@ svg { width: 100%; height: 100%; display: block; }
   font-style: italic;
   padding: 6px 10px 10px;
   text-align: center;
+}
+
+/* ── Tech Simulator ─────────────────────────────────────────────────────── */
+#sp-tech-sim {
+  border-top: 1px solid #c8a870;
+}
+.sp-sim-toggle {
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+  cursor: pointer;
+  background: #ddd0a0;
+  user-select: none;
+}
+.sp-sim-toggle:hover { background: #cfc090; }
+#sp-sim-toggle-label {
+  font-size: 10px;
+  font-weight: bold;
+  color: #5a3a1b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+#sp-sim-body {
+  padding: 8px 10px 10px;
+}
+.sp-sim-ages {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+.sim-age-btn {
+  flex: 1;
+  background: #c8a870;
+  border: 1px solid #8b5a2b;
+  border-radius: 2px;
+  font-size: 9px;
+  font-weight: bold;
+  color: #5a3a1b;
+  padding: 3px 2px;
+  cursor: pointer;
+  transition: background 0.1s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sim-age-btn.sim-age-active {
+  background: #8b5a2b;
+  color: #f5e6cc;
+}
+.sim-age-btn:hover:not(.sim-age-active) { background: #b89860; }
+
+#sp-sim-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.sim-tech-chip {
+  width: 32px;
+  height: 32px;
+  background: #111;
+  border: 2px solid #a07840;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.35;
+  transition: opacity 0.1s, border-color 0.1s, box-shadow 0.1s;
+}
+.sim-tech-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.sim-tech-chip.active {
+  opacity: 1;
+  border-color: #4a9a20;
+  box-shadow: 0 0 5px rgba(74, 154, 32, 0.7);
+}
+.sim-tech-chip:hover:not(.active) { opacity: 0.7; }
+.sim-chip-icon { font-size: 14px; }
+
+.sim-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #c8a870;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sim-res-item {
+  background: #e8d5a0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 3px;
+  gap: 1px;
+}
+.sim-res-label {
+  font-size: 8px;
+  color: #7a5030;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.sim-res-val {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2a1a08;
+}
+.sim-res-delta {
+  font-size: 9px;
+  font-weight: bold;
+}
+.sim-res-delta.pos { color: #2a7a10; }
+.sim-res-delta.neg { color: #b02010; }
+.sim-no-change {
+  font-size: 10px;
+  color: #8b5a2b;
+  font-style: italic;
+  text-align: center;
+  padding: 4px;
 }
 
 #tooltip {

@@ -320,7 +320,7 @@ function render() {
 
   // ── Helper to draw node ──────────────────────────────────
   function drawNode(g, id, label, iconText, typeClass, miss, evData) {
-    const isStatNode = ['unit', 'upgrade', 'unique', 'building', 'tech'].includes(evData.type);
+    const isStatNode = ['unit', 'upgrade', 'unique', 'building', 'tech', 'defencive'].includes(evData.type);
     g.attr('class', `node ${typeClass} ${miss ? 'unavailable' : ''}`)
       .on('mouseover', ev => showTip(ev, evData))
       .on('mousemove', ev => moveTip(ev))
@@ -397,8 +397,8 @@ function render() {
     const p = pos[n.id];
     if (!p) return;
     const miss = isMissing(n.id);
-    const label = tData(n, 'name', n.type === 'unit' ? 'units' : 'techs');
-    const iconStr = n.type === 'unit' ? '⚔️' : n.type === 'tech' ? '🧪' : n.type === 'upgrade' ? '⭐' : '🌟';
+    const label = n.type === 'defencive' ? n.name : tData(n, 'name', n.type === 'unit' ? 'units' : 'techs');
+    const iconStr = n.type === 'unit' ? '⚔️' : n.type === 'tech' ? '🧪' : n.type === 'upgrade' ? '⭐' : n.type === 'defencive' ? '🏰' : '🌟';
 
     // Clases de variante: castle slots usan type:'unique'; especiales usan n.variant
     const variant = n.type === 'unique' ? '' :
@@ -434,7 +434,7 @@ function costStr(c) {
 
 function showTip(ev, n) {
   ttName.textContent = tData(n, 'name', n.type === 'unit' ? 'units' : 'techs');
-  ttAge.textContent = n.type === 'building' ? t('building') : `${t(n.age, 'ages')} · ${t(n.type)}`;
+  ttAge.textContent = (n.type === 'building' || n.type === 'defencive') ? t('building') : `${t(n.age, 'ages')} · ${t(n.type)}`;
 
   let costHtml = '';
   if (n.build_cost)    costHtml += `<div><strong>${t('build_cost')}:</strong> ${costStr(n.build_cost)}</div>`;
@@ -443,7 +443,7 @@ function showTip(ev, n) {
 
   // Fallback para nodos que aún usen la clave genérica 'cost'
   if (!costHtml && n.cost) {
-    const label = n.type === 'building' ? t('build_cost') : (n.type === 'unit' ? t('train_cost') : t('research_cost'));
+    const label = (n.type === 'building' || n.type === 'defencive') ? t('build_cost') : (n.type === 'unit' ? t('train_cost') : t('research_cost'));
     costHtml = `<div><strong>${label}:</strong> ${costStr(n.cost)}</div>`;
   }
 
@@ -584,7 +584,7 @@ function showStatsPanel(ev, n) {
   const name = tData(n, 'name', nameCategory);
   document.getElementById('sp-name').textContent = name;
   document.getElementById('sp-sub').textContent =
-    n.type === 'building' ? t('building') : `${t(n.age, 'ages')} · ${t(n.type)}`;
+    (n.type === 'building' || n.type === 'defencive') ? t('building') : `${t(n.age, 'ages')} · ${t(n.type)}`;
 
   // Icono
   const spIcon = document.getElementById('sp-icon');
@@ -632,7 +632,7 @@ function showStatsPanel(ev, n) {
 
   // Fallback
   if (!costHtml && n.cost) {
-    const label = n.type === 'building' ? t('build_cost') : (n.type === 'unit' ? t('train_cost') : t('research_cost'));
+    const label = (n.type === 'building' || n.type === 'defencive') ? t('build_cost') : (n.type === 'unit' ? t('train_cost') : t('research_cost'));
     costHtml = `<strong>${label}:</strong> ${costStr(n.cost)} `;
   }
 
@@ -711,7 +711,218 @@ function showStatsPanel(ev, n) {
   statsPanel.style.left = `${x}px`;
   statsPanel.style.top = `${y}px`;
   statsPanel.style.display = 'block';
+
+  // Show simulator only for units/upgrades
+  const isSimulable = n.type === 'unit' || n.type === 'upgrade'
+    || n.id === 'uniqueunit' || n.id === 'eliteunique';
+  if (isSimulable) initSim(n);
+  else document.getElementById('sp-tech-sim').style.display = 'none';
 }
+
+// ═══════════════════════════════════════════════════════════
+// TECH SIMULATOR
+// ═══════════════════════════════════════════════════════════
+
+let simUnit = null;
+let simActiveTechs = new Set();
+let simMaxAge = 3;
+let simExpanded = false;
+
+function getApplicableTechs(unitId) {
+  // For unique unit slots, resolve actual class membership from the civ's UU
+  let extraClasses = [];
+  if (unitId === 'uniqueunit' || unitId === 'eliteunique') {
+    const uuName = LOCALE['es']?.civs?.[currentCiv]?.uniqueUnits?.[0]?.name;
+    extraClasses = uuName ? (UNIQUE_UNIT_CLASSES[uuName] || []) : [];
+  }
+
+  // Class membership of this unit in UNIT_CLASSES
+  const unitClasses = Object.entries(UNIT_CLASSES)
+    .filter(([, ids]) => ids.includes(unitId))
+    .map(([cls]) => cls)
+    .concat(extraClasses);
+
+  const applicable = [];
+  for (const [techId, targets] of Object.entries(TECH_AFFECTS)) {
+    // Civ-specific unique techs (e.g. 'britons_uniquetech1') are not nodes in the tree.
+    // They're available only if they belong to the current civ.
+    const civMatch = techId.match(/^(.+)_uniquetech[12]$/);
+    if (civMatch) {
+      if (civMatch[1] !== currentCiv) continue;
+    } else if (isMissing(techId)) continue;
+
+    const mod = TECH_MODIFIERS[techId];
+    if (!mod || Object.keys(mod).length === 0) continue;
+
+    const hits = targets.some(target => {
+      if (target === unitId) return true;
+      if (unitClasses.includes(target)) return true;
+      if (UNIT_CLASSES[target]) return UNIT_CLASSES[target].includes(unitId);
+      return false;
+    });
+    if (hits) applicable.push(techId);
+  }
+  return applicable;
+}
+
+function applyTechs(base, activeTechs) {
+  const s = {
+    hp: base.hp,
+    attack: base.attack ?? 0,
+    armor: [...(base.armor || [0, 0])],
+    range: base.range ?? 0,
+    speed: base.speed,
+  };
+  for (const tid of activeTechs) {
+    const mod = TECH_MODIFIERS[tid];
+    if (!mod) continue;
+    if (mod.hp)           s.hp += mod.hp;
+    if (mod.hp_pct)       s.hp = Math.round(s.hp * (1 + mod.hp_pct / 100));
+    if (mod.attack)       s.attack += mod.attack;
+    if (mod.attack_pct)   s.attack = Math.round(s.attack * (1 + mod.attack_pct / 100));
+    if (mod.armor_melee)  s.armor[0] += mod.armor_melee;
+    if (mod.armor_pierce) s.armor[1] += mod.armor_pierce;
+    if (mod.range)        s.range += mod.range;
+    if (mod.speed_pct)    s.speed = +(s.speed * (1 + mod.speed_pct / 100)).toFixed(2);
+  }
+  return s;
+}
+
+function initSim(unitNode) {
+  if (simUnit?.id !== unitNode.id) {
+    simActiveTechs.clear();
+    simMaxAge = 3;
+  }
+  simUnit = unitNode;
+
+  const simEl = document.getElementById('sp-tech-sim');
+  const base = getStatsForNode(unitNode);
+  if (!base || getApplicableTechs(unitNode.id).length === 0) {
+    simEl.style.display = 'none';
+    return;
+  }
+  simEl.style.display = 'block';
+  updateSimToggleLabel();
+  renderSimBody(base);
+}
+
+function updateSimToggleLabel() {
+  const label = simExpanded ? '▼ ' : '▶ ';
+  const text = currentLang === 'es' ? 'Simular con tecnologías' : 'Simulate with technologies';
+  document.getElementById('sp-sim-toggle-label').textContent = label + text;
+}
+
+function renderSimBody(base) {
+  const body = document.getElementById('sp-sim-body');
+  if (!simExpanded) { body.style.display = 'none'; return; }
+  body.style.display = 'block';
+
+  const applicable = getApplicableTechs(simUnit.id);
+
+  // Age buttons
+  const ageLabels = currentLang === 'es'
+    ? ['Oscura', 'Feudal', 'Castillos', 'Imperial']
+    : ['Dark', 'Feudal', 'Castle', 'Imperial'];
+  document.querySelectorAll('.sim-age-btn').forEach(btn => {
+    const age = parseInt(btn.dataset.age);
+    btn.textContent = ageLabels[age];
+    btn.classList.toggle('sim-age-active', age === simMaxAge);
+  });
+
+  // Tech chips filtered by age
+  const filtered = applicable.filter(techId => {
+    const node = NODES.find(n => n.id === techId);
+    return node ? node.age <= simMaxAge : true;
+  });
+
+  const chipsEl = document.getElementById('sp-sim-chips');
+  chipsEl.innerHTML = filtered.map(techId => {
+    const img = IMG_MAP[techId];
+    const node = NODES.find(n => n.id === techId);
+    const name = node ? tData(node, 'name', 'techs') : techId;
+    const active = simActiveTechs.has(techId);
+    return `<button class="sim-tech-chip${active ? ' active' : ''}" data-tech="${techId}" title="${name}">
+      ${img ? `<img src="${img}" alt="${name}">` : `<span class="sim-chip-icon">⚗</span>`}
+    </button>`;
+  }).join('');
+
+  renderSimResult(base);
+}
+
+function renderSimResult(base) {
+  const resultEl = document.getElementById('sp-sim-result');
+  if (simActiveTechs.size === 0) { resultEl.innerHTML = ''; return; }
+
+  const mod = applyTechs(base, simActiveTechs);
+  const parts = [];
+
+  const addRow = (label, orig, curr, fmt = v => v) => {
+    const diff = +(curr - orig).toFixed(2);
+    if (diff === 0) return;
+    const sign = diff > 0 ? '+' : '';
+    parts.push(`<div class="sim-res-item">
+      <span class="sim-res-label">${label}</span>
+      <span class="sim-res-val">${fmt(curr)}</span>
+      <span class="sim-res-delta ${diff > 0 ? 'pos' : 'neg'}">${sign}${fmt(diff)}</span>
+    </div>`);
+  };
+
+  addRow('HP', base.hp, mod.hp);
+  addRow(t('attack') || 'ATK', base.attack, mod.attack);
+
+  const dm = mod.armor[0] - base.armor[0];
+  const dp = mod.armor[1] - base.armor[1];
+  if (dm !== 0 || dp !== 0) {
+    parts.push(`<div class="sim-res-item">
+      <span class="sim-res-label">ARM</span>
+      <span class="sim-res-val">${mod.armor[0]}/${mod.armor[1]}</span>
+      <span class="sim-res-delta pos">${dm >= 0 ? '+' : ''}${dm}/${dp >= 0 ? '+' : ''}${dp}</span>
+    </div>`);
+  }
+
+  if (base.range) addRow(t('range') || 'RNG', base.range, mod.range);
+
+  if (base.speed !== mod.speed) {
+    const pct = Math.round((mod.speed / base.speed - 1) * 100);
+    parts.push(`<div class="sim-res-item">
+      <span class="sim-res-label">${t('speed') || 'SPD'}</span>
+      <span class="sim-res-val">${mod.speed}</span>
+      <span class="sim-res-delta pos">${pct >= 0 ? '+' : ''}${pct}%</span>
+    </div>`);
+  }
+
+  resultEl.innerHTML = parts.length
+    ? `<div class="sim-result-grid">${parts.join('')}</div>`
+    : `<div class="sim-no-change">${currentLang === 'es' ? 'Sin cambios en stats.' : 'No stat changes.'}</div>`;
+}
+
+document.getElementById('sp-sim-toggle').addEventListener('click', () => {
+  simExpanded = !simExpanded;
+  updateSimToggleLabel();
+  if (simUnit) renderSimBody(getStatsForNode(simUnit));
+});
+
+document.getElementById('sp-sim-ages').addEventListener('click', e => {
+  const btn = e.target.closest('.sim-age-btn');
+  if (!btn) return;
+  simMaxAge = parseInt(btn.dataset.age);
+  // Remove from activeTechs any that exceed the new age limit
+  simActiveTechs.forEach(tid => {
+    const node = NODES.find(n => n.id === tid);
+    if (node && node.age > simMaxAge) simActiveTechs.delete(tid);
+  });
+  if (simUnit) renderSimBody(getStatsForNode(simUnit));
+});
+
+document.getElementById('sp-sim-chips').addEventListener('click', e => {
+  const chip = e.target.closest('.sim-tech-chip');
+  if (!chip) return;
+  const techId = chip.dataset.tech;
+  if (simActiveTechs.has(techId)) simActiveTechs.delete(techId);
+  else simActiveTechs.add(techId);
+  chip.classList.toggle('active', simActiveTechs.has(techId));
+  if (simUnit) renderSimResult(getStatsForNode(simUnit));
+});
 
 // ═══════════════════════════════════════════════════════════
 // CIV SELECTOR

@@ -384,6 +384,7 @@ const LOCALE_ES = {
       name: "Aztecas",
       type: "Civilización de infantería y monjes",
       bonuses: [
+        "Empiezan con un Águila Exploradora",
         "Empiezan con +50 de oro",
         "Los aldeanos transportan +3 recursos",
         "Las unidades militares se entrenan +15% más rápido",
@@ -410,7 +411,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las unidades de comercio generan +10% de comida además de oro",
       uniqueTechs: [
-        { name: "Paiks", effect: "Ratha y Arqueros de Elefante 10% más rápidos." },
+        { name: "Paiks", effect: "Ratha y unidades de elefante atacan 20% más rápido." },
         { name: "Mahayana", effect: "Casas dan +10 población extra." }
       ],
       uniqueUnits: [
@@ -483,7 +484,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Mercados trabajan +80% más rápido",
       uniqueTechs: [
-        { name: "Wagenburg Tactics", effect: "Arcabuceros se mueven 15% más rápido." },
+        { name: "Wagenburg Tactics", effect: "Unidades de pólvora se mueven 15% más rápido." },
         { name: "Hussite Reforms", effect: "Monjes cuestan madera en vez de oro." }
       ],
       uniqueUnits: [
@@ -518,7 +519,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las Galerías de Tiro trabajan +10% más rápido",
       uniqueTechs: [
-        { name: "Yeomen", effect: "+1 rango arqueros a pie; Torres 20% más rápidas." },
+        { name: "Yeomen", effect: "Arqueros a pie +1 rango; Torres +2 ataque." },
         { name: "Warwolf", effect: "Trebuchets 100% precisión y daño en área." }
       ],
       uniqueUnits: [
@@ -555,7 +556,7 @@ const LOCALE_ES = {
       teamBonus: "Los Talleres de Asedio trabajan +20% más rápido",
       uniqueTechs: [
         { name: "Stronghold", effect: "Torres y Castillos disparan 33% más rápido." },
-        { name: "Furor Celticus", effect: "Barcos y Asedio +50% PV." }
+        { name: "Furor Celticus", effect: "Unidades del Taller de Asedio +40% PV." }
       ],
       uniqueUnits: [
         { name: "Woad Raider", upgradeName: "Woad Raider Elite" }
@@ -573,7 +574,7 @@ const LOCALE_ES = {
       teamBonus: "Las granjas producen +10% de comida",
       uniqueTechs: [
         { name: "Gran Muralla", effect: "Muros +30% PV." },
-        { name: "Cohetes", effect: "Escorpiones +4 atq y +2 rango; Chu Ko Nu +2 atq." }
+        { name: "Cohetes", effect: "Escorpiones, Carros de Cohetes y Lou Chuans +25% ataque." }
       ],
       uniqueUnits: [
         { name: "Chu Ko Nu", upgradeName: "Chu Ko Nu Elite" }
@@ -590,8 +591,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los aldeanos tienen +3 de alcance visual",
       uniqueTechs: [
-        { name: "Eupseong", effect: "Torres y Castillos +2 rango." },
-        { name: "Shinkichon", effect: "Mangonelas y Onagros +1 rango." }
+        { name: "Eupseong", effect: "Torres (excepto Bombarda) +2 rango." },
+        { name: "Shinkichon", effect: "Carros de Cohetes y Barcos Tortuga +1 rango; disparan cohetes adicionales." }
       ],
       uniqueUnits: [
         { name: "Carro de Guerra", upgradeName: "Carro de Guerra Elite" }
@@ -699,8 +700,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Caballeros tiene +2 de alcance visual",
       uniqueTechs: [
-        { name: "Chivalry", effect: "Establos trabajan 40% más rápido." },
-        { name: "Beeldenstorm", effect: "Monasterios demolidos; Monjes cuestan -100%." }
+        { name: "Hacha con Barba", effect: "Hacha Arrojadiza +2 rango." },
+        { name: "Chivalry", effect: "Establos trabajan 40% más rápido." }
       ],
       uniqueUnits: [
         { name: "Hacha Arrojadiza", upgradeName: "Hacha Arrojadiza Elite" }
@@ -711,14 +712,14 @@ const LOCALE_ES = {
       type: "Civilización defensiva y de caballería",
       bonuses: [
         "Empiezan con un Carro de Mulas",
-        "Las unidades y edificios reciben -15% de daño cuando están en terreno elevado",
+        "Las unidades y edificios reciben -20% de daño cuando están en terreno elevado (-40% en lugar de -25%)",
         "Las unidades montadas regeneran 2/8/14 PV por minuto en Edad Feudal/Castillos/Imperial",
         "Las Iglesias Fortificadas otorgan +10% de velocidad de trabajo a los aldeanos en un radio de 9 casillas"
       ],
       teamBonus: "Las reparaciones de edificios cuestan -25%",
       uniqueTechs: [
-        { name: "Svan Towers", effect: "Torres de Guardia con +5 ataque y garnisonan más unidades." },
-        { name: "Aznauri Cavalry", effect: "Caballería gana PV al atacar edificios." }
+        { name: "Torres Svan", effect: "Estructuras defensivas +2 ataque; torres causan daño de penetración." },
+        { name: "Caballería Aznauri", effect: "Unidades montadas ocupan -20% de espacio de población." }
       ],
       uniqueUnits: [
         { name: "Monaspa", upgradeName: "Monaspa Elite" }
@@ -773,7 +774,7 @@ const LOCALE_ES = {
       teamBonus: "La línea de Caballería Exploradora y las unidades de camello tienen +2 de ataque vs. edificios",
       uniqueTechs: [
         { name: "Grand Trunk Road", effect: "Mercaderes generan +10 oro por viaje." },
-        { name: "Shatagni", effect: "Arcabuceros +1 rango." }
+        { name: "Shatagni", effect: "Arcabuceros +2 rango." }
       ],
       uniqueUnits: [
         { name: "Ghulam", upgradeName: "Ghulam Elite" }
@@ -808,8 +809,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Empiezan con una Llama gratis",
       uniqueTechs: [
-        { name: "Tapiales", effect: "Muros de Piedra y Fortif. se construyen 5× más rápido." },
-        { name: "Andean Sling", effect: "Honderos sin distancia mínima de ataque." }
+        { name: "Honda Andina", effect: "Honderos +1 ataque; sin distancia mínima de ataque." },
+        { name: "Escudos de Tela", effect: "Guerreros Champi, Kamayuks y Honderos +1/+1 armadura." }
       ],
       uniqueUnits: [
         { name: "Kamayuk", upgradeName: "Kamayuk Elite" }
@@ -827,8 +828,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "El Condotiero disponible en el Cuartel en la Edad Imperial",
       uniqueTechs: [
-        { name: "Pavise", effect: "Arqueros de a pie y Genoveses +1/+1 armadura." },
-        { name: "Silk Road", effect: "Carros de Comercio cuestan -50%." }
+        { name: "Ruta de la Seda", effect: "Unidades de comercio cuestan -50%." },
+        { name: "Pirotecnia", effect: "Arcabuceros más precisos y causan daño de penetración." }
       ],
       uniqueUnits: [
         { name: "Ballestero Genovés", upgradeName: "Ballestero Genovés Elite" }
@@ -864,11 +865,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las unidades de pólvora tienen +2 de alcance visual",
       uniqueTechs: [
-        { name: "Tecnología Única I", effect: "Efecto Mod." },
-        { name: "Tecnología Única II", effect: "Efecto Mod." }
+        { name: "Bastiones Fortificados", effect: "Las defensas regeneran 500 PV/min." },
+        { name: "Bombas de Trueno", effect: "Carros de Cohetes, Granaderos y Lou Chuans detonan al morir." }
       ],
       uniqueUnits: [
-        { name: "Unidad Única", upgradeName: "Unidad Única Elite" }
+        { name: "Pagoda de Hierro", upgradeName: "Pagoda de Hierro Elite" }
       ]
     },
     khmer: {
@@ -900,11 +901,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "Infantería +2 de ataque vs. soldados a distancia",
       uniqueTechs: [
-        { name: "Tecnología Única I", effect: "Efecto Mod." },
-        { name: "Tecnología Única II", effect: "Efecto Mod." }
+        { name: "Armadura Laminar", effect: "Infantería y escaramuzadores reflejan el 25% del daño cuerpo a cuerpo al atacante." },
+        { name: "Caballería Ordo", effect: "Caballería cuerpo a cuerpo regenera 150% PV/min en combate." }
       ],
       uniqueUnits: [
-        { name: "Unidad Única", upgradeName: "Unidad Única Elite" }
+        { name: "Liao Dao", upgradeName: "Liao Dao Elite" }
       ]
     },
     lithuanians: {
@@ -918,7 +919,7 @@ const LOCALE_ES = {
       teamBonus: "Los Monasterios trabajan +20% más rápido",
       uniqueTechs: [
         { name: "Hill Forts", effect: "CU +3 rango de ataque." },
-        { name: "Tower Shields", effect: "Lanceros/Piqueros/Alabarderos +2 armadura perforante." }
+        { name: "Tower Shields", effect: "Línea de Lanceros y Escaramuzadores +2 armadura perforante." }
       ],
       uniqueUnits: [
         { name: "Leitis", upgradeName: "Leitis Elite" }
@@ -1006,8 +1007,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las murallas cuestan -50%",
       uniqueTechs: [
-        { name: "Flechas de Obsidiana", effect: "Arqueros +6 ataque vs edificios." },
-        { name: "El Dorado", effect: "Guerreros Águila +40 PV." }
+        { name: "Lanzadores de Hul'che", effect: "Escaramuzadores lanzan un proyectil adicional con +1 ataque perforante." },
+        { name: "Holcans", effect: "Guerreros Águila +40 PV." }
       ],
       uniqueUnits: [
         { name: "Arquero de Plumas", upgradeName: "Arquero de Plumas Elite" }
@@ -1037,7 +1038,7 @@ const LOCALE_ES = {
         "Avanzar a la siguiente era cuesta -50% de oro",
         "Los asentamientos cuestan -25% y curan las unidades cercanas",
         "Los Guerreros Champi y las unidades de Galería de Tiro tienen +1/2/3 de armadura cuerpo a cuerpo en Edad Feudal/Castillos/Imperial",
-        "Los monjes recuperan fe +50% más rápido",
+        "Los monjes recuperan fe +100% más rápido",
         "Caravana y Gremios son gratuitos"
       ],
       teamBonus: "Las fuentes de oro naturales duran +15% más",
@@ -1061,8 +1062,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Caballeros tiene +2 de ataque vs. soldados a distancia",
       uniqueTechs: [
-        { name: "Mahout", effect: "Elefantes de guerra +30% velocidad." },
-        { name: "Citadels", effect: "Centros Urbanos +35 armadura perforante." }
+        { name: "Kamandaran", effect: "Costo de arqueros cambia a solo madera (sin oro)." },
+        { name: "Ciudadelas", effect: "Castillos +4 ataque, +3 vs arietes, +3 vs infantería; -25% daño adicional." }
       ],
       uniqueUnits: [
         { name: "Elefante de Guerra", upgradeName: "Elefante de Guerra Elite" }
@@ -1133,8 +1134,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Arqueros a pie y los Escaramuzadores tienen +2 de ataque vs. edificios",
       uniqueTechs: [
-        { name: "Bimaristan", effect: "Caravana médica cura unidades cercanas." },
-        { name: "Madrasah", effect: "Monjes devuelven 33% del costo al morir." }
+        { name: "Bimaristan", effect: "Monjes curan automáticamente a múltiples unidades cercanas." },
+        { name: "Contrapesos", effect: "Trebuchets y línea de Mangonela +15% ataque." }
       ],
       uniqueUnits: [
         { name: "Mameluco", upgradeName: "Mameluco Elite" }
@@ -1150,11 +1151,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los arqueros a pie tienen +2 de alcance visual",
       uniqueTechs: [
-        { name: "Tecnología Única I", effect: "Efecto Mod." },
-        { name: "Tecnología Única II", effect: "Efecto Mod." }
+        { name: "Formación Serpiente Enrollada", effect: "Lanceros y Guardianes de Pluma Blanca ganan PV al estar agrupados." },
+        { name: "Cargador de Virotes", effect: "Línea de arqueros, Carros de Guerra y Lou Chuans disparan proyectiles adicionales." }
       ],
       uniqueUnits: [
-        { name: "Unidad Única", upgradeName: "Unidad Única Elite" }
+        { name: "Guardián de Pluma Blanca", upgradeName: "Guardián de Pluma Blanca Elite" }
       ]
     },
     sicilians: {
@@ -1169,8 +1170,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Barcos de Transporte tienen +5 de alcance visual y cuestan -50%",
       uniqueTechs: [
-        { name: "First Crusade", effect: "Cada CU crea 7 Milicianos al investigar." },
-        { name: "Scutage", effect: "Cada aliado recibe 15 oro por unidad tributada." }
+        { name: "Primera Cruzada", effect: "Cada CU crea 5 Sargentos; mayor resistencia a la conversión." },
+        { name: "Hauberque", effect: "Línea de Caballeros +1/+2 armadura." }
       ],
       uniqueUnits: [
         { name: "Sargento", upgradeName: "Sargento Elite" }
@@ -1261,7 +1262,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "La mejora de Escaramuzador Imperial disponible en la Edad Imperial",
       uniqueTechs: [
-        { name: "Chatras", effect: "Elefantes de Batalla +50 PV." },
+        { name: "Chatras", effect: "Elefantes de Batalla +100 PV." },
         { name: "Paper Money", effect: "Cada aliado recibe 500 oro." }
       ],
       uniqueUnits: [
@@ -1278,8 +1279,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Muelles cuestan -15%",
       uniqueTechs: [
-        { name: "Chieftains", effect: "Infantería +5 ataque vs caballería." },
-        { name: "Berserkergang", effect: "Berserks regeneran PV automáticamente." }
+        { name: "Chieftains", effect: "Infantería +5 ataque vs caballería, +4 vs camellos; genera oro al matar aldeanos y comerciantes." },
+        { name: "Bogsveigar", effect: "Arqueros y Longboats +1 ataque." }
       ],
       uniqueUnits: [
         { name: "Berserk", upgradeName: "Berserk Elite" }
@@ -1295,11 +1296,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "La caballería tiene +2 de ataque vs. armas de asedio",
       uniqueTechs: [
-        { name: "Tecnología Única I", effect: "Efecto Mod." },
-        { name: "Tecnología Única II", effect: "Efecto Mod." }
+        { name: "Tuntian", effect: "Los soldados generan comida pasivamente." },
+        { name: "Armadura Ming Guang", effect: "Unidades montadas +4 armadura cuerpo a cuerpo." }
       ],
       uniqueUnits: [
-        { name: "Unidad Única", upgradeName: "Unidad Única Elite" }
+        { name: "Caballería Tigre", upgradeName: "Caballería Tigre Elite" }
       ]
     },
     wu: {
@@ -1313,11 +1314,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las casas se construyen +100% más rápido",
       uniqueTechs: [
-        { name: "Tecnología Única I", effect: "Efecto Mod." },
-        { name: "Tecnología Única II", effect: "Efecto Mod." }
+        { name: "Tácticas del Acantilado Rojo", effect: "Barcos de demolición y Arqueros de Fuego causan daño de llamas a barcos y edificios." },
+        { name: "Tigre Sentado", effect: "Trebuchets de Tracción y Lou Chuans disparan proyectiles adicionales." }
       ],
       uniqueUnits: [
-        { name: "Unidad Única", upgradeName: "Unidad Única Elite" }
+        { name: "Arquero de Fuego", upgradeName: "Arquero de Fuego Elite" }
       ]
     }
   },
