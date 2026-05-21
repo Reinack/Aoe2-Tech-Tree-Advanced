@@ -1,17 +1,28 @@
-const BOHEMIANS = {
+﻿const BOHEMIANS = {
   "bonuses": [
     {
       "type": "free_tech"
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "stat_modifier",
+      "scope": "spearman",
+      "stat": "attack",
       "op": "multiply",
-      "value": null
+      "value": 1.25
     },
     {
-      "type": "special"
+      "type": "building_cost_modifier",
+      "scope": "blacksmith",
+      "resource": "wood",
+      "op": "add",
+      "value": -100
+    },
+    {
+      "type": "building_cost_modifier",
+      "scope": "university",
+      "resource": "wood",
+      "op": "add",
+      "value": -100
     },
     {
       "type": "special"
@@ -23,7 +34,7 @@ const BOHEMIANS = {
   ],
   "teamBonus": {
     "type": "building_work_speed",
-    "scope": "building",
+    "scope": "market",
     "op": "multiply",
     "value": 1.8
   },
@@ -96,7 +107,6 @@ const BOHEMIANS = {
     "firegalley",
     "demoraft",
     "demoship",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -118,6 +128,7 @@ const BOHEMIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -131,6 +142,7 @@ const BOHEMIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -142,7 +154,6 @@ const BOHEMIANS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -159,7 +170,6 @@ const BOHEMIANS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "stonewall",
@@ -174,15 +184,15 @@ const BOHEMIANS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "gold": 200
+        "food": 300,
+        "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 600,
-        "gold": 600
+        "food": 500,
+        "gold": 450
       }
     }
   ],
@@ -192,7 +202,12 @@ const BOHEMIANS = {
       "imgPic": 370,
       "eliteImgPic": 514
     }
-  ]
+  ],
+  "overrides": {
+    "chemistry": {
+      "age": 2
+    }
+  }
 };
 
 

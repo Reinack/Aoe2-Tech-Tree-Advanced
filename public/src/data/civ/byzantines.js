@@ -1,7 +1,14 @@
-const BYZANTINES = {
+﻿const BYZANTINES = {
   "bonuses": [
     {
       "type": "special"
+    },
+    {
+      "type": "cost_modifier",
+      "scope": "camel",
+      "resource": "all",
+      "op": "multiply",
+      "value": 0.75
     },
     {
       "type": "cost_modifier",
@@ -11,12 +18,18 @@ const BYZANTINES = {
       "value": 0.75
     },
     {
+      "type": "cost_modifier",
+      "scope": "spearman",
+      "resource": "all",
+      "op": "multiply",
+      "value": 0.75
+    },
+    {
       "type": "free_tech"
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "age_advance_cost",
+      "age": 3,
       "op": "multiply",
       "value": 0.67
     },
@@ -133,6 +146,7 @@ const BYZANTINES = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -147,6 +161,7 @@ const BYZANTINES = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -195,8 +210,8 @@ const BYZANTINES = {
     {
       "age": 3,
       "cost": {
-        "food": 750,
-        "gold": 675
+        "food": 800,
+        "gold": 600
       }
     }
   ],
@@ -204,7 +219,8 @@ const BYZANTINES = {
     {
       "age": 2,
       "imgPic": 35,
-      "eliteImgPic": 476
+      "eliteImgPic": 476,
+      "cost": { "food": 70, "gold": 75 }
     }
   ]
 };

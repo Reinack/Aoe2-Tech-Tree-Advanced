@@ -1,4 +1,4 @@
-const AZTECS = {
+﻿const AZTECS = {
   "bonuses": [
     {
       "type": "start_resources",
@@ -7,7 +7,11 @@ const AZTECS = {
       "value": 50
     },
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "villager",
+      "stat": "carry",
+      "op": "add",
+      "value": 3
     },
     {
       "type": "creation_speed",
@@ -24,7 +28,11 @@ const AZTECS = {
     }
   ],
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "relic",
+    "stat": "gold_generation",
+    "op": "multiply",
+    "value": 1.33
   },
   "available": [
     "barracks",
@@ -53,6 +61,8 @@ const AZTECS = {
     "gambesons",
     "eaglescout",
     "eaglewarrior",
+    "eliteeagle",
+    "xolotl_warrior",
     "archer",
     "crossbow",
     "arbalester",
@@ -105,6 +115,7 @@ const AZTECS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -120,6 +131,7 @@ const AZTECS = {
     "warrior_priest",
     "",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -149,7 +161,6 @@ const AZTECS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "shipwright",

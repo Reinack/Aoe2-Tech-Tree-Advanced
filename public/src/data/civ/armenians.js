@@ -1,4 +1,4 @@
-const ARMENIANS = {
+﻿const ARMENIANS = {
   "bonuses": [
     {
       "type": "cost_modifier",
@@ -117,6 +117,7 @@ const ARMENIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -132,6 +133,7 @@ const ARMENIANS = {
     "sappers",
     "warrior_priest",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -143,7 +145,6 @@ const ARMENIANS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe_m",
     "bowsaw_m",
     "twomansaw_m",
@@ -175,15 +176,15 @@ const ARMENIANS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "wood": 300
+        "wood": 350,
+        "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 800,
-        "gold": 500
+        "food": 550,
+        "gold": 400
       }
     }
   ],

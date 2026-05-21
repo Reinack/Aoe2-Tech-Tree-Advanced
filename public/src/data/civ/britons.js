@@ -1,4 +1,4 @@
-const BRITONS = {
+﻿const BRITONS = {
   "bonuses": [
     {
       "type": "building_work_speed",
@@ -7,9 +7,9 @@ const BRITONS = {
       "value": 1.25
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "building_cost_modifier",
+      "scope": "tc",
+      "resource": "wood",
       "op": "multiply",
       "value": 0.5
     },
@@ -115,6 +115,7 @@ const BRITONS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -129,6 +130,7 @@ const BRITONS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -140,7 +142,6 @@ const BRITONS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",

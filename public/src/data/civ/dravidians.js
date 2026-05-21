@@ -14,8 +14,15 @@ const DRAVIDIANS = {
       "value": 0.75
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
+      "type": "stat_modifier",
+      "scope": "elephant_archer",
+      "stat": "rof",
+      "op": "multiply",
+      "value": 0.75
+    },
+    {
+      "type": "tech_cost_modifier",
+      "scope": "barracks",
       "resource": "all",
       "op": "multiply",
       "value": 0.5
@@ -23,7 +30,7 @@ const DRAVIDIANS = {
     {
       "type": "cost_modifier",
       "scope": "siege",
-      "resource": "all",
+      "resource": "wood",
       "op": "multiply",
       "value": 0.67
     },
@@ -64,15 +71,12 @@ const DRAVIDIANS = {
     "skirmisher",
     "eliteskirm",
     "handcannon",
-    "cavarcher",
-    "hcavarcher",
     "thumbring",
     "elephant_archer",
     "elite_elephant_archer",
     "scout",
     "cavalier",
     "battleeleph",
-    "eliteeleph",
     "husbandry",
     "siegetower",
     "batteringram",
@@ -134,6 +138,7 @@ const DRAVIDIANS = {
     "heresy",
     "sanctity",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -148,6 +153,7 @@ const DRAVIDIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -159,7 +165,6 @@ const DRAVIDIANS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -189,14 +194,14 @@ const DRAVIDIANS = {
       "age": 2,
       "cost": {
         "food": 300,
-        "gold": 250
+        "gold": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 350,
-        "gold": 350
+        "food": 650,
+        "gold": 550
       }
     }
   ],

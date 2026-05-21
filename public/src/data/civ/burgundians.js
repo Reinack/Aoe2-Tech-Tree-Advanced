@@ -1,15 +1,15 @@
-const BURGUNDIANS = {
+﻿const BURGUNDIANS = {
   "bonuses": [
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "tech_cost_modifier",
+      "scope": "economic_tech",
+      "resource": "food",
       "op": "multiply",
       "value": 0.67
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
+      "type": "tech_cost_modifier",
+      "scope": "stable",
       "resource": "all",
       "op": "multiply",
       "value": 0.5
@@ -103,7 +103,6 @@ const BURGUNDIANS = {
     "demoraft",
     "demoship",
     "cannongalleon",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -125,6 +124,7 @@ const BURGUNDIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "faith",
@@ -138,6 +138,7 @@ const BURGUNDIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -188,8 +189,8 @@ const BURGUNDIANS = {
     {
       "age": 3,
       "cost": {
-        "food": 1200,
-        "gold": 600
+        "food": 200,
+        "gold": 150
       }
     }
   ],
@@ -197,13 +198,32 @@ const BURGUNDIANS = {
     {
       "age": 2,
       "imgPic": 355,
-      "eliteImgPic": 511
+      "eliteImgPic": 511,
+      "cost": { "food": 55, "gold": 55 }
     }
   ],
   "overrides": {
     "cavalier": {
-      "age": 2,       
+      "age": 2,
       "row": 5
+    },
+    "caravan": {
+      "age": 1
+    },
+    "guilds": {
+      "age": 2
+    },
+    "fishing_lines": {
+      "age": 0
+    },
+    "gillnets": {
+      "age": 1
+    },
+    "wheelbarrow": {
+      "age": 0
+    },
+    "handcart": {
+      "age": 1
     }
   }
 };

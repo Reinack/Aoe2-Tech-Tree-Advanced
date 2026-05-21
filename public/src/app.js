@@ -614,7 +614,14 @@ function showStatsPanel(ev, n) {
 
     if (stats.speed) rows.push(statRow(statIcon('speed'), t('speed'), stats.speed));
     if (stats.los)   rows.push(statRow(statIcon('los'), t('los'), stats.los));
-    
+
+    if (stats.bonuses && stats.bonuses.length) {
+      for (const b of stats.bonuses) {
+        const target = t(b.vs, 'bonus_targets');
+        rows.push(statRow(statIcon('attack'), target, `+${b.value}`));
+      }
+    }
+
     gridEl.innerHTML = rows.join('');
   } else {
     gridEl.style.display = 'none';

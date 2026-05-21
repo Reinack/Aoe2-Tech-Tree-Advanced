@@ -5,8 +5,8 @@ const BENGALIS = {
     },
     {
       "type": "stat_modifier",
-      "scope": "skirmisher",
-      "stat": "attack",
+      "scope": "cavalry",
+      "stat": "attack_vs_skirmisher",
       "op": "add",
       "value": 2
     },
@@ -63,8 +63,6 @@ const BENGALIS = {
     "arbalester",
     "skirmisher",
     "eliteskirm",
-    "cavarcher",
-    "hcavarcher",
     "elephant_archer",
     "elite_elephant_archer",
     "scout",
@@ -131,6 +129,7 @@ const BENGALIS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -144,6 +143,7 @@ const BENGALIS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -184,15 +184,15 @@ const BENGALIS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 500
+        "wood": 375,
+        "gold": 275
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 400,
-        "gold": 200
+        "wood": 800,
+        "gold": 650
       }
     }
   ],
@@ -200,7 +200,8 @@ const BENGALIS = {
     {
       "age": 2,
       "imgPic": 389,
-      "eliteImgPic": 520
+      "eliteImgPic": 520,
+      "cost": { "gold": 60 }
     }
   ]
 };

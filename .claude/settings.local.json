@@ -24,7 +24,11 @@
       "WebFetch(domain:liquipedia.net)",
       "WebFetch(domain:www.aoe2insights.com)",
       "WebFetch(domain:ageofempires.wiki.gg)",
-      "WebFetch(domain:www.aoe2.gg)"
+      "WebFetch(domain:www.aoe2.gg)",
+      "Bash(xargs -I{} basename {} .js)",
+      "Bash(ls \"C:\\\\Users\\\\Usuario\\\\.claude\\\\projects\\\\D--Practicas-AOE\\\\\" 2>&1)",
+      "Bash(ls /mnt/c/Users/Usuario/.claude/projects/D--Practicas-AOE/)",
+      "Bash(python -c ' *)"
     ]
   }
 }

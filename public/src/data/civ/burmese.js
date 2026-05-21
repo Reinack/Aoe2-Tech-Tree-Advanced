@@ -1,4 +1,4 @@
-const BURMESE = {
+﻿const BURMESE = {
   "bonuses": [
     {
       "type": "free_tech"
@@ -12,15 +12,15 @@ const BURMESE = {
     },
     {
       "type": "stat_modifier",
-      "scope": "unit",
+      "scope": "battle_elephant",
       "stat": "armor_melee_and_pierce",
       "op": "add",
       "value_melee": 1,
       "value_pierce": 1
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
+      "type": "tech_cost_modifier",
+      "scope": "monastery",
       "resource": "all",
       "op": "multiply",
       "value": 0.5
@@ -123,6 +123,7 @@ const BURMESE = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -136,6 +137,7 @@ const BURMESE = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -178,15 +180,15 @@ const BURMESE = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "gold": 400
+        "food": 300,
+        "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 650,
-        "gold": 400
+        "food": 400,
+        "wood": 300
       }
     }
   ],

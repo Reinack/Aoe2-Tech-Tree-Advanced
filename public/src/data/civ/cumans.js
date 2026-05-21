@@ -1,17 +1,28 @@
-const CUMANS = {
+﻿const CUMANS = {
   "bonuses": [
     {
       "type": "special"
     },
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "cavalry",
+      "stat": "speed",
+      "op": "multiply",
+      "value": 1.15
     },
     {
-      "type": "cost_modifier",
-      "scope": "archer",
-      "resource": "all",
-      "op": "multiply",
-      "value": null
+      "type": "building_cost_modifier",
+      "scope": "archery",
+      "resource": "wood",
+      "op": "add",
+      "value": -75
+    },
+    {
+      "type": "building_cost_modifier",
+      "scope": "stable",
+      "resource": "wood",
+      "op": "add",
+      "value": -75
     },
     {
       "type": "special"
@@ -19,7 +30,7 @@ const CUMANS = {
   ],
   "teamBonus": {
     "type": "stat_modifier",
-    "scope": "unit",
+    "scope": "palisade",
     "stat": "hp",
     "op": "multiply",
     "value": 1.33
@@ -64,7 +75,6 @@ const CUMANS = {
     "cavalier",
     "paladin",
     "camel",
-    "heavycamel",
     "bloodlines",
     "husbandry",
     "steppe_lancer",
@@ -100,7 +110,6 @@ const CUMANS = {
     "firegalley",
     "demoraft",
     "demoship",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -116,6 +125,7 @@ const CUMANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "faith",
     "trebuchet",
     "petard",
@@ -128,6 +138,7 @@ const CUMANS = {
     "sappers",
     "kipchak_c",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -158,7 +169,6 @@ const CUMANS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "watchtower",
@@ -171,8 +181,8 @@ const CUMANS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 200
+        "food": 200,
+        "wood": 300
       }
     },
     {

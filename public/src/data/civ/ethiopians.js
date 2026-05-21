@@ -1,7 +1,16 @@
-const ETHIOPIANS = {
+﻿const ETHIOPIANS = {
   "bonuses": [
     {
-      "type": "special"
+      "type": "age_advance_bonus",
+      "resource": "gold",
+      "op": "add",
+      "value": 100
+    },
+    {
+      "type": "age_advance_bonus",
+      "resource": "food",
+      "op": "add",
+      "value": 100
     },
     {
       "type": "stat_modifier",
@@ -17,7 +26,7 @@ const ETHIOPIANS = {
   ],
   "teamBonus": {
     "type": "stat_modifier",
-    "scope": "unit",
+    "scope": "outpost",
     "stat": "los",
     "op": "add",
     "value": 3
@@ -62,6 +71,7 @@ const ETHIOPIANS = {
     "knight",
     "cavalier",
     "camel",
+    "heavycamel",
     "bloodlines",
     "siegetower",
     "batteringram",
@@ -114,6 +124,7 @@ const ETHIOPIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "faith",
@@ -126,6 +137,7 @@ const ETHIOPIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -137,7 +149,6 @@ const ETHIOPIANS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -154,7 +165,6 @@ const ETHIOPIANS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "architecture",
@@ -169,15 +179,15 @@ const ETHIOPIANS = {
     {
       "age": 2,
       "cost": {
-        "food": 200,
+        "food": 300,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 350,
-        "gold": 400
+        "food": 1000,
+        "gold": 600
       }
     }
   ],

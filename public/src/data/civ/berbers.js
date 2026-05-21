@@ -1,18 +1,18 @@
-const BERBERS = {
+﻿const BERBERS = {
   "bonuses": [
     {
       "type": "stat_modifier",
       "scope": "villager",
       "stat": "speed",
       "op": "multiply",
-      "value": 1.05
+      "value": 1.10
     },
     {
       "type": "cost_modifier",
-      "scope": "unit",
+      "scope": "cavalry",
       "resource": "all",
       "op": "multiply",
-      "value": 0.85
+      "value": 0.80
     },
     {
       "type": "stat_modifier",
@@ -125,6 +125,7 @@ const BERBERS = {
     "heresy",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "faith",
@@ -139,6 +140,7 @@ const BERBERS = {
     "sappers",
     "genitour",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",

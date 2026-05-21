@@ -1,31 +1,53 @@
-const CHINESE = {
+﻿const CHINESE = {
   "bonuses": [
     {
       "type": "start_resources",
-      "resource": "all",
+      "resource": "villager",
       "op": "add",
-      "value": null
+      "value": 3
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
-      "op": "multiply",
-      "value": 0.95
+      "type": "start_resources",
+      "resource": "wood",
+      "op": "add",
+      "value": -50
+    },
+    {
+      "type": "start_resources",
+      "resource": "food",
+      "op": "add",
+      "value": -200
+    },
+    {
+      "type": "special"
     },
     {
       "type": "stat_modifier",
-      "scope": "unit",
+      "scope": "tc",
       "stat": "los",
       "op": "add",
       "value": 7
     },
     {
       "type": "stat_modifier",
-      "scope": "ship",
+      "scope": "tc",
+      "stat": "pop",
+      "op": "add",
+      "value": 15
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "fire_lancer",
       "stat": "speed",
       "op": "multiply",
-      "value": 1.1
+      "value": 1.10
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "fireship",
+      "stat": "speed",
+      "op": "multiply",
+      "value": 1.10
     },
     "house",
   ],
@@ -129,6 +151,7 @@ const CHINESE = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -142,6 +165,7 @@ const CHINESE = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -153,7 +177,6 @@ const CHINESE = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -169,7 +192,6 @@ const CHINESE = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "stonewall",
@@ -183,15 +205,15 @@ const CHINESE = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "wood": 400
+        "wood": 400,
+        "stone": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "wood": 750,
-        "gold": 600
+        "food": 935,
+        "gold": 765
       }
     }
   ],

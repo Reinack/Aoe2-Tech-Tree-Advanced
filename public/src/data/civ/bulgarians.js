@@ -4,16 +4,23 @@ const BULGARIANS = {
       "type": "free_tech"
     },
     {
-      "type": "cost_modifier",
-      "scope": "siege",
-      "resource": "all",
+      "type": "tech_cost_modifier",
+      "scope": "blacksmith",
+      "resource": "food",
       "op": "multiply",
       "value": 0.5
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "tech_cost_modifier",
+      "scope": "siege_workshop",
+      "resource": "food",
+      "op": "multiply",
+      "value": 0.5
+    },
+    {
+      "type": "building_cost_modifier",
+      "scope": "tc",
+      "resource": "stone",
       "op": "multiply",
       "value": 0.5
     },
@@ -23,7 +30,7 @@ const BULGARIANS = {
   ],
   "teamBonus": {
     "type": "building_work_speed",
-    "scope": "building",
+    "scope": "blacksmith",
     "op": "multiply",
     "value": 1.8
   },
@@ -53,8 +60,6 @@ const BULGARIANS = {
     "arson",
     "gambesons",
     "archer",
-    "crossbow",
-    "arbalester",
     "skirmisher",
     "eliteskirm",
     "cavarcher",
@@ -99,7 +104,6 @@ const BULGARIANS = {
     "firegalley",
     "demoraft",
     "demoship",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -119,6 +123,7 @@ const BULGARIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "theocracy",
     "faith",
     "trebuchet",
@@ -130,6 +135,7 @@ const BULGARIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -158,7 +164,6 @@ const BULGARIANS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "krepost",
@@ -189,7 +194,8 @@ const BULGARIANS = {
     {
       "age": 2,
       "imgPic": 249,
-      "eliteImgPic": 506
+      "eliteImgPic": 506,
+      "cost": { "food": 60, "gold": 70 }
     }
   ]
 };

@@ -1,4 +1,4 @@
-const FRANKS = {
+﻿const FRANKS = {
   "bonuses": [
     {
       "type": "building_work_speed",
@@ -17,11 +17,11 @@ const FRANKS = {
       "value": 1.2
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
+      "type": "building_cost_modifier",
+      "scope": "castle",
       "resource": "all",
       "op": "multiply",
-      "value": 0.85
+      "value": 0.75
     },
     "house",
   ],
@@ -119,6 +119,7 @@ const FRANKS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -133,6 +134,7 @@ const FRANKS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -177,14 +179,14 @@ const FRANKS = {
     {
       "age": 2,
       "cost": {
-        "food": 600,
+        "food": 300,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "wood": 1000,
+        "wood": 600,
         "gold": 500
       }
     }

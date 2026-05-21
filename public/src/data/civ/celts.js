@@ -1,4 +1,4 @@
-const CELTS = {
+﻿const CELTS = {
   "bonuses": [
     {
       "type": "building_work_speed",
@@ -8,10 +8,10 @@ const CELTS = {
     },
     {
       "type": "stat_modifier",
-      "scope": "unit",
-      "stat": "los",
-      "op": "add",
-      "value": null
+      "scope": "infantry",
+      "stat": "speed",
+      "op": "multiply",
+      "value": 1.20
     },
     {
       "type": "special"
@@ -123,6 +123,7 @@ const CELTS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "faith",
     "trebuchet",
     "petard",
@@ -134,6 +135,7 @@ const CELTS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -145,7 +147,6 @@ const CELTS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -177,14 +178,14 @@ const CELTS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "food": 250,
         "gold": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "wood": 750,
+        "food": 750,
         "gold": 450
       }
     }
