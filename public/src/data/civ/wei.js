@@ -10,7 +10,8 @@
       "scope": "cavalry",
       "stat": "hp",
       "op": "multiply",
-      "value": 1.3
+      "value": 1.3,
+      "min_age": 2
     },
     // Traction Trebuchets and Lou Chuans cost -25%
     {

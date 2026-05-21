@@ -22,7 +22,8 @@
       "scope": "infantry",
       "stat": "rof",
       "op": "multiply",
-      "value": 0.75
+      "value": 0.75,
+      "min_age": 1
     },
     // Fishing Ships work +5/10/15/20% faster per age; +100% HP
     {

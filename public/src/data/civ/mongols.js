@@ -21,7 +21,8 @@
       "scope": "light_cavalry",
       "stat": "hp",
       "op": "multiply",
-      "value": 1.3
+      "value": 1.3,
+      "min_age": 2
     },
     // Steppe Lancers +20/30% HP in Castle/Imperial Age
     {
@@ -29,7 +30,8 @@
       "scope": "steppe_lancer",
       "stat": "hp",
       "op": "multiply",
-      "value": 1.3
+      "value": 1.3,
+      "min_age": 2
     }
   ],
   "teamBonus": {

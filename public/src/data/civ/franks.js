@@ -17,7 +17,8 @@
       "scope": "cavalry",
       "stat": "hp",
       "op": "multiply",
-      "value": 1.2
+      "value": 1.2,
+      "min_age": 1
     },
     // Castles cost -15/25% in Castle/Imperial Age
     {

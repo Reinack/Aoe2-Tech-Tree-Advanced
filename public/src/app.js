@@ -575,16 +575,17 @@ const CIV_BONUS_SCOPE_MAP = {
   elephant:       () => ['battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
 };
 
-// Returns stats after applying current civ's stat_modifier bonuses, or null if none apply
-function computeCivModifiedStats(stats, unitId) {
+// Returns stats after applying current civ's stat_modifier bonuses, or null if none apply.
+// unitAge: the node's age (0=Dark, 1=Feudal, 2=Castle, 3=Imperial); bonuses with min_age are skipped if unit is younger.
+function computeCivModifiedStats(stats, unitId, unitAge = 0) {
   const civ = getCiv();
   if (!civ || !civ.bonuses) return null;
 
   const mods = civ.bonuses.filter(b => {
     if (b.type !== 'stat_modifier') return false;
+    if (b.min_age !== undefined && unitAge < b.min_age) return false;
     const getter = CIV_BONUS_SCOPE_MAP[b.scope];
     if (getter) return getter().includes(unitId);
-    // Fallback: check directly in UNIT_CLASSES
     return UNIT_CLASSES[b.scope]?.includes(unitId) ?? false;
   });
 
@@ -707,8 +708,8 @@ function showStatsPanel(ev, n) {
 
   // Stats
   const stats = getStatsForNode(n);
-  // Compute civ bonuses for any node that has stats (unit upgrades like Champion also carry unit-class bonuses)
-  const civMod = stats ? computeCivModifiedStats(stats, n.id) : null;
+  // Compute civ bonuses — pass unit's age so min_age restrictions are respected
+  const civMod = stats ? computeCivModifiedStats(stats, n.id, n.age ?? 0) : null;
   const isUnit = n.type === 'unit' || n.type === 'upgrade' || n.id === 'uniqueunit' || n.id === 'eliteunique';
 
   // Store for sim: clear active techs only when switching unit
