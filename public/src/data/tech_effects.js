@@ -4,7 +4,7 @@ export const UNIT_CLASSES = {
     'militia', 'manatarms', 'longsword', 'twohanded', 'champion',
     'spearman', 'pikeman', 'halberdier',
     'eaglescout', 'eaglewarrior', 'eliteeagle',
-    'condottiero', 'gbeto', 'woad_raider', 'shotel', 'karambit', 'obuch',
+    'condottiero', 'flemish_militia', 'gbeto', 'woad_raider', 'shotel', 'karambit', 'obuch',
     'fire_lancer', 'elite_fire_lancer',
     'champiscout', 'champirunner', 'champiwarrior', 'elitechampi',
     'jian_swordsman'
@@ -13,11 +13,12 @@ export const UNIT_CLASSES = {
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
     'camel', 'heavycamel', 'imp_camel', 'battleeleph', 'eliteeleph', 'steppe_lancer', 'elite_steppe_lancer',
     'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'missionary',
-    'hei_guang', 'heavy_hei_guang', 'war_chariot_s', 'xianbei_raider'
+    'hei_guang', 'heavy_hei_guang', 'war_chariot_s', 'xianbei_raider', 'bolas_rider', 'elite_bolas_rider'
   ],
   'archer': [
     'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher',
-    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'handcannon'
+    'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'handcannon',
+    'slinger', 'bolas_rider', 'elite_bolas_rider'
   ],
   'siege': [
     'batteram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager',
@@ -38,11 +39,12 @@ export const UNIT_CLASSES = {
 
   // --- Sub-clases y Combinaciones ---
   'foot_archer': [
-    'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher'
+    'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher',
+    'slinger'
   ],
   'mounted_archer': [
     'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour',
-    'xianbei_raider'
+    'xianbei_raider', 'bolas_rider', 'elite_bolas_rider'
   ],
   'cavalry': [
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
@@ -50,7 +52,7 @@ export const UNIT_CLASSES = {
     'hei_guang', 'heavy_hei_guang', 'war_chariot_s'
   ],
   'skirmishers': [
-    'skirmisher', 'eliteskirm', 'imp_skirmisher', 'genitour'
+    'skirmisher', 'eliteskirm', 'imp_skirmisher', 'genitour', 'slinger'
   ],
   'gunpowder': [
     'handcannon', 'bombadcannon', 'cannongalleon', 'elitecannon', 'bombardtower', 'janissary', 'conquistador',
@@ -135,7 +137,13 @@ export const UNIQUE_UNIT_CLASSES = {
   'Guardia del Templo': ['infantry'],
   'Arquero de Madera Negra': ['archer', 'foot_archer'],
   'Guerrero Ibirapema': ['infantry'],
-  'Champi Warrior': ['infantry']
+  'Champi Warrior': ['infantry'],
+  'Pagoda de Hierro': ['cavalry', 'mounted'],
+  'Arquero de Fuego': ['archer', 'foot_archer'],
+  'Liao Dao': ['infantry'],
+  'Caballería Tigre': ['cavalry', 'mounted'],
+  'Guardián de Pluma Blanca': ['infantry'],
+  'Liu Bei': ['infantry']
 };
 
 export const TECH_AFFECTS = {
@@ -184,33 +192,48 @@ export const TECH_AFFECTS = {
   'murderhole': ['buildings'],
   'treadmillcrane': ['buildings'],
   'heatedshot': ['buildings'],
-  'careening': ['navy'],
-  'drydock': ['navy'],
-  'clinker_construction': ['navy'],
-  'carvel_hull': ['navy'],
+  'careening': ['navy', 'fishingship', 'tradecog'],
+  'drydock': ['navy', 'fishingship', 'tradecog'],
+  'clinker_construction': ['navy', 'fishingship', 'tradecog'],
+  'carvel_hull': ['navy', 'fishingship', 'tradecog'],
   'siphons': ['navy'],
   'incendiaries': ['navy'],
 
   // Muelle
-  'shipwright': ['navy'],
+  'shipwright': ['navy', 'fishingship', 'tradecog'],
+  'fishing_lines': ['fishingship'],
+  'gillnets': ['fishingship'],
 
   // Monasterio
-  'sanctity': ['monk'],
-  'fervor': ['monk'],
+  'sanctity': ['monk', 'warrior_priest'],
+  'fervor': ['monk', 'warrior_priest'],
   'theocracy': ['monk'],
   'blockprinting': ['monk'],
   'redemption': ['monk'],
   'atonement': ['monk'],
   'heresy': ['monk'],
   'herbalmedicine': ['monk'],
+  'devotion': ['monk'],
   'illumination': ['monk'],
   'faith': ['monk'],
+
+  // Centro Urbano
+  'loom':        ['villager'],
+  'wheelbarrow': ['villager'],
+  'handcart':    ['villager'],
+
+  // Mercado
+  'caravan': ['tradecart', 'tradecog'],
+
+  // Castillo
+  'conscription': ['infantry'],
+  'sappers': ['villager'],
 
   // --- TECNOLOGÍAS ÚNICAS POR CIVILIZACIÓN ---
 
   // Armenios
   'armenians_uniquetech1': ['demoship', 'galley', 'wargalley', 'galleon', 'dromon'], // Cilician Fleet
-  'armenians_uniquetech2': ['infantry', 'religious'], // Fereters (+HP inf, +heal monks)
+  'armenians_uniquetech2': ['infantry', 'warrior_priest'], // Fereters (+HP inf, +heal monks)
 
   // Aztecas
   'aztecs_uniquetech1': ['skirmishers'], // Atlatl
@@ -234,7 +257,7 @@ export const TECH_AFFECTS = {
 
   // Búlgaros
   'bulgarians_uniquetech1': ['cavalry'], // Stirrups
-  'bulgarians_uniquetech2': ['twohanded'], // Bagains (actualmente solo 2H, pero a veces Champion si se desbloquea)
+  'bulgarians_uniquetech2': ['militia', 'manatarms', 'longsword', 'twohanded', 'champion'], // Bagains
 
   // Borgoñones
   'burgundians_uniquetech1': ['civilians'], // Burgundian Vineyards
@@ -249,7 +272,7 @@ export const TECH_AFFECTS = {
   'byzantines_uniquetech2': ['uniqueunit', 'eliteunique'], // Logistica
 
   // Celtas
-  'celts_uniquetech1': ['castle', 'watchtower', 'guardtower', 'keep'], // Stronghold
+  'celts_uniquetech1': ['infantry'], // Stronghold
   'celts_uniquetech2': ['siege'], // Furor Celtica
 
   // Chinos
@@ -262,10 +285,10 @@ export const TECH_AFFECTS = {
 
   // Dravídicos
   'dravidians_uniquetech1': ['battleeleph', 'eliteeleph', 'elephant_archer', 'elite_elephant_archer'], // Medical Corps
-  'dravidians_uniquetech2': ['infantry', 'cavalry'], // Wootz Steel
+  'dravidians_uniquetech2': ['infantry'], // Wootz Steel
 
   // Etíopes
-  'ethiopians_uniquetech1': ['uniqueunit', 'eliteunique', 'camel', 'heavycamel'], // Royal Heirs
+  'ethiopians_uniquetech1': ['uniqueunit', 'eliteunique'], // Royal Heirs
   'ethiopians_uniquetech2': ['siege'], // Torsion Engines
 
   // Francos
@@ -281,7 +304,7 @@ export const TECH_AFFECTS = {
   'goths_uniquetech2': ['barracks'], // Perfusion
 
   // Gurjaras
-  'gurjaras_uniquetech1': ['infantry', 'archer', 'cavalry', 'siege', 'navy'], // Kshatriyas (Military cost)
+  'gurjaras_uniquetech1': ['infantry'], // Kshatriyas
   'gurjaras_uniquetech2': ['camel', 'heavycamel', 'elephant_archer', 'elite_elephant_archer'], // Frontier Guards
 
   // Industaníes
@@ -309,7 +332,7 @@ export const TECH_AFFECTS = {
   'jurchens_uniquetech2': ['grenadier', 'navy', 'rocket_cart', 'heavy_rocket_cart'], // Thunderclap Bombs
 
   // Khitán
-  'khitans_uniquetech1': ['infantry', 'skirmishers'], // Lamellar Armor
+  'khitans_uniquetech1': ['infantry'], // Lamellar Armor
   'khitans_uniquetech2': ['cavalry'], // Ordo Cavalry
 
   // Jemer
@@ -322,7 +345,7 @@ export const TECH_AFFECTS = {
 
   // Lituanos
   'lithuanians_uniquetech1': ['tc'], // Hill Forts
-  'lithuanians_uniquetech2': ['spearman', 'pikeman', 'halberdier', 'skirmishers'], // Tower Shields
+  'lithuanians_uniquetech2': ['spearman', 'pikeman', 'halberdier'], // Tower Shields
 
   // Magiares
   'magyars_uniquetech1': ['uniqueunit', 'eliteunique'], // Corvinian Army
@@ -349,8 +372,8 @@ export const TECH_AFFECTS = {
   'mongols_uniquetech2': ['siege'], // Drill
 
   // Muisca
-  'muisca_uniquetech1': ['archer', 'crossbow', 'arbalester', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], // Herbalism (línea arquero: no clase entera)
-  'muisca_uniquetech2': ['uniqueunit', 'eliteunique'], // Huaracas (Guerrero Guecha = hondero)
+  'muisca_uniquetech1': ['champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], // Herbalism
+  'muisca_uniquetech2': ['uniqueunit', 'eliteunique', 'slinger'], // Huaracas (Guerrero Guecha = hondero; también afecta Hondero)
 
   // Persas
   'persians_uniquetech1': ['archer', 'crossbow', 'arbalester'], // Kamandaran
@@ -366,7 +389,7 @@ export const TECH_AFFECTS = {
 
   // Romanos
   'romans_uniquetech1': ['scorpion', 'heavyscorp', 'galley', 'wargalley', 'galleon'], // Ballistas
-  'romans_uniquetech2': ['militia', 'manatarms', 'longsword', 'twohanded', 'champion', 'knight', 'cavalier', 'paladin', 'uniqueunit', 'eliteunique'], // Comitatenses
+  'romans_uniquetech2': ['militia', 'manatarms', 'longsword', 'twohanded', 'champion', 'uniqueunit', 'eliteunique'], // Comitatenses
 
   // Sarracenos
   'saracens_uniquetech1': ['monk'], // Bimaristan
@@ -397,7 +420,7 @@ export const TECH_AFFECTS = {
   'teutons_uniquetech2': ['castle', 'infantry'], // Crenellations
 
   // Tupi
-  'tupi_uniquetech1': ['champiscout', 'champirunner', 'champiwarrior', 'elitechampi', 'uniqueunit', 'eliteunique'], // Caciques
+  'tupi_uniquetech1': ['champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], // Caciques
   'tupi_uniquetech2': ['foot_archer', 'buildings'], // Curare
 
   // Turcos
