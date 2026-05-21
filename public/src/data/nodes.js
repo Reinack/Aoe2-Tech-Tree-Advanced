@@ -55,7 +55,7 @@ export const NODES = [
   { id: 'grenadier', type: 'unit', age: 2, building: 'archery', row: 4, col: 2, special: true, variant: 'unique', prereqs: [], train_cost: { food: 35, gold: 65 } },
   { id: 'xianbei_raider', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 60, gold: 25 } },
   { id: 'bolas_rider', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 45, gold: 50 } },
-  { id: 'elite_bolas_rider', type: 'upgrade', age: 3, building: 'archery', row: 5, col: 3, special: true, variant: 'unique', prereqs: ['bolas_rider'], research_cost: { food: 500, gold: 450 } },
+  { id: 'elite_bolas_rider', type: 'upgrade', age: 3, building: 'archery', row: 6, col: 3, special: true, variant: 'unique', prereqs: ['bolas_rider'], research_cost: { food: 500, gold: 450 } },
   { id: 'slinger', type: 'unit', age: 2, building: 'archery', row: 4, col: 4, special: true, variant: 'regional', prereqs: [], train_cost: { food: 70, wood: 10 } },
   { id: 'genitour', type: 'unit', age: 2, building: 'archery', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 50, wood: 35 } },
 
@@ -80,7 +80,7 @@ export const NODES = [
   { id: 'camel_scout', type: 'unit', age: 1, building: 'stable', row: 3, col: 2, special: true, variant: 'regional', prereqs: [], train_cost: { food: 55, gold: 60 } },
   { id: 'imp_camel', type: 'upgrade', age: 3, building: 'stable', row: 7, col: 2, special: true, variant: 'regional', prereqs: ['heavycamel'], research_cost: { food: 1000, gold: 500 }, train_cost: { food: 55, gold: 60 } },
   { id: 'steppe_lancer', type: 'unit', age: 2, building: 'stable', row: 4, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 70, gold: 40 } },
-  { id: 'elite_steppe_lancer', type: 'upgrade', age: 3, building: 'stable', row: 3, col: 4, special: true, variant: 'regional', prereqs: ['steppe_lancer'], research_cost: { food: 600, gold: 550 }, train_cost: { food: 70, gold: 40 } },
+  { id: 'elite_steppe_lancer', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 3, special: true, variant: 'regional', prereqs: ['steppe_lancer'], research_cost: { food: 600, gold: 550 }, train_cost: { food: 70, gold: 40 } },
   { id: 'xolotl_warrior', type: 'unit', age: 2, building: 'stable', row: 4, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { food: 60, gold: 75 } },
   { id: 'shrivamsha', type: 'unit', age: 2, building: 'stable', row: 4, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { food: 70, gold: 30 } },
   { id: 'elite_shrivamsha', type: 'upgrade', age: 3, building: 'stable', row: 6, col: 3, special: true, variant: 'unique', prereqs: ['shrivamsha'], research_cost: { food: 600, gold: 400 }, train_cost: { food: 70, gold: 30 } },
