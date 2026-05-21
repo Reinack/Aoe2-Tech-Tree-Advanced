@@ -557,22 +557,24 @@ const STAT_ICONS = {
 
 // Maps civ bonus scope names → unit ID lists for stat modifier lookup
 const CIV_BONUS_SCOPE_MAP = {
-  infantry:       () => UNIT_CLASSES['infantry']      || [],
-  cavalry:        () => UNIT_CLASSES['cavalry']       || [],
-  cavalry_archer: () => UNIT_CLASSES['mounted_archer']|| [],
-  foot_archer:    () => UNIT_CLASSES['foot_archer']   || [],
-  ship:           () => UNIT_CLASSES['navy']          || [],
-  gunpowder:      () => UNIT_CLASSES['gunpowder']     || [],
-  siege:          () => UNIT_CLASSES['siege']         || [],
-  light_cavalry:  () => ['scout','lightcav','hussar','winged_hussar'],
-  steppe_lancer:  () => ['steppe_lancer','elite_steppe_lancer'],
-  villager:       () => ['villager'],
-  monk:           () => UNIT_CLASSES['religious']     || [],
-  unique_unit:    () => ['uniqueunit','eliteunique'],
-  camel:          () => ['camel','heavycamel','imp_camel'],
-  eagle:          () => ['eaglescout','eaglewarrior','eliteeagle'],
-  trade:          () => ['tradecart','tradecog'],
-  elephant:       () => ['battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
+  infantry:        () => UNIT_CLASSES['infantry']      || [],
+  cavalry:         () => UNIT_CLASSES['cavalry']       || [],
+  cavalry_archer:  () => UNIT_CLASSES['mounted_archer']|| [],
+  foot_archer:     () => UNIT_CLASSES['foot_archer']   || [],
+  ship:            () => UNIT_CLASSES['navy']          || [],
+  gunpowder:       () => UNIT_CLASSES['gunpowder']     || [],
+  siege:           () => UNIT_CLASSES['siege']         || [],
+  light_cavalry:   () => ['scout','lightcav','hussar','winged_hussar'],
+  steppe_lancer:   () => ['steppe_lancer','elite_steppe_lancer'],
+  villager:        () => ['villager'],
+  monk:            () => UNIT_CLASSES['religious']     || [],
+  unique_unit:     () => ['uniqueunit','eliteunique'],
+  camel:           () => ['camel','heavycamel','imp_camel'],
+  eagle:           () => ['eaglescout','eaglewarrior','eliteeagle'],
+  trade:           () => ['tradecart','tradecog'],
+  elephant:        () => ['battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
+  // "Barracks and Stable Units" — infantry + non-camel cavalry
+  barracks_stable: () => [...(UNIT_CLASSES['infantry'] || []), ...(UNIT_CLASSES['cavalry'] || [])],
 };
 
 // Returns stats after applying current civ's stat_modifier bonuses, or null if none apply.
@@ -601,14 +603,25 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0) {
     los:    stats.los,
   };
 
-  for (const { stat, op, value } of mods) {
-    if (stat === 'hp')     { m.hp     = op === 'multiply' ? Math.round(m.hp     * value) : m.hp     + value; }
-    if (stat === 'attack') { m.attack = op === 'multiply' ? Math.round(m.attack * value) : m.attack + value; }
-    if (stat === 'armor')  { m.armor  = m.armor.map(a => op === 'multiply' ? Math.round(a * value) : a + value); }
-    if (stat === 'range')  { m.range  = op === 'multiply' ? +(m.range  * value).toFixed(1) : m.range  + value; }
-    if (stat === 'speed')  { m.speed  = op === 'multiply' ? +(m.speed  * value).toFixed(2) : m.speed  + value; }
-    if (stat === 'rof')    { m.rof    = op === 'multiply' ? +(m.rof    * value).toFixed(2) : m.rof    + value; }
-    if (stat === 'los')    { m.los    = op === 'multiply' ? Math.round(m.los    * value)    : m.los    + value; }
+  for (const mod of mods) {
+    const { stat, op } = mod;
+    // value_by_age: pick the value matching the unit's age (clamped to array length)
+    const value = mod.value_by_age
+      ? (mod.value_by_age[Math.min(unitAge, mod.value_by_age.length - 1)] ?? mod.value_by_age[mod.value_by_age.length - 1])
+      : mod.value;
+
+    // Skip neutral values: multiply by 1 = no change, add 0 = no change
+    if (op === 'multiply' ? value === 1 : value === 0) continue;
+
+    if (stat === 'hp')           { m.hp       = op === 'multiply' ? Math.round(m.hp       * value) : m.hp       + value; }
+    if (stat === 'attack')       { m.attack   = op === 'multiply' ? Math.round(m.attack   * value) : m.attack   + value; }
+    if (stat === 'armor')        { m.armor    = m.armor.map(a => op === 'multiply' ? Math.round(a * value) : a + value); }
+    if (stat === 'armor_melee')  { m.armor[0] = op === 'multiply' ? Math.round(m.armor[0] * value) : m.armor[0] + value; }
+    if (stat === 'armor_pierce') { m.armor[1] = op === 'multiply' ? Math.round(m.armor[1] * value) : m.armor[1] + value; }
+    if (stat === 'range')        { m.range    = op === 'multiply' ? +(m.range  * value).toFixed(1) : m.range    + value; }
+    if (stat === 'speed')        { m.speed    = op === 'multiply' ? +(m.speed  * value).toFixed(2) : m.speed    + value; }
+    if (stat === 'rof')          { m.rof      = op === 'multiply' ? +(m.rof    * value).toFixed(2) : m.rof      + value; }
+    if (stat === 'los')          { m.los      = op === 'multiply' ? Math.round(m.los      * value)  : m.los      + value; }
   }
 
   return m;

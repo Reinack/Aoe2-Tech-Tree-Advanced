@@ -13,7 +13,7 @@
       "scope": "infantry",
       "stat": "speed",
       "op": "multiply",
-      "value": 1.20
+      "value_by_age": [1.05, 1.10, 1.15, 1.20]
     },
     // Livestock animals within Celt unit line of sight cannot be stolen by enemies
     {

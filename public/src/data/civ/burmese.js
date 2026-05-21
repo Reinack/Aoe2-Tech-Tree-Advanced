@@ -10,7 +10,8 @@
       "scope": "infantry",
       "stat": "attack",
       "op": "add",
-      "value": 3
+      "value_by_age": [0, 1, 2, 3],
+      "min_age": 1
     },
     // Battle Elephants +1 melee armor and +1 pierce armor
     {

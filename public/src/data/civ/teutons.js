@@ -22,7 +22,16 @@
       "scope": "infantry",
       "stat": "armor_melee",
       "op": "add",
-      "value": 2
+      "value_by_age": [0, 0, 1, 2],
+      "min_age": 2
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "cavalry",
+      "stat": "armor_melee",
+      "op": "add",
+      "value_by_age": [0, 0, 1, 2],
+      "min_age": 2
     },
     // Monks +100% healing range (double the normal range)
     {
