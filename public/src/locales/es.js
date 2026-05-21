@@ -1084,18 +1084,19 @@ const LOCALE_ES = {
       name: "Persas",
       type: "Civilización de caballería",
       bonuses: [
-        "Empiezan con +50 de madera y +50 de comida",
-        "Los Centros Urbanos y Muelles tienen +100% de PV y trabajan +5/10/15/20% más rápido en Alta Edad Media/Feudal/Castillos/Imperial",
-        "Tácticas Partas disponibles en la Edad de los Castillos",
-        "Pueden construir Caravanserai en la Edad Imperial"
+        "Empieza con +50 de madera y comida",
+        "Los centros urbanos y los muelles ganan un 100 % más de PR y trabajan un 5/10/15/20 % más rápido en la Edad Oscura, la Edad Feudal, la Edad de los Castillos, y la Edad Imperial, respectivamente",
+        "Tácticas de los partias disponibles en la Edad de los Castillos",
+        "Puedes construir caravasares en la Edad Imperial"
       ],
-      teamBonus: "La línea de Caballeros tiene +2 de ataque vs. soldados a distancia",
+      teamBonus: "Los caballeros ganan +2 de ataque contra los soldados a distancia",
       uniqueTechs: [
-        { name: "Kamandaran", effect: "Costo de arqueros cambia a solo madera (sin oro)." },
-        { name: "Ciudadelas", effect: "Castillos +4 ataque, +3 vs arietes, +3 vs infantería; -25% daño adicional." }
+        { name: "Kamandaran", effect: "el coste de oro de los arqueros se reemplaza por un coste adicional de madera" },
+        { name: "Ciudadelas", effect: "los castillos infligen +4 de ataque, +3 contra arietes, +3 contra infantería y reciben un 25 % menos de daño adicional" }
       ],
       uniqueUnits: [
-        { name: "Elefante de Guerra", upgradeName: "Elefante de Guerra Elite" }
+        { name: "Elefante de guerra", subtitle: "caballería", upgradeName: "Elefante de guerra Elite" },
+        { name: "Savar", subtitle: "caballería" }
       ]
     },
     poles: {

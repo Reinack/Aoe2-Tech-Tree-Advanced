@@ -1084,11 +1084,12 @@ const LOCALE_EN = {
       ],
       teamBonus: "Knight-line +2 attack vs. Ranged Soldiers",
       uniqueTechs: [
-        { name: "Mahout", effect: "War Elephants +30% speed." },
-        { name: "Citadels", effect: "Town Centers +35 pierce armor." }
+        { name: "Kamandaran", effect: "Archer-line gold cost replaced by additional wood cost." },
+        { name: "Citadels", effect: "Castles +4 attack, +3 vs. Rams, +3 vs. Infantry and receive -25% bonus damage." }
       ],
       uniqueUnits: [
-        { name: "War Elephant", upgradeName: "Elite War Elephant" }
+        { name: "War Elephant", subtitle: "cavalry", upgradeName: "Elite War Elephant" },
+        { name: "Savar", subtitle: "cavalry" }
       ]
     },
     poles: {
