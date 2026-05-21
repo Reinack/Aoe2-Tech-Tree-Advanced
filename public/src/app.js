@@ -794,16 +794,19 @@ function showStatsPanel(ev, n) {
     appEl.style.display = 'none';
   }
 
-  // Posición: aparece junto al cursor sin salirse de pantalla
-  const PW = 324, PH = 300;
+  // Posición: medir altura real del panel antes de posicionarlo
+  statsPanel.style.left = '-9999px';
+  statsPanel.style.top  = '-9999px';
+  statsPanel.style.display = 'block';
+  const PW = statsPanel.offsetWidth  || 324;
+  const PH = statsPanel.offsetHeight || 300;
   let x = ev.clientX + 18;
   let y = ev.clientY - 20;
-  if (x + PW > window.innerWidth) x = ev.clientX - PW - 10;
+  if (x + PW > window.innerWidth)  x = ev.clientX - PW - 10;
   if (y + PH > window.innerHeight) y = window.innerHeight - PH - 10;
   if (y < 0) y = 8;
   statsPanel.style.left = `${x}px`;
-  statsPanel.style.top = `${y}px`;
-  statsPanel.style.display = 'block';
+  statsPanel.style.top  = `${y}px`;
   statsPanel.classList.remove('sp-animate');
   requestAnimationFrame(() => statsPanel.classList.add('sp-animate'));
 
