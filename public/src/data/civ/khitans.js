@@ -1,4 +1,4 @@
-const KHITANS = {
+﻿const KHITANS = {
   "bonuses": [
     {
       "type": "special"
@@ -7,7 +7,10 @@ const KHITANS = {
       "type": "special"
     },
     {
-      "type": "special"
+      "type": "creation_speed",
+      "scope": "skirmisher",
+      "op": "multiply",
+      "value": 0.85
     },
     {
       "type": "cost_modifier",
@@ -20,7 +23,7 @@ const KHITANS = {
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "infantry",
-    "stat": "attack",
+    "stat": "attack_vs_foot_archer",
     "op": "add",
     "value": 2
   },
@@ -37,6 +40,7 @@ const KHITANS = {
     "market",
     "tc",
     "mill",
+    "pasture",
     "lumber",
     "mining",
     "militia",
@@ -65,7 +69,11 @@ const KHITANS = {
     "scout",
     "lightcav",
     "hussar",
+    "steppe_lancer",
+    "elite_steppe_lancer",
     "cavalier",
+    "camel",
+    "heavycamel",
     "husbandry",
     "siegetower",
     "batteringram",
@@ -81,7 +89,6 @@ const KHITANS = {
     "heavy_rocket_cart",
     "forging",
     "ironcasting",
-    "blastfurnace",
     "scalemailarmor",
     "chainmailarmor",
     "platemailarmor",
@@ -101,7 +108,6 @@ const KHITANS = {
     "demoraft",
     "demoship",
     "cannongalleon",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -119,6 +125,7 @@ const KHITANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "blockprinting",
     "faith",
     "trebuchet",
@@ -130,6 +137,7 @@ const KHITANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -139,9 +147,9 @@ const KHITANS = {
     "townwatch",
     "handcart",
     "townpatrol",
-    "horsecollar",
-    "heavyplow",
-    "croprotation",
+    "domestication",
+    "pastoralism",
+    "transhumance",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -172,15 +180,15 @@ const KHITANS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "food": 450,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 500
+        "food": 600,
+        "gold": 300
       }
     }
   ],
@@ -188,7 +196,9 @@ const KHITANS = {
     {
       "age": 2,
       "imgPic": 463,
-      "eliteImgPic": 525
+      "eliteImgPic": 525,
+      "cost": { "food": 40, "gold": 40 },
+      "elite_cost": { "food": 800, "gold": 650 }
     }
   ]
 };

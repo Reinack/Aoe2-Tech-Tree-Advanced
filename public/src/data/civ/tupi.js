@@ -1,4 +1,4 @@
-const TUPI = {
+﻿const TUPI = {
   "bonuses": [
     {
       "type": "start_resources",
@@ -44,6 +44,7 @@ const TUPI = {
     "champirunner",
     "champiwarrior",
     "elitechampi",
+    "xolotl_warrior",
     "temple_guard",
     "archer",
     "crossbow",
@@ -103,6 +104,7 @@ const TUPI = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -118,6 +120,7 @@ const TUPI = {
     "sappers",
     "slinger",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -129,7 +132,6 @@ const TUPI = {
     "townpatrol",
     "horsecollar_t",
     "heavyplow_t",
-    "croprotation_t",
     "doublebitaxe_t",
     "bowsaw_t",
     "twomansaw_t",
@@ -145,7 +147,6 @@ const TUPI = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "watchtower",
@@ -159,14 +160,14 @@ const TUPI = {
       "age": 2,
       "cost": {
         "food": 400,
-        "gold": 300
+        "gold": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 600,
-        "gold": 500
+        "food": 650,
+        "gold": 600
       }
     }
   ],

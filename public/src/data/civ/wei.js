@@ -1,4 +1,4 @@
-const WEI = {
+﻿const WEI = {
   "bonuses": [
     {
       "type": "free_tech"
@@ -74,8 +74,6 @@ const WEI = {
     "scorpion",
     "heavyscorpion",
     "traction_treb",
-    "rocket_cart",
-    "heavy_rocket_cart",
     "forging",
     "ironcasting",
     "blastfurnace",
@@ -98,7 +96,6 @@ const WEI = {
     "fastfireship",
     "demoraft",
     "demoship",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -119,6 +116,7 @@ const WEI = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "faith",
     "petard",
     "uniqueunit",
@@ -129,6 +127,7 @@ const WEI = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -171,15 +170,15 @@ const WEI = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 300
+        "food": 250,
+        "wood": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 500
+        "food": 600,
+        "gold": 450
       }
     }
   ],
@@ -187,7 +186,9 @@ const WEI = {
     {
       "age": 2,
       "imgPic": 432,
-      "eliteImgPic": 526
+      "eliteImgPic": 526,
+      "cost": { "food": 60, "gold": 80 },
+      "elite_cost": { "food": 1000, "gold": 800 }
     }
   ]
 };

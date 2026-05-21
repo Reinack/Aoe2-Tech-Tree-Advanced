@@ -1,4 +1,4 @@
-const TATARS = {
+﻿const TATARS = {
   "bonuses": [
     {
       "type": "special"
@@ -114,6 +114,7 @@ const TATARS = {
     "heresy",
     "sanctity",
     "fervor",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -127,6 +128,7 @@ const TATARS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -171,15 +173,15 @@ const TATARS = {
     {
       "age": 2,
       "cost": {
-        "food": 200,
+        "wood": 400,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 400,
-        "gold": 300
+        "wood": 500,
+        "gold": 400
       }
     }
   ],
@@ -187,7 +189,8 @@ const TATARS = {
     {
       "age": 2,
       "imgPic": 251,
-      "eliteImgPic": 507
+      "eliteImgPic": 507,
+      "cost": { "food": 60, "gold": 40 }
     }
   ]
 };

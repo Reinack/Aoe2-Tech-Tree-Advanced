@@ -1,10 +1,16 @@
-const MAYANS = {
+﻿const MAYANS = {
   "bonuses": [
     {
       "type": "start_resources",
-      "resource": "all",
+      "resource": "villager",
       "op": "add",
-      "value": null
+      "value": 1
+    },
+    {
+      "type": "start_resources",
+      "resource": "food",
+      "op": "add",
+      "value": -50
     },
     {
       "type": "special"
@@ -19,8 +25,8 @@ const MAYANS = {
     "house",
   ],
   "teamBonus": {
-    "type": "cost_modifier",
-    "scope": "unit",
+    "type": "building_cost_modifier",
+    "scope": "stonewall",
     "resource": "all",
     "op": "multiply",
     "value": 0.5
@@ -51,6 +57,7 @@ const MAYANS = {
     "eaglescout",
     "eaglewarrior",
     "eliteeagle",
+    "xolotl_warrior",
     "archer",
     "crossbow",
     "arbalester",
@@ -109,6 +116,7 @@ const MAYANS = {
     "heresy",
     "sanctity",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "faith",
@@ -122,6 +130,7 @@ const MAYANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -149,7 +158,6 @@ const MAYANS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries"
   ],

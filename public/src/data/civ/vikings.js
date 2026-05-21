@@ -1,4 +1,4 @@
-const VIKINGS = {
+﻿const VIKINGS = {
   "bonuses": [
     {
       "type": "free_tech"
@@ -111,6 +111,7 @@ const VIKINGS = {
     "heresy",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "blockprinting",
     "theocracy",
     "faith",
@@ -125,6 +126,7 @@ const VIKINGS = {
     "sappers",
     "longboat",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -167,15 +169,15 @@ const VIKINGS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "gold": 300
+        "food": 600,
+        "gold": 450
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 450
+        "food": 650,
+        "gold": 500
       }
     }
   ],

@@ -2,15 +2,23 @@ const SPANISH = {
   "bonuses": [
     {
       "type": "building_work_speed",
-      "scope": "villager",
+      "scope": "builder",
       "op": "multiply",
       "value": 1.3
     },
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "tech",
+      "stat": "gold_reward",
+      "op": "add",
+      "value": 20
     },
     {
-      "type": "special"
+      "type": "tech_cost_modifier",
+      "scope": "blacksmith",
+      "resource": "gold",
+      "op": "multiply",
+      "value": 0
     },
     {
       "type": "stat_modifier",
@@ -24,7 +32,11 @@ const SPANISH = {
     }
   ],
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "trade_unit",
+    "stat": "gold_generation",
+    "op": "multiply",
+    "value": 1.25
   },
   "available": [
     "barracks",
@@ -53,7 +65,6 @@ const SPANISH = {
     "arson",
     "gambesons",
     "archer",
-    "arbalester",
     "skirmisher",
     "eliteskirm",
     "handcannon",
@@ -125,6 +136,7 @@ const SPANISH = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -140,6 +152,7 @@ const SPANISH = {
     "sappers",
     "missionary",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -151,7 +164,6 @@ const SPANISH = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",

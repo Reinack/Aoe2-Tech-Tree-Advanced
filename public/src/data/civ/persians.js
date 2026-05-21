@@ -1,4 +1,4 @@
-const PERSIANS = {
+﻿const PERSIANS = {
   "bonuses": [
     {
       "type": "start_resources",
@@ -124,6 +124,7 @@ const PERSIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "faith",
@@ -136,6 +137,7 @@ const PERSIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -180,15 +182,15 @@ const PERSIANS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "food": 400,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 700,
-        "gold": 200
+        "wood": 600,
+        "gold": 300
       }
     }
   ],
@@ -196,7 +198,8 @@ const PERSIANS = {
     {
       "age": 2,
       "imgPic": 43,
-      "eliteImgPic": 481
+      "eliteImgPic": 481,
+      "cost": { "food": 170, "gold": 85 }
     }
   ]
 };

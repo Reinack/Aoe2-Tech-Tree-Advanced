@@ -1,4 +1,4 @@
-const JAPANESE = {
+﻿const JAPANESE = {
   "bonuses": [
     {
       "type": "cost_modifier",
@@ -8,14 +8,18 @@ const JAPANESE = {
       "value": 0.5
     },
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "cavarcher",
+      "stat": "attack_vs_foot_archer",
+      "op": "add",
+      "value": 2
     },
     {
       "type": "stat_modifier",
-      "scope": "cavalry_archer",
-      "stat": "attack",
-      "op": "add",
-      "value": 2
+      "scope": "infantry",
+      "stat": "rof",
+      "op": "multiply",
+      "value": 0.75
     },
     {
       "type": "stat_modifier",
@@ -126,6 +130,7 @@ const JAPANESE = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -140,6 +145,7 @@ const JAPANESE = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -151,7 +157,6 @@ const JAPANESE = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -188,8 +193,8 @@ const JAPANESE = {
     {
       "age": 3,
       "cost": {
-        "wood": 750,
-        "gold": 400
+        "wood": 550,
+        "gold": 300
       }
     }
   ],

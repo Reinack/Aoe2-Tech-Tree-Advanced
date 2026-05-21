@@ -1,4 +1,4 @@
-const ITALIANS = {
+﻿const ITALIANS = {
   "bonuses": [
     {
       "type": "cost_modifier",
@@ -9,7 +9,7 @@ const ITALIANS = {
     },
     {
       "type": "stat_modifier",
-      "scope": "foot_archer",
+      "scope": "condottiero",
       "stat": "armor_melee_and_pierce",
       "op": "add",
       "value_melee": 1,
@@ -140,6 +140,7 @@ const ITALIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -154,6 +155,7 @@ const ITALIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -194,15 +196,15 @@ const ITALIANS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 150
+        "food": 250,
+        "gold": 250
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 250
+        "food": 650,
+        "gold": 500
       }
     }
   ],

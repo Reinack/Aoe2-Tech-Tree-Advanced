@@ -1,4 +1,4 @@
-const WU = {
+﻿const WU = {
   "bonuses": [
     {
       "type": "special"
@@ -72,8 +72,6 @@ const WU = {
     "scorpion",
     "heavyscorpion",
     "traction_treb",
-    "rocket_cart",
-    "heavy_rocket_cart",
     "forging",
     "ironcasting",
     "blastfurnace",
@@ -119,6 +117,7 @@ const WU = {
     "heresy",
     "sanctity",
     "fervor",
+    "devotion",
     "theocracy",
     "petard",
     "uniqueunit",
@@ -128,6 +127,7 @@ const WU = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -139,7 +139,6 @@ const WU = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -170,15 +169,15 @@ const WU = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "food": 350,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 500
+        "wood": 600,
+        "gold": 300
       }
     }
   ],
@@ -186,7 +185,9 @@ const WU = {
     {
       "age": 2,
       "imgPic": 436,
-      "eliteImgPic": 528
+      "eliteImgPic": 528,
+      "cost": { "wood": 45, "gold": 45 },
+      "elite_cost": { "food": 800, "gold": 800 }
     }
   ]
 };

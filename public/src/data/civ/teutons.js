@@ -1,4 +1,4 @@
-const TEUTONS = {
+﻿const TEUTONS = {
   "bonuses": [
     {
       "type": "cost_modifier",
@@ -12,7 +12,7 @@ const TEUTONS = {
     },
     {
       "type": "stat_modifier",
-      "scope": "unit",
+      "scope": "infantry",
       "stat": "armor_melee",
       "op": "add",
       "value": 2
@@ -98,7 +98,6 @@ const TEUTONS = {
     "demoraft",
     "demoship",
     "cannongalleon",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -118,6 +117,7 @@ const TEUTONS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -132,6 +132,7 @@ const TEUTONS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -176,7 +177,7 @@ const TEUTONS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
+        "wood": 400,
         "gold": 350
       }
     },

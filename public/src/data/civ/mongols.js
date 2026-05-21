@@ -1,4 +1,4 @@
-const MONGOLS = {
+﻿const MONGOLS = {
   "bonuses": [
     {
       "type": "building_work_speed",
@@ -16,6 +16,13 @@ const MONGOLS = {
     {
       "type": "stat_modifier",
       "scope": "light_cavalry",
+      "stat": "hp",
+      "op": "multiply",
+      "value": 1.3
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "steppe_lancer",
       "stat": "hp",
       "op": "multiply",
       "value": 1.3
@@ -104,7 +111,6 @@ const MONGOLS = {
     "demoship",
     "heavydemo",
     "cannongalleon",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -119,6 +125,7 @@ const MONGOLS = {
     "heresy",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "faith",
@@ -132,6 +139,7 @@ const MONGOLS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -143,7 +151,6 @@ const MONGOLS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -175,15 +182,15 @@ const MONGOLS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "wood": 300,
         "gold": 150
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 400,
-        "gold": 600
+        "wood": 500,
+        "gold": 450
       }
     }
   ],

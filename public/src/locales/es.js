@@ -736,18 +736,18 @@ const LOCALE_ES = {
       name: "Georgianos",
       type: "Civilización defensiva y de caballería",
       bonuses: [
-        "Empiezan con un Carro de Mulas",
-        "Las unidades y edificios reciben -20% de daño cuando están en terreno elevado (-40% en lugar de -25%)",
-        "Las unidades montadas regeneran 2/8/14 PV por minuto en Edad Feudal/Castillos/Imperial",
-        "Las Iglesias Fortificadas otorgan +10% de velocidad de trabajo a los aldeanos en un radio de 9 casillas"
+        "Comienza con un carro de mulas",
+        "Las unidades y los edificios reciben un 15 % menos de daño al luchar desde una elevación superior",
+        "La caballería regenera 2/8/14 PR por minuto en la Edad Feudal/Edad de los Castillos/Edad Imperial",
+        "Las iglesias fortificadas proporcionan un 10 % más de velocidad de trabajo a los aldeanos en un radio de 9 casillas"
       ],
-      teamBonus: "Las reparaciones de edificios cuestan -25%",
+      teamBonus: "Reparar edificios cuesta un 25 % menos",
       uniqueTechs: [
-        { name: "Torres Svan", effect: "Estructuras defensivas +2 ataque; torres causan daño de penetración." },
-        { name: "Caballería Aznauri", effect: "Unidades montadas ocupan -20% de espacio de población." }
+        { name: "Torres esvanas", effect: "Las fortificaciones ganan 2 de ataque; la línea de torres inflige daño cuando se atraviesan" },
+        { name: "Caballería aznauri", effect: "Las unidades de caballería ocupan un 20 % menos de espacio de población" }
       ],
       uniqueUnits: [
-        { name: "Monaspa", upgradeName: "Monaspa Elite" }
+        { name: "Monaspa", subtitle: "caballería", upgradeName: "Monaspa Elite" }
       ]
     },
     goths: {
@@ -762,8 +762,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Cuarteles trabajan +20% más rápido",
       uniqueTechs: [
-        { name: "Anarchy", effect: "Huskarls pueden producirse en Barracas." },
-        { name: "Perfusion", effect: "Barracas trabajan 100% más rápido." }
+        { name: "Anarquía", effect: "Los huscarles pueden entrenarse en los cuarteles" },
+        { name: "Movilización", effect: "Los cuarteles funcionan un 100 % más rápido" }
       ],
       uniqueUnits: [
         { name: "Huskarl", upgradeName: "Huskarl Elite" }
@@ -771,20 +771,22 @@ const LOCALE_ES = {
     },
     gurjaras: {
       name: "Gurjaras",
-      type: "Civilización de caballería y camellos",
+      type: "Civilización de camellos y caballería",
       bonuses: [
-        "Empiezan con 2 arbustos de recolección",
-        "Pueden guarnecer ganado en Molinos para producir comida pasivamente",
-        "Las unidades montadas causan +20/30/40% de daño adicional en Edad Feudal/Castillos/Imperial",
-        "Los Muelles tienen +5 de capacidad de guarnición"
+        "Empieza con 2 arbustos",
+        "Se puede guarnecer ganado en el molino para producir comida de forma pasiva",
+        "Las unidades montadas infligen un 20/30/40 % más de daño en las edades Feudal/de los Castillos/Imperial",
+        "Los muelles tienen +5 de capacidad de guarnición"
       ],
-      teamBonus: "Las unidades de camello y elefante se entrenan +25% más rápido",
+      teamBonus: "Las unidades del camello y el elefante entrenan un 25 % más rápido",
       uniqueTechs: [
-        { name: "Kshatriyas", effect: "Unidades militares cuestan -25% comida." },
-        { name: "Frontier Guards", effect: "Camello Imperial +4 armadura cuerpo a cuerpo." }
+        { name: "Chatrias", effect: "Las unidades militares cuestan un 25 % menos de comida" },
+        { name: "Guardas fronterizos", effect: "+4 de armadura cuerpo a cuerpo a los jinetes de camello y arqueros sobre elefante" }
       ],
       uniqueUnits: [
-        { name: "Chakram Thrower", upgradeName: "Chakram Thrower Elite" }
+        { name: "Lanzador de chakrams", subtitle: "infantería", upgradeName: "Lanzador de chakrams Elite" },
+        { name: "Jinete de shrivamsha", subtitle: "caballería", upgradeName: "Jinete de shrivamsha Elite" },
+        { name: "Explorador a camello", subtitle: "caballería", upgradeName: "Explorador a camello Elite" }
       ]
     },
     hindustanis: {
@@ -798,11 +800,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Caballería Exploradora y las unidades de camello tienen +2 de ataque vs. edificios",
       uniqueTechs: [
-        { name: "Grand Trunk Road", effect: "Mercaderes generan +10 oro por viaje." },
-        { name: "Shatagni", effect: "Arcabuceros +2 rango." }
+        { name: "Camino del Gran Tronco", effect: "Todos los ingresos de oro son un 10 % más rápidos; la tarifa de mercado se reduce al 10 %" },
+        { name: "Shatagni", effect: "Los artilleros manuales obtienen +2 de alcance" }
       ],
       uniqueUnits: [
-        { name: "Ghulam", upgradeName: "Ghulam Elite" }
+        { name: "Ghulam", subtitle: "infantería", upgradeName: "Ghulam Elite" }
       ]
     },
     huns: {
@@ -816,11 +818,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Establos trabajan +20% más rápido",
       uniqueTechs: [
-        { name: "Marauders", effect: "Tarkanes producibles en Establos." },
-        { name: "Ateísmo", effect: "Maravillas necesitan 50 años extra; Espías -50%." }
+        { name: "Razias", effect: "Crear tarcanos en establos" },
+        { name: "Ateísmo", effect: "Las reliquias enemigas generan un 50 % menos de recursos; las victorias por maravillas y reliquias tardan 100 años más" }
       ],
       uniqueUnits: [
-        { name: "Tarkán", upgradeName: "Tarkán Elite" }
+        { name: "Tarcano", subtitle: "caballería", upgradeName: "Tarcano Elite" }
       ]
     },
     incas: {
@@ -834,8 +836,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Empiezan con una Llama gratis",
       uniqueTechs: [
-        { name: "Honda Andina", effect: "Honderos +1 ataque; sin distancia mínima de ataque." },
-        { name: "Escudos de Tela", effect: "Guerreros Champi, Kamayuks y Honderos +1/+1 armadura." }
+        { name: "Huaracas", effect: "Los guerrilleros y los soldados con honda no tienen alcance mínimo; los soldados con honda ganan +1 de ataque" },
+        { name: "Escudos de tela", effect: "Los kamayuks, los soldados con honda y los guerreros champi ganan +1 de armadura y +1 de armadura perforante" }
       ],
       uniqueUnits: [
         { name: "Kamayuk", upgradeName: "Kamayuk Elite" }
@@ -853,11 +855,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "El Condotiero disponible en el Cuartel en la Edad Imperial",
       uniqueTechs: [
-        { name: "Ruta de la Seda", effect: "Unidades de comercio cuestan -50%." },
-        { name: "Pirotecnia", effect: "Arcabuceros más precisos y causan daño de penetración." }
+        { name: "Ruta de la seda", effect: "Las unidades mercantes cuestan un 50 % menos" },
+        { name: "Pirotecnia", effect: "Los artilleros manuales infligen un 15 % más de daño perforante y son más precisos" }
       ],
       uniqueUnits: [
-        { name: "Ballestero Genovés", upgradeName: "Ballestero Genovés Elite" }
+        { name: "Ballestero genovés", subtitle: "arquero a pie", upgradeName: "Ballestero genovés Elite" }
       ]
     },
     japanese: {
@@ -871,8 +873,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Galeras tiene +4 de alcance visual",
       uniqueTechs: [
-        { name: "Yasama", effect: "Torres disparan proyectiles extra." },
-        { name: "Kataparuto", effect: "Trebuchets disparan/pliegan 4× más rápido; 100% precisión." }
+        { name: "Yasama", effect: "Las torres disparan flechas adicionales" },
+        { name: "Kataparuto", effect: "Los trebuchets atacan y se arman y desarman más rápido" }
       ],
       uniqueUnits: [
         { name: "Samurái", upgradeName: "Samurái Elite" }
@@ -909,8 +911,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Escorpiones tienen +1 de rango",
       uniqueTechs: [
-        { name: "Tusk Swords", effect: "Elefantes de Batalla +3 ataque." },
-        { name: "Double Crossbow", effect: "Balistarios y Escorpiones disparan 2 proyectiles." }
+        { name: "Colmillos de acero", effect: "+3 de ataque en elefantes de combate" },
+        { name: "Ballesta doble", effect: "Los elefantes con balista y los escorpiones disparan un proyectil adicional" }
       ],
       uniqueUnits: [
         { name: "Balistario", upgradeName: "Balistario Elite" }
@@ -927,11 +929,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "Infantería +2 de ataque vs. soldados a distancia",
       uniqueTechs: [
-        { name: "Armadura Laminar", effect: "Infantería y escaramuzadores reflejan el 25% del daño cuerpo a cuerpo al atacante." },
-        { name: "Caballería Ordo", effect: "Caballería cuerpo a cuerpo regenera 150% PV/min en combate." }
+        { name: "Armadura laminada", effect: "La infantería y los guerrilleros devuelven un 25 % del daño cuerpo a cuerpo al atacante" },
+        { name: "Caballería ordo", effect: "La caballería regenera puntos de resistencia en combate" }
       ],
       uniqueUnits: [
-        { name: "Liao Dao", upgradeName: "Liao Dao Elite" }
+        { name: "Liao Dao", subtitle: "infantería", upgradeName: "Liao Dao Elite" }
       ]
     },
     lithuanians: {
@@ -944,30 +946,31 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Monasterios trabajan +20% más rápido",
       uniqueTechs: [
-        { name: "Hill Forts", effect: "CU +3 rango de ataque." },
-        { name: "Tower Shields", effect: "Línea de Lanceros y Escaramuzadores +2 armadura perforante." }
+        { name: "Fuertes en las colinas", effect: "Centros urbanos: +3 de alcance" },
+        { name: "Escudo rectangular", effect: "Lanceros y guerrilleros: +2 de armadura" }
       ],
       uniqueUnits: [
-        { name: "Leitis", upgradeName: "Leitis Elite" }
+        { name: "Leitis", subtitle: "caballería", upgradeName: "Leitis Elite" },
+        { name: "Húsares alados", subtitle: "caballería", upgradeName: "Húsares alados Elite" }
       ]
     },
-    magyars: {
-      name: "Magiares",
-      type: "Civilización de caballería",
-      bonuses: [
-        "Los aldeanos matan a los lobos de un golpe",
-        "La línea de Caballería Exploradora cuesta -15%",
-        "Las mejoras de ataque cuerpo a cuerpo son gratuitas"
-      ],
-      teamBonus: "Los Arqueros Montados se entrenan +25% más rápido",
-      uniqueTechs: [
-        { name: "Mercenarios Magiares", effect: "Huszar Magiar no cuesta oro." },
-        { name: "Arco Recurvo", effect: "Arqueros a caballo +1 rango y +1 ataque." }
-      ],
-      uniqueUnits: [
-        { name: "Huszar Magiar", upgradeName: "Huszar Magiar Elite" }
-      ]
-    },
+     magyars: {
+       name: "Magiares",
+       type: "Civilización de caballería",
+       bonuses: [
+         "Los aldeanos eliminan a los lobos de un golpe",
+         "La línea de caballería de exploración cuesta un 15 % menos",
+         "Mejoras de ataque cuerpo a cuerpo gratis"
+       ],
+       teamBonus: "Los arqueros a caballo se crean un 25 % más rápido",
+       uniqueTechs: [
+         { name: "Ejército corviniano", effect: "Los huszár magiares dejan de costar oro y pasan a costar comida adicional" },
+         { name: "Arco recurvo", effect: "+1 ataque y +1 alcance para arqueros a caballo" }
+       ],
+       uniqueUnits: [
+         { name: "Huszár magiar", subtitle: "caballería", upgradeName: "Huszár magiar Elite" }
+       ]
+     },
     malay: {
       name: "Malayo",
       type: "Civilización naval",
@@ -979,11 +982,11 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Muelles tienen +6 de alcance visual",
       uniqueTechs: [
-        { name: "Thalassocracy", effect: "Muelles se convierten en Puertos que atacan." },
-        { name: "Forced Levy", effect: "Espadachines 2 Manos cuestan madera en vez de oro." }
+        { name: "Talasocracia", effect: "Mejora los muelles a puertos" },
+        { name: "Leva en masa", effect: "La milicia y subsiguientes dejan de costar oro y cuestan comida adicional" }
       ],
       uniqueUnits: [
-        { name: "Karambit Warrior", upgradeName: "Karambit Elite" }
+        { name: "Recluta con karambit", subtitle: "infantería", upgradeName: "Recluta con karambit Elite" }
       ]
     },
     malians: {
@@ -1005,7 +1008,7 @@ const LOCALE_ES = {
     },
     mapuche: {
       name: "Mapuche",
-      type: "Civilización de caballería y contra-unidades",
+      type: "Civilización de caballería y unidades de contraataque",
       bonuses: [
         "Los recolectores depositan +20% más de comida",
         "Los asentamientos pueden entrenar la línea de Lanceros y Escaramuzadores",
@@ -1015,8 +1018,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Lanceros y los Escaramuzadores tienen +2 de alcance visual",
       uniqueTechs: [
-        { name: "Malón", effect: "Bolas Riders, honderos y escaramuzadores causan daño de área." },
-        { name: "Butalmapu", effect: "Disminuye el costo de unidades únicas para todo el equipo." }
+        { name: "Malón", effect: "Los jinetes con boleadoras, los soldados con honda y los guerrilleros infligen daño perforante" },
+        { name: "Butalmapu", effect: "Las unidades únicas de equipo del castillo y los jinetes con boleadoras cuestan un 15 % menos" }
       ],
       uniqueUnits: [
         { name: "Kona", subtitle: "caballería pesada", upgradeName: "Kona Elite" },
@@ -1050,8 +1053,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Caballería Exploradora tiene +2 de alcance visual",
       uniqueTechs: [
-        { name: "Nómadas", effect: "Casas no se destruyen cuando sus habitantes mueren." },
-        { name: "Taladro", effect: "Unidades del Taller de Asedio se mueven 50% más rápido." }
+        { name: "Nómadas", effect: "Las casas perdidas no disminuyen el espacio de población" },
+        { name: "Instrucción militar", effect: "Las unidades del taller de maquinaria de asedio se mueven un 50 % más rápido" }
       ],
       uniqueUnits: [
         { name: "Mangudai", upgradeName: "Mangudai Elite" }
@@ -1069,7 +1072,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las fuentes de oro naturales duran +15% más",
       uniqueTechs: [
-        { name: "Herbalismo", effect: "Aumenta la velocidad de movimiento de arqueros y Champi Warriors." },
+        { name: "Herbología", effect: "La línea de arqueros y los guerreros champi se mueven un 15 % más rápido" },
         { name: "Huaracas", effect: "Aumenta el rango y la velocidad de entrenamiento de los honderos." }
       ],
       uniqueUnits: [

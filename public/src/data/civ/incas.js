@@ -1,29 +1,32 @@
-const INCAS = {
+﻿const INCAS = {
   "bonuses": [
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "house",
+      "stat": "pop",
+      "op": "add",
+      "value": 5
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "building_cost_modifier",
+      "scope": "building",
+      "resource": "stone",
       "op": "multiply",
       "value": 0.85
     },
     {
       "type": "cost_modifier",
       "scope": "military_unit",
-      "resource": "all",
+      "resource": "food",
       "op": "multiply",
-      "value": 0.95
+      "value": 0.8
     },
     {
       "type": "special"
-    },
-    "house",
+    }
   ],
   "teamBonus": {
-    "type": "free_tech"
+    "type": "special"
   },
   "available": [
     "barracks",
@@ -46,6 +49,7 @@ const INCAS = {
     "champirunner",
     "champiwarrior",
     "elitechampi",
+    "xolotl_warrior",
     "archer",
     "crossbow",
     "arbalester",
@@ -101,6 +105,7 @@ const INCAS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "theocracy",
     "faith",
     "trebuchet",
@@ -114,6 +119,7 @@ const INCAS = {
     "sappers",
     "slinger",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -143,7 +149,6 @@ const INCAS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "stonewall",
@@ -157,15 +162,15 @@ const INCAS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "stone": 200
+        "food": 200,
+        "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 400,
-        "gold": 300
+        "food": 600,
+        "gold": 600
       }
     }
   ],

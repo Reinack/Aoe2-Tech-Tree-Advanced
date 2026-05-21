@@ -1,7 +1,14 @@
-const LITHUANIANS = {
+﻿const LITHUANIANS = {
   "bonuses": [
     {
       "type": "special"
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "spearman",
+      "stat": "speed",
+      "op": "multiply",
+      "value": 1.1
     },
     {
       "type": "stat_modifier",
@@ -11,17 +18,13 @@ const LITHUANIANS = {
       "value": 1.1
     },
     {
-      "type": "stat_modifier",
-      "scope": "knight",
-      "stat": "attack",
-      "op": "add",
-      "value": 1
+      "type": "special"
     },
     "house",
   ],
   "teamBonus": {
     "type": "building_work_speed",
-    "scope": "building",
+    "scope": "monastery",
     "op": "multiply",
     "value": 1.2
   },
@@ -63,8 +66,9 @@ const LITHUANIANS = {
     "hussar",
     "knight",
     "cavalier",
-    "paladin",
-    "bloodlines",
+     "paladin",
+     "leitis",
+     "bloodlines",
     "husbandry",
     "winged_hussar",
     "siegetower",
@@ -120,6 +124,7 @@ const LITHUANIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -134,6 +139,7 @@ const LITHUANIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -190,7 +196,11 @@ const LITHUANIANS = {
     {
       "age": 2,
       "imgPic": 253,
-      "eliteImgPic": 509
+      "eliteImgPic": 509,
+      "cost": { "food": 70, "gold": 50 }
+    },
+    {
+      "age": 2
     }
   ]
 };

@@ -1,4 +1,4 @@
-const GENERIC = {
+﻿const GENERIC = {
   "bonuses": [
     {
       "type": "special"
@@ -106,6 +106,7 @@ const GENERIC = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -120,6 +121,7 @@ const GENERIC = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",

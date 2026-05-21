@@ -1,4 +1,4 @@
-const KOREANS = {
+﻿const KOREANS = {
   "bonuses": [
     {
       "type": "building_work_speed",
@@ -9,7 +9,14 @@ const KOREANS = {
     {
       "type": "cost_modifier",
       "scope": "infantry",
-      "resource": "all",
+      "resource": "wood",
+      "op": "multiply",
+      "value": 0.5
+    },
+    {
+      "type": "cost_modifier",
+      "scope": "foot_archer",
+      "resource": "wood",
       "op": "multiply",
       "value": 0.5
     },
@@ -19,7 +26,7 @@ const KOREANS = {
     {
       "type": "cost_modifier",
       "scope": "ship",
-      "resource": "all",
+      "resource": "wood",
       "op": "multiply",
       "value": 0.8
     }
@@ -82,6 +89,7 @@ const KOREANS = {
     "heavyscorpion",
     "bombcannon",
     "rocket_cart",
+    "heavy_rocket_cart",
     "forging",
     "ironcasting",
     "blastfurnace",
@@ -125,6 +133,7 @@ const KOREANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "blockprinting",
     "theocracy",
     "faith",
@@ -138,6 +147,7 @@ const KOREANS = {
     "sappers",
     "turtle_ship",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -149,7 +159,6 @@ const KOREANS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -179,15 +188,15 @@ const KOREANS = {
     {
       "age": 2,
       "cost": {
-        "wood": 300,
-        "gold": 300
+        "food": 300,
+        "wood": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "wood": 800,
-        "gold": 500
+        "food": 1100,
+        "gold": 800
       }
     }
   ],

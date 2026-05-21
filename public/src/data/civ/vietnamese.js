@@ -1,4 +1,4 @@
-const VIETNAMESE = {
+﻿const VIETNAMESE = {
   "bonuses": [
     {
       "type": "special"
@@ -11,7 +11,7 @@ const VIETNAMESE = {
     },
     {
       "type": "stat_modifier",
-      "scope": "archer",
+      "scope": "fire_lancer",
       "stat": "hp",
       "op": "multiply",
       "value": 1.2
@@ -75,8 +75,6 @@ const VIETNAMESE = {
     "scorpion",
     "heavyscorpion",
     "bombcannon",
-    "rocket_cart",
-    "heavy_rocket_cart",
     "forging",
     "ironcasting",
     "blastfurnace",
@@ -119,6 +117,7 @@ const VIETNAMESE = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -133,6 +132,7 @@ const VIETNAMESE = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -176,15 +176,15 @@ const VIETNAMESE = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 300
+        "food": 250,
+        "gold": 250
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 750,
-        "gold": 400
+        "food": 550,
+        "wood": 200
       }
     }
   ],

@@ -1,4 +1,4 @@
-const ROMANS = {
+﻿const ROMANS = {
   "bonuses": [
     {
       "type": "special"
@@ -14,12 +14,7 @@ const ROMANS = {
       "value": 0.5
     },
     {
-      "type": "stat_modifier",
-      "scope": "ship",
-      "stat": "armor_melee_and_pierce",
-      "op": "add",
-      "value_melee": 1,
-      "value_pierce": 1
+      "type": "special"
     }
   ],
   "teamBonus": {
@@ -92,7 +87,6 @@ const ROMANS = {
     "galleon",
     "firegalley",
     "fastfireship",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -113,6 +107,7 @@ const ROMANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -126,6 +121,7 @@ const ROMANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -166,15 +162,15 @@ const ROMANS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
+        "wood": 400,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 800,
-        "gold": 600
+        "food": 700,
+        "gold": 800
       }
     }
   ],
@@ -182,7 +178,8 @@ const ROMANS = {
     {
       "age": 2,
       "imgPic": 405,
-      "eliteImgPic": 521
+      "eliteImgPic": 521,
+      "cost": { "food": 75, "gold": 85 }
     }
   ]
 };

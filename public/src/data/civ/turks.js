@@ -1,4 +1,4 @@
-const TURKS = {
+﻿const TURKS = {
   "bonuses": [
     {
       "type": "building_work_speed",
@@ -128,6 +128,7 @@ const TURKS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -142,6 +143,7 @@ const TURKS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -153,7 +155,6 @@ const TURKS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -183,15 +184,15 @@ const TURKS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "gold": 300
+        "food": 350,
+        "gold": 150
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 800
+        "food": 600,
+        "gold": 650
       }
     }
   ],

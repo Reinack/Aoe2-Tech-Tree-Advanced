@@ -1,4 +1,4 @@
-const SLAVS = {
+﻿const SLAVS = {
   "bonuses": [
     {
       "type": "building_work_speed",
@@ -116,6 +116,7 @@ const SLAVS = {
     "redemption",
     "heresy",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -130,6 +131,7 @@ const SLAVS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -173,14 +175,14 @@ const SLAVS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "wood": 400,
         "gold": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 1200,
+        "food": 900,
         "gold": 500
       }
     }
@@ -189,7 +191,8 @@ const SLAVS = {
     {
       "age": 2,
       "imgPic": 114,
-      "eliteImgPic": 494
+      "eliteImgPic": 494,
+      "cost": { "food": 60, "gold": 70 }
     }
   ]
 };

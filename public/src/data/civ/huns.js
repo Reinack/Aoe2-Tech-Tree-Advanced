@@ -1,7 +1,13 @@
-const HUNS = {
+﻿const HUNS = {
   "bonuses": [
     {
       "type": "special"
+    },
+    {
+      "type": "start_resources",
+      "resource": "wood",
+      "op": "add",
+      "value": -100
     },
     {
       "type": "cost_modifier",
@@ -12,14 +18,11 @@ const HUNS = {
     },
     {
       "type": "special"
-    },
-    {
-      "type": "special"
     }
   ],
   "teamBonus": {
     "type": "building_work_speed",
-    "scope": "building",
+    "scope": "stable",
     "op": "multiply",
     "value": 1.2
   },
@@ -113,6 +116,7 @@ const HUNS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "faith",
     "trebuchet",
     "petard",
@@ -123,6 +127,7 @@ const HUNS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -134,7 +139,6 @@ const HUNS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -168,7 +172,7 @@ const HUNS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "wood": 300,
         "gold": 200
       }
     },
@@ -176,7 +180,7 @@ const HUNS = {
       "age": 3,
       "cost": {
         "food": 500,
-        "gold": 500
+        "wood": 300
       }
     }
   ],
@@ -184,7 +188,8 @@ const HUNS = {
     {
       "age": 2,
       "imgPic": 105,
-      "eliteImgPic": 487
+      "eliteImgPic": 487,
+      "cost": { "food": 60, "gold": 60 }
     }
   ]
 };

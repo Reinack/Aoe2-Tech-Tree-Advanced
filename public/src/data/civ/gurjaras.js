@@ -10,9 +10,12 @@ const GURJARAS = {
       "type": "special"
     },
     {
-      "type": "special"
-    },
-    "house",
+      "type": "stat_modifier",
+      "scope": "dock",
+      "stat": "garrison",
+      "op": "add",
+      "value": 5
+    }
   ],
   "teamBonus": {
     "type": "creation_speed",
@@ -50,8 +53,6 @@ const GURJARAS = {
     "skirmisher",
     "eliteskirm",
     "handcannon",
-    "cavarcher",
-    "hcavarcher",
     "thumbring",
     "elephant_archer",
     "elite_elephant_archer",
@@ -99,7 +100,6 @@ const GURJARAS = {
     "demoship",
     "heavydemo",
     "cannongalleon",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -121,6 +121,7 @@ const GURJARAS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "trebuchet",
@@ -133,6 +134,7 @@ const GURJARAS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -179,15 +181,15 @@ const GURJARAS = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "gold": 400
+        "food": 500,
+        "gold": 450
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 400,
-        "gold": 600
+        "food": 800,
+        "gold": 700
       }
     }
   ],

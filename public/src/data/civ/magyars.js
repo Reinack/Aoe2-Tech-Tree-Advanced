@@ -1,4 +1,4 @@
-const MAGYARS = {
+﻿const MAGYARS = {
   "bonuses": [
     {
       "type": "special"
@@ -106,6 +106,7 @@ const MAGYARS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -119,6 +120,7 @@ const MAGYARS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -148,7 +150,6 @@ const MAGYARS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "stonewall",
@@ -162,14 +163,14 @@ const MAGYARS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "food": 200,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 600,
+        "wood": 600,
         "gold": 400
       }
     }
@@ -178,7 +179,8 @@ const MAGYARS = {
     {
       "age": 2,
       "imgPic": 99,
-      "eliteImgPic": 493
+      "eliteImgPic": 493,
+      "cost": { "food": 35, "gold": 45 }
     }
   ]
 };

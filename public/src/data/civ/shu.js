@@ -1,4 +1,4 @@
-const SHU = {
+﻿const SHU = {
   "bonuses": [
     {
       "type": "special"
@@ -73,12 +73,8 @@ const SHU = {
     "mangonel",
     "onager",
     "traction_treb",
-    "rocket_cart",
-    "heavy_rocket_cart",
     "war_chariot_s",
     "forging",
-    "ironcasting",
-    "blastfurnace",
     "scalemailarmor",
     "chainmailarmor",
     "platemailarmor",
@@ -122,6 +118,7 @@ const SHU = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -134,6 +131,7 @@ const SHU = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -145,7 +143,6 @@ const SHU = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -176,15 +173,15 @@ const SHU = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
+        "food": 350,
         "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 500
+        "food": 650,
+        "gold": 750
       }
     }
   ],
@@ -192,7 +189,9 @@ const SHU = {
     {
       "age": 2,
       "imgPic": 434,
-      "eliteImgPic": 527
+      "eliteImgPic": 527,
+      "cost": { "food": 60, "gold": 15 },
+      "elite_cost": { "food": 900, "gold": 500 }
     }
   ]
 };

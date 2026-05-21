@@ -1,13 +1,21 @@
 const MAPUCHE = {
   "bonuses": [
     {
-      "type": "special"
-    },
+      "type": "stat_modifier",
+      "scope": "villager",
+      "stat": "food",
+      "op": "multiply",
+      "value": 1.2
+    },   // Los recolectores entregan +20% más de comida
     {
       "type": "special"
-    },
+    },   // Los asentamientos (tahsili) pueden entrenar líneas de lanceros y guerrilleros
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": ["infantry", "skirmisher"],
+      "stat": "hp",
+      "op": "add",
+      "value": 15
     },
     {
       "type": "special"
@@ -19,7 +27,7 @@ const MAPUCHE = {
   ],
   "teamBonus": {
     "type": "stat_modifier",
-    "scope": "skirmisher",
+    "scope": "spearman",
     "stat": "los",
     "op": "add",
     "value": 2
@@ -45,11 +53,13 @@ const MAPUCHE = {
     "champirunner",
     "champiwarrior",
     "elitechampi",
+    "xolotl_warrior",
     "archer",
     "crossbow",
     "skirmisher",
     "eliteskirm",
     "bolas_rider",
+    "elite_bolas_rider",
     "siegetower",
     "batteringram",
     "cappedram",
@@ -81,7 +91,6 @@ const MAPUCHE = {
     "firegalley",
     "demoraft",
     "demoship",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -104,6 +113,7 @@ const MAPUCHE = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -119,6 +129,7 @@ const MAPUCHE = {
     "sappers",
     "slinger",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -156,15 +167,15 @@ const MAPUCHE = {
     {
       "age": 2,
       "cost": {
-        "food": 400,
-        "gold": 300
+        "food": 300,
+        "gold": 350
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 600,
-        "gold": 400
+        "food": 500,
+        "gold": 450
       }
     }
   ],
@@ -172,7 +183,8 @@ const MAPUCHE = {
     {
       "age": 2,
       "imgPic": 545,
-      "eliteImgPic": 546
+      "eliteImgPic": 546,
+      "cost": { "food": 65, "gold": 40 }
     },
     {
       "age": 2

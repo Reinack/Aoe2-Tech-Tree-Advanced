@@ -1,4 +1,4 @@
-const SARACENS = {
+﻿const SARACENS = {
   "bonuses": [
     {
       "type": "cost_modifier",
@@ -129,6 +129,7 @@ const SARACENS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -143,6 +144,7 @@ const SARACENS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -154,7 +156,6 @@ const SARACENS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -185,15 +186,15 @@ const SARACENS = {
     {
       "age": 2,
       "cost": {
-        "food": 700,
-        "gold": 175
+        "wood": 300,
+        "gold": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 200,
-        "gold": 100
+        "food": 650,
+        "gold": 500
       }
     }
   ],
@@ -201,7 +202,8 @@ const SARACENS = {
     {
       "age": 2,
       "imgPic": 37,
-      "eliteImgPic": 479
+      "eliteImgPic": 479,
+      "cost": { "food": 55, "gold": 85 }
     }
   ]
 };

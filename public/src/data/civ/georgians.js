@@ -1,7 +1,10 @@
-const GEORGIANS = {
+﻿const GEORGIANS = {
   "bonuses": [
     {
-      "type": "special"
+      "type": "start_resources",
+      "resource": "mulecart",
+      "op": "add",
+      "value": 1
     },
     {
       "type": "special"
@@ -14,16 +17,15 @@ const GEORGIANS = {
       "value": 14
     },
     {
-      "type": "special"
+      "type": "building_work_speed",
+      "scope": "fortified_church",
+      "op": "multiply",
+      "value": 1.1
     },
     "house",
   ],
   "teamBonus": {
-    "type": "cost_modifier",
-    "scope": "unit",
-    "resource": "all",
-    "op": "multiply",
-    "value": 0.75
+    "type": "special"
   },
   "available": [
     "barracks",
@@ -97,7 +99,6 @@ const GEORGIANS = {
     "firegalley",
     "demoraft",
     "demoship",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -117,6 +118,7 @@ const GEORGIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "blockprinting",
     "theocracy",
     "faith",
@@ -130,6 +132,7 @@ const GEORGIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -158,7 +161,6 @@ const GEORGIANS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "mule_cart",
@@ -178,14 +180,14 @@ const GEORGIANS = {
       "age": 2,
       "cost": {
         "food": 300,
-        "wood": 200
+        "gold": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 300
+        "food": 550,
+        "gold": 250
       }
     }
   ],
@@ -193,7 +195,8 @@ const GEORGIANS = {
     {
       "age": 2,
       "imgPic": 408,
-      "eliteImgPic": 523
+      "eliteImgPic": 523,
+      "cost": { "food": 60, "gold": 45 }
     }
   ]
 };

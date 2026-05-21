@@ -1,4 +1,4 @@
-const HINDUSTANIS = {
+﻿const HINDUSTANIS = {
   "bonuses": [
     {
       "type": "cost_modifier",
@@ -24,8 +24,7 @@ const HINDUSTANIS = {
     },
     {
       "type": "special"
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "stat_modifier",
@@ -67,8 +66,6 @@ const HINDUSTANIS = {
     "cavarcher",
     "hcavarcher",
     "thumbring",
-    "elephant_archer",
-    "elite_elephant_archer",
     "scout",
     "lightcav",
     "hussar",
@@ -111,7 +108,6 @@ const HINDUSTANIS = {
     "demoraft",
     "demoship",
     "cannongalleon",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -127,6 +123,7 @@ const HINDUSTANIS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -141,6 +138,7 @@ const HINDUSTANIS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -152,7 +150,6 @@ const HINDUSTANIS = {
     "townpatrol",
     "horsecollar",
     "heavyplow",
-    "croprotation",
     "doublebitaxe",
     "bowsaw",
     "twomansaw",
@@ -188,15 +185,15 @@ const HINDUSTANIS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 200
+        "food": 250,
+        "wood": 200
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 400,
-        "gold": 400
+        "food": 500,
+        "gold": 650
       }
     }
   ],

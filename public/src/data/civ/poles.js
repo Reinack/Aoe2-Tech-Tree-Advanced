@@ -1,4 +1,4 @@
-const POLES = {
+﻿const POLES = {
   "bonuses": [
     {
       "type": "special"
@@ -100,7 +100,6 @@ const POLES = {
     "demoraft",
     "demoship",
     "cannongalleon",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -118,6 +117,7 @@ const POLES = {
     "heresy",
     "sanctity",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -132,6 +132,7 @@ const POLES = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -178,14 +179,14 @@ const POLES = {
       "age": 2,
       "cost": {
         "food": 500,
-        "gold": 100
+        "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 1000,
-        "gold": 600
+        "food": 750,
+        "gold": 550
       }
     }
   ],

@@ -1,24 +1,29 @@
-const MALAY = {
+﻿const MALAY = {
   "bonuses": [
     {
-      "type": "special"
+      "type": "age_advance_cost",
+      "op": "multiply",
+      "value": 0.34
     },
     {
       "type": "free_tech"
     },
     {
       "type": "cost_modifier",
-      "scope": "unit",
+      "scope": "battleeleph",
       "resource": "all",
       "op": "multiply",
       "value": 0.75
     },
     {
       "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "scope": "fish_trap",
+      "resource": "wood",
       "op": "multiply",
       "value": 0.67
+    },
+    {
+      "type": "special"
     },
     "house",
   ],
@@ -118,6 +123,7 @@ const MALAY = {
     "heresy",
     "sanctity",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "faith",
@@ -130,6 +136,7 @@ const MALAY = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -176,8 +183,8 @@ const MALAY = {
     {
       "age": 3,
       "cost": {
-        "food": 1000,
-        "gold": 600
+        "food": 850,
+        "gold": 500
       }
     }
   ],

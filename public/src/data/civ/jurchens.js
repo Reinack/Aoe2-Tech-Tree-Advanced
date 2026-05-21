@@ -1,4 +1,4 @@
-const JURCHENS = {
+﻿const JURCHENS = {
   "bonuses": [
     {
       "type": "special"
@@ -14,11 +14,7 @@ const JURCHENS = {
       "type": "special"
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
-      "op": "multiply",
-      "value": 0.25
+      "type": "special"
     },
     {
       "type": "special"
@@ -67,6 +63,8 @@ const JURCHENS = {
     "scout",
     "lightcav",
     "hussar",
+    "steppe_lancer",
+    "elite_steppe_lancer",
     "cavalier",
     "bloodlines",
     "husbandry",
@@ -127,9 +125,9 @@ const JURCHENS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
-    "faith",
     "trebuchet",
     "petard",
     "uniqueunit",
@@ -140,6 +138,7 @@ const JURCHENS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -182,15 +181,15 @@ const JURCHENS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 300
+        "food": 350,
+        "wood": 250
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 500
+        "food": 900,
+        "gold": 600
       }
     }
   ],
@@ -198,9 +197,16 @@ const JURCHENS = {
     {
       "age": 2,
       "imgPic": 461,
-      "eliteImgPic": 524
+      "eliteImgPic": 524,
+      "cost": { "food": 80, "gold": 55 },
+      "elite_cost": { "food": 950, "gold": 550 }
     }
-  ]
+  ],
+  "overrides": {
+    "siegeengineers": {
+      "age": 2
+    }
+  }
 };
 
 

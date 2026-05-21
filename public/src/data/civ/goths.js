@@ -1,10 +1,14 @@
-const GOTHS = {
+﻿const GOTHS = {
   "bonuses": [
     {
-      "type": "special"
+      "type": "free_tech"
     },
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "hunter",
+      "stat": "carry",
+      "op": "add",
+      "value": 15
     },
     {
       "type": "cost_modifier",
@@ -26,7 +30,7 @@ const GOTHS = {
   ],
   "teamBonus": {
     "type": "building_work_speed",
-    "scope": "building",
+    "scope": "barracks",
     "op": "multiply",
     "value": 1.2
   },
@@ -102,7 +106,6 @@ const GOTHS = {
     "demoraft",
     "demoship",
     "heavydemo",
-    "drydock",
     "shipwright",
     "hulk",
     "war_hulk",
@@ -118,6 +121,7 @@ const GOTHS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "faith",
@@ -130,6 +134,7 @@ const GOTHS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",

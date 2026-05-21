@@ -1,4 +1,4 @@
-const KHMER = {
+﻿const KHMER = {
   "bonuses": [
     {
       "type": "special"
@@ -11,7 +11,7 @@ const KHMER = {
     },
     {
       "type": "stat_modifier",
-      "scope": "unit",
+      "scope": "battleeleph",
       "stat": "speed",
       "op": "multiply",
       "value": 1.1
@@ -115,6 +115,7 @@ const KHMER = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "faith",
@@ -128,6 +129,7 @@ const KHMER = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -171,14 +173,14 @@ const KHMER = {
     {
       "age": 2,
       "cost": {
-        "food": 200,
-        "gold": 300
+        "wood": 300,
+        "gold": 450
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
+        "food": 700,
         "gold": 400
       }
     }

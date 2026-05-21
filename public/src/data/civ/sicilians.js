@@ -1,4 +1,4 @@
-const SICILIANS = {
+﻿const SICILIANS = {
   "bonuses": [
     {
       "type": "start_resources",
@@ -113,6 +113,7 @@ const SICILIANS = {
     "redemption",
     "sanctity",
     "fervor",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -127,6 +128,7 @@ const SICILIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -168,15 +170,15 @@ const SICILIANS = {
     {
       "age": 2,
       "cost": {
-        "food": 300,
-        "gold": 600
+        "food": 400,
+        "gold": 300
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 400,
-        "gold": 400
+        "food": 700,
+        "gold": 600
       }
     }
   ],

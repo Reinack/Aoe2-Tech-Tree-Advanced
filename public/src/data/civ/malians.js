@@ -1,4 +1,4 @@
-const MALIANS = {
+﻿const MALIANS = {
   "bonuses": [
     {
       "type": "cost_modifier",
@@ -12,7 +12,7 @@ const MALIANS = {
     },
     {
       "type": "stat_modifier",
-      "scope": "unit",
+      "scope": "infantry",
       "stat": "armor_pierce",
       "op": "add",
       "value": 3
@@ -122,6 +122,7 @@ const MALIANS = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "theocracy",
     "faith",
@@ -135,6 +136,7 @@ const MALIANS = {
     "conscription",
     "sappers",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",

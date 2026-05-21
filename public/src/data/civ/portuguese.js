@@ -1,12 +1,12 @@
-const PORTUGUESE = {
+﻿const PORTUGUESE = {
   "bonuses": [
     {
       "type": "special"
     },
     {
       "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "scope": "infantry",
+      "resource": "gold",
       "op": "multiply",
       "value": 0.8
     },
@@ -118,6 +118,7 @@ const PORTUGUESE = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -133,6 +134,7 @@ const PORTUGUESE = {
     "sappers",
     "caravel_d",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -174,15 +176,15 @@ const PORTUGUESE = {
     {
       "age": 2,
       "cost": {
-        "wood": 200,
-        "gold": 300
+        "food": 250,
+        "wood": 150
       }
     },
     {
       "age": 3,
       "cost": {
         "food": 700,
-        "gold": 500
+        "gold": 400
       }
     }
   ],

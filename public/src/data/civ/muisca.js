@@ -1,21 +1,59 @@
-const MUISCA = {
+﻿const MUISCA = {
   "bonuses": [
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "age_advance_cost",
+      "resource": "gold",
       "op": "multiply",
       "value": 0.5
     },
     {
-      "type": "cost_modifier",
-      "scope": "unit",
+      "type": "building_cost_modifier",
+      "scope": "tahsili",
       "resource": "all",
       "op": "multiply",
       "value": 0.75
     },
     {
       "type": "special"
+    },
+    {
+      "type": "stat_modifier",
+      "scope": ["champiwarrior", "elitechampi", "archer", "crossbow", "arbalester"],
+      "stat": "armor_melee",
+      "op": "add",
+      "value": 1,
+      "age": 1
+    },
+    {
+      "type": "stat_modifier",
+      "scope": ["champiwarrior", "elitechampi", "archer", "crossbow", "arbalester"],
+      "stat": "armor_melee",
+      "op": "add",
+      "value": 1,
+      "age": 2
+    },
+    {
+      "type": "stat_modifier",
+      "scope": ["champiwarrior", "elitechampi", "archer", "crossbow", "arbalester"],
+      "stat": "armor_melee",
+      "op": "add",
+      "value": 1,
+      "age": 3
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "monk",
+      "stat": "faith",
+      "op": "multiply",
+      "value": 1.5
+    },
+    {
+      "type": "free_tech",
+      "tech": "caravan"
+    },
+    {
+      "type": "free_tech",
+      "tech": "guilds"
     },
     "house",
   ],
@@ -43,6 +81,7 @@ const MUISCA = {
     "champirunner",
     "champiwarrior",
     "elitechampi",
+    "xolotl_warrior",
     "temple_guard",
     "archer",
     "crossbow",
@@ -102,6 +141,7 @@ const MUISCA = {
     "sanctity",
     "fervor",
     "herbalmedicine",
+    "devotion",
     "illumination",
     "blockprinting",
     "theocracy",
@@ -117,6 +157,7 @@ const MUISCA = {
     "sappers",
     "slinger",
     "tradecart",
+    "caravan",
     "coinage",
     "banking",
     "guilds",
@@ -146,7 +187,6 @@ const MUISCA = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "carvel_hull",
     "siphons",
     "incendiaries",
     "watchtower",
@@ -162,14 +202,14 @@ const MUISCA = {
       "age": 2,
       "cost": {
         "food": 300,
-        "gold": 200
+        "gold": 350
       }
     },
     {
       "age": 3,
       "cost": {
-        "food": 500,
-        "gold": 400
+        "wood": 450,
+        "gold": 350
       }
     }
   ],
