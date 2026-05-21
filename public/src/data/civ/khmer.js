@@ -1,14 +1,23 @@
 ﻿const KHMER = {
   "bonuses": [
+    // No buildings required to advance to the next Age or unlock other buildings
     {
-      "type": "special"
+      "type": "age_advance_no_prereq"
     },
+    // Farmers don't require Mills or Town Centers to drop off food
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "farmer",
+      "stat": "dropoff_requirement",
+      "op": "remove"
     },
+    // Villagers can garrison in Houses for protection
     {
-      "type": "special"
+      "type": "garrison_in_building",
+      "scope": "villager",
+      "building": "house"
     },
+    // Battle Elephants move +10% faster
     {
       "type": "stat_modifier",
       "scope": "battleeleph",

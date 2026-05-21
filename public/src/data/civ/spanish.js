@@ -1,11 +1,13 @@
 const SPANISH = {
   "bonuses": [
+    // Builders work +30% faster
     {
       "type": "building_work_speed",
       "scope": "builder",
       "op": "multiply",
       "value": 1.3
     },
+    // Receive +20 gold for each technology researched
     {
       "type": "stat_modifier",
       "scope": "tech",
@@ -13,6 +15,7 @@ const SPANISH = {
       "op": "add",
       "value": 20
     },
+    // Blacksmith upgrades cost no gold
     {
       "type": "tech_cost_modifier",
       "scope": "blacksmith",
@@ -20,6 +23,7 @@ const SPANISH = {
       "op": "multiply",
       "value": 0
     },
+    // Gunpowder Units attack +18% faster
     {
       "type": "stat_modifier",
       "scope": "gunpowder",
@@ -27,8 +31,13 @@ const SPANISH = {
       "op": "multiply",
       "value": 0.82
     },
+    // Cannon Galleons fire more accurately at moving targets
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "cannon_galleon",
+      "stat": "accuracy_moving",
+      "op": "add",
+      "value": 1
     }
   ],
   "teamBonus": {

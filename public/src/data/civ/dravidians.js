@@ -1,11 +1,21 @@
 const DRAVIDIANS = {
   "bonuses": [
+    // Fishermen and Fishing Ships carry +15
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "fisherman",
+      "stat": "carry",
+      "op": "add",
+      "value": 15
     },
+    // Receive +200 wood when advancing to the next Age
     {
-      "type": "special"
+      "type": "resource_on_age",
+      "resource": "wood",
+      "op": "add",
+      "value": 200
     },
+    // Skirmishers attack +25% faster
     {
       "type": "stat_modifier",
       "scope": "skirmisher",
@@ -13,6 +23,7 @@ const DRAVIDIANS = {
       "op": "multiply",
       "value": 0.75
     },
+    // Elephant Archers attack +25% faster
     {
       "type": "stat_modifier",
       "scope": "elephant_archer",
@@ -20,6 +31,7 @@ const DRAVIDIANS = {
       "op": "multiply",
       "value": 0.75
     },
+    // Barracks technologies cost -50%
     {
       "type": "tech_cost_modifier",
       "scope": "barracks",
@@ -27,6 +39,7 @@ const DRAVIDIANS = {
       "op": "multiply",
       "value": 0.5
     },
+    // Siege Weapons cost -33% wood
     {
       "type": "cost_modifier",
       "scope": "siege",
@@ -36,8 +49,13 @@ const DRAVIDIANS = {
     },
     "house",
   ],
+  // Team bonus: Docks provide +5 population space
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "dock",
+    "stat": "pop",
+    "op": "add",
+    "value": 5
   },
   "available": [
     "barracks",

@@ -1,11 +1,13 @@
 ﻿const KOREANS = {
   "bonuses": [
+    // Stone miners work +20% faster
     {
       "type": "building_work_speed",
       "scope": "miner",
       "op": "multiply",
       "value": 1.2
     },
+    // Ranged Soldiers and Infantry cost -50% wood
     {
       "type": "cost_modifier",
       "scope": "infantry",
@@ -13,6 +15,7 @@
       "op": "multiply",
       "value": 0.5
     },
+    // Foot Archers cost -50% wood
     {
       "type": "cost_modifier",
       "scope": "foot_archer",
@@ -20,9 +23,11 @@
       "op": "multiply",
       "value": 0.5
     },
+    // Archer armor and tower upgrades free (Bombard Tower requires Chemistry)
     {
       "type": "free_tech"
     },
+    // Warships cost -20% wood
     {
       "type": "cost_modifier",
       "scope": "ship",
@@ -31,6 +36,7 @@
       "value": 0.8
     }
   ],
+  // Team bonus: Villagers +3 line of sight
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "villager",

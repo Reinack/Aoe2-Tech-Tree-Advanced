@@ -1,8 +1,10 @@
 ﻿const VIKINGS = {
   "bonuses": [
+    // Wheelbarrow and Hand Cart free
     {
       "type": "free_tech"
     },
+    // Infantry +20% HP starting in Feudal Age
     {
       "type": "stat_modifier",
       "scope": "infantry",
@@ -10,6 +12,7 @@
       "op": "multiply",
       "value": 1.2
     },
+    // Warships cost -10/15/20% in Feudal/Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "ship",
@@ -18,6 +21,7 @@
       "value": 0.9
     }
   ],
+  // Team bonus: Docks cost -15%
   "teamBonus": {
     "type": "cost_modifier",
     "scope": "ship",

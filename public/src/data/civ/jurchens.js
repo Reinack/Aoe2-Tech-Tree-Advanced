@@ -1,8 +1,14 @@
 ﻿const JURCHENS = {
   "bonuses": [
+    // Meat of hunted and livestock animals doesn't decay
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "hunted_livestock",
+      "stat": "food_decay",
+      "op": "multiply",
+      "value": 0
     },
+    // Mounted Units and Fire Lancers attack +25% faster starting in Feudal Age
     {
       "type": "stat_modifier",
       "scope": "cavalry",
@@ -10,14 +16,28 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Siege Engineers available in Castle Age
     {
-      "type": "special"
+      "type": "age_unlock",
+      "scope": "siege_engineers",
+      "op": "add",
+      "value": -1
     },
+    // Siege and Fortification upgrades cost -75% wood and research +100% faster
     {
-      "type": "special"
+      "type": "tech_cost_modifier",
+      "scope": "siege_fortification_upgrades",
+      "resource": "wood",
+      "op": "multiply",
+      "value": 0.25
     },
+    // Units receive -50% friendly fire damage
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "unit",
+      "stat": "friendly_fire_reduction",
+      "op": "multiply",
+      "value": 0.5
     }
   ],
   "teamBonus": {

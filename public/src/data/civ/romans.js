@@ -1,24 +1,44 @@
 ﻿const ROMANS = {
   "bonuses": [
+    // Villagers gather, build, and repair +5% faster
     {
-      "type": "special"
+      "type": "building_work_speed",
+      "scope": "villager",
+      "op": "multiply",
+      "value": 1.05
     },
+    // Infantry armor upgrade effects are doubled (+2 armor per upgrade instead of +1)
     {
-      "type": "special"
+      "type": "tech_effectiveness",
+      "scope": "infantry_armor_upgrades",
+      "op": "multiply",
+      "value": 2
     },
+    // Scorpions cost -50% gold
     {
       "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "scope": "scorpion",
+      "resource": "gold",
       "op": "multiply",
       "value": 0.5
     },
+    // Galley-line and Dromons +1 melee armor and +1 pierce armor
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "galley_dromon",
+      "stat": "armor_melee_and_pierce",
+      "op": "add",
+      "value_melee": 1,
+      "value_pierce": 1
     }
   ],
+  // Team bonus: Scorpions have reduced minimum range
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "scorpion",
+    "stat": "min_range",
+    "op": "add",
+    "value": -1
   },
   "available": [
     "barracks",

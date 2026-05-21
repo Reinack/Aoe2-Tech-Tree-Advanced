@@ -1,8 +1,14 @@
 ﻿const LITHUANIANS = {
   "bonuses": [
+    // Each Town Center provides +100 food at game start
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "tc",
+      "stat": "food_storage",
+      "op": "add",
+      "value": 100
     },
+    // Spearman-line moves +10% faster
     {
       "type": "stat_modifier",
       "scope": "spearman",
@@ -10,6 +16,7 @@
       "op": "multiply",
       "value": 1.1
     },
+    // Skirmisher-line moves +10% faster
     {
       "type": "stat_modifier",
       "scope": "skirmisher",
@@ -17,8 +24,14 @@
       "op": "multiply",
       "value": 1.1
     },
+    // Each garrisoned Relic provides +1 attack to Knight-line and Leitis (max +4)
     {
-      "type": "special"
+      "type": "relic_stat_bonus",
+      "scope": "knight",
+      "stat": "attack",
+      "op": "add",
+      "value_per_relic": 1,
+      "max": 4
     },
     "house",
   ],

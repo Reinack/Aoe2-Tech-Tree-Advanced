@@ -1,5 +1,6 @@
 ﻿const TEUTONS = {
   "bonuses": [
+    // Farms cost -40%
     {
       "type": "cost_modifier",
       "scope": "farmer",
@@ -7,9 +8,15 @@
       "op": "multiply",
       "value": 0.6
     },
+    // Town Centers +10 garrison capacity; Towers +5 garrison capacity
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "tc_tower",
+      "stat": "garrison",
+      "op": "add",
+      "value": 10
     },
+    // Barracks and Stable Units +1/+2 melee armor in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "infantry",
@@ -17,16 +24,27 @@
       "op": "add",
       "value": 2
     },
+    // Monks +100% healing range (double the normal range)
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "monk",
+      "stat": "heal_range",
+      "op": "multiply",
+      "value": 2
     },
+    // Murder Holes and Herbal Medicine free
     {
       "type": "free_tech"
     },
     "house",
   ],
+  // Team bonus: Units are more resistant to conversion
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "unit",
+    "stat": "conversion_resistance",
+    "op": "multiply",
+    "value": 1.5
   },
   "available": [
     "barracks",

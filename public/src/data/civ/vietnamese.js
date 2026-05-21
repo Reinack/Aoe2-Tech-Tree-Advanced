@@ -1,14 +1,18 @@
 ﻿const VIETNAMESE = {
   "bonuses": [
+    // Enemy Town Centers are revealed on the map at the start of the game
     {
-      "type": "special"
+      "type": "map_reveal",
+      "scope": "enemy_tc"
     },
+    // Economic upgrades cost no wood and research +100% faster
     {
       "type": "building_work_speed",
       "scope": "tech_research",
       "op": "multiply",
       "value": 2
     },
+    // Archery Range units and Fire Lancers +20% HP
     {
       "type": "stat_modifier",
       "scope": "fire_lancer",
@@ -16,12 +20,16 @@
       "op": "multiply",
       "value": 1.2
     },
+    // Conscription free
     {
       "type": "free_tech"
     }
   ],
+  // Team bonus: Imperial Skirmisher upgrade available in Imperial Age
   "teamBonus": {
-    "type": "special"
+    "type": "unit_availability",
+    "scope": "imp_skirmisher",
+    "age": 3
   },
   "available": [
     "barracks",

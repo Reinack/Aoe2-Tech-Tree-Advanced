@@ -1,5 +1,6 @@
 ﻿const INCAS = {
   "bonuses": [
+    // Houses and Settlements provide +5 population space
     {
       "type": "stat_modifier",
       "scope": "house",
@@ -7,6 +8,7 @@
       "op": "add",
       "value": 5
     },
+    // Buildings cost -15% stone
     {
       "type": "building_cost_modifier",
       "scope": "building",
@@ -14,6 +16,7 @@
       "op": "multiply",
       "value": 0.85
     },
+    // Military Units cost -5/10/15/20% food in Dark/Feudal/Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "military_unit",
@@ -21,12 +24,19 @@
       "op": "multiply",
       "value": 0.8
     },
+    // Villagers are affected by Infantry Blacksmith upgrades starting in Castle Age
     {
-      "type": "special"
+      "type": "tech_applies_to",
+      "scope": "villager",
+      "techs": ["blacksmith_infantry_upgrades"]
     }
   ],
+  // Team bonus: Start with a free Llama (bonus livestock)
   "teamBonus": {
-    "type": "special"
+    "type": "start_resources",
+    "resource": "llama",
+    "op": "add",
+    "value": 1
   },
   "available": [
     "barracks",

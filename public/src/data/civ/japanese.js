@@ -1,5 +1,6 @@
 ﻿const JAPANESE = {
   "bonuses": [
+    // Mills, Lumber Camps, and Mining Camps cost -50%
     {
       "type": "cost_modifier",
       "scope": "miner",
@@ -7,6 +8,7 @@
       "op": "multiply",
       "value": 0.5
     },
+    // Cavalry Archers +2 attack vs. Ranged Soldiers (except Skirmishers)
     {
       "type": "stat_modifier",
       "scope": "cavarcher",
@@ -14,6 +16,7 @@
       "op": "add",
       "value": 2
     },
+    // Infantry attacks +33% faster starting in Feudal Age
     {
       "type": "stat_modifier",
       "scope": "infantry",
@@ -21,6 +24,7 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Fishing Ships work +5/10/15/20% faster per age; +100% HP
     {
       "type": "stat_modifier",
       "scope": "ship",
@@ -29,6 +33,7 @@
       "value": 1.2
     }
   ],
+  // Team bonus: Galley-line +4 line of sight
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "ship",

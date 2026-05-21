@@ -1,8 +1,10 @@
 ﻿const BURMESE = {
   "bonuses": [
+    // Lumber Camp technologies free
     {
       "type": "free_tech"
     },
+    // Infantry +1/+2/+3 attack in Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "infantry",
@@ -10,6 +12,7 @@
       "op": "add",
       "value": 3
     },
+    // Battle Elephants +1 melee armor and +1 pierce armor
     {
       "type": "stat_modifier",
       "scope": "battle_elephant",
@@ -18,6 +21,7 @@
       "value_melee": 1,
       "value_pierce": 1
     },
+    // Monastery technologies cost -50%
     {
       "type": "tech_cost_modifier",
       "scope": "monastery",
@@ -26,8 +30,10 @@
       "value": 0.5
     }
   ],
+  // Team bonus: Relics visible on the map at the start of the game
   "teamBonus": {
-    "type": "special"
+    "type": "map_reveal",
+    "scope": "relic"
   },
   "available": [
     "barracks",

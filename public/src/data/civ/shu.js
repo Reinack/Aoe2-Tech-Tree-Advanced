@@ -1,8 +1,14 @@
 ﻿const SHU = {
   "bonuses": [
+    // Lumberjacks generate food in addition to wood while chopping
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "lumberjack",
+      "stat": "food_generation",
+      "op": "add",
+      "value": 1
     },
+    // Archery Unit technologies at Archery Range and Blacksmith cost -25%
     {
       "type": "cost_modifier",
       "scope": "archer",
@@ -10,6 +16,7 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Siege Weapons and Siege Warships move +10/15% faster in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "ship",

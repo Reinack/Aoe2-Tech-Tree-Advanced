@@ -1,8 +1,13 @@
 ﻿const CUMANS = {
   "bonuses": [
+    // One additional Town Center can be built in Feudal Age
     {
-      "type": "special"
+      "type": "building_unlock",
+      "scope": "tc",
+      "age": 1,
+      "count": 1
     },
+    // Mounted Units move +5/10/15% faster in Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "cavalry",
@@ -10,6 +15,7 @@
       "op": "multiply",
       "value": 1.15
     },
+    // Archery Ranges cost -75 wood
     {
       "type": "building_cost_modifier",
       "scope": "archery",
@@ -17,6 +23,7 @@
       "op": "add",
       "value": -75
     },
+    // Stables cost -75 wood
     {
       "type": "building_cost_modifier",
       "scope": "stable",
@@ -24,8 +31,12 @@
       "op": "add",
       "value": -75
     },
+    // Siege Workshop and Battering Ram available in Feudal Age; Capped Ram in Castle Age
     {
-      "type": "special"
+      "type": "age_unlock",
+      "scope": "siege_workshop",
+      "op": "add",
+      "value": -1
     }
   ],
   "teamBonus": {

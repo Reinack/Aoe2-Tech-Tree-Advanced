@@ -1,8 +1,10 @@
 ﻿const GOTHS = {
   "bonuses": [
+    // Loom is researched instantly and free
     {
       "type": "free_tech"
     },
+    // Hunters carry +15; hunted animals last +20% longer
     {
       "type": "stat_modifier",
       "scope": "hunter",
@@ -10,6 +12,7 @@
       "op": "add",
       "value": 15
     },
+    // Infantry costs -15/20/25/30% in Dark/Feudal/Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "infantry",
@@ -17,6 +20,7 @@
       "op": "multiply",
       "value": 0.85
     },
+    // Infantry +1/+2/+3 attack vs. buildings in Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "infantry",
@@ -24,8 +28,13 @@
       "op": "add",
       "value": 3
     },
+    // +10 population space in Imperial Age
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "population",
+      "stat": "pop_space",
+      "op": "add",
+      "value": 10
     }
   ],
   "teamBonus": {

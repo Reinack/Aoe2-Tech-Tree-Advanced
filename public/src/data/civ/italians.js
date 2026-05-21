@@ -1,12 +1,12 @@
 ﻿const ITALIANS = {
   "bonuses": [
+    // Advancing to the next Age costs -15%
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "age_advance_cost",
       "op": "multiply",
       "value": 0.85
     },
+    // Foot Archers and Condottieri +1 melee armor and +1 pierce armor
     {
       "type": "stat_modifier",
       "scope": "condottiero",
@@ -15,13 +15,15 @@
       "value_melee": 1,
       "value_pierce": 1
     },
+    // Dock and University technologies cost -25%
     {
-      "type": "cost_modifier",
-      "scope": "ship",
+      "type": "tech_cost_modifier",
+      "scope": "dock_university",
       "resource": "all",
       "op": "multiply",
       "value": 0.75
     },
+    // Gunpowder Units cost -20%
     {
       "type": "cost_modifier",
       "scope": "gunpowder",
@@ -29,16 +31,21 @@
       "op": "multiply",
       "value": 0.8
     },
+    // Fishing Ships cost -15%
     {
       "type": "cost_modifier",
-      "scope": "ship",
+      "scope": "fishing_ship",
       "resource": "all",
       "op": "multiply",
       "value": 0.85
     }
   ],
+  // Team bonus: Condottiero available at the Barracks in Imperial Age
   "teamBonus": {
-    "type": "special"
+    "type": "unit_availability",
+    "scope": "condottiero",
+    "building": "barracks",
+    "age": 3
   },
   "available": [
     "barracks",

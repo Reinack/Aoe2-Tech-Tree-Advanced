@@ -1,14 +1,17 @@
 ﻿const SLAVS = {
   "bonuses": [
+    // Farmers work +15% faster
     {
       "type": "building_work_speed",
       "scope": "farmer",
       "op": "multiply",
       "value": 1.15
     },
+    // Arson and Gambesons free
     {
       "type": "free_tech"
     },
+    // Siege Workshop Units cost -15%
     {
       "type": "cost_modifier",
       "scope": "siege",
@@ -16,6 +19,7 @@
       "op": "multiply",
       "value": 0.85
     },
+    // Monks move +20% faster
     {
       "type": "stat_modifier",
       "scope": "monk",
@@ -24,8 +28,13 @@
       "value": 1.2
     }
   ],
+  // Team bonus: Military buildings (except Castles) provide +5 population space
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "military_building",
+    "stat": "pop",
+    "op": "add",
+    "value": 5
   },
   "available": [
     "barracks",

@@ -1,11 +1,13 @@
 ﻿const MONGOLS = {
   "bonuses": [
+    // Hunters work +40% faster
     {
       "type": "building_work_speed",
       "scope": "hunter",
       "op": "multiply",
       "value": 1.4
     },
+    // Cavalry Archers attack +25% faster
     {
       "type": "stat_modifier",
       "scope": "cavalry_archer",
@@ -13,6 +15,7 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Scout Cavalry-line +20/30% HP in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "light_cavalry",
@@ -20,6 +23,7 @@
       "op": "multiply",
       "value": 1.3
     },
+    // Steppe Lancers +20/30% HP in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "steppe_lancer",

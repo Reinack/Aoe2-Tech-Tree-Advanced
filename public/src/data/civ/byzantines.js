@@ -1,8 +1,14 @@
 ﻿const BYZANTINES = {
   "bonuses": [
+    // Buildings +10/20/30/40% HP in Dark/Feudal/Castle/Imperial Age
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "building",
+      "stat": "hp",
+      "op": "multiply",
+      "value": 1.4
     },
+    // Camel Riders cost -25%
     {
       "type": "cost_modifier",
       "scope": "camel",
@@ -10,6 +16,7 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Skirmishers cost -25%
     {
       "type": "cost_modifier",
       "scope": "skirmisher",
@@ -17,6 +24,7 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Spearman-line cost -25%
     {
       "type": "cost_modifier",
       "scope": "spearman",
@@ -24,15 +32,18 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Town Watch and Town Patrol free
     {
       "type": "free_tech"
     },
+    // Advancing to Imperial Age costs -33%
     {
       "type": "age_advance_cost",
       "age": 3,
       "op": "multiply",
       "value": 0.67
     },
+    // Fire Ships and Dromons attack +25% faster (rof multiplier 0.75)
     {
       "type": "stat_modifier",
       "scope": "ship",
@@ -41,8 +52,13 @@
       "value": 0.75
     }
   ],
+  // Team bonus: Monks heal +100% faster
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "monk",
+    "stat": "heal_rate",
+    "op": "multiply",
+    "value": 2
   },
   "available": [
     "barracks",

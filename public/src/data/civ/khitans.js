@@ -1,17 +1,26 @@
 ﻿const KHITANS = {
   "bonuses": [
+    // Pastures replace Farms as the food-gathering building
     {
-      "type": "special"
+      "type": "building_replacement",
+      "scope": "pasture",
+      "replaces": "farm"
     },
+    // Melee attack upgrade effects are doubled
     {
-      "type": "special"
+      "type": "tech_effectiveness",
+      "scope": "melee_attack_upgrades",
+      "op": "multiply",
+      "value": 2
     },
+    // Skirmishers, Spearman-, and Scout Cavalry-line train and upgrade +15% faster
     {
       "type": "creation_speed",
       "scope": "skirmisher",
       "op": "multiply",
       "value": 0.85
     },
+    // Heavy Cavalry Archer upgrade available in Castle Age and costs -50%
     {
       "type": "cost_modifier",
       "scope": "cavalry_archer",

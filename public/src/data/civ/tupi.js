@@ -1,17 +1,27 @@
 ﻿const TUPI = {
   "bonuses": [
+    // Start with +25 of each resource (food, wood, gold, stone)
     {
       "type": "start_resources",
       "resource": "all",
       "op": "add",
-      "value": null
+      "value": 25
     },
+    // Villagers can garrison in Settlements for protection
     {
-      "type": "special"
+      "type": "garrison_in_building",
+      "scope": "villager",
+      "building": "tahsili"
     },
+    // Fallen units return 15% of their cost as resources
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "unit",
+      "stat": "death_refund",
+      "op": "multiply",
+      "value": 0.15
     },
+    // Archery Range and Barracks upgrades cost -50% food
     {
       "type": "cost_modifier",
       "scope": "archer",
@@ -20,8 +30,13 @@
       "value": 0.5
     }
   ],
+  // Team bonus: Towers and Castles provide +10 population space
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "castle_tower",
+    "stat": "pop",
+    "op": "add",
+    "value": 10
   },
   "available": [
     "barracks",

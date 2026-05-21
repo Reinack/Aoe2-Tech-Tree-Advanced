@@ -1,20 +1,28 @@
 ﻿const MAYANS = {
   "bonuses": [
+    // Start with +1 extra Villager
     {
       "type": "start_resources",
       "resource": "villager",
       "op": "add",
       "value": 1
     },
+    // Start with -50 food (penalty for extra villager)
     {
       "type": "start_resources",
       "resource": "food",
       "op": "add",
       "value": -50
     },
+    // Resources last +15% longer (animals, forage, mines have more resources)
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "resource",
+      "stat": "duration",
+      "op": "multiply",
+      "value": 1.15
     },
+    // Foot Archers cost -10/20/30% in Feudal/Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "foot_archer",

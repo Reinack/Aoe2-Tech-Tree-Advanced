@@ -1,13 +1,16 @@
 ﻿const MALAY = {
   "bonuses": [
+    // Advancing to the next Age is +66% faster
     {
       "type": "age_advance_cost",
       "op": "multiply",
       "value": 0.34
     },
+    // Infantry armor upgrades free
     {
       "type": "free_tech"
     },
+    // Battle Elephants cost -25/35% in Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "battleeleph",
@@ -15,6 +18,7 @@
       "op": "multiply",
       "value": 0.75
     },
+    // Fish Traps cost -33%
     {
       "type": "cost_modifier",
       "scope": "fish_trap",
@@ -22,8 +26,13 @@
       "op": "multiply",
       "value": 0.67
     },
+    // Fish Traps provide +200% more food (3x the normal amount)
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "fish_trap",
+      "stat": "food_generation",
+      "op": "multiply",
+      "value": 3
     },
     "house",
   ],

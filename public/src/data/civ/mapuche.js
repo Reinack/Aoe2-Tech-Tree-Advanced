@@ -7,9 +7,12 @@ const MAPUCHE = {
       "op": "multiply",
       "value": 1.2
     },   // Los recolectores entregan +20% más de comida
+    // Settlements (Tahsili) can train Spearman-line and Skirmishers
     {
-      "type": "special"
-    },   // Los asentamientos (tahsili) pueden entrenar líneas de lanceros y guerrilleros
+      "type": "unit_availability",
+      "scope": "spearman_skirmisher",
+      "building": "tahsili"
+    },
     {
       "type": "stat_modifier",
       "scope": ["infantry", "skirmisher"],
@@ -17,11 +20,18 @@ const MAPUCHE = {
       "op": "add",
       "value": 15
     },
+    // Mounted Units generate +3 gold when defeating enemy military units
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "cavalry",
+      "stat": "gold_on_kill",
+      "op": "add",
+      "value": 3
     },
+    // Enemy Castles are revealed on the map at all times
     {
-      "type": "special"
+      "type": "map_reveal",
+      "scope": "enemy_castle"
     },
     "house",
   ],

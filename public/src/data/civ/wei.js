@@ -1,8 +1,10 @@
 ﻿const WEI = {
   "bonuses": [
+    // Receive one free Villager for each economic upgrade researched
     {
       "type": "free_tech"
     },
+    // Hei Guang Cavalry and Xianbei Raider +20/30% HP in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "cavalry",
@@ -10,6 +12,7 @@
       "op": "multiply",
       "value": 1.3
     },
+    // Traction Trebuchets and Lou Chuans cost -25%
     {
       "type": "cost_modifier",
       "scope": "unit",
@@ -18,6 +21,7 @@
       "value": 0.75
     }
   ],
+  // Team bonus: Cavalry +2 attack vs. Siege Weapons
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "cavalry",

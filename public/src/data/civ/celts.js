@@ -1,11 +1,13 @@
 ﻿const CELTS = {
   "bonuses": [
+    // Lumberjacks work +15% faster
     {
       "type": "building_work_speed",
       "scope": "lumberjack",
       "op": "multiply",
       "value": 1.15
     },
+    // Infantry moves +5/10/15/20% faster in Dark/Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "infantry",
@@ -13,9 +15,15 @@
       "op": "multiply",
       "value": 1.20
     },
+    // Livestock animals within Celt unit line of sight cannot be stolen by enemies
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "livestock",
+      "stat": "steal_protection",
+      "op": "add",
+      "value": 1
     },
+    // Siege Weapons attack +25% faster
     {
       "type": "stat_modifier",
       "scope": "siege",

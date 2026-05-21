@@ -1,11 +1,13 @@
 ﻿const BRITONS = {
   "bonuses": [
+    // Shepherds work +25% faster
     {
       "type": "building_work_speed",
       "scope": "shepherd",
       "op": "multiply",
       "value": 1.25
     },
+    // Town Centers cost -50% wood starting in Castle Age
     {
       "type": "building_cost_modifier",
       "scope": "tc",
@@ -13,6 +15,7 @@
       "op": "multiply",
       "value": 0.5
     },
+    // Foot Archers +1/+2 range in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "foot_archer",
@@ -21,6 +24,7 @@
       "value": 2
     }
   ],
+  // Team bonus: Archery Ranges work +10% faster
   "teamBonus": {
     "type": "building_work_speed",
     "scope": "archer",

@@ -1,8 +1,12 @@
 ﻿const POLES = {
   "bonuses": [
+    // Folwark replaces Mill (instantly collects food from adjacent farms when built)
     {
-      "type": "special"
+      "type": "building_replacement",
+      "scope": "folwark",
+      "replaces": "mill"
     },
+    // Villagers regenerate 10/15/20 HP per minute in Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "villager",
@@ -10,9 +14,15 @@
       "op": "add",
       "value": 20
     },
+    // Stone Miners generate gold in addition to stone
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "stone_miner",
+      "stat": "gold_generation",
+      "op": "add",
+      "value": 1
     },
+    // Bloodlines and Scout Cavalry-line upgrades cost -50% food
     {
       "type": "cost_modifier",
       "scope": "light_cavalry",

@@ -1,22 +1,39 @@
 ﻿const SICILIANS = {
   "bonuses": [
+    // Start with +100 stone
     {
       "type": "start_resources",
       "resource": "stone",
       "op": "add",
       "value": 100
     },
+    // Farm upgrades provide +125% additional food (2.25x the normal value)
     {
-      "type": "special"
+      "type": "tech_effectiveness",
+      "scope": "farm_upgrades",
+      "op": "multiply",
+      "value": 2.25
     },
+    // Soldiers receive -40% bonus damage from enemy attacks
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "soldier",
+      "stat": "bonus_damage_reduction",
+      "op": "multiply",
+      "value": 0.6
     },
+    // Can build Donjon in Dark Age (replaces Watch Tower-line)
     {
-      "type": "special"
+      "type": "building_unlock",
+      "scope": "donjon",
+      "age": 0
     },
+    // Fortifications built +50% faster; Town Centers built +100% faster
     {
-      "type": "special"
+      "type": "building_work_speed",
+      "scope": "fortification",
+      "op": "multiply",
+      "value": 1.5
     }
   ],
   "teamBonus": {

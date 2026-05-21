@@ -1,5 +1,6 @@
 ﻿const BERBERS = {
   "bonuses": [
+    // Villagers move +5% faster in Dark Age, +10% starting in Feudal Age
     {
       "type": "stat_modifier",
       "scope": "villager",
@@ -7,6 +8,7 @@
       "op": "multiply",
       "value": 1.10
     },
+    // Stable Units cost -15/20% in Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "cavalry",
@@ -14,6 +16,7 @@
       "op": "multiply",
       "value": 0.80
     },
+    // Ships move +10% faster
     {
       "type": "stat_modifier",
       "scope": "ship",
@@ -22,8 +25,12 @@
       "value": 1.1
     }
   ],
+  // Team bonus: Genitour available at the Archery Range starting in Castle Age
   "teamBonus": {
-    "type": "special"
+    "type": "unit_availability",
+    "scope": "genitour",
+    "building": "archery",
+    "age": 2
   },
   "available": [
     "barracks",

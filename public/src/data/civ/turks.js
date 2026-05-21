@@ -1,21 +1,25 @@
 ﻿const TURKS = {
   "bonuses": [
+    // Gold miners work +25% faster
     {
       "type": "building_work_speed",
       "scope": "miner",
       "op": "multiply",
       "value": 1.25
     },
+    // Scout Cavalry-line +1 pierce armor and upgrades free; Chemistry free
     {
       "type": "free_tech"
     },
+    // Gunpowder technologies cost -50%
     {
       "type": "cost_modifier",
-      "scope": "unit",
+      "scope": "gunpowder_tech",
       "resource": "all",
       "op": "multiply",
       "value": 0.5
     },
+    // Gunpowder Units +25% HP
     {
       "type": "stat_modifier",
       "scope": "gunpowder",
@@ -25,6 +29,7 @@
     },
     "house",
   ],
+  // Team bonus: Gunpowder Units train +25% faster
   "teamBonus": {
     "type": "creation_speed",
     "scope": "gunpowder",

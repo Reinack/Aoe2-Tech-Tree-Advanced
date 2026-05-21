@@ -1,23 +1,39 @@
 ﻿const PERSIANS = {
   "bonuses": [
+    // Start with +50 wood
     {
       "type": "start_resources",
       "resource": "wood",
       "op": "add",
       "value": 50
     },
+    // Start with +50 food
+    {
+      "type": "start_resources",
+      "resource": "food",
+      "op": "add",
+      "value": 50
+    },
+    // Town Centers and Docks +100% HP and work +5/10/15/20% faster per age
     {
       "type": "stat_modifier",
-      "scope": "ship",
+      "scope": "tc_dock",
       "stat": "hp",
       "op": "multiply",
       "value": 2
     },
+    // Parthian Tactics available in Castle Age
     {
-      "type": "special"
+      "type": "age_unlock",
+      "scope": "parthian",
+      "op": "add",
+      "value": -1
     },
+    // Can build Caravanserai in Imperial Age (heals and speeds up trade carts)
     {
-      "type": "special"
+      "type": "building_unlock",
+      "scope": "caravanserai",
+      "age": 3
     },
     "house",
   ],

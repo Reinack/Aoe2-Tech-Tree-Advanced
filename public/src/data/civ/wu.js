@@ -1,8 +1,14 @@
 ﻿const WU = {
   "bonuses": [
+    // Military production buildings and Docks provide +55 food at game start
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "military_building_dock",
+      "stat": "food_storage",
+      "op": "add",
+      "value": 55
     },
+    // Infantry regenerates 10/15/30 HP per minute in Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "infantry",
@@ -10,6 +16,7 @@
       "op": "add",
       "value": 30
     },
+    // Jian Swordsmen and Hei Guang Cavalry +2 attack in Imperial Age
     {
       "type": "stat_modifier",
       "scope": "cavalry",
@@ -17,12 +24,17 @@
       "op": "add",
       "value": 2
     },
+    // Careening and Dry Dock free
     {
       "type": "free_tech"
     }
   ],
+  // Team bonus: Houses built +100% faster
   "teamBonus": {
-    "type": "special"
+    "type": "building_work_speed",
+    "scope": "house",
+    "op": "multiply",
+    "value": 2
   },
   "available": [
     "barracks",

@@ -1,12 +1,14 @@
 ﻿const SARACENS = {
   "bonuses": [
+    // Market trading fee only 5%; Markets cost -100 wood
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
-      "op": "multiply",
-      "value": null
+      "type": "building_cost_modifier",
+      "scope": "market",
+      "resource": "wood",
+      "op": "add",
+      "value": -100
     },
+    // Camel Units +25% HP
     {
       "type": "stat_modifier",
       "scope": "camel",
@@ -14,12 +16,18 @@
       "op": "multiply",
       "value": 1.25
     },
-    {
-      "type": "special"
-    },
+    // Galley-line attacks +25% faster
     {
       "type": "stat_modifier",
-      "scope": "ship",
+      "scope": "galley",
+      "stat": "rof",
+      "op": "multiply",
+      "value": 0.75
+    },
+    // Transport Ships +100% HP, +20 carry capacity
+    {
+      "type": "stat_modifier",
+      "scope": "transport_ship",
       "stat": "hp",
       "op": "multiply",
       "value": 2

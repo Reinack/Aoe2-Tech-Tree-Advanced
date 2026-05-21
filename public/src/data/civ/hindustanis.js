@@ -1,5 +1,6 @@
 ﻿const HINDUSTANIS = {
   "bonuses": [
+    // Villagers cost -8/13/18/23% in Dark/Feudal/Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "villager",
@@ -7,6 +8,7 @@
       "op": "multiply",
       "value": 0.92
     },
+    // Camel Riders attack +20% faster
     {
       "type": "stat_modifier",
       "scope": "camel",
@@ -14,6 +16,7 @@
       "op": "multiply",
       "value": 0.8
     },
+    // Gunpowder Units +1 melee armor and +1 pierce armor
     {
       "type": "stat_modifier",
       "scope": "gunpowder",
@@ -22,8 +25,11 @@
       "value_melee": 1,
       "value_pierce": 1
     },
+    // Can build Caravanserai in Imperial Age (heals and speeds up trade carts)
     {
-      "type": "special"
+      "type": "building_unlock",
+      "scope": "caravanserai",
+      "age": 3
     }
   ],
   "teamBonus": {

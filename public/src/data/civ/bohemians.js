@@ -1,8 +1,10 @@
 ﻿const BOHEMIANS = {
   "bonuses": [
+    // Mining Camp technologies free
     {
       "type": "free_tech"
     },
+    // Spearman-line deals +25% bonus damage
     {
       "type": "stat_modifier",
       "scope": "spearman",
@@ -10,6 +12,7 @@
       "op": "multiply",
       "value": 1.25
     },
+    // Blacksmiths cost -100 wood
     {
       "type": "building_cost_modifier",
       "scope": "blacksmith",
@@ -17,6 +20,7 @@
       "op": "add",
       "value": -100
     },
+    // Universities cost -100 wood
     {
       "type": "building_cost_modifier",
       "scope": "university",
@@ -24,11 +28,18 @@
       "op": "add",
       "value": -100
     },
+    // Fervor and Sanctity technologies also affect Villagers
     {
-      "type": "special"
+      "type": "tech_applies_to",
+      "scope": "villager",
+      "techs": ["fervor", "sanctity"]
     },
+    // Chemistry and Hand Cannoneer available in Castle Age
     {
-      "type": "special"
+      "type": "age_unlock",
+      "scope": "chemistry",
+      "op": "add",
+      "value": -1
     },
     "house",
   ],

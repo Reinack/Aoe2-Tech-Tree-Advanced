@@ -1,26 +1,35 @@
 ﻿const CHINESE = {
   "bonuses": [
+    // Start with +3 Villagers
     {
       "type": "start_resources",
       "resource": "villager",
       "op": "add",
       "value": 3
     },
+    // Start with -50 wood
     {
       "type": "start_resources",
       "resource": "wood",
       "op": "add",
       "value": -50
     },
+    // Start with -200 food
     {
       "type": "start_resources",
       "resource": "food",
       "op": "add",
       "value": -200
     },
+    // Technologies cost -5/10/15% in Feudal/Castle/Imperial Age
     {
-      "type": "special"
+      "type": "tech_cost_modifier",
+      "scope": "all_tech",
+      "resource": "all",
+      "op": "multiply",
+      "value": 0.85
     },
+    // Town Centers +7 line of sight
     {
       "type": "stat_modifier",
       "scope": "tc",
@@ -28,6 +37,7 @@
       "op": "add",
       "value": 7
     },
+    // Town Centers provide +15 population space
     {
       "type": "stat_modifier",
       "scope": "tc",
@@ -35,6 +45,7 @@
       "op": "add",
       "value": 15
     },
+    // Fire Lancers move +5/10% faster in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "fire_lancer",
@@ -42,6 +53,7 @@
       "op": "multiply",
       "value": 1.10
     },
+    // Fire Ships move +5/10% faster in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "fireship",
@@ -51,8 +63,13 @@
     },
     "house",
   ],
+  // Team bonus: Farms +10% food production
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "farm",
+    "stat": "food_generation",
+    "op": "multiply",
+    "value": 1.1
   },
   "available": [
     "barracks",

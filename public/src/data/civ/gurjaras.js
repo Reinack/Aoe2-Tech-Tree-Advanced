@@ -1,14 +1,27 @@
 const GURJARAS = {
   "bonuses": [
+    // Start with 2 Forage Bushes near the Town Center
     {
-      "type": "special"
+      "type": "start_resources",
+      "resource": "forage_bush",
+      "op": "add",
+      "value": 2
     },
+    // Can garrison livestock in Mills to passively generate food
     {
-      "type": "special"
+      "type": "garrison_in_building",
+      "scope": "livestock",
+      "building": "mill"
     },
+    // Mounted Units deal +20/30/40% bonus damage in Feudal/Castle/Imperial Age
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "cavalry",
+      "stat": "bonus_damage",
+      "op": "multiply",
+      "value": 1.4
     },
+    // Docks +5 garrison capacity
     {
       "type": "stat_modifier",
       "scope": "dock",

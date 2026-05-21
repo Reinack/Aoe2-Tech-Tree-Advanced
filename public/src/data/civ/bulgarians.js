@@ -1,8 +1,10 @@
 const BULGARIANS = {
   "bonuses": [
+    // Militia-line upgrades free
     {
       "type": "free_tech"
     },
+    // Blacksmith technologies cost -50% food
     {
       "type": "tech_cost_modifier",
       "scope": "blacksmith",
@@ -10,6 +12,7 @@ const BULGARIANS = {
       "op": "multiply",
       "value": 0.5
     },
+    // Siege Workshop technologies cost -50% food
     {
       "type": "tech_cost_modifier",
       "scope": "siege_workshop",
@@ -17,6 +20,7 @@ const BULGARIANS = {
       "op": "multiply",
       "value": 0.5
     },
+    // Town Centers cost -50% stone
     {
       "type": "building_cost_modifier",
       "scope": "tc",
@@ -24,8 +28,11 @@ const BULGARIANS = {
       "op": "multiply",
       "value": 0.5
     },
+    // Can build Krepost in Castle Age (minor castle that trains Konniks)
     {
-      "type": "special"
+      "type": "building_unlock",
+      "scope": "krepost",
+      "age": 2
     }
   ],
   "teamBonus": {

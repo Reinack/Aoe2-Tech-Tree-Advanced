@@ -1,7 +1,8 @@
 ﻿const GENERIC = {
   "bonuses": [
+    // Generic: shows the full tech tree without civilization restrictions
     {
-      "type": "special"
+      "type": "full_tech_tree"
     },
     "house",
   ],

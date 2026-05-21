@@ -1,17 +1,20 @@
 ﻿const ETHIOPIANS = {
   "bonuses": [
+    // Receive +100 gold when advancing to the next Age
     {
       "type": "age_advance_bonus",
       "resource": "gold",
       "op": "add",
       "value": 100
     },
+    // Receive +100 food when advancing to the next Age
     {
       "type": "age_advance_bonus",
       "resource": "food",
       "op": "add",
       "value": 100
     },
+    // Foot Archers attack +18% faster
     {
       "type": "stat_modifier",
       "scope": "foot_archer",
@@ -19,11 +22,13 @@
       "op": "multiply",
       "value": 0.82
     },
+    // Pikeman upgrade free
     {
       "type": "free_tech"
     },
     "house",
   ],
+  // Team bonus: Outposts +3 line of sight and cost no stone
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "outpost",

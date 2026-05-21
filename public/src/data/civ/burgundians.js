@@ -1,5 +1,6 @@
 ﻿const BURGUNDIANS = {
   "bonuses": [
+    // Economic upgrades available one age earlier and cost -33% food
     {
       "type": "tech_cost_modifier",
       "scope": "economic_tech",
@@ -7,6 +8,7 @@
       "op": "multiply",
       "value": 0.67
     },
+    // Stable technologies cost -50%
     {
       "type": "tech_cost_modifier",
       "scope": "stable",
@@ -14,9 +16,14 @@
       "op": "multiply",
       "value": 0.5
     },
+    // Cavalier upgrade available in Castle Age
     {
-      "type": "special"
+      "type": "age_unlock",
+      "scope": "cavalier",
+      "op": "add",
+      "value": -1
     },
+    // Gunpowder Units +25% attack
     {
       "type": "stat_modifier",
       "scope": "gunpowder",
@@ -25,8 +32,13 @@
       "value": 1.25
     }
   ],
+  // Team bonus: Relics generate food in addition to gold
   "teamBonus": {
-    "type": "special"
+    "type": "stat_modifier",
+    "scope": "relic",
+    "stat": "food_generation",
+    "op": "add",
+    "value": 1
   },
   "available": [
     "barracks",

@@ -1,8 +1,14 @@
 ﻿const MAGYARS = {
   "bonuses": [
+    // Villagers defeat wolves with one strike (effectively instant kill)
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "villager",
+      "stat": "damage_vs_wolf",
+      "op": "multiply",
+      "value": 999
     },
+    // Scout Cavalry-line costs -15%
     {
       "type": "cost_modifier",
       "scope": "light_cavalry",
@@ -10,6 +16,7 @@
       "op": "multiply",
       "value": 0.85
     },
+    // Melee attack upgrades (Forging, Iron Casting, Blast Furnace) free
     {
       "type": "free_tech"
     }

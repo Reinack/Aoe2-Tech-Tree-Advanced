@@ -1,14 +1,17 @@
 ﻿const FRANKS = {
   "bonuses": [
+    // Foragers work +15% faster
     {
       "type": "building_work_speed",
       "scope": "forager",
       "op": "multiply",
       "value": 1.15
     },
+    // Mill technologies free (Horse Collar, Heavy Plow, Crop Rotation)
     {
       "type": "free_tech"
     },
+    // Mounted Units +20% HP starting in Feudal Age
     {
       "type": "stat_modifier",
       "scope": "cavalry",
@@ -16,6 +19,7 @@
       "op": "multiply",
       "value": 1.2
     },
+    // Castles cost -15/25% in Castle/Imperial Age
     {
       "type": "building_cost_modifier",
       "scope": "castle",
@@ -25,6 +29,7 @@
     },
     "house",
   ],
+  // Team bonus: Knight-line +2 line of sight
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "knight",

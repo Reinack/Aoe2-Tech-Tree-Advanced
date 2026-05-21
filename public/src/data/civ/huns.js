@@ -1,14 +1,18 @@
 ﻿const HUNS = {
   "bonuses": [
+    // Do not need Houses to support population (no house requirement)
     {
-      "type": "special"
+      "type": "house_requirement",
+      "op": "remove"
     },
+    // Start with -100 wood (penalty for not needing houses)
     {
       "type": "start_resources",
       "resource": "wood",
       "op": "add",
       "value": -100
     },
+    // Cavalry Archers cost -10/20% in Castle/Imperial Age
     {
       "type": "cost_modifier",
       "scope": "cavalry_archer",
@@ -16,8 +20,13 @@
       "op": "multiply",
       "value": 0.9
     },
+    // Trebuchets fire more accurately against units and small targets
     {
-      "type": "special"
+      "type": "stat_modifier",
+      "scope": "trebuchet",
+      "stat": "accuracy",
+      "op": "add",
+      "value": 1
     }
   ],
   "teamBonus": {
