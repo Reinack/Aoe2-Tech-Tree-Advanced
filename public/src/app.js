@@ -555,18 +555,82 @@ const STAT_ICONS = {
   los:           'img/Icon/los.webp',
 };
 
+// Maps civ bonus scope names → unit ID lists for stat modifier lookup
+const CIV_BONUS_SCOPE_MAP = {
+  infantry:       () => UNIT_CLASSES['infantry']      || [],
+  cavalry:        () => UNIT_CLASSES['cavalry']       || [],
+  cavalry_archer: () => UNIT_CLASSES['mounted_archer']|| [],
+  foot_archer:    () => UNIT_CLASSES['foot_archer']   || [],
+  ship:           () => UNIT_CLASSES['navy']          || [],
+  gunpowder:      () => UNIT_CLASSES['gunpowder']     || [],
+  siege:          () => UNIT_CLASSES['siege']         || [],
+  light_cavalry:  () => ['scout','lightcav','hussar','winged_hussar'],
+  steppe_lancer:  () => ['steppe_lancer','elite_steppe_lancer'],
+  villager:       () => ['villager'],
+  monk:           () => UNIT_CLASSES['religious']     || [],
+  unique_unit:    () => ['uniqueunit','eliteunique'],
+  camel:          () => ['camel','heavycamel','imp_camel'],
+  eagle:          () => ['eaglescout','eaglewarrior','eliteeagle'],
+  trade:          () => ['tradecart','tradecog'],
+  elephant:       () => ['battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
+};
+
+// Returns stats after applying current civ's stat_modifier bonuses, or null if none apply
+function computeCivModifiedStats(stats, unitId) {
+  const civ = getCiv();
+  if (!civ || !civ.bonuses) return null;
+
+  const mods = civ.bonuses.filter(b => {
+    if (b.type !== 'stat_modifier') return false;
+    const getter = CIV_BONUS_SCOPE_MAP[b.scope];
+    if (getter) return getter().includes(unitId);
+    // Fallback: check directly in UNIT_CLASSES
+    return UNIT_CLASSES[b.scope]?.includes(unitId) ?? false;
+  });
+
+  if (mods.length === 0) return null;
+
+  const m = {
+    hp:     stats.hp,
+    attack: stats.attack,
+    armor:  [...(stats.armor || [0, 0])],
+    range:  stats.range,
+    speed:  stats.speed,
+    rof:    stats.rof,
+    los:    stats.los,
+  };
+
+  for (const { stat, op, value } of mods) {
+    if (stat === 'hp')     { m.hp     = op === 'multiply' ? Math.round(m.hp     * value) : m.hp     + value; }
+    if (stat === 'attack') { m.attack = op === 'multiply' ? Math.round(m.attack * value) : m.attack + value; }
+    if (stat === 'armor')  { m.armor  = m.armor.map(a => op === 'multiply' ? Math.round(a * value) : a + value); }
+    if (stat === 'range')  { m.range  = op === 'multiply' ? +(m.range  * value).toFixed(1) : m.range  + value; }
+    if (stat === 'speed')  { m.speed  = op === 'multiply' ? +(m.speed  * value).toFixed(2) : m.speed  + value; }
+    if (stat === 'rof')    { m.rof    = op === 'multiply' ? +(m.rof    * value).toFixed(2) : m.rof    + value; }
+    if (stat === 'los')    { m.los    = op === 'multiply' ? Math.round(m.los    * value)    : m.los    + value; }
+  }
+
+  return m;
+}
+
 function statIcon(key) {
   const src = STAT_ICONS[key];
   if (src) return `<img src="${src}" class="stat-img-icon" alt="${key}">`;
   return key;
 }
 
-function statRow(icon, label, val, sub) {
-  return `<div class="sp-stat">
+// modVal: optional civ-modified value; rofMode: lower-is-better (flip delta color)
+function statRow(icon, label, val, modVal, rofMode = false) {
+  const hasBonus = modVal !== undefined && modVal !== null && modVal !== val;
+  const diff = hasBonus ? +(modVal - val).toFixed(2) : 0;
+  const isPos = rofMode ? diff < 0 : diff > 0;
+  const sign = diff > 0 ? '+' : '';
+  const deltaClass = isPos ? 'pos' : 'neg';
+  return `<div class="sp-stat${hasBonus ? ' sp-stat-boosted' : ''}">
     <span class="sp-stat-icon">${icon}</span>
     <span class="sp-stat-label">${label}</span>
-    <span class="sp-stat-val">${val}</span>
-    ${sub !== undefined ? `<span class="sp-stat-sub">${sub}</span>` : ''}
+    <span class="sp-stat-val">${hasBonus ? modVal : val}</span>
+    ${hasBonus ? `<span class="sp-stat-delta ${deltaClass}">${sign}${diff}</span>` : ''}
   </div>`;
 }
 
@@ -596,24 +660,34 @@ function showStatsPanel(ev, n) {
   const stats = getStatsForNode(n);
   const gridEl = document.getElementById('sp-stats-grid');
   const noStats = document.getElementById('sp-no-stats');
+  const civNoteEl = document.getElementById('sp-civ-bonus-note');
 
   if (stats) {
+    // Compute civ-modified stats for units
+    const isUnit = n.type === 'unit' || n.id === 'uniqueunit' || n.id === 'eliteunique';
+    const civMod = isUnit ? computeCivModifiedStats(stats, n.id) : null;
+    const M = civMod || {};
+
     noStats.style.display = 'none';
     gridEl.style.display = 'grid';
     const rows = [];
-    rows.push(statRow(statIcon('hp'), t('hp'), stats.hp || '—'));
-    if (stats.attack !== undefined) rows.push(statRow(statIcon('attack'), t('attack'), stats.attack));
-    rows.push(statRow(statIcon('armor'), t('armor_m'), (stats.armor && stats.armor[0] !== undefined) ? stats.armor[0] : '—'));
-    rows.push(statRow(statIcon('parmor'), t('armor_p'), (stats.armor && stats.armor[1] !== undefined) ? stats.armor[1] : '—'));
+
+    rows.push(statRow(statIcon('hp'),     t('hp'),     stats.hp    ?? '—', M.hp));
+    if (stats.attack !== undefined)
+      rows.push(statRow(statIcon('attack'), t('attack'), stats.attack,       M.attack));
+
+    rows.push(statRow(statIcon('armor'),  t('armor_m'), stats.armor?.[0] ?? '—', civMod ? M.armor[0] : undefined));
+    rows.push(statRow(statIcon('parmor'), t('armor_p'), stats.armor?.[1] ?? '—', civMod ? M.armor[1] : undefined));
 
     if (stats.range) {
-      rows.push(statRow(statIcon('range'), t('range'), stats.range));
+      rows.push(statRow(statIcon('range'), t('range'), stats.range, M.range));
     } else if (n.type === 'unit') {
       rows.push(statRow(statIcon('attack'), t('melee_range'), '—'));
     }
 
-    if (stats.speed) rows.push(statRow(statIcon('speed'), t('speed'), stats.speed));
-    if (stats.los)   rows.push(statRow(statIcon('los'), t('los'), stats.los));
+    if (stats.speed) rows.push(statRow(statIcon('speed'), t('speed'), stats.speed, M.speed));
+    if (stats.rof)   rows.push(statRow(statIcon('rof'),   t('rof') || 'ROF', stats.rof, M.rof, true));
+    if (stats.los)   rows.push(statRow(statIcon('los'),   t('los'), stats.los, M.los));
 
     if (stats.bonuses && stats.bonuses.length) {
       for (const b of stats.bonuses) {
@@ -623,8 +697,20 @@ function showStatsPanel(ev, n) {
     }
 
     gridEl.innerHTML = rows.join('');
+
+    // Show civ bonus notice if any stats were modified
+    if (civMod && currentCiv !== 'generic') {
+      const civName = LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv;
+      civNoteEl.textContent = currentLang === 'es'
+        ? `★ Stats con bonuses de ${civName}`
+        : `★ Stats with ${civName} bonuses`;
+      civNoteEl.style.display = 'block';
+    } else {
+      civNoteEl.style.display = 'none';
+    }
   } else {
     gridEl.style.display = 'none';
+    civNoteEl.style.display = 'none';
     noStats.style.display = 'block';
     noStats.textContent = currentLang === 'es'
       ? 'Stats no disponibles para esta unidad.'
@@ -709,7 +795,7 @@ function showStatsPanel(ev, n) {
   }
 
   // Posición: aparece junto al cursor sin salirse de pantalla
-  const PW = 274, PH = 260;
+  const PW = 324, PH = 300;
   let x = ev.clientX + 18;
   let y = ev.clientY - 20;
   if (x + PW > window.innerWidth) x = ev.clientX - PW - 10;
@@ -718,6 +804,8 @@ function showStatsPanel(ev, n) {
   statsPanel.style.left = `${x}px`;
   statsPanel.style.top = `${y}px`;
   statsPanel.style.display = 'block';
+  statsPanel.classList.remove('sp-animate');
+  requestAnimationFrame(() => statsPanel.classList.add('sp-animate'));
 
   // Show simulator only for units/upgrades
   const isSimulable = n.type === 'unit' || n.type === 'upgrade'
