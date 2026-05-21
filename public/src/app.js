@@ -619,7 +619,7 @@ function statIcon(key) {
   return key;
 }
 
-// modVal: optional civ-modified value; rofMode: lower-is-better (flip delta color)
+// modVal: civ/tech-modified value; rofMode: lower-is-better (flip delta color)
 function statRow(icon, label, val, modVal, rofMode = false) {
   const hasBonus = modVal !== undefined && modVal !== null && modVal !== val;
   const diff = hasBonus ? +(modVal - val).toFixed(2) : 0;
@@ -632,6 +632,55 @@ function statRow(icon, label, val, modVal, rofMode = false) {
     <span class="sp-stat-val">${hasBonus ? modVal : val}</span>
     ${hasBonus ? `<span class="sp-stat-delta ${deltaClass}">${sign}${diff}</span>` : ''}
   </div>`;
+}
+
+// Renders the stats grid. rawStats = original base (delta reference); displayStats = current (civ + techs applied).
+function renderStatsGrid(rawStats, displayStats, isUnit, activeLabel) {
+  const gridEl   = document.getElementById('sp-stats-grid');
+  const noStats  = document.getElementById('sp-no-stats');
+  const noteEl   = document.getElementById('sp-civ-bonus-note');
+
+  if (!displayStats) {
+    gridEl.style.display = 'none';
+    noStats.style.display = 'block';
+    noteEl.style.display = 'none';
+    noStats.textContent = currentLang === 'es'
+      ? 'Stats no disponibles.' : 'Stats not available.';
+    return;
+  }
+
+  noStats.style.display = 'none';
+  gridEl.style.display  = 'grid';
+
+  const B = rawStats;      // baseline for deltas
+  const D = displayStats;  // what to display
+  const d = (bv, dv) => (dv !== undefined && dv !== null && dv !== bv) ? dv : undefined;
+
+  const rows = [];
+  rows.push(statRow(statIcon('hp'),     t('hp'),            B.hp       ?? '—', d(B.hp,        D.hp)));
+  if (isUnit || B.attack !== undefined)
+    rows.push(statRow(statIcon('attack'), t('attack'),       B.attack   ?? '—', d(B.attack,    D.attack)));
+  rows.push(statRow(statIcon('armor'),  t('armor_m'),        B.armor?.[0] ?? '—', d(B.armor?.[0], D.armor?.[0])));
+  rows.push(statRow(statIcon('parmor'), t('armor_p'),        B.armor?.[1] ?? '—', d(B.armor?.[1], D.armor?.[1])));
+  rows.push(statRow(statIcon('range'),  t('range'),          B.range    ?? '—', d(B.range,     D.range)));
+  rows.push(statRow(statIcon('speed'),  t('speed'),          B.speed    ?? '—', d(B.speed,     D.speed)));
+  rows.push(statRow(statIcon('rof'),    t('rof') || 'ROF',   B.rof      ?? '—', d(B.rof,       D.rof), true));
+  rows.push(statRow(statIcon('los'),    t('los'),            B.los      ?? '—', d(B.los,       D.los)));
+
+  if (B.bonuses?.length) {
+    for (const b of B.bonuses) {
+      rows.push(statRow(statIcon('attack'), t(b.vs, 'bonus_targets'), `+${b.value}`));
+    }
+  }
+
+  gridEl.innerHTML = rows.join('');
+
+  if (activeLabel) {
+    noteEl.textContent  = activeLabel;
+    noteEl.style.display = 'block';
+  } else {
+    noteEl.style.display = 'none';
+  }
 }
 
 function showStatsPanel(ev, n) {
@@ -658,64 +707,22 @@ function showStatsPanel(ev, n) {
 
   // Stats
   const stats = getStatsForNode(n);
-  const gridEl = document.getElementById('sp-stats-grid');
-  const noStats = document.getElementById('sp-no-stats');
-  const civNoteEl = document.getElementById('sp-civ-bonus-note');
+  // Compute civ bonuses for any node that has stats (unit upgrades like Champion also carry unit-class bonuses)
+  const civMod = stats ? computeCivModifiedStats(stats, n.id) : null;
+  const isUnit = n.type === 'unit' || n.type === 'upgrade' || n.id === 'uniqueunit' || n.id === 'eliteunique';
 
-  if (stats) {
-    // Compute civ-modified stats for units
-    const isUnit = n.type === 'unit' || n.id === 'uniqueunit' || n.id === 'eliteunique';
-    const civMod = isUnit ? computeCivModifiedStats(stats, n.id) : null;
-    const M = civMod || {};
+  // Store for sim: clear active techs only when switching unit
+  if (!simUnit || simUnit.id !== n.id) simActiveTechs.clear();
+  simBaseStats = stats;
+  simCivStats  = civMod;
 
-    noStats.style.display = 'none';
-    gridEl.style.display = 'grid';
-    const rows = [];
+  const civLabel = (civMod && currentCiv !== 'generic')
+    ? (currentLang === 'es'
+        ? `★ Bonuses de ${LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv}`
+        : `★ ${LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv} bonuses`)
+    : null;
 
-    rows.push(statRow(statIcon('hp'),     t('hp'),     stats.hp    ?? '—', M.hp));
-    if (stats.attack !== undefined)
-      rows.push(statRow(statIcon('attack'), t('attack'), stats.attack,       M.attack));
-
-    rows.push(statRow(statIcon('armor'),  t('armor_m'), stats.armor?.[0] ?? '—', civMod ? M.armor[0] : undefined));
-    rows.push(statRow(statIcon('parmor'), t('armor_p'), stats.armor?.[1] ?? '—', civMod ? M.armor[1] : undefined));
-
-    if (stats.range) {
-      rows.push(statRow(statIcon('range'), t('range'), stats.range, M.range));
-    } else if (n.type === 'unit') {
-      rows.push(statRow(statIcon('attack'), t('melee_range'), '—'));
-    }
-
-    if (stats.speed) rows.push(statRow(statIcon('speed'), t('speed'), stats.speed, M.speed));
-    if (stats.rof)   rows.push(statRow(statIcon('rof'),   t('rof') || 'ROF', stats.rof, M.rof, true));
-    if (stats.los)   rows.push(statRow(statIcon('los'),   t('los'), stats.los, M.los));
-
-    if (stats.bonuses && stats.bonuses.length) {
-      for (const b of stats.bonuses) {
-        const target = t(b.vs, 'bonus_targets');
-        rows.push(statRow(statIcon('attack'), target, `+${b.value}`));
-      }
-    }
-
-    gridEl.innerHTML = rows.join('');
-
-    // Show civ bonus notice if any stats were modified
-    if (civMod && currentCiv !== 'generic') {
-      const civName = LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv;
-      civNoteEl.textContent = currentLang === 'es'
-        ? `★ Stats con bonuses de ${civName}`
-        : `★ Stats with ${civName} bonuses`;
-      civNoteEl.style.display = 'block';
-    } else {
-      civNoteEl.style.display = 'none';
-    }
-  } else {
-    gridEl.style.display = 'none';
-    civNoteEl.style.display = 'none';
-    noStats.style.display = 'block';
-    noStats.textContent = currentLang === 'es'
-      ? 'Stats no disponibles para esta unidad.'
-      : 'Stats not available for this unit.';
-  }
+  renderStatsGrid(stats, civMod || stats, isUnit, civLabel);
 
   // Coste + tiempo de producción
   let costHtml = '';
@@ -825,6 +832,8 @@ let simUnit = null;
 let simActiveTechs = new Set();
 let simMaxAge = 3;
 let simExpanded = false;
+let simBaseStats = null;   // raw stats before any bonuses
+let simCivStats  = null;   // after civ stat_modifier bonuses
 
 function getApplicableTechs(unitId) {
   // For unique unit slots, resolve actual class membership from the civ's UU
@@ -865,43 +874,44 @@ function getApplicableTechs(unitId) {
 
 function applyTechs(base, activeTechs) {
   const s = {
-    hp: base.hp,
+    hp:     base.hp,
     attack: base.attack ?? 0,
-    armor: [...(base.armor || [0, 0])],
-    range: base.range ?? 0,
-    speed: base.speed,
+    armor:  [...(base.armor || [0, 0])],
+    range:  base.range ?? 0,
+    speed:  base.speed,
+    rof:    base.rof,
+    los:    base.los,
+    bonuses: base.bonuses,
   };
   for (const tid of activeTechs) {
     const mod = TECH_MODIFIERS[tid];
     if (!mod) continue;
-    if (mod.hp)           s.hp += mod.hp;
-    if (mod.hp_pct)       s.hp = Math.round(s.hp * (1 + mod.hp_pct / 100));
-    if (mod.attack)       s.attack += mod.attack;
-    if (mod.attack_pct)   s.attack = Math.round(s.attack * (1 + mod.attack_pct / 100));
-    if (mod.armor_melee)  s.armor[0] += mod.armor_melee;
-    if (mod.armor_pierce) s.armor[1] += mod.armor_pierce;
-    if (mod.range)        s.range += mod.range;
-    if (mod.speed_pct)    s.speed = +(s.speed * (1 + mod.speed_pct / 100)).toFixed(2);
+    if (mod.hp)           s.hp      += mod.hp;
+    if (mod.hp_pct)       s.hp       = Math.round(s.hp * (1 + mod.hp_pct / 100));
+    if (mod.attack)       s.attack  += mod.attack;
+    if (mod.attack_pct)   s.attack   = Math.round(s.attack * (1 + mod.attack_pct / 100));
+    if (mod.armor_melee)  s.armor[0]+= mod.armor_melee;
+    if (mod.armor_pierce) s.armor[1]+= mod.armor_pierce;
+    if (mod.range)        s.range   += mod.range;
+    if (mod.speed_pct)    s.speed    = +(s.speed * (1 + mod.speed_pct / 100)).toFixed(2);
+    if (mod.rof_pct)      s.rof      = +(s.rof   * (1 + mod.rof_pct   / 100)).toFixed(2);
+    if (mod.los)          s.los     += mod.los;
   }
   return s;
 }
 
 function initSim(unitNode) {
-  if (simUnit?.id !== unitNode.id) {
-    simActiveTechs.clear();
-    simMaxAge = 3;
-  }
+  if (simUnit?.id !== unitNode.id) simMaxAge = 3;
   simUnit = unitNode;
 
   const simEl = document.getElementById('sp-tech-sim');
-  const base = getStatsForNode(unitNode);
-  if (!base || getApplicableTechs(unitNode.id).length === 0) {
+  if (!simBaseStats || getApplicableTechs(unitNode.id).length === 0) {
     simEl.style.display = 'none';
     return;
   }
   simEl.style.display = 'block';
   updateSimToggleLabel();
-  renderSimBody(base);
+  renderSimBody();
 }
 
 function updateSimToggleLabel() {
@@ -910,14 +920,13 @@ function updateSimToggleLabel() {
   document.getElementById('sp-sim-toggle-label').textContent = label + text;
 }
 
-function renderSimBody(base) {
+function renderSimBody() {
   const body = document.getElementById('sp-sim-body');
   if (!simExpanded) { body.style.display = 'none'; return; }
   body.style.display = 'block';
 
   const applicable = getApplicableTechs(simUnit.id);
 
-  // Age buttons
   const ageLabels = currentLang === 'es'
     ? ['Oscura', 'Feudal', 'Castillos', 'Imperial']
     : ['Dark', 'Feudal', 'Castle', 'Imperial'];
@@ -927,7 +936,6 @@ function renderSimBody(base) {
     btn.classList.toggle('sim-age-active', age === simMaxAge);
   });
 
-  // Tech chips filtered by age
   const filtered = applicable.filter(techId => {
     const node = NODES.find(n => n.id === techId);
     return node ? node.age <= simMaxAge : true;
@@ -944,72 +952,56 @@ function renderSimBody(base) {
     </button>`;
   }).join('');
 
-  renderSimResult(base);
+  refreshSimStats();
 }
 
-function renderSimResult(base) {
-  const resultEl = document.getElementById('sp-sim-result');
-  if (simActiveTechs.size === 0) { resultEl.innerHTML = ''; return; }
+// Applies active techs on top of civ-modified (or base) stats and updates the main grid
+function refreshSimStats() {
+  if (!simBaseStats) return;
+  const isUnit = simUnit?.type === 'unit' || simUnit?.id === 'uniqueunit' || simUnit?.id === 'eliteunique';
 
-  const mod = applyTechs(base, simActiveTechs);
-  const parts = [];
+  const startFrom = simCivStats || simBaseStats;
+  const combined  = simActiveTechs.size > 0
+    ? applyTechs(startFrom, simActiveTechs)
+    : startFrom;
 
-  const addRow = (label, orig, curr, fmt = v => v) => {
-    const diff = +(curr - orig).toFixed(2);
-    if (diff === 0) return;
-    const sign = diff > 0 ? '+' : '';
-    parts.push(`<div class="sim-res-item">
-      <span class="sim-res-label">${label}</span>
-      <span class="sim-res-val">${fmt(curr)}</span>
-      <span class="sim-res-delta ${diff > 0 ? 'pos' : 'neg'}">${sign}${fmt(diff)}</span>
-    </div>`);
-  };
+  const civName = (currentCiv !== 'generic')
+    ? (LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv)
+    : null;
 
-  addRow('HP', base.hp, mod.hp);
-  addRow(t('attack') || 'ATK', base.attack, mod.attack);
-
-  const dm = mod.armor[0] - base.armor[0];
-  const dp = mod.armor[1] - base.armor[1];
-  if (dm !== 0 || dp !== 0) {
-    parts.push(`<div class="sim-res-item">
-      <span class="sim-res-label">ARM</span>
-      <span class="sim-res-val">${mod.armor[0]}/${mod.armor[1]}</span>
-      <span class="sim-res-delta pos">${dm >= 0 ? '+' : ''}${dm}/${dp >= 0 ? '+' : ''}${dp}</span>
-    </div>`);
+  let label = null;
+  if (simCivStats && civName && simActiveTechs.size > 0) {
+    label = currentLang === 'es'
+      ? `★ Bonuses de ${civName} + ${simActiveTechs.size} tecn.`
+      : `★ ${civName} bonuses + ${simActiveTechs.size} tech(s)`;
+  } else if (simCivStats && civName) {
+    label = currentLang === 'es'
+      ? `★ Bonuses de ${civName}`
+      : `★ ${civName} bonuses`;
+  } else if (simActiveTechs.size > 0) {
+    label = currentLang === 'es'
+      ? `★ ${simActiveTechs.size} tecnología(s) activa(s)`
+      : `★ ${simActiveTechs.size} active tech(s)`;
   }
 
-  if (base.range) addRow(t('range') || 'RNG', base.range, mod.range);
-
-  if (base.speed !== mod.speed) {
-    const pct = Math.round((mod.speed / base.speed - 1) * 100);
-    parts.push(`<div class="sim-res-item">
-      <span class="sim-res-label">${t('speed') || 'SPD'}</span>
-      <span class="sim-res-val">${mod.speed}</span>
-      <span class="sim-res-delta pos">${pct >= 0 ? '+' : ''}${pct}%</span>
-    </div>`);
-  }
-
-  resultEl.innerHTML = parts.length
-    ? `<div class="sim-result-grid">${parts.join('')}</div>`
-    : `<div class="sim-no-change">${currentLang === 'es' ? 'Sin cambios en stats.' : 'No stat changes.'}</div>`;
+  renderStatsGrid(simBaseStats, combined, isUnit, label);
 }
 
 document.getElementById('sp-sim-toggle').addEventListener('click', () => {
   simExpanded = !simExpanded;
   updateSimToggleLabel();
-  if (simUnit) renderSimBody(getStatsForNode(simUnit));
+  if (simUnit) renderSimBody();
 });
 
 document.getElementById('sp-sim-ages').addEventListener('click', e => {
   const btn = e.target.closest('.sim-age-btn');
   if (!btn) return;
   simMaxAge = parseInt(btn.dataset.age);
-  // Remove from activeTechs any that exceed the new age limit
   simActiveTechs.forEach(tid => {
     const node = NODES.find(n => n.id === tid);
     if (node && node.age > simMaxAge) simActiveTechs.delete(tid);
   });
-  if (simUnit) renderSimBody(getStatsForNode(simUnit));
+  if (simUnit) renderSimBody();
 });
 
 document.getElementById('sp-sim-chips').addEventListener('click', e => {
@@ -1019,7 +1011,7 @@ document.getElementById('sp-sim-chips').addEventListener('click', e => {
   if (simActiveTechs.has(techId)) simActiveTechs.delete(techId);
   else simActiveTechs.add(techId);
   chip.classList.toggle('active', simActiveTechs.has(techId));
-  if (simUnit) renderSimResult(getStatsForNode(simUnit));
+  refreshSimStats();
 });
 
 // ═══════════════════════════════════════════════════════════
