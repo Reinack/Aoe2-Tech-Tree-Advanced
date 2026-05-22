@@ -51,7 +51,8 @@
       "scope": "fire_lancer",
       "stat": "speed",
       "op": "multiply",
-      "value": 1.10
+      "value_by_age": [1.0, 1.0, 1.05, 1.10],
+      "min_age": 2
     },
     // Fire Ships move +5/10% faster in Castle/Imperial Age
     {
@@ -59,9 +60,9 @@
       "scope": "fireship",
       "stat": "speed",
       "op": "multiply",
-      "value": 1.10
-    },
-    "house",
+      "value_by_age": [1.0, 1.0, 1.05, 1.10],
+      "min_age": 2
+    }
   ],
   // Team bonus: Farms +10% food production
   "teamBonus": {

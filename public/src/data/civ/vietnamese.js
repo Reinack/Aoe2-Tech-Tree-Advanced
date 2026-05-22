@@ -15,6 +15,13 @@
     // Archery Range units and Fire Lancers +20% HP
     {
       "type": "stat_modifier",
+      "scope": "foot_archer",
+      "stat": "hp",
+      "op": "multiply",
+      "value": 1.2
+    },
+    {
+      "type": "stat_modifier",
       "scope": "fire_lancer",
       "stat": "hp",
       "op": "multiply",

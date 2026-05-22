@@ -21,32 +21,23 @@
       "scope": "tahsili",
       "effect": "heal_nearby_units"
     },
-    // Champi Warriors and Archery Range Units +1 melee armor in Feudal Age
+    // Champi Warriors +1/2/3 melee armor in Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
-      "scope": ["champiwarrior", "elitechampi", "archer", "crossbow", "arbalester"],
+      "scope": "champiwarrior",
       "stat": "armor_melee",
       "op": "add",
-      "value": 1,
-      "age": 1
+      "value_by_age": [0, 1, 2, 3],
+      "min_age": 1
     },
-    // +1 additional melee armor in Castle Age (cumulative: +2)
+    // Archery Range Units +1/2/3 melee armor in Feudal/Castle/Imperial Age
     {
       "type": "stat_modifier",
-      "scope": ["champiwarrior", "elitechampi", "archer", "crossbow", "arbalester"],
+      "scope": "foot_archer",
       "stat": "armor_melee",
       "op": "add",
-      "value": 1,
-      "age": 2
-    },
-    // +1 additional melee armor in Imperial Age (cumulative: +3)
-    {
-      "type": "stat_modifier",
-      "scope": ["champiwarrior", "elitechampi", "archer", "crossbow", "arbalester"],
-      "stat": "armor_melee",
-      "op": "add",
-      "value": 1,
-      "age": 3
+      "value_by_age": [0, 1, 2, 3],
+      "min_age": 1
     },
     // Monks regain faith +50% faster
     {
@@ -65,8 +56,7 @@
     {
       "type": "free_tech",
       "tech": "guilds"
-    },
-    "house",
+    }
   ],
   // Team bonus: Natural gold sources last +15% longer
   "teamBonus": {

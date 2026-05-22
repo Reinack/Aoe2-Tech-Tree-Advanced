@@ -27,8 +27,7 @@
     // Thumb Ring and Parthian Tactics free
     {
       "type": "free_tech"
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "stat_modifier",

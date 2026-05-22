@@ -46,8 +46,7 @@ const DRAVIDIANS = {
       "resource": "wood",
       "op": "multiply",
       "value": 0.67
-    },
-    "house",
+    }
   ],
   // Team bonus: Docks provide +5 population space
   "teamBonus": {

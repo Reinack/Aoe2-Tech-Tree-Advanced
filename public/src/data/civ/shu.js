@@ -22,7 +22,8 @@
       "scope": "ship",
       "stat": "speed",
       "op": "multiply",
-      "value": 1.15
+      "value_by_age": [1.0, 1.0, 1.10, 1.15],
+      "min_age": 2
     }
   ],
   "teamBonus": {

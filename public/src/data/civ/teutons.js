@@ -44,8 +44,7 @@
     // Murder Holes and Herbal Medicine free
     {
       "type": "free_tech"
-    },
-    "house",
+    }
   ],
   // Team bonus: Units are more resistant to conversion
   "teamBonus": {

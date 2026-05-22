@@ -15,7 +15,14 @@ const MAPUCHE = {
     },
     {
       "type": "stat_modifier",
-      "scope": ["infantry", "skirmisher"],
+      "scope": "infantry",
+      "stat": "hp",
+      "op": "add",
+      "value": 15
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "skirmisher",
       "stat": "hp",
       "op": "add",
       "value": 15
@@ -32,8 +39,7 @@ const MAPUCHE = {
     {
       "type": "map_reveal",
       "scope": "enemy_castle"
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "stat_modifier",

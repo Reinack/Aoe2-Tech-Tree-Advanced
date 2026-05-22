@@ -33,8 +33,7 @@
       "stat": "food_generation",
       "op": "multiply",
       "value": 3
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "stat_modifier",

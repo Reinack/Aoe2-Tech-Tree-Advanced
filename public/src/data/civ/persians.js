@@ -34,8 +34,7 @@
       "type": "building_unlock",
       "scope": "caravanserai",
       "age": 3
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "stat_modifier",

@@ -19,7 +19,8 @@ const GURJARAS = {
       "scope": "cavalry",
       "stat": "bonus_damage",
       "op": "multiply",
-      "value": 1.4
+      "value_by_age": [1.0, 1.20, 1.30, 1.40],
+      "min_age": 1
     },
     // Docks +5 garrison capacity
     {

@@ -134,7 +134,6 @@
     "conscription",
     "sappers",
     "warrior_priest",
-    "",
     "tradecart",
     "caravan",
     "coinage",

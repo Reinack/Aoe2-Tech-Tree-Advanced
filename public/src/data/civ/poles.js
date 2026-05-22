@@ -12,7 +12,8 @@
       "scope": "villager",
       "stat": "regen",
       "op": "add",
-      "value": 20
+      "value_by_age": [0, 10, 15, 20],
+      "min_age": 1
     },
     // Stone Miners generate gold in addition to stone
     {
@@ -29,8 +30,7 @@
       "resource": "all",
       "op": "multiply",
       "value": 0.5
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "stat_modifier",
