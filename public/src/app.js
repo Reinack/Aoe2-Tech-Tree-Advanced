@@ -422,13 +422,29 @@ const ttEffect = document.getElementById('tt-effect');
 const ttPrereq = document.getElementById('tt-prereq');
 const ttMissing = document.getElementById('tt-missing');
 
-function costStr(c) {
+// Renders a cost object as HTML resource icons.
+// If baseCost is supplied and a resource differs from baseCost, the original value is shown
+// with strikethrough and the modified value is highlighted in green.
+function costStr(c, baseCost = null) {
   if (!c) return '—';
   const p = [];
-  if (c.food)  p.push(`<img src="img/food.png" class="res-icon" alt="Comida"> ${c.food}`);
-  if (c.wood)  p.push(`<img src="img/wood.png" class="res-icon" alt="Madera"> ${c.wood}`);
-  if (c.gold)  p.push(`<img src="img/gold.png" class="res-icon" alt="Oro"> ${c.gold}`);
-  if (c.stone) p.push(`<img src="img/stone.png" class="res-icon" alt="Piedra"> ${c.stone}`);
+  const RES = [
+    { key: 'food',  src: 'img/food.png',  alt: 'Food'  },
+    { key: 'wood',  src: 'img/wood.png',  alt: 'Wood'  },
+    { key: 'gold',  src: 'img/gold.png',  alt: 'Gold'  },
+    { key: 'stone', src: 'img/stone.png', alt: 'Stone' },
+  ];
+  for (const { key, src, alt } of RES) {
+    const val  = c[key];
+    const base = baseCost?.[key];
+    if (!val && !base) continue;
+    const icon = `<img src="${src}" class="res-icon" alt="${alt}">`;
+    if (base != null && base !== val) {
+      p.push(`${icon} <del class="sp-cost-old">${base}</del><span class="sp-cost-new">${val}</span>`);
+    } else {
+      p.push(`${icon} ${val ?? 0}`);
+    }
+  }
   return p.join('  ') || (currentLang === 'es' ? 'Gratis' : 'Free');
 }
 
@@ -550,6 +566,7 @@ const STAT_ICONS = {
   range:         'img/Icon/range.webp',
   speed:         'img/Icon/speed.webp',
   rof:           'img/Icon/reload.webp',
+  train:         'img/Icon/reload.webp',  // train time uses same clock icon as ROF
   pierce_attack: 'img/Icon/pierce_attack.webp',
   garrison:      'img/Icon/garrison.webp',
   los:           'img/Icon/los.webp',
@@ -590,6 +607,20 @@ const CIV_BONUS_SCOPE_MAP = {
   elephant:        () => ['battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
   // "Barracks and Stable Units" — infantry + non-camel cavalry
   barracks_stable: () => [...(UNIT_CLASSES['infantry'] || []), ...(UNIT_CLASSES['cavalry'] || [])],
+  // All military units — used for creation_speed bonuses (Aztecs, Gurjaras)
+  military_unit: () => [
+    ...(UNIT_CLASSES['infantry']       || []),
+    ...(UNIT_CLASSES['foot_archer']    || []),
+    ...(UNIT_CLASSES['mounted_archer'] || []),
+    ...(UNIT_CLASSES['cavalry']        || []),
+    ...(UNIT_CLASSES['siege']          || []),
+    ...(UNIT_CLASSES['religious']      || []),
+    ...(UNIT_CLASSES['navy']           || []),
+    ...(UNIT_CLASSES['gunpowder']      || []),
+    'uniqueunit', 'eliteunique',
+  ],
+  // Skirmisher-line only (Khitans creation_speed bonus)
+  skirmisher: () => ['skirmisher', 'eliteskirm', 'imp_skirmisher'],
   // ── Civilian units ──────────────────────────────────────────────────────────
   villager:        () => ['villager'],
   // Villager sub-roles all map to the villager node (work-speed bonuses)
@@ -624,21 +655,31 @@ const CIV_BONUS_SCOPE_MAP = {
   ],
 };
 
-// Returns stats after applying current civ's stat_modifier bonuses, or null if none apply.
-// unitAge: the node's age (0=Dark, 1=Feudal, 2=Castle, 3=Imperial); bonuses with min_age are skipped if unit is younger.
-function computeCivModifiedStats(stats, unitId, unitAge = 0) {
+// Returns stats after applying current civ's stat_modifier / creation_speed / building_work_speed bonuses,
+// or null if none apply.
+// unitAge: the node's age (0=Dark, 1=Feudal, 2=Castle, 3=Imperial); bonuses with min_age are skipped if younger.
+// trainingBuilding: the building that trains this unit (e.g. 'barracks', 'archery'); used for building_work_speed.
+function computeCivModifiedStats(stats, unitId, unitAge = 0, trainingBuilding = null) {
   const civ = getCiv();
   if (!civ || !civ.bonuses) return null;
 
-  const mods = civ.bonuses.filter(b => {
-    if (b.type !== 'stat_modifier') return false;
+  // Helper: does this bonus's scope include the given unitId?
+  const scopeMatches = (b) => {
     if (b.min_age !== undefined && unitAge < b.min_age) return false;
     const getter = CIV_BONUS_SCOPE_MAP[b.scope];
     if (getter) return getter().includes(unitId);
     return UNIT_CLASSES[b.scope]?.includes(unitId) ?? false;
-  });
+  };
 
-  if (mods.length === 0) return null;
+  const statMods     = civ.bonuses.filter(b => b.type === 'stat_modifier'  && scopeMatches(b));
+  const creationMods = civ.bonuses.filter(b => b.type === 'creation_speed' && scopeMatches(b));
+  // building_work_speed for training: scope must match the unit's training building
+  const bldgSpeedMods = (trainingBuilding && stats.train != null)
+    ? civ.bonuses.filter(b => b.type === 'building_work_speed' && b.scope === trainingBuilding
+        && (b.min_age === undefined || unitAge >= b.min_age))
+    : [];
+
+  if (statMods.length === 0 && creationMods.length === 0 && bldgSpeedMods.length === 0) return null;
 
   const m = {
     hp:     stats.hp,
@@ -648,11 +689,12 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0) {
     speed:  stats.speed,
     rof:    stats.rof,
     los:    stats.los,
+    train:  stats.train,
   };
 
-  for (const mod of mods) {
+  // ── stat_modifier bonuses ──────────────────────────────────────────────────
+  for (const mod of statMods) {
     const { stat, op } = mod;
-    // value_by_age: pick the value matching the unit's age (clamped to array length)
     const value = mod.value_by_age
       ? (mod.value_by_age[Math.min(unitAge, mod.value_by_age.length - 1)] ?? mod.value_by_age[mod.value_by_age.length - 1])
       : mod.value;
@@ -672,7 +714,66 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0) {
     if (stat === 'los')          { m.los = Math.round(apply(m.los ?? 0, value)); }
   }
 
+  // ── creation_speed bonuses → reduce train time ─────────────────────────────
+  // value < 1 means faster (e.g. 0.85 = 15 % faster)
+  for (const mod of creationMods) {
+    if (m.train == null) continue;
+    const value = mod.value_by_age
+      ? (mod.value_by_age[Math.min(unitAge, mod.value_by_age.length - 1)] ?? mod.value_by_age[mod.value_by_age.length - 1])
+      : mod.value;
+    if (value === 1) continue;
+    m.train = Math.round(m.train * value);
+  }
+
+  // ── building_work_speed bonuses → divide train time by speed multiplier ─────
+  // value > 1 means the building works faster (e.g. 1.33 = 33 % faster → train / 1.33)
+  for (const mod of bldgSpeedMods) {
+    if (m.train == null || mod.value === 1) continue;
+    m.train = Math.round(m.train / mod.value);
+  }
+
   return m;
+}
+
+// Returns a modified cost object for a unit/building based on civ bonuses, or null if unchanged.
+// bonusType: 'cost_modifier' for unit train costs, 'building_cost_modifier' for build costs.
+function computeModifiedCost(rawCost, unitId, unitAge = 0, bonusType = 'cost_modifier') {
+  if (!rawCost) return null;
+  const civ = getCiv();
+  if (!civ || !civ.bonuses) return null;
+
+  const mods = civ.bonuses.filter(b => {
+    if (b.type !== bonusType) return false;
+    if (b.min_age !== undefined && unitAge < b.min_age) return false;
+    const getter = CIV_BONUS_SCOPE_MAP[b.scope];
+    if (getter) return getter().includes(unitId);
+    return UNIT_CLASSES[b.scope]?.includes(unitId) ?? false;
+  });
+
+  if (mods.length === 0) return null;
+
+  const modCost = { ...rawCost };
+  for (const mod of mods) {
+    const value = mod.value_by_age
+      ? (mod.value_by_age[Math.min(unitAge, mod.value_by_age.length - 1)] ?? mod.value_by_age[mod.value_by_age.length - 1])
+      : mod.value;
+    for (const res of ['food', 'wood', 'gold', 'stone']) {
+      if (modCost[res] == null) continue;
+      if (mod.resource === 'all' || mod.resource === res) {
+        if (mod.op === 'multiply') {
+          modCost[res] = Math.round(modCost[res] * value);
+        } else if (mod.op === 'add') {
+          modCost[res] = Math.max(0, modCost[res] + value);
+        }
+      }
+    }
+  }
+
+  // Return null if nothing actually changed
+  const changed = ['food', 'wood', 'gold', 'stone'].some(r =>
+    (rawCost[r] ?? 0) !== (modCost[r] ?? 0)
+  );
+  return changed ? modCost : null;
 }
 
 function statIcon(key) {
@@ -730,10 +831,11 @@ function renderStatsGrid(rawStats, displayStats, isUnit, activeLabel) {
   rows.push(statRow(statIcon('armor'), t('armor_m'),    B.armor?.[0] ?? '—', d(B.armor?.[0], D.armor?.[0])));
   rows.push(statRow(statIcon('parmor'),t('armor_p'),    B.armor?.[1] ?? '—', d(B.armor?.[1], D.armor?.[1])));
   // Range / Speed / ROF / LOS: only render if the unit/building actually has the stat
-  rows.push(maybeRow(statIcon('range'), t('range'),     B.range,               d(B.range,     D.range)));
-  rows.push(maybeRow(statIcon('speed'), t('speed'),     B.speed,               d(B.speed,     D.speed)));
-  rows.push(maybeRow(statIcon('rof'),   t('rof')||'ROF',B.rof,                 d(B.rof,       D.rof), true));
-  rows.push(maybeRow(statIcon('los'),   t('los'),       B.los,                 d(B.los,       D.los)));
+  rows.push(maybeRow(statIcon('range'), t('range'),        B.range,               d(B.range,     D.range)));
+  rows.push(maybeRow(statIcon('speed'), t('speed'),        B.speed,               d(B.speed,     D.speed)));
+  rows.push(maybeRow(statIcon('rof'),   t('rof')||'ROF',   B.rof,                 d(B.rof,       D.rof), true));
+  rows.push(maybeRow(statIcon('los'),   t('los'),          B.los,                 d(B.los,       D.los)));
+  rows.push(maybeRow(statIcon('train'), t('train')||'Train',  B.train,             d(B.train,     D.train), true));
 
   if (B.bonuses?.length) {
     for (const b of B.bonuses) {
@@ -775,8 +877,9 @@ function showStatsPanel(ev, n) {
 
   // Stats
   const stats = getStatsForNode(n);
-  // Compute civ bonuses — pass unit's age so min_age restrictions are respected
-  const civMod = stats ? computeCivModifiedStats(stats, n.id, n.age ?? 0) : null;
+  // Compute civ bonuses — pass unit's age and training building so all bonus types are applied
+  const trainingBuilding = n.building ?? null;
+  const civMod = stats ? computeCivModifiedStats(stats, n.id, n.age ?? 0, trainingBuilding) : null;
   // isUnit: show attack row even when base attack is 0 (units always have an attack stat)
   const isUnit = n.type === 'unit' || n.type === 'upgrade'
     || n.id === 'uniqueunit' || n.id === 'eliteunique';
@@ -795,19 +898,30 @@ function showStatsPanel(ev, n) {
   renderStatsGrid(stats, civMod || stats, isUnit, civLabel);
 
   // Coste + tiempo de producción
-  let costHtml = '';
-  if (n.build_cost)    costHtml += `<strong>${t('build_cost')}:</strong> ${costStr(n.build_cost)} `;
-  if (n.research_cost) costHtml += `<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)} `;
-  if (n.train_cost)    costHtml += `<strong>${t('train_cost')}:</strong> ${costStr(n.train_cost)} `;
+  // Compute civ-modified costs for display
+  const isBuilding = n.type === 'building' || n.type === 'defencive';
+  const rawBuildCost  = n.build_cost  || (isBuilding ? n.cost : null);
+  const rawTrainCost  = n.train_cost  || (!isBuilding && n.type !== 'tech' ? n.cost : null);
+  const modBuildCost  = rawBuildCost  ? computeModifiedCost(rawBuildCost,  n.id, n.age ?? 0, 'building_cost_modifier') : null;
+  const modTrainCost  = rawTrainCost  ? computeModifiedCost(rawTrainCost,  n.id, n.age ?? 0, 'cost_modifier')          : null;
 
-  // Fallback
+  let costHtml = '';
+  if (n.build_cost)
+    costHtml += `<strong>${t('build_cost')}:</strong> ${costStr(modBuildCost || n.build_cost, modBuildCost ? n.build_cost : null)} `;
+  if (n.research_cost)
+    costHtml += `<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)} `;
+  if (n.train_cost)
+    costHtml += `<strong>${t('train_cost')}:</strong> ${costStr(modTrainCost || n.train_cost, modTrainCost ? n.train_cost : null)} `;
+
+  // Fallback (cost field used when no specific build/train/research_cost)
   if (!costHtml && n.cost) {
-    const label = (n.type === 'building' || n.type === 'defencive') ? t('build_cost') : (n.type === 'unit' ? t('train_cost') : t('research_cost'));
-    costHtml = `<strong>${label}:</strong> ${costStr(n.cost)} `;
+    const label = isBuilding ? t('build_cost') : (n.type === 'unit' || n.type === 'upgrade' ? t('train_cost') : t('research_cost'));
+    const rawFallback = n.cost;
+    const modFallback = isBuilding ? modBuildCost : modTrainCost;
+    costHtml = `<strong>${label}:</strong> ${costStr(modFallback || rawFallback, modFallback ? rawFallback : null)} `;
   }
 
-  const trainStr = stats && stats.train ? `  ⏱️ ${stats.train}s` : '';
-  document.getElementById('sp-cost').innerHTML = costHtml + trainStr;
+  document.getElementById('sp-cost').innerHTML = costHtml;
 
   // Efecto
   const effEl = document.getElementById('sp-effect');
@@ -952,6 +1066,7 @@ function applyTechs(base, activeTechs, unitId = '') {
     speed:  base.speed,
     rof:    base.rof,
     los:    base.los,
+    train:  base.train,           // training time (seconds); reduced by production_speed_pct
     bonuses: base.bonuses,
   };
   for (const tid of activeTechs) {
@@ -974,6 +1089,10 @@ function applyTechs(base, activeTechs, unitId = '') {
     // attack_speed_pct: e.g. 20 means attacks 20 % faster → ROF × (1 / 1.20)
     if (mod.attack_speed_pct && s.rof !== undefined)
       s.rof = +(s.rof / (1 + mod.attack_speed_pct / 100)).toFixed(2);
+
+    // production_speed_pct: building works faster → train time / (1 + pct/100)
+    if (mod.production_speed_pct && s.train != null)
+      s.train = Math.round(s.train / (1 + mod.production_speed_pct / 100));
 
     // ── Attack: flat (general + tower-specific) ──────────────────────────────
     // General flat attack (archers, siege, navy, etc.)
@@ -1427,13 +1546,29 @@ function makeEuIcon(id, typeClass) {
   return div;
 }
 
-function costStr(c) {
+// Renders a cost object as HTML resource icons.
+// If baseCost is supplied and a resource differs from baseCost, the original value is shown
+// with strikethrough and the modified value is highlighted in green.
+function costStr(c, baseCost = null) {
   if (!c) return '—';
   const p = [];
-  if (c.food)  p.push(`<img src="img/food.png" class="res-icon" alt="Comida"> ${c.food}`);
-  if (c.wood)  p.push(`<img src="img/wood.png" class="res-icon" alt="Madera"> ${c.wood}`);
-  if (c.gold)  p.push(`<img src="img/gold.png" class="res-icon" alt="Oro"> ${c.gold}`);
-  if (c.stone) p.push(`<img src="img/stone.png" class="res-icon" alt="Piedra"> ${c.stone}`);
+  const RES = [
+    { key: 'food',  src: 'img/food.png',  alt: 'Food'  },
+    { key: 'wood',  src: 'img/wood.png',  alt: 'Wood'  },
+    { key: 'gold',  src: 'img/gold.png',  alt: 'Gold'  },
+    { key: 'stone', src: 'img/stone.png', alt: 'Stone' },
+  ];
+  for (const { key, src, alt } of RES) {
+    const val  = c[key];
+    const base = baseCost?.[key];
+    if (!val && !base) continue;
+    const icon = `<img src="${src}" class="res-icon" alt="${alt}">`;
+    if (base != null && base !== val) {
+      p.push(`${icon} <del class="sp-cost-old">${base}</del><span class="sp-cost-new">${val}</span>`);
+    } else {
+      p.push(`${icon} ${val ?? 0}`);
+    }
+  }
   return p.join('  ') || (currentLang === 'es' ? 'Gratis' : 'Free');
 }
 

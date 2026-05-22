@@ -228,7 +228,7 @@ export const TECH_AFFECTS = {
   'caravan': ['tradecart', 'tradecog'],
 
   // Castillo
-  'conscription': ['infantry'],
+  'conscription': ['infantry', 'foot_archer', 'mounted_archer', 'cavalry'],
   'sappers': ['villager'],
 
   // --- TECNOLOGÍAS ÚNICAS POR CIVILIZACIÓN ---

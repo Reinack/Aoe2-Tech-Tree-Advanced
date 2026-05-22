@@ -117,6 +117,8 @@ export const TECH_MODIFIERS = {
   'hoardings': {
     hp: 1500                       // Castle/Krepost/Donjon +1500 HP
   },
+  // ── CASTLE ───────────────────────────────────────────────────────────────────
+  'conscription': { production_speed_pct: 33 },  // Military buildings (except Siege Workshop) work +33 % faster
   'treadmillcrane': {
     build_speed_pct: 20            // Villagers build +20 % faster
   },
