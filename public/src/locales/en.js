@@ -30,6 +30,8 @@ const LOCALE_EN = {
     build_cost:         "Build Cost",
     research_cost:      "Research Cost",
     train_cost:         "Train Cost",
+    repair_cost:        "Repair (full HP)",
+    build_efficiency:   "Build time vs. workers  ·  3t⁄(n+2)",
     prereq:             "Prerequisites",
     missing:            "Not available for this civilization",
     bonus_dmg:          "Bonus damage",

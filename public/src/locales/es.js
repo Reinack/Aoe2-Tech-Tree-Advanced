@@ -30,6 +30,8 @@ const LOCALE_ES = {
     build_cost:         "Costo de Construcción",
     research_cost:      "Costo de Investigación",
     train_cost:         "Costo de Entrenamiento",
+    repair_cost:        "Reparar (HP completo)",
+    build_efficiency:   "Tiempo de construcción vs. aldeanos  ·  3t⁄(n+2)",
     prereq:             "Requisitos",
     missing:            "No disponible para esta civilización",
     bonus_dmg:          "Daño adicional",

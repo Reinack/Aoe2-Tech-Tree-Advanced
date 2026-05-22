@@ -853,6 +853,104 @@ function renderStatsGrid(rawStats, displayStats, isUnit, activeLabel) {
   }
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Build Efficiency Chart
+// Formula (from AoE2 wiki): time = 3t / (n+2), where t = 1-villager build time,
+// n = number of villagers.  Y axis = fraction of original time = 3/(n+2).
+// ─────────────────────────────────────────────────────────────────────────────
+function buildEfficiencyHtml(buildCost, nodeId) {
+  // ── SVG chart ────────────────────────────────────────────────────────────────
+  const W = 200, H = 100;
+  const ML = 28, MR = 8, MT = 8, MB = 22;
+  const CW = W - ML - MR;   // plot width
+  const CH = H - MT - MB;   // plot height
+
+  const NMAX = 10;
+  const xOf = n => ML + (n - 1) / (NMAX - 1) * CW;
+  const yOf = f => MT + (1 - f) * CH;  // f=1 → top of plot (100%), f=0 → bottom
+
+  const pts = Array.from({ length: NMAX }, (_, i) => {
+    const n = i + 1;
+    const f = 3 / (n + 2);
+    return { n, f: +f.toFixed(4), x: xOf(n), y: yOf(f) };
+  });
+
+  // Curve path
+  const curvePath = pts
+    .map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`)
+    .join(' ');
+
+  // Dashed grid lines + Y-axis labels at 25 / 50 / 75 / 100 %
+  const grids = [1.0, 0.75, 0.5, 0.25].map(f => {
+    const y  = yOf(f).toFixed(1);
+    const pct = Math.round(f * 100);
+    return `<line x1="${ML}" y1="${y}" x2="${W - MR}" y2="${y}" stroke="#c8b898" stroke-width="0.5" stroke-dasharray="3,2"/>
+            <text x="${ML - 3}" y="${y}" text-anchor="end" dominant-baseline="middle" font-size="7" fill="#7a5030">${pct}%</text>`;
+  }).join('');
+
+  // Dots with hover tooltips
+  const dots = pts.map(p =>
+    `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.5" fill="#c07010" stroke="#fff" stroke-width="0.8">
+      <title>${p.n} ${currentLang === 'es' ? 'ald.' : 'vill.'}: ${Math.round(p.f * 100)}%</title>
+    </circle>`
+  ).join('');
+
+  // X-axis tick numbers
+  const xTicks = pts.map(p =>
+    `<text x="${p.x.toFixed(1)}" y="${H - MB + 11}" text-anchor="middle" font-size="7" fill="#7a5030">${p.n}</text>`
+  ).join('');
+
+  const xAxisLabel = currentLang === 'es' ? 'Aldeanos' : 'Villagers';
+  const chartTitle = t('build_efficiency') || 'Build time vs. workers · 3t/(n+2)';
+
+  const svg = `<svg class="sp-efficiency-svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+    ${grids}
+    <path d="${curvePath}" fill="none" stroke="#c07010" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    ${dots}
+    <line x1="${ML}" y1="${MT}" x2="${ML}"      y2="${H - MB}" stroke="#9a7040" stroke-width="1"/>
+    <line x1="${ML}" y1="${H - MB}" x2="${W - MR}" y2="${H - MB}" stroke="#9a7040" stroke-width="1"/>
+    ${xTicks}
+    <text x="${(ML + W - MR) / 2}" y="${H - 1}" text-anchor="middle" font-size="7" fill="#7a5030">${xAxisLabel}</text>
+  </svg>`;
+
+  // ── Repair cost ───────────────────────────────────────────────────────────────
+  // Special case: TC always costs 550 wood (no stone) to repair fully (AoE2 wiki)
+  let repairHtml = '';
+  if (buildCost) {
+    let repairCost;
+    if (nodeId === 'tc') {
+      repairCost = { wood: 550 };
+    } else {
+      repairCost = {};
+      for (const res of ['food', 'wood', 'gold', 'stone']) {
+        if (buildCost[res]) repairCost[res] = Math.round(buildCost[res] * 0.5);
+      }
+    }
+
+    // Apply any civ repair discount (scope: "repair") from bonuses or teamBonus
+    const civ = getCiv();
+    const repairBonuses = [
+      ...(civ?.bonuses    || []),
+      ...(civ?.teamBonus ? [civ.teamBonus] : []),
+    ].filter(b => b.type === 'cost_modifier' && b.scope === 'repair');
+
+    for (const b of repairBonuses) {
+      for (const res of ['food', 'wood', 'gold', 'stone']) {
+        if (repairCost[res] == null) continue;
+        if (b.resource === 'all' || b.resource === res) {
+          if (b.op === 'multiply') repairCost[res] = Math.round(repairCost[res] * b.value);
+          else if (b.op === 'add') repairCost[res] = Math.max(0, repairCost[res] + b.value);
+        }
+      }
+    }
+
+    const repairLabel = t('repair_cost') || 'Repair (full HP)';
+    repairHtml = `<div class="sp-repair-cost"><strong>${repairLabel}:</strong> ${costStr(repairCost)}</div>`;
+  }
+
+  return `<div class="sp-efficiency-title">${chartTitle}</div>${svg}${repairHtml}`;
+}
+
 function showStatsPanel(ev, n) {
   hideTip();
 
@@ -922,6 +1020,15 @@ function showStatsPanel(ev, n) {
   }
 
   document.getElementById('sp-cost').innerHTML = costHtml;
+
+  // Build efficiency chart + repair cost (buildings / defensive structures only)
+  const bldEffEl = document.getElementById('sp-build-efficiency');
+  if (isBuilding) {
+    bldEffEl.innerHTML = buildEfficiencyHtml(rawBuildCost, n.id);
+    bldEffEl.style.display = 'block';
+  } else {
+    bldEffEl.style.display = 'none';
+  }
 
   // Efecto
   const effEl = document.getElementById('sp-effect');

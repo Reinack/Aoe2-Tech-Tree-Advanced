@@ -402,6 +402,35 @@ svg { width: 100%; height: 100%; display: block; }
 .sp-cost-old { color: #8a5020; font-size: 10px; margin-right: 2px; opacity: 0.75; }
 .sp-cost-new { color: #2a6a00; font-weight: bold; }
 
+/* Build efficiency chart */
+#sp-build-efficiency {
+  border-top: 1px solid #c8a870;
+  padding: 8px 12px 4px;
+}
+.sp-efficiency-title {
+  font-size: 9px;
+  font-weight: bold;
+  color: #6a3a10;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+.sp-efficiency-svg {
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  overflow: visible;
+}
+.sp-repair-cost {
+  font-size: 11px;
+  color: #4a2e0a;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.sp-repair-cost strong { color: #6a3a10; }
+
 /* Effect */
 #sp-effect {
   font-size: 11px;
