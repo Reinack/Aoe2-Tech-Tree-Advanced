@@ -123,16 +123,33 @@ export const TECH_MODIFIERS = {
   'hoardings': {
     hp: 1500                       // Castle/Krepost/Donjon +1500 HP
   },
+  // ── TOWN CENTER ──────────────────────────────────────────────────────────────
+  'loom': {
+    hp:           15,              // Villagers +15 HP
+    armor_melee:   1,              // +1 melee armor
+    armor_pierce:  2               // +2 pierce armor
+  },
+  'wheelbarrow': { speed_pct: 10 }, // Villagers +10 % movement speed
+  'handcart':    { speed_pct: 10 }, // Villagers +10 % movement speed
+
   // ── CASTLE ───────────────────────────────────────────────────────────────────
   'conscription': { production_speed_pct: 33 },  // Military buildings (except Siege Workshop) work +33 % faster
+  'sappers': {
+    // Villagers +15 bonus attack vs All Buildings and Stone Defense; +3 vs Rams
+    vs_bonuses: [
+      { vs: 'stone_defense',  add: 15 },
+      { vs: 'all_buildings',  add: 15 },
+      { vs: 'rams',           add: 3  }
+    ]
+  },
   'treadmillcrane': {
     build_speed_pct: 20            // Villagers build +20 % faster
   },
 
   // ── DOCK ──────────────────────────────────────────────────────────────────
   'shipwright': {
-    wood_cost_pct:   -20,          // Ships cost -20 % wood
-    build_speed_pct:  50           // Ships build +50 % faster
+    wood_cost_pct:        -20,     // Ships cost -20 % wood
+    production_speed_pct:  54      // Ships train +54 % faster
   },
   'careening': {
     armor_pierce:   1,             // Warships +1 pierce armor
@@ -143,8 +160,8 @@ export const TECH_MODIFIERS = {
   },
   'clinker_construction': { speed_pct: 10 },  // Ships +10 % movement speed
   'carvel_hull':          { speed_pct: 10 },  // Ships +10 % movement speed
-  'siphons':              { range: 1 },        // Fire Galley line +1 range
-  'incendiaries':         { attack: 1 },       // Fire Galley line +1 attack
+  'siphons':      { passive_effect: 'charge_attack'    }, // Fire Galley line gains explosive charge attack vs ships
+  'incendiaries': { passive_effect: 'death_explosion'  }, // Fire Galley line detonates on death
   'fishing_lines': {
     gather_speed_pct: 10,          // Fishing Ships gather +10 % faster
     carry_capacity:    5           // +5 carry capacity
@@ -252,7 +269,8 @@ export const TECH_MODIFIERS = {
     damage_reduction_vs_mounted: 3  // Shotel Warriors and Camel Riders receive -3 damage from Mounted Units
   },
   'ethiopians_uniquetech2': {  // Torsion Engines
-    // Mangonel line/Rams/Scorpions gain increased blast radius
+    // Mangonel line/Rams/Scorpions gain increased blast radius (+0.45)
+    blast_radius:   0.45,
     passive_effect: 'siege_blast_radius_increase'
   },
 

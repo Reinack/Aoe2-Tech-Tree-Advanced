@@ -16,7 +16,16 @@
       "op": "multiply",
       "value": 0.75
     },
-    // Siege Weapons and Siege Warships move +10/15% faster in Castle/Imperial Age
+    // Siege Weapons move +10/15% faster in Castle/Imperial Age
+    {
+      "type": "stat_modifier",
+      "scope": "siege",
+      "stat": "speed",
+      "op": "multiply",
+      "value_by_age": [1.0, 1.0, 1.10, 1.15],
+      "min_age": 2
+    },
+    // Siege Warships move +10/15% faster in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "ship",
@@ -169,7 +178,6 @@
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",

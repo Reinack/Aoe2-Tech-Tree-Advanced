@@ -24,6 +24,7 @@ const LOCALE_ES = {
     melee_range:        "CaC",
     speed:              "VEL",
     rof:                "CdF",
+    blast_r:            "R. Expl.",
     los:                "LDV",
     train:              "Prod.",
     cost:               "Costo",
@@ -57,6 +58,10 @@ const LOCALE_ES = {
     gunpowder:           "Pólvora",
     elephants:           "Elefantes",
     heavy_siege:         "Asedio Pesado",
+    fire_ships:          "Barcos de Fuego",
+    long_range_warship:  "Barco de Guerra de Largo Alcance",
+    siege_weapons:       "Armas de Asedio",
+    elephant_units:      "Unid. Elefante",
   },
 
   types: {

@@ -22,7 +22,7 @@
       "scope": "military_unit",
       "resource": "food",
       "op": "multiply",
-      "value": 0.8
+      "value_by_age": [0.95, 0.90, 0.85, 0.80]
     },
     // Villagers are affected by Infantry Blacksmith upgrades starting in Castle Age
     {
@@ -159,8 +159,6 @@
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",

@@ -174,8 +174,6 @@
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "siphons",
-    "incendiaries",
     "mule_cart",
     "fortified_church",
     "stonewall",

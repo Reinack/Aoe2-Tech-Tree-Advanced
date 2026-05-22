@@ -175,7 +175,6 @@
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "stonewall",
     "fortifiedwall",
     "watchtower",

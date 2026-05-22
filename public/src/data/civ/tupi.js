@@ -71,9 +71,7 @@
     "cappedram",
     "siegeram",
     "mangonel",
-    "onager",
-    "siegeonager",
-    "scorpion",
+    "onager",    "scorpion",
     "heavyscorpion",
     "forging",
     "ironcasting",
@@ -162,8 +160,6 @@
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "siphons",
-    "incendiaries",
     "watchtower",
     "palisadewall",
     "palisadegate",
@@ -203,4 +199,5 @@
 
 window.TUPI = TUPI;
 export default TUPI;
+
 

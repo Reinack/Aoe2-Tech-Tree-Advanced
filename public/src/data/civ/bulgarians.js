@@ -171,8 +171,6 @@ const BULGARIANS = {
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "siphons",
-    "incendiaries",
     "krepost",
     "stonewall",
     "watchtower",

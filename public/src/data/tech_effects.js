@@ -13,7 +13,8 @@ export const UNIT_CLASSES = {
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
     'camel', 'heavycamel', 'imp_camel', 'battleeleph', 'eliteeleph', 'steppe_lancer', 'elite_steppe_lancer',
     'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'missionary',
-    'hei_guang', 'heavy_hei_guang', 'war_chariot_s', 'xianbei_raider', 'bolas_rider', 'elite_bolas_rider'
+    'hei_guang', 'heavy_hei_guang', 'war_chariot_s', 'xianbei_raider', 'bolas_rider', 'elite_bolas_rider',
+    'armored_elephant', 'siege_elephant'
   ],
   'archer': [
     'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher',
@@ -21,13 +22,14 @@ export const UNIT_CLASSES = {
     'slinger', 'bolas_rider', 'elite_bolas_rider'
   ],
   'siege': [
-    'batteram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager',
-    'scorpion', 'heavyscorp', 'bombadcannon', 'trebuchet', 'petard',
+    'batteringram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager',
+    'scorpion', 'heavyscorpion', 'bombcannon', 'trebuchet', 'petard',
     'rocket_cart', 'heavy_rocket_cart', 'traction_treb', 'war_chariot_s'
   ],
   'navy': [
     'galley', 'wargalley', 'galleon', 'firegalley', 'fireship', 'fastfireship',
     'demoraft', 'demoship', 'heavydemo', 'cannongalleon', 'elitecannon',
+    'hulk', 'war_hulk', 'carrack',
     'dromon', 'turtle_ship', 'longboat', 'carvel_hull', 'lou_chuan'
   ],
   'civilians': [
@@ -49,14 +51,19 @@ export const UNIT_CLASSES = {
   'cavalry': [
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
     'camel', 'heavycamel', 'imp_camel', 'battleeleph', 'eliteeleph', 'steppe_lancer', 'elite_steppe_lancer',
-    'hei_guang', 'heavy_hei_guang', 'war_chariot_s'
+    'hei_guang', 'heavy_hei_guang', 'war_chariot_s',
+    'armored_elephant', 'siege_elephant'
   ],
   'skirmishers': [
     'skirmisher', 'eliteskirm', 'imp_skirmisher', 'genitour', 'slinger'
   ],
   'gunpowder': [
-    'handcannon', 'bombadcannon', 'cannongalleon', 'elitecannon', 'bombardtower', 'janissary', 'conquistador',
+    'handcannon', 'bombcannon', 'cannongalleon', 'elitecannon', 'bombardtower', 'janissary', 'conquistador',
     'rocket_cart', 'heavy_rocket_cart'
+  ],
+  // Ranged siege units that fire projectiles — used by Chemistry (+1 attack)
+  'ranged_siege': [
+    'mangonel', 'onager', 'siegeonager', 'scorpion', 'heavyscorpion', 'trebuchet'
   ],
   'trade_units': [
     'tradecart', 'tradecog'
@@ -161,12 +168,12 @@ export const TECH_AFFECTS = {
   'husbandry': ['mounted'],
 
   // Herrería - Ataque
-  'fletching': ['foot_archer', 'mounted_archer', 'buildings', 'lou_chuan'],   // Lou Chuan: modo anti-unidad
-  'bodkinarrow': ['foot_archer', 'mounted_archer', 'buildings', 'lou_chuan'],
-  'bracer': ['foot_archer', 'mounted_archer', 'buildings', 'lou_chuan'],
-  'forging': ['infantry', 'cavalry'],
-  'ironcasting': ['infantry', 'cavalry'],
-  'blastfurnace': ['infantry', 'cavalry'],
+  'fletching':   ['foot_archer', 'mounted_archer', 'buildings', 'galley', 'wargalley', 'galleon', 'lou_chuan'],
+  'bodkinarrow': ['foot_archer', 'mounted_archer', 'buildings', 'galley', 'wargalley', 'galleon', 'lou_chuan'],
+  'bracer':      ['foot_archer', 'mounted_archer', 'buildings', 'galley', 'wargalley', 'galleon', 'lou_chuan'],
+  'forging': ['infantry', 'cavalry', 'hulk', 'war_hulk', 'carrack'],
+  'ironcasting': ['infantry', 'cavalry', 'hulk', 'war_hulk', 'carrack'],
+  'blastfurnace': ['infantry', 'cavalry', 'hulk', 'war_hulk', 'carrack'],
 
   // Herrería - Armadura
   'paddedarcharmor': ['foot_archer', 'mounted_archer', 'handcannon', 'grenadier'],
@@ -181,8 +188,8 @@ export const TECH_AFFECTS = {
 
   // Universidad
   'ballistics': ['foot_archer', 'mounted_archer', 'buildings', 'navy', 'siege', 'grenadier'],
-  'chemistry': ['foot_archer', 'mounted_archer', 'gunpowder', 'buildings', 'navy', 'traction_treb', 'war_chariot_s'],
-  'siegeengineers': ['siege', 'lou_chuan', 'grenadier'], // Lou Chuan: modo anti-edificio; Grenadier: foot archer con bonus edificios
+  'chemistry': ['foot_archer', 'mounted_archer', 'gunpowder', 'ranged_siege', 'buildings', 'navy', 'traction_treb', 'war_chariot_s'],
+  'siegeengineers': ['siege', 'armored_elephant', 'siege_elephant', 'lou_chuan', 'grenadier'], // Lou Chuan: modo anti-edificio; Grenadier: foot archer con bonus edificios
   'masonry': ['buildings'],
   'architecture': ['buildings'],
   'fortifiedwall': ['walls'],
@@ -191,15 +198,14 @@ export const TECH_AFFECTS = {
   'bombardtower': ['keep'],
   'arrowslits': ['watchtower', 'guardtower', 'keep'],
   'murderhole': ['buildings'],
-  'treadmillcrane': ['buildings'],
   'heatedshot': ['towers', 'town_centers'],
   'hoardings': ['castles'],
   'careening': ['navy', 'fishingship', 'tradecog'],
   'drydock': ['navy', 'fishingship', 'tradecog'],
   'clinker_construction': ['navy', 'fishingship', 'tradecog'],
   'carvel_hull': ['navy', 'fishingship', 'tradecog'],
-  'siphons': ['navy'],
-  'incendiaries': ['navy'],
+  'siphons':      ['firegalley', 'fireship', 'fastfireship'],
+  'incendiaries': ['firegalley', 'fireship', 'fastfireship'],
 
   // Muelle
   'shipwright': ['navy', 'fishingship', 'tradecog'],
@@ -220,9 +226,10 @@ export const TECH_AFFECTS = {
   'faith': ['monk'],
 
   // Centro Urbano
-  'loom':        ['villager'],
-  'wheelbarrow': ['villager'],
-  'handcart':    ['villager'],
+  'loom':         ['villager'],
+  'wheelbarrow':  ['villager'],
+  'handcart':     ['villager'],
+  'treadmillcrane': ['buildings', 'villager'],
 
   // Mercado
   'caravan': ['tradecart', 'tradecog'],
@@ -250,7 +257,7 @@ export const TECH_AFFECTS = {
   'berbers_uniquetech2': ['camel', 'heavycamel', 'imp_camel'], // Maghrebi Camels
 
   // Bohemios
-  'bohemians_uniquetech1': ['gunpowder'], // Wagenburg Tactics
+  'bohemians_uniquetech1': ['handcannon', 'bombcannon', 'houfnice', 'cannongalleon', 'elitecannon'], // Wagenburg Tactics (Hussite Wagon not yet implemented)
   'bohemians_uniquetech2': ['religious'], // Hussite Reforms
 
   // Britanos
@@ -279,7 +286,7 @@ export const TECH_AFFECTS = {
 
   // Chinos
   'chinese_uniquetech1': ['walls', 'watchtower', 'guardtower', 'keep', 'bombardtower'], // Great Wall (+30% HP muros + línea torres)
-  'chinese_uniquetech2': ['scorpion', 'heavyscorp', 'rocket_cart', 'heavy_rocket_cart', 'lou_chuan'], // Rocketry
+  'chinese_uniquetech2': ['scorpion', 'heavyscorpion', 'rocket_cart', 'heavy_rocket_cart', 'lou_chuan'], // Rocketry
 
   // Cumanos
   'cumans_uniquetech1': ['scout', 'lightcav', 'hussar', 'steppe_lancer', 'elite_steppe_lancer', 'cavarcher', 'hcavarcher'], // Steppe Husbandry
@@ -339,7 +346,7 @@ export const TECH_AFFECTS = {
 
   // Jemer
   'khmer_uniquetech1': ['battleeleph', 'eliteeleph'], // Tusk Swords
-  'khmer_uniquetech2': ['uniqueunit', 'eliteunique', 'scorpion', 'heavyscorp'], // Double Crossbow
+  'khmer_uniquetech2': ['uniqueunit', 'eliteunique', 'scorpion', 'heavyscorpion'], // Double Crossbow
 
   // Coreanos
   'koreans_uniquetech1': ['watchtower', 'guardtower', 'keep'], // Eupseong (+2 rango torres)
@@ -390,7 +397,7 @@ export const TECH_AFFECTS = {
   'portuguese_uniquetech2': ['gunpowder'], // Arquebus
 
   // Romanos
-  'romans_uniquetech1': ['scorpion', 'heavyscorp', 'galley', 'wargalley', 'galleon'], // Ballistas
+  'romans_uniquetech1': ['scorpion', 'heavyscorpion', 'galley', 'wargalley', 'galleon'], // Ballistas
   'romans_uniquetech2': ['militia', 'manatarms', 'longsword', 'twohanded', 'champion', 'uniqueunit', 'eliteunique'], // Comitatenses
 
   // Sarracenos
@@ -427,7 +434,7 @@ export const TECH_AFFECTS = {
 
   // Turcos
   'turks_uniquetech1': ['mounted_archer'], // Sipahi
-  'turks_uniquetech2': ['bombadcannon'], // Artillery
+  'turks_uniquetech2': ['bombcannon', 'bombardtower', 'cannongalleon'], // Artillery: +2 range
 
   // Vietnamitas
   'vietnamese_uniquetech1': ['battleeleph', 'eliteeleph'], // Chatras

@@ -176,7 +176,6 @@
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "donjon",
     "palisadewall",
     "palisadegate",

@@ -6,7 +6,7 @@
       "scope": "villager",
       "resource": "all",
       "op": "multiply",
-      "value": 0.92
+      "value_by_age": [0.92, 0.87, 0.82, 0.77]
     },
     // Camel Riders attack +20% faster
     {
@@ -87,7 +87,6 @@
     "mangonel",
     "onager",
     "scorpion",
-    "heavyscorpion",
     "bombcannon",
     "armored_elephant",
     "siege_elephant",
@@ -173,8 +172,6 @@
     "careening",
     "clinker_construction",
     "carvel_hull",
-    "siphons",
-    "incendiaries",
     "caravanserai",
     "stonewall",
     "watchtower",

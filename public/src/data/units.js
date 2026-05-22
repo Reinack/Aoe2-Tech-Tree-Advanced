@@ -40,15 +40,24 @@ const UNIT_STATS = {
   'paladin':       { hp: 160, attack: 14,  armor: [2, 3],   range: 0,  speed: 1.35, rof: 1.9,  los: 5,  train: 30 },
 
   // ── TALLER DE ASEDIO ──────────────────────────────────────────────────────
-  'batteram':      { hp: 175, attack: 2,   armor: [-3, 180], range: 0, speed: 0.60, rof: 5.0,  los: 3,  train: 36 },
-  'cappedram':     { hp: 200, attack: 3,   armor: [-3, 190], range: 0, speed: 0.60, rof: 5.0,  los: 3,  train: 36 },
-  'siegeram':      { hp: 270, attack: 4,   armor: [-3, 195], range: 0, speed: 0.60, rof: 5.0,  los: 3,  train: 36 },
-  'mangonel':      { hp: 50,  attack: 40,  armor: [0, 6],   range: 7,  speed: 0.60, rof: 6.0,  los: 9,  train: 46 },
-  'onager':        { hp: 60,  attack: 50,  armor: [0, 7],   range: 8,  speed: 0.60, rof: 6.0,  los: 10, train: 47 },
-  'siegeonager':   { hp: 70,  attack: 75,  armor: [0, 8],   range: 8,  speed: 0.60, rof: 6.0,  los: 10, train: 46 },
-  'scorpion':      { hp: 40,  attack: 11,  armor: [0, 7],   range: 7,  speed: 0.65, rof: 3.6,  los: 9,  train: 30 },
-  'heavyscorp':    { hp: 60,  attack: 14,  armor: [1, 8],   range: 7,  speed: 0.65, rof: 3.6,  los: 9,  train: 30 },
-  'bombcannon':    { hp: 80,  attack: 40,  armor: [2, 5],   range: 12, speed: 0.70, rof: 6.5,  los: 14, train: 56 },
+  'batteringram':  { hp: 175, attack: 2,   armor: [-3, 180], range: 0, speed: 0.60, rof: 5.0,  los: 3,  train: 36, blast_radius: 0,
+    bonuses: [{ vs: 'all_buildings', value: 150 }, { vs: 'siege_weapons', value: 40 }] },
+  'cappedram':     { hp: 200, attack: 3,   armor: [-2, 190], range: 0, speed: 0.60, rof: 5.0,  los: 3,  train: 36, blast_radius: 1.5,
+    bonuses: [{ vs: 'all_buildings', value: 160 }, { vs: 'siege_weapons', value: 50 }] },
+  'siegeram':      { hp: 270, attack: 4,   armor: [-1, 195], range: 0, speed: 0.60, rof: 5.0,  los: 3,  train: 36, blast_radius: 2,
+    bonuses: [{ vs: 'all_buildings', value: 200 }, { vs: 'siege_weapons', value: 65 }] },
+  'mangonel':      { hp: 50,  attack: 40,  armor: [0, 6],   range: 7,  speed: 0.60, rof: 6.0,  los: 9,  train: 46, blast_radius: 1,
+    bonuses: [{ vs: 'heavy_siege', value: 40 }, { vs: 'all_buildings', value: 35 }, { vs: 'siege_weapons', value: 12 }, { vs: 'monks', value: -1 }] },
+  'onager':        { hp: 60,  attack: 50,  armor: [0, 7],   range: 8,  speed: 0.60, rof: 6.0,  los: 10, train: 46, blast_radius: 1.25,
+    bonuses: [{ vs: 'heavy_siege', value: 50 }, { vs: 'all_buildings', value: 45 }, { vs: 'siege_weapons', value: 12 }] },
+  'siegeonager':   { hp: 70,  attack: 75,  armor: [0, 8],   range: 8,  speed: 0.60, rof: 6.0,  los: 10, train: 46, blast_radius: 1.5,
+    bonuses: [{ vs: 'heavy_siege', value: 50 }, { vs: 'all_buildings', value: 60 }, { vs: 'siege_weapons', value: 12 }] },
+  'scorpion':      { hp: 40,  attack: 11,  armor: [0, 7],   range: 7,  speed: 0.65, rof: 3.6,  los: 9,  train: 30, blast_radius: 0,
+    bonuses: [{ vs: 'elephant_units', value: 7 }, { vs: 'all_buildings', value: 3 }, { vs: 'rams', value: 1 }, { vs: 'infantry', value: 1 }] },
+  'heavyscorpion': { hp: 60,  attack: 14,  armor: [1, 8],   range: 7,  speed: 0.65, rof: 3.6,  los: 9,  train: 30, blast_radius: 0,
+    bonuses: [{ vs: 'elephant_units', value: 10 }, { vs: 'all_buildings', value: 6 }, { vs: 'rams', value: 2 }, { vs: 'infantry', value: 2 }] },
+  'bombcannon':    { hp: 80,  attack: 40,  armor: [2, 5],   range: 12, speed: 0.70, rof: 6.5,  los: 14, train: 56, blast_radius: 0.5,
+    bonuses: [{ vs: 'all_buildings', value: 200 }, { vs: 'ships', value: 40 }, { vs: 'fishing_ships', value: 40 }, { vs: 'stone_defense', value: 40 }, { vs: 'heavy_siege', value: 40 }, { vs: 'siege_weapons', value: 20 }] },
   'siegetower':    { hp: 175, attack: 0,   armor: [-2, 100], range: 0, speed: 0.96, rof: 0,    los: 8,  train: 36 },
 
   // ── MUELLE ────────────────────────────────────────────────────────────────
@@ -57,7 +66,8 @@ const UNIT_STATS = {
   'tradecart':     { hp: 70,  attack: 0,   armor: [0, 0],   range: 0,  speed: 1.25, rof: 0,    los: 7,  train: 51 },
   'tradecog':      { hp: 80,  attack: 0,   armor: [0, 6],   range: 0,  speed: 1.65, rof: 0,    los: 6,  train: 36 },
   // Galera
-  'galley':        { hp: 120, attack: 6,   armor: [0, 6],   range: 5,  speed: 1.43, rof: 3.0,  los: 7,  train: 45 },
+  'galley':        { hp: 110, attack: 6,   armor: [0, 4],   range: 5,  speed: 1.36, rof: 3.0,  los: 7,  train: 36,
+    bonuses: [{ vs: 'all_buildings', value: 6 }, { vs: 'long_range_warship', value: 5 }, { vs: 'rams', value: 3 }] },
   'wargalley':     { hp: 135, attack: 7,   armor: [0, 6],   range: 6,  speed: 1.43, rof: 3.0,  los: 8,  train: 60 },
   'galleon':       { hp: 165, attack: 8,   armor: [0, 8],   range: 7,  speed: 1.43, rof: 3.0,  los: 9,  train: 60 },
   // Barco de Fuego
@@ -69,7 +79,8 @@ const UNIT_STATS = {
   'demoship':      { hp: 60,  attack: 110, armor: [0, 3],   range: 0,  speed: 1.60, rof: 0,    los: 6,  train: 31 },
   'heavydemo':     { hp: 70,  attack: 140, armor: [0, 5],   range: 0,  speed: 1.60, rof: 0,    los: 6,  train: 31 },
   // Hulk
-  'hulk':          { hp: 90,  attack: 4,   armor: [4, 1],   range: 1,  speed: 1.42, rof: 1.75, los: 5,  train: 42 },
+  'hulk':          { hp: 90,  attack: 4,   armor: [4, 1],   range: 1,  speed: 1.42, rof: 1.75, los: 5,  train: 42,
+    bonuses: [{ vs: 'fire_ships', value: 1 }, { vs: 'standard_buildings', value: -3 }] },
   'war_hulk':      { hp: 130, attack: 6,   armor: [5, 2],   range: 1,  speed: 1.43, rof: 1.75, los: 6,  train: 60 },
   'carrack':       { hp: 180, attack: 8,   armor: [6, 4],   range: 2,  speed: 1.43, rof: 1.75, los: 7,  train: 60 },
   // Galeón de Artillería
@@ -77,8 +88,9 @@ const UNIT_STATS = {
   'elitecannon':   { hp: 150, attack: 60,  armor: [0, 8],   range: 15, speed: 1.10, rof: 10,   los: 17, train: 70 },
 
   // ── CASTILLO ──────────────────────────────────────────────────────────────
-  'trebuchet':     { hp: 150, attack: 200, armor: [2, 8],   range: 16, speed: 0,    rof: 10,   los: 19, train: 50 },
-  'petard':        { hp: 50,  attack: 25,  armor: [0, 2],   range: 0,  speed: 1.05, rof: 0,    los: 4,  train: 25 },
+  'trebuchet':     { hp: 150, attack: 200, armor: [2, 8],   range: 16, speed: 0.8,  rof: 10,   los: 19, train: 50, blast_radius: 0,
+    bonuses: [{ vs: 'all_buildings', value: 250 }] },
+  'petard':        { hp: 50,  attack: 25,  armor: [0, 2],   range: 0,  speed: 1.05, rof: 0,    los: 4,  train: 25, blast_radius: 2 },
 
   // ── VARIOS ────────────────────────────────────────────────────────────────
   'monk':          { hp: 30,  attack: 0,   armor: [0, 0],   range: 9,  speed: 0.70, rof: 0,    los: 11, train: 51 },
@@ -146,8 +158,9 @@ const REGIONAL_UNIT_STATS = {
   'heavy_rocket_cart': { hp:  65, attack:  5, armor: [0, 8],   range: 8,  speed: 0.60, rof: 5.35, los: 10, train: 40 },
 
   // ── ASEDIO — Elefante de Asedio (civs indias) ─────────────────────────────
-  'armored_elephant': { hp: 180, attack: 4,  armor: [-2, 140], range: 0,  speed: 0.60, rof: 3.0,  los: 4,  train: 36 },
-  'siege_elephant':   { hp: 220, attack: 4,  armor: [-2, 150], range: 0,  speed: 0.60, rof: 3.0,  los: 4,  train: 36 },
+  'armored_elephant': { hp: 180, attack: 4,  armor: [-2, 140], range: 0,  speed: 0.60, rof: 3.0,  los: 4,  train: 36, blast_radius: 0 },
+  'siege_elephant':   { hp: 220, attack: 4,  armor: [-2, 150], range: 0,  speed: 0.60, rof: 3.0,  los: 4,  train: 36, blast_radius: 1.5,
+    bonuses: [{ vs: 'all_buildings', value: 105 }, { vs: 'siege_weapons', value: 35 }] },
 
   // ── ASEDIO — Lanzapiedras de Tracción (civs Tres Reinos) ─────────────────
   'traction_treb':    { hp: 115, attack: 50,  armor: [1, 8],  range: 14, speed: 0.57, rof: 11,   los: 18, train: 70 },

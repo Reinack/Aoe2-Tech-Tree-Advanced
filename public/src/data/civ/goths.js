@@ -18,7 +18,7 @@
       "scope": "infantry",
       "resource": "all",
       "op": "multiply",
-      "value": 0.85
+      "value_by_age": [0.85, 0.80, 0.75, 0.70]
     },
     // Infantry +1/+2/+3 attack vs. buildings in Feudal/Castle/Imperial Age
     {

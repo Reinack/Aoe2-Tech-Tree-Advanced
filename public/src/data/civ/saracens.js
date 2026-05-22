@@ -91,7 +91,6 @@
     "onager",
     "siegeonager",
     "scorpion",
-    "heavyscorpion",
     "bombcannon",
     "forging",
     "ironcasting",

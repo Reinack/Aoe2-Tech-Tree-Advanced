@@ -14,7 +14,8 @@
       "scope": "cavalry",
       "resource": "all",
       "op": "multiply",
-      "value": 0.80
+      "value_by_age": [1.0, 1.0, 0.85, 0.80],
+      "min_age": 2
     },
     // Ships move +10% faster
     {
@@ -77,7 +78,6 @@
     "siegetower",
     "batteringram",
     "cappedram",
-    "siegeram",
     "mangonel",
     "onager",
     "scorpion",
@@ -176,7 +176,6 @@
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",

@@ -22,6 +22,20 @@
       "op": "multiply",
       "value": 2
     },
+    // TC works +5/10/15/20% faster → Villagers train faster
+    {
+      "type": "building_work_speed",
+      "scope": "tc",
+      "op": "multiply",
+      "value_by_age": [1.05, 1.10, 1.15, 1.20]
+    },
+    // Dock works +5/10/15/20% faster → Ships train faster
+    {
+      "type": "building_work_speed",
+      "scope": "dock",
+      "op": "multiply",
+      "value_by_age": [1.05, 1.10, 1.15, 1.20]
+    },
     // Parthian Tactics available in Castle Age
     {
       "type": "age_unlock",

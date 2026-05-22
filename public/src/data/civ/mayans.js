@@ -28,7 +28,8 @@
       "scope": "foot_archer",
       "resource": "all",
       "op": "multiply",
-      "value": 0.9
+      "value_by_age": [1.0, 0.90, 0.80, 0.70],
+      "min_age": 1
     }
   ],
   "teamBonus": {
@@ -76,9 +77,7 @@
     "cappedram",
     "siegeram",
     "mangonel",
-    "onager",
-    "siegeonager",
-    "scorpion",
+    "onager",    "scorpion",
     "heavyscorpion",
     "forging",
     "ironcasting",
@@ -165,7 +164,6 @@
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "siphons",
     "incendiaries"
   ],
   "uniqueTechs": [
@@ -198,4 +196,5 @@
 
 window.MAYANS = MAYANS;
 export default MAYANS;
+
 

@@ -94,7 +94,6 @@
     "mangonel",
     "onager",
     "scorpion",
-    "heavyscorpion",
     "bombcannon",
     "forging",
     "ironcasting",

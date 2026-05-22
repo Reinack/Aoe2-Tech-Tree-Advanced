@@ -18,7 +18,8 @@
       "scope": "cavalry_archer",
       "resource": "all",
       "op": "multiply",
-      "value": 0.9
+      "value_by_age": [1.0, 1.0, 0.90, 0.80],
+      "min_age": 2
     },
     // Trebuchets fire more accurately against units and small targets
     {
@@ -84,7 +85,6 @@
     "siegeram",
     "mangonel",
     "scorpion",
-    "heavyscorpion",
     "forging",
     "ironcasting",
     "blastfurnace",
@@ -164,8 +164,6 @@
     "careening",
     "clinker_construction",
     "carvel_hull",
-    "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",

@@ -19,7 +19,8 @@
       "scope": "ship",
       "resource": "all",
       "op": "multiply",
-      "value": 0.9
+      "value_by_age": [1.0, 0.90, 0.85, 0.80],
+      "min_age": 1
     }
   ],
   // Team bonus: Docks cost -15%
@@ -161,7 +162,6 @@
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "architecture",
     "stonewall",
     "watchtower",

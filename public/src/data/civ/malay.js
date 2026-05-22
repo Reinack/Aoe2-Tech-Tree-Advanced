@@ -16,7 +16,8 @@
       "scope": "battleeleph",
       "resource": "all",
       "op": "multiply",
-      "value": 0.75
+      "value_by_age": [1.0, 1.0, 0.75, 0.65],
+      "min_age": 2
     },
     // Fish Traps cost -33%
     {
@@ -174,7 +175,6 @@
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "harbor",
     "stonewall",
     "watchtower",

@@ -1,4 +1,4 @@
-const MAPUCHE = {
+﻿const MAPUCHE = {
   "bonuses": [
     {
       "type": "stat_modifier",
@@ -6,7 +6,7 @@ const MAPUCHE = {
       "stat": "food",
       "op": "multiply",
       "value": 1.2
-    },   // Los recolectores entregan +20% más de comida
+    },   // Los recolectores entregan +20% mÃ¡s de comida
     // Settlements (Tahsili) can train Spearman-line and Skirmishers
     {
       "type": "unit_availability",
@@ -79,11 +79,8 @@ const MAPUCHE = {
     "siegetower",
     "batteringram",
     "cappedram",
-    "siegeram",
     "mangonel",
-    "onager",
-    "siegeonager",
-    "scorpion",
+    "onager",    "scorpion",
     "heavyscorpion",
     "forging",
     "ironcasting",
@@ -213,4 +210,5 @@ const MAPUCHE = {
 
 window.MAPUCHE = MAPUCHE;
 export default MAPUCHE;
+
 

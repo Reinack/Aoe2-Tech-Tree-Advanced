@@ -1,4 +1,4 @@
-const SPANISH = {
+﻿const SPANISH = {
   "bonuses": [
     // Builders work +30% faster
     {
@@ -95,7 +95,6 @@ const SPANISH = {
     "mangonel",
     "onager",
     "scorpion",
-    "heavyscorpion",
     "bombcannon",
     "forging",
     "ironcasting",
@@ -191,7 +190,6 @@ const SPANISH = {
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",

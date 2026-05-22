@@ -157,8 +157,6 @@
     "heavy_warships",
     "careening",
     "clinker_construction",
-    "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",

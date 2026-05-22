@@ -26,9 +26,9 @@
       "scope": "castle",
       "resource": "all",
       "op": "multiply",
-      "value": 0.75
+      "value_by_age": [1.0, 1.0, 0.85, 0.75],
+      "min_age": 2
     },
-    "house",
   ],
   // Team bonus: Knight-line +2 line of sight
   "teamBonus": {
@@ -173,13 +173,13 @@
     "clinker_construction",
     "carvel_hull",
     "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",
     "palisadegate",
     "outpost",
-    "gate"
+    "gate",
+    "house"
   ],
   "uniqueTechs": [
     {

@@ -566,6 +566,7 @@ const STAT_ICONS = {
   pierce_attack: 'img/Icon/pierce_attack.webp',
   garrison:      'img/Icon/garrison.webp',
   los:           'img/Icon/los.webp',
+  blast_r:       'img/Icon/range.webp',
 };
 
 // All building node IDs that can appear in the tech tree or stats panel
@@ -724,8 +725,12 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0, trainingBuilding = 
   // ── building_work_speed bonuses → divide train time by speed multiplier ─────
   // value > 1 means the building works faster (e.g. 1.33 = 33 % faster → train / 1.33)
   for (const mod of bldgSpeedMods) {
-    if (m.train == null || mod.value === 1) continue;
-    m.train = Math.round(m.train / mod.value);
+    if (m.train == null) continue;
+    const value = mod.value_by_age
+      ? (mod.value_by_age[Math.min(unitAge, mod.value_by_age.length - 1)] ?? mod.value_by_age[mod.value_by_age.length - 1])
+      : mod.value;
+    if (value == null || value === 1) continue;
+    m.train = Math.round(m.train / value);
   }
 
   return m;
@@ -829,13 +834,23 @@ function renderStatsGrid(rawStats, displayStats, isUnit, activeLabel) {
   // Range / Speed / ROF / LOS: only render if the unit/building actually has the stat
   rows.push(maybeRow(statIcon('range'), t('range'),        B.range,               d(B.range,     D.range)));
   rows.push(maybeRow(statIcon('speed'), t('speed'),        B.speed,               d(B.speed,     D.speed)));
-  rows.push(maybeRow(statIcon('rof'),   t('rof')||'ROF',   B.rof,                 d(B.rof,       D.rof), true));
+  rows.push(maybeRow(statIcon('rof'),     t('rof')||'ROF',     B.rof,           d(B.rof,           D.rof), true));
+  rows.push(maybeRow(statIcon('blast_r'), t('blast_r'),        B.blast_radius,  d(B.blast_radius,  D.blast_radius)));
   rows.push(maybeRow(statIcon('los'),   t('los'),          B.los,                 d(B.los,       D.los)));
   rows.push(maybeRow(statIcon('train'), t('train')||'Train',  B.train,             d(B.train,     D.train), true));
 
-  if (B.bonuses?.length) {
-    for (const b of B.bonuses) {
-      rows.push(statRow(statIcon('attack'), t(b.vs, 'bonus_targets'), `+${b.value}`));
+  if (B.bonuses?.length || D.bonuses?.length) {
+    const allVs = new Set([
+      ...(B.bonuses || []).map(b => b.vs),
+      ...(D.bonuses || []).map(b => b.vs),
+    ]);
+    for (const vs of allVs) {
+      const base = B.bonuses?.find(b => b.vs === vs);
+      const disp = D.bonuses?.find(b => b.vs === vs);
+      const fmtBonus = v => v >= 0 ? `+${v}` : `${v}`;
+      const bv   = base ? fmtBonus(base.value) : undefined;
+      const dv   = disp && (!base || disp.value !== base.value) ? fmtBonus(disp.value) : undefined;
+      rows.push(statRow(statIcon('attack'), t(vs, 'bonus_targets'), bv ?? fmtBonus(disp.value), dv));
     }
   }
 
@@ -947,6 +962,44 @@ function buildEfficiencyHtml(buildCost, nodeId) {
   return `<div class="sp-efficiency-title">${chartTitle}</div>${svg}${repairHtml}`;
 }
 
+// Checks if a tech_cost_modifier bonus scope applies to a given node (by its research building).
+function techCostScopeMatches(scope, n) {
+  if (scope === 'all_tech') return true;
+  if (scope === 'dock_university') return n.building === 'dock' || n.building === 'university';
+  if (scope === 'economic_tech')   return ['mill', 'lumber', 'mining', 'market'].includes(n.building);
+  if (scope === 'siege_fortification_upgrades') return n.building === 'siege';
+  return n.building === scope;
+}
+
+// Returns a modified research_cost object if any tech_cost_modifier civ bonus applies, else null.
+function computeModifiedResearchCost(n) {
+  if (!n.research_cost) return null;
+  const civ = getCiv();
+  if (!civ || !civ.bonuses) return null;
+  const unitAge = n.age ?? 0;
+  const mods = civ.bonuses.filter(b => {
+    if (b.type !== 'tech_cost_modifier') return false;
+    if (b.min_age !== undefined && unitAge < b.min_age) return false;
+    return techCostScopeMatches(b.scope, n);
+  });
+  if (mods.length === 0) return null;
+  const modCost = { ...n.research_cost };
+  for (const mod of mods) {
+    const value = mod.value_by_age
+      ? (mod.value_by_age[Math.min(unitAge, mod.value_by_age.length - 1)] ?? mod.value_by_age[mod.value_by_age.length - 1])
+      : mod.value;
+    for (const res of ['food', 'wood', 'gold', 'stone']) {
+      if (modCost[res] == null) continue;
+      if (mod.resource === 'all' || mod.resource === res) {
+        if (mod.op === 'multiply') modCost[res] = Math.round(modCost[res] * value);
+        else if (mod.op === 'add') modCost[res] = Math.max(0, modCost[res] + value);
+      }
+    }
+  }
+  const changed = ['food', 'wood', 'gold', 'stone'].some(r => (n.research_cost[r] ?? 0) !== (modCost[r] ?? 0));
+  return changed ? modCost : null;
+}
+
 function showStatsPanel(ev, n) {
   hideTip();
 
@@ -992,30 +1045,46 @@ function showStatsPanel(ev, n) {
   renderStatsGrid(stats, civMod || stats, isUnit, civLabel);
 
   // Coste + tiempo de producción
-  // Compute civ-modified costs for display
   const isBuilding = n.type === 'building' || n.type === 'defencive';
   const rawBuildCost  = n.build_cost  || (isBuilding ? n.cost : null);
   const rawTrainCost  = n.train_cost  || (!isBuilding && n.type !== 'tech' ? n.cost : null);
   const modBuildCost  = rawBuildCost  ? computeModifiedCost(rawBuildCost,  n.id, n.age ?? 0, 'building_cost_modifier') : null;
   const modTrainCost  = rawTrainCost  ? computeModifiedCost(rawTrainCost,  n.id, n.age ?? 0, 'cost_modifier')          : null;
 
+  const timeIcon  = `<img src="img/Icon/reload.webp" class="res-icon" alt="time">`;
+  const trainTime = civMod?.train ?? stats?.train ?? null;
+
   let costHtml = '';
   if (n.build_cost)
     costHtml += `<strong>${t('build_cost')}:</strong> ${costStr(modBuildCost || n.build_cost, modBuildCost ? n.build_cost : null)} `;
-  if (n.research_cost)
-    costHtml += `<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)} `;
-  if (n.train_cost)
-    costHtml += `<strong>${t('train_cost')}:</strong> ${costStr(modTrainCost || n.train_cost, modTrainCost ? n.train_cost : null)} `;
+  if (n.train_cost) {
+    const tStr = trainTime != null ? `  ${timeIcon} ${trainTime}s` : '';
+    costHtml += `<strong>${t('train_cost')}:</strong> ${costStr(modTrainCost || n.train_cost, modTrainCost ? n.train_cost : null)}${tStr} `;
+  }
 
   // Fallback (cost field used when no specific build/train/research_cost)
   if (!costHtml && n.cost) {
     const label = isBuilding ? t('build_cost') : (n.type === 'unit' || n.type === 'upgrade' ? t('train_cost') : t('research_cost'));
     const rawFallback = n.cost;
     const modFallback = isBuilding ? modBuildCost : modTrainCost;
-    costHtml = `<strong>${label}:</strong> ${costStr(modFallback || rawFallback, modFallback ? rawFallback : null)} `;
+    const isTrain = label === t('train_cost');
+    const tStr = isTrain && trainTime != null ? `  ${timeIcon} ${trainTime}s` : '';
+    costHtml = `<strong>${label}:</strong> ${costStr(modFallback || rawFallback, modFallback ? rawFallback : null)}${tStr} `;
   }
 
   document.getElementById('sp-cost').innerHTML = costHtml;
+
+  // Research cost — shown below stats, with civ-reduced values and time
+  const modResearchCost = computeModifiedResearchCost(n);
+  const rcEl = document.getElementById('sp-research-cost');
+  if (n.research_cost) {
+    const rStr = n.research_time != null ? `  ${timeIcon} ${n.research_time}s` : '';
+    rcEl.innerHTML = `<strong>${t('research_cost')}:</strong> ${costStr(modResearchCost || n.research_cost, modResearchCost ? n.research_cost : null)}${rStr}`;
+    rcEl.style.display = 'block';
+  } else {
+    rcEl.innerHTML = '';
+    rcEl.style.display = 'none';
+  }
 
   // Store costs so the tech sim can update them when techs are toggled
   simBaseCost = rawTrainCost || null;
@@ -1221,15 +1290,16 @@ function applyTechsToCost(rawCost, activeTechs) {
 
 function applyTechs(base, activeTechs, unitId = '') {
   const s = {
-    hp:     base.hp,
-    attack: base.attack,          // keep undefined for buildings with no attack
-    armor:  base.armor ? [...base.armor] : [0, 0],
-    range:  base.range,
-    speed:  base.speed,
-    rof:    base.rof,
-    los:    base.los,
-    train:  base.train,           // training time (seconds); reduced by production_speed_pct
-    bonuses: base.bonuses,
+    hp:           base.hp,
+    attack:       base.attack,          // keep undefined for buildings with no attack
+    armor:        base.armor ? [...base.armor] : [0, 0],
+    range:        base.range,
+    speed:        base.speed,
+    rof:          base.rof,
+    blast_radius: base.blast_radius,    // kept undefined for non-siege units
+    los:          base.los,
+    train:        base.train,           // training time (seconds); reduced by production_speed_pct
+    bonuses:      base.bonuses ? base.bonuses.map(b => ({ ...b })) : undefined,
   };
   for (const tid of activeTechs) {
     const mod = TECH_MODIFIERS[tid];
@@ -1247,6 +1317,8 @@ function applyTechs(base, activeTechs, unitId = '') {
       s.speed = +(s.speed * (1 + mod.speed_pct / 100)).toFixed(2);
     if (mod.rof_pct && s.rof !== undefined)
       s.rof = +(s.rof * (1 + mod.rof_pct / 100)).toFixed(2);
+    if (mod.blast_radius != null && s.blast_radius !== undefined)
+      s.blast_radius = +(s.blast_radius + mod.blast_radius).toFixed(2);
 
     // attack_speed_pct: e.g. 20 means attacks 20 % faster → ROF × (1 / 1.20)
     if (mod.attack_speed_pct && s.rof !== undefined)
@@ -1268,6 +1340,18 @@ function applyTechs(base, activeTechs, unitId = '') {
       s.attack = (s.attack ?? 0) + mod.guardtower_attack;
     if (mod.keep_attack && (unitId === 'keep' || unitId === 'donjon' || unitId === 'krepost'))
       s.attack = (s.attack ?? 0) + mod.keep_attack;
+
+    // ── Attack bonuses vs specific targets (e.g. Sappers for Villagers) ──────
+    if (mod.vs_bonuses && s.bonuses) {
+      for (const vb of mod.vs_bonuses) {
+        const existing = s.bonuses.find(b => b.vs === vb.vs);
+        if (existing) {
+          existing.value += vb.add;
+        } else {
+          s.bonuses = [...s.bonuses, { vs: vb.vs, value: vb.add }];
+        }
+      }
+    }
   }
   return s;
 }
@@ -1378,6 +1462,12 @@ function refreshSimCost() {
   const displayCost = techCost || baseCostForTechs;
   const rawCost     = simBaseCost;
 
+  // Current sim train time (base → civ → techs)
+  const simStartFrom = simCivStats || simBaseStats;
+  const simCombined  = simActiveTechs.size > 0 ? applyTechs(simStartFrom, simActiveTechs, n.id ?? '') : simStartFrom;
+  const simTrainTime = simCombined?.train ?? null;
+  const timeIcon     = `<img src="img/Icon/reload.webp" class="res-icon" alt="time">`;
+
   let html = '';
 
   // Build cost (buildings): only civ modifier applies in the sim
@@ -1386,22 +1476,20 @@ function refreshSimCost() {
     html += `<strong>${t('build_cost')}:</strong> ${costStr(modBC || n.build_cost, modBC ? n.build_cost : null)} `;
   }
 
-  // Research cost: not affected by the unit sim techs
-  if (n.research_cost)
-    html += `<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)} `;
-
-  // Train cost: show final cost vs raw baseline
+  // Train cost: show final cost vs raw baseline, plus current train time
   if (n.train_cost && (displayCost || rawCost)) {
     const showCost = displayCost || rawCost;
-    html += `<strong>${t('train_cost')}:</strong> ${costStr(showCost, rawCost)} `;
+    const tStr = simTrainTime != null ? `  ${timeIcon} ${simTrainTime}s` : '';
+    html += `<strong>${t('train_cost')}:</strong> ${costStr(showCost, rawCost)}${tStr} `;
   }
 
   // Fallback (n.cost used when no explicit build/train/research_cost)
   if (!html && n.cost) {
     const label = isBuilding ? t('build_cost') : (n.type === 'unit' || n.type === 'upgrade' ? t('train_cost') : t('research_cost'));
     const showCost = displayCost || rawCost || n.cost;
-    // rawCost may be null for buildings (they use build_cost); pass it as base only when it exists
-    html = `<strong>${label}:</strong> ${costStr(showCost, rawCost || null)} `;
+    const isTrain = label === t('train_cost');
+    const tStr = isTrain && simTrainTime != null ? `  ${timeIcon} ${simTrainTime}s` : '';
+    html = `<strong>${label}:</strong> ${costStr(showCost, rawCost || null)}${tStr} `;
   }
 
   if (html) document.getElementById('sp-cost').innerHTML = html;
@@ -1697,8 +1785,12 @@ const SCOPE_TO_IDS = {
   monk: ['monk'],
   siege: ['mangonel', 'onager', 'siegeonager', 'scorpion', 'heavyscorpion',
     'batteringram', 'cappedram', 'siegeram', 'trebuchet', 'bombcannon'],
-  ship: ['galley', 'wargalley', 'galleon', 'firegalley', 'fastfireship',
-    'demoship', 'heavydemo', 'cannongalleon'],
+  ship: ['galley', 'wargalley', 'galleon', 'firegalley', 'fireship', 'fastfireship',
+    'hulk', 'war_hulk', 'carrack', 'demoraft', 'demoship', 'heavydemo', 'cannongalleon'],
+  // Training-building scopes — used by building_work_speed bonuses
+  tc:   ['villager'],
+  dock: ['galley', 'wargalley', 'galleon', 'firegalley', 'fireship', 'fastfireship',
+    'hulk', 'war_hulk', 'carrack', 'demoraft', 'demoship', 'heavydemo', 'cannongalleon'],
 };
 
 function getBonusAffectedUnits(civ) {

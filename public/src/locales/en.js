@@ -24,6 +24,7 @@ const LOCALE_EN = {
     melee_range:        "Mel.",
     speed:              "SPD",
     rof:                "RoF",
+    blast_r:            "Blast R.",
     los:                "LoS",
     train:              "Train",
     cost:               "Cost",
@@ -57,6 +58,10 @@ const LOCALE_EN = {
     gunpowder:           "Gunpowder",
     elephants:           "Elephants",
     heavy_siege:         "Heavy Siege",
+    fire_ships:          "Fire Ships",
+    long_range_warship:  "Long-range Warship",
+    siege_weapons:       "Siege Weapons",
+    elephant_units:      "Elephant Units",
   },
 
   types: {

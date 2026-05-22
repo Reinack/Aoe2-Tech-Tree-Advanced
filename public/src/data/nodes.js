@@ -91,18 +91,18 @@ export const NODES = [
 
   // ── SIEGE WORKSHOP ──────────────────────────────────────
   { id: 'batteringram', type: 'unit', age: 2, building: 'siege', row: 5, col: 0, prereqs: [], train_cost: { wood: 160, gold: 75 } },
-  { id: 'cappedram', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 0, prereqs: ['batteringram'], research_cost: { wood: 300, gold: 225 }, train_cost: { wood: 160, gold: 75 } },
-  { id: 'siegeram', type: 'upgrade', age: 3, building: 'siege', row: 7, col: 1, prereqs: ['cappedram'], research_cost: { wood: 500, gold: 250 }, train_cost: { wood: 160, gold: 75 } },
+  { id: 'cappedram', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 0, prereqs: ['batteringram'], research_cost: { food: 300 }, research_time: 50, train_cost: { wood: 160, gold: 75 } },
+  { id: 'siegeram', type: 'upgrade', age: 3, building: 'siege', row: 7, col: 1, prereqs: ['cappedram'], research_cost: { food: 1000 }, research_time: 75, train_cost: { wood: 160, gold: 75 } },
   { id: 'mangonel', type: 'unit', age: 2, building: 'siege', row: 5, col: 1, prereqs: [], train_cost: { wood: 160, gold: 135 } },
-  { id: 'onager', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 1, prereqs: ['mangonel'], research_cost: { wood: 375, gold: 200 }, train_cost: { wood: 160, gold: 135 } },
-  { id: 'siegeonager', type: 'upgrade', age: 3, building: 'siege', row: 7, col: 1, prereqs: ['onager'], research_cost: { wood: 850, gold: 750 }, train_cost: { wood: 160, gold: 135 } },
+  { id: 'onager', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 1, prereqs: ['mangonel'], research_cost: { food: 800, gold: 500 }, research_time: 75, train_cost: { wood: 160, gold: 135 } },
+  { id: 'siegeonager', type: 'upgrade', age: 3, building: 'siege', row: 7, col: 1, prereqs: ['onager'], research_cost: { food: 1450, gold: 1000 }, research_time: 150, train_cost: { wood: 160, gold: 135 } },
   { id: 'scorpion', type: 'unit', age: 2, building: 'siege', row: 5, col: 2, prereqs: [], train_cost: { wood: 75, gold: 75 } },
-  { id: 'heavyscorpion', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 2, prereqs: ['scorpion'], research_cost: { wood: 300, gold: 300 }, train_cost: { wood: 75, gold: 75 } },
+  { id: 'heavyscorpion', type: 'upgrade', age: 3, building: 'siege', row: 6, col: 2, prereqs: ['scorpion'], research_cost: { food: 800, wood: 750 }, research_time: 50, train_cost: { wood: 75, gold: 75 } },
   { id: 'bombcannon', type: 'unit', age: 3, building: 'siege', row: 6, col: 3, prereqs: [], train_cost: { wood: 225, gold: 225 } },
   { id: 'siegetower', type: 'unit', age: 2, building: 'siege', row: 5, col: 3, prereqs: [], train_cost: { wood: 200, gold: 160 } },
 
   // ── Siege special / unique ───────────────────────────────
-  { id: 'houfnice', type: 'upgrade', age: 3, building: 'siege', row: 7, col: 3, special: true, variant: 'unique', prereqs: ['bombcannon'], research_cost: { food: 950, gold: 750 }, train_cost: { wood: 225, gold: 225 } },
+  { id: 'houfnice', type: 'upgrade', age: 3, building: 'siege', row: 7, col: 3, special: true, variant: 'unique', prereqs: ['bombcannon'], research_cost: { food: 1100, gold: 800 }, research_time: 140, train_cost: { wood: 225, gold: 225 } },
   { id: 'traction_treb', type: 'unit', age: 3, building: 'siege', row: 6, col: 3, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 175, gold: 210 } },
   { id: 'mounted_treb', type: 'unit', age: 3, building: 'siege', row: 6, col: 3, special: true, variant: 'unique', prereqs: [], train_cost: { wood: 200, gold: 200 } },
   { id: 'rocket_cart', type: 'unit', age: 2, building: 'siege', row: 5, col: 1, special: true, variant: 'regional', prereqs: [], train_cost: { wood: 135, gold: 155 } },
@@ -140,16 +140,16 @@ export const NODES = [
   { id: 'tradecog', type: 'unit', age: 1, building: 'dock', row: 2, col: 5, prereqs: [], train_cost: { wood: 100, gold: 50 } },
 
   { id: 'galley', type: 'unit', age: 1, building: 'dock', row: 2, col: 2, prereqs: [], train_cost: { wood: 90, gold: 30 } },
-  { id: 'wargalley', type: 'upgrade', age: 2, building: 'dock', row: 4, col: 2, prereqs: ['galley'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 90, gold: 30 } },
+  { id: 'wargalley', type: 'upgrade', age: 2, building: 'dock', row: 4, col: 2, prereqs: ['galley', 'medium_warships'], research_cost: { wood: 150, gold: 100 }, research_time: 50, train_cost: { wood: 90, gold: 30 } },
   { id: 'galleon', type: 'upgrade', age: 3, building: 'dock', row: 6, col: 2, prereqs: ['wargalley'], research_cost: { food: 400, gold: 315 }, train_cost: { wood: 90, gold: 30 } },
 
   { id: 'firegalley', type: 'unit', age: 1, building: 'dock', row: 2, col: 1, prereqs: [], train_cost: { wood: 75, gold: 45 } },
   { id: 'fireship', type: 'upgrade', age: 2, building: 'dock', row: 4, col: 1, prereqs: ['firegalley'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 75, gold: 45 } },
   { id: 'fastfireship', type: 'upgrade', age: 3, building: 'dock', row: 6, col: 1, prereqs: ['fireship'], research_cost: { food: 280, gold: 250 }, train_cost: { wood: 75, gold: 45 } },
 
-  { id: 'hulk', type: 'unit', age: 1, building: 'dock', row: 2, col: 3, prereqs: [], train_cost: { wood: 90, gold: 30 } },
-  { id: 'war_hulk', type: 'upgrade', age: 2, building: 'dock', row: 4, col: 3, prereqs: ['hulk'], research_cost: { food: 100, wood: 50 }, train_cost: { wood: 90, gold: 30 } },
-  { id: 'carrack', type: 'upgrade', age: 3, building: 'dock', row: 6, col: 3, prereqs: ['war_hulk'], research_cost: { food: 400, gold: 300 }, train_cost: { wood: 90, gold: 30 } },
+  { id: 'hulk', type: 'unit', age: 1, building: 'dock', row: 2, col: 3, prereqs: [], train_cost: { wood: 75, gold: 35 } },
+  { id: 'war_hulk', type: 'upgrade', age: 2, building: 'dock', row: 4, col: 3, prereqs: ['hulk', 'medium_warships'], research_cost: { wood: 150, gold: 100 }, research_time: 50, train_cost: { wood: 75, gold: 35 } },
+  { id: 'carrack', type: 'upgrade', age: 3, building: 'dock', row: 6, col: 3, prereqs: ['war_hulk'], research_cost: { food: 400, gold: 300 }, train_cost: { wood: 75, gold: 35 } },
 
   { id: 'demoraft', type: 'unit', age: 1, building: 'dock', row: 2, col: 4, prereqs: [], train_cost: { wood: 70, gold: 50 } },
   { id: 'demoship', type: 'upgrade', age: 2, building: 'dock', row: 4, col: 4, prereqs: ['demoraft'], research_cost: { food: 230, gold: 100 }, train_cost: { wood: 70, gold: 50 } },
@@ -186,8 +186,8 @@ export const NODES = [
   { id: 'drydock', type: 'tech', age: 3, building: 'university', row: 6, col: 5, prereqs: ['careening'], research_cost: { food: 200, gold: 400 } },
   { id: 'clinker_construction', type: 'tech', age: 2, building: 'university', row: 5, col: 6, prereqs: [], research_cost: { food: 150, wood: 100 } },
   { id: 'carvel_hull', type: 'tech', age: 3, building: 'university', row: 6, col: 6, prereqs: ['clinker_construction'], research_cost: { food: 150, wood: 100 } },
-  { id: 'siphons', type: 'tech', age: 2, building: 'university', row: 5, col: 7, prereqs: [], research_cost: { food: 100, wood: 175 } },
-  { id: 'incendiaries', type: 'tech', age: 3, building: 'university', row: 6, col: 7, prereqs: ['siphons'], research_cost: { food: 200, gold: 325 } },
+  { id: 'siphons', type: 'tech', age: 2, building: 'university', row: 5, col: 7, prereqs: [], research_cost: { food: 100, gold: 175 }, research_time: 45 },
+  { id: 'incendiaries', type: 'tech', age: 3, building: 'university', row: 6, col: 7, prereqs: ['siphons'], research_cost: { food: 100, gold: 175 }, research_time: 50 },
   { id: 'arrowslits', type: 'tech', age: 3, building: 'university', row: 6, col: 4, prereqs: [], research_cost: { food: 250, wood: 250 } },
   { id: 'shipwright', type: 'tech', age: 3, building: 'university', row: 6, col: 8, prereqs: [], research_cost: { food: 1000, gold: 300 } },
 
@@ -212,7 +212,7 @@ export const NODES = [
 
 
   // ── CASTLE ──────────────────────────────────────────────
-  { id: 'trebuchet', type: 'unit', age: 2, building: 'castle', row: 6, col: 3, prereqs: [], train_cost: { food: 200, gold: 200 } },
+  { id: 'trebuchet', type: 'unit', age: 3, building: 'castle', row: 6, col: 3, prereqs: [], train_cost: { wood: 200, gold: 200 } },
   { id: 'petard', type: 'unit', age: 2, building: 'castle', row: 5, col: 3, prereqs: [], train_cost: { food: 65, gold: 35 } },
   { id: 'uniqueunit', type: 'unique', age: 2, building: 'castle', row: 5, col: 2, prereqs: [], train_cost: { food: 0, gold: 0 } },
   { id: 'eliteunique', type: 'unique', age: 3, building: 'castle', row: 6, col: 2, prereqs: ['uniqueunit'], research_cost: { food: 0, gold: 0 }, train_cost: { food: 0, gold: 0 } },

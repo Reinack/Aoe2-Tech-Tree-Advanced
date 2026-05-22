@@ -162,8 +162,6 @@
     "careening",
     "clinker_construction",
     "carvel_hull",
-    "siphons",
-    "incendiaries",
     "stonewall",
     "watchtower",
     "palisadewall",
