@@ -423,8 +423,7 @@ const ttPrereq = document.getElementById('tt-prereq');
 const ttMissing = document.getElementById('tt-missing');
 
 // Renders a cost object as HTML resource icons.
-// If baseCost is supplied and a resource differs from baseCost, the original value is shown
-// with strikethrough and the modified value is highlighted in green.
+// If baseCost is supplied and a resource value differs, the modified value is shown in green.
 function costStr(c, baseCost = null) {
   if (!c) return '—';
   const p = [];
@@ -439,11 +438,8 @@ function costStr(c, baseCost = null) {
     const base = baseCost?.[key];
     if (!val && !base) continue;
     const icon = `<img src="${src}" class="res-icon" alt="${alt}">`;
-    if (base != null && base !== val) {
-      p.push(`${icon} <del class="sp-cost-old">${base}</del><span class="sp-cost-new">${val}</span>`);
-    } else {
-      p.push(`${icon} ${val ?? 0}`);
-    }
+    const reduced = base != null && base !== val;
+    p.push(`${icon} ${reduced ? `<span class="sp-cost-new">${val}</span>` : (val ?? 0)}`);
   }
   return p.join('  ') || (currentLang === 'es' ? 'Gratis' : 'Free');
 }
@@ -1756,8 +1752,7 @@ function makeEuIcon(id, typeClass) {
 }
 
 // Renders a cost object as HTML resource icons.
-// If baseCost is supplied and a resource differs from baseCost, the original value is shown
-// with strikethrough and the modified value is highlighted in green.
+// If baseCost is supplied and a resource value differs, the modified value is shown in green.
 function costStr(c, baseCost = null) {
   if (!c) return '—';
   const p = [];
@@ -1772,11 +1767,8 @@ function costStr(c, baseCost = null) {
     const base = baseCost?.[key];
     if (!val && !base) continue;
     const icon = `<img src="${src}" class="res-icon" alt="${alt}">`;
-    if (base != null && base !== val) {
-      p.push(`${icon} <del class="sp-cost-old">${base}</del><span class="sp-cost-new">${val}</span>`);
-    } else {
-      p.push(`${icon} ${val ?? 0}`);
-    }
+    const reduced = base != null && base !== val;
+    p.push(`${icon} ${reduced ? `<span class="sp-cost-new">${val}</span>` : (val ?? 0)}`);
   }
   return p.join('  ') || (currentLang === 'es' ? 'Gratis' : 'Free');
 }
