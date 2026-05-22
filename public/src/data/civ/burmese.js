@@ -2,7 +2,11 @@
   "bonuses": [
     // Lumber Camp technologies free
     {
-      "type": "free_tech"
+      "type": "tech_cost_modifier",
+      "scope": "lumber",
+      "resource": "all",
+      "op": "multiply",
+      "value": 0
     },
     // Infantry +1/+2/+3 attack in Feudal/Castle/Imperial Age
     {
@@ -17,10 +21,16 @@
     {
       "type": "stat_modifier",
       "scope": "battle_elephant",
-      "stat": "armor_melee_and_pierce",
+      "stat": "armor_melee",
       "op": "add",
-      "value_melee": 1,
-      "value_pierce": 1
+      "value": 1
+    },
+    {
+      "type": "stat_modifier",
+      "scope": "battle_elephant",
+      "stat": "armor_pierce",
+      "op": "add",
+      "value": 1
     },
     // Monastery technologies cost -50%
     {

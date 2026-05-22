@@ -78,6 +78,7 @@ const CIV_BONUS_SCOPE_MAP = {
   eagle:           () => ['eaglescout','eaglewarrior','eliteeagle'],
   trade:           () => ['tradecart','tradecog'],
   elephant:        () => ['battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
+  battle_elephant: () => ['battleeleph','eliteeleph'],
   // "Barracks and Stable Units" — infantry + non-camel cavalry
   barracks_stable: () => [...(UNIT_CLASSES['infantry'] || []), ...(UNIT_CLASSES['cavalry'] || [])],
   // All military units — used for creation_speed bonuses (Aztecs, Gurjaras)
