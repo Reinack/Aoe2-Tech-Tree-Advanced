@@ -21,7 +21,8 @@
       "scope": "cavalry",
       "stat": "regen",
       "op": "add",
-      "value": 14
+      "value_by_age": [0, 2, 8, 14],
+      "min_age": 1
     },
     // Fortified Churches provide Villagers in a 9-tile radius with +10% work rate
     {
@@ -29,8 +30,7 @@
       "scope": "fortified_church",
       "op": "multiply",
       "value": 1.1
-    },
-    "house",
+    }
   ],
   // Team bonus: Building repairs cost -25%
   "teamBonus": {

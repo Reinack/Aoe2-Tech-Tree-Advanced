@@ -31,8 +31,7 @@
       "stat": "hp",
       "op": "multiply",
       "value": 2
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "stat_modifier",

@@ -6,7 +6,7 @@
       "scope": "building",
       "stat": "hp",
       "op": "multiply",
-      "value": 1.4
+      "value_by_age": [1.10, 1.20, 1.30, 1.40]
     },
     // Camel Riders cost -25%
     {

@@ -26,8 +26,7 @@
       "stat": "hp",
       "op": "multiply",
       "value": 1.25
-    },
-    "house",
+    }
   ],
   // Team bonus: Gunpowder Units train +25% faster
   "teamBonus": {

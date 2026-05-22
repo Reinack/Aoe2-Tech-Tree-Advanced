@@ -30,8 +30,7 @@
       "stat": "rof",
       "op": "multiply",
       "value": 0.75
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "building_work_speed",

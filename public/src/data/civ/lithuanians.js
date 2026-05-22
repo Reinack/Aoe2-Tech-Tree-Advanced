@@ -32,8 +32,7 @@
       "op": "add",
       "value_per_relic": 1,
       "max": 4
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "building_work_speed",

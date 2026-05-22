@@ -14,7 +14,8 @@
       "scope": "infantry",
       "stat": "regen",
       "op": "add",
-      "value": 30
+      "value_by_age": [0, 10, 15, 30],
+      "min_age": 1
     },
     // Jian Swordsmen and Hei Guang Cavalry +2 attack in Imperial Age
     {

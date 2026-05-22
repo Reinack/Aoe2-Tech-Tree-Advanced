@@ -40,8 +40,7 @@
       "scope": "chemistry",
       "op": "add",
       "value": -1
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "building_work_speed",

@@ -6,7 +6,7 @@
       "scope": "villager",
       "stat": "speed",
       "op": "multiply",
-      "value": 1.10
+      "value_by_age": [1.05, 1.10, 1.10, 1.10]
     },
     // Stable Units cost -15/20% in Castle/Imperial Age
     {

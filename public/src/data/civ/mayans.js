@@ -29,8 +29,7 @@
       "resource": "all",
       "op": "multiply",
       "value": 0.9
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "building_cost_modifier",

@@ -30,8 +30,7 @@
       "op": "multiply",
       "value_by_age": [1.0, 1.10, 1.15, 1.20],
       "min_age": 1
-    },
-    "house",
+    }
   ],
   "teamBonus": {
     "type": "building_work_speed",

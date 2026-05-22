@@ -25,8 +25,7 @@
     // Pikeman upgrade free
     {
       "type": "free_tech"
-    },
-    "house",
+    }
   ],
   // Team bonus: Outposts +3 line of sight and cost no stone
   "teamBonus": {

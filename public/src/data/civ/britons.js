@@ -21,7 +21,8 @@
       "scope": "foot_archer",
       "stat": "range",
       "op": "add",
-      "value": 2
+      "value_by_age": [0, 0, 1, 2],
+      "min_age": 2
     }
   ],
   // Team bonus: Archery Ranges work +10% faster
