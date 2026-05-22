@@ -1034,8 +1034,11 @@ function renderSimBody() {
 
   const chipsEl = document.getElementById('sp-sim-chips');
   chipsEl.innerHTML = filtered.map(techId => {
-    const img = IMG_MAP[techId];
-    const node = NODES.find(n => n.id === techId);
+    // Civ-specific unique tech IDs (e.g. 'britons_uniquetech1') have no direct
+    // IMG_MAP entry — fall back to the generic slot key ('uniquetech1'/'uniquetech2').
+    const slotKey = techId.replace(/^.+_(uniquetech[12])$/, '$1');
+    const img  = IMG_MAP[techId] || IMG_MAP[slotKey];
+    const node = NODES.find(n => n.id === techId) || NODES.find(n => n.id === slotKey);
     const name = node ? tData(node, 'name', 'techs') : techId;
     const active = simActiveTechs.has(techId);
     return `<button class="sim-tech-chip${active ? ' active' : ''}" data-tech="${techId}" title="${name}">
