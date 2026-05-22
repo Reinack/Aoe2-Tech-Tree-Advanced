@@ -1021,6 +1021,10 @@ function showStatsPanel(ev, n) {
 
   document.getElementById('sp-cost').innerHTML = costHtml;
 
+  // Store costs so the tech sim can update them when techs are toggled
+  simBaseCost = rawTrainCost || null;
+  simCivCost  = modTrainCost || null;
+
   // Build efficiency chart + repair cost (buildings / defensive structures only)
   const bldEffEl = document.getElementById('sp-build-efficiency');
   if (isBuilding) {
@@ -1120,12 +1124,14 @@ function showStatsPanel(ev, n) {
 // TECH SIMULATOR
 // ═══════════════════════════════════════════════════════════
 
-let simUnit = null;
+let simUnit       = null;
 let simActiveTechs = new Set();
-let simMaxAge = 3;
-let simExpanded = false;
-let simBaseStats = null;   // raw stats before any bonuses
-let simCivStats  = null;   // after civ stat_modifier bonuses
+let simMaxAge      = 3;
+let simExpanded    = false;
+let simBaseStats   = null;   // raw unit stats (before any bonuses)
+let simCivStats    = null;   // stats after civ stat_modifier bonuses
+let simBaseCost    = null;   // raw unit train cost (before any bonuses)
+let simCivCost     = null;   // train cost after civ cost_modifier bonuses
 
 function getApplicableTechs(unitId) {
   // For unique unit slots, resolve actual class membership from the civ's UU
@@ -1162,6 +1168,59 @@ function getApplicableTechs(unitId) {
     if (hits) applicable.push(techId);
   }
   return applicable;
+}
+
+// Applies active tech cost modifiers to a cost object.
+// Returns a modified copy if anything changed, otherwise null.
+function applyTechsToCost(rawCost, activeTechs) {
+  if (!rawCost || activeTechs.size === 0) return null;
+
+  const c = { ...rawCost };
+  let modified = false;
+
+  for (const tid of activeTechs) {
+    const mod = TECH_MODIFIERS[tid];
+    if (!mod) continue;
+
+    // ── All-resource percentage reduction (cost_pct, trade_cost_pct) ─────────
+    const allPct = mod.cost_pct ?? mod.trade_cost_pct;
+    if (allPct != null) {
+      const mult = 1 + allPct / 100;
+      for (const r of ['food', 'wood', 'gold', 'stone']) {
+        if (c[r] != null) { c[r] = Math.max(0, Math.round(c[r] * mult)); modified = true; }
+      }
+    }
+
+    // ── Per-resource percentage reductions ────────────────────────────────────
+    if (mod.food_cost_pct  != null && c.food  != null) {
+      c.food  = Math.max(0, Math.round(c.food  * (1 + mod.food_cost_pct  / 100))); modified = true;
+    }
+    if (mod.wood_cost_pct  != null && c.wood  != null) {
+      c.wood  = Math.max(0, Math.round(c.wood  * (1 + mod.wood_cost_pct  / 100))); modified = true;
+    }
+    if (mod.gold_cost_pct  != null && c.gold  != null) {
+      c.gold  = Math.max(0, Math.round(c.gold  * (1 + mod.gold_cost_pct  / 100))); modified = true;
+    }
+    if (mod.stone_cost_pct != null && c.stone != null) {
+      c.stone = Math.max(0, Math.round(c.stone * (1 + mod.stone_cost_pct / 100))); modified = true;
+    }
+
+    // ── Gold → Food (Magyar Corvinian Army, Malay Forced Levy, Bohemians Hussite Reforms) ─
+    if (mod.replace_gold_with_food && c.gold) {
+      c.food = (c.food || 0) + c.gold;
+      c.gold = 0;
+      modified = true;
+    }
+
+    // ── Gold → Wood (Persian Kamandaran — gold replaced by approx. equivalent wood) ────────
+    if (mod.replace_gold_with_wood && c.gold) {
+      c.wood = (c.wood || 0) + c.gold;
+      c.gold = 0;
+      modified = true;
+    }
+  }
+
+  return modified ? c : null;
 }
 
 function applyTechs(base, activeTechs, unitId = '') {
@@ -1307,6 +1366,49 @@ function refreshSimStats() {
   }
 
   renderStatsGrid(simBaseStats, combined, isUnit, label);
+  refreshSimCost();
+}
+
+// Rebuilds #sp-cost to reflect both civ bonuses and currently active sim techs.
+function refreshSimCost() {
+  if (!simUnit) return;
+  const n = simUnit;
+  const isBuilding = n.type === 'building' || n.type === 'defencive';
+
+  // Chain: raw → civ bonus → tech bonus
+  const baseCostForTechs = simCivCost || simBaseCost;
+  const techCost = applyTechsToCost(baseCostForTechs, simActiveTechs);
+  // Final displayed cost; raw cost is the baseline for strikethrough deltas
+  const displayCost = techCost || baseCostForTechs;
+  const rawCost     = simBaseCost;
+
+  let html = '';
+
+  // Build cost (buildings): only civ modifier applies in the sim
+  if (n.build_cost) {
+    const modBC = computeModifiedCost(n.build_cost, n.id, n.age ?? 0, 'building_cost_modifier');
+    html += `<strong>${t('build_cost')}:</strong> ${costStr(modBC || n.build_cost, modBC ? n.build_cost : null)} `;
+  }
+
+  // Research cost: not affected by the unit sim techs
+  if (n.research_cost)
+    html += `<strong>${t('research_cost')}:</strong> ${costStr(n.research_cost)} `;
+
+  // Train cost: show final cost vs raw baseline
+  if (n.train_cost && (displayCost || rawCost)) {
+    const showCost = displayCost || rawCost;
+    html += `<strong>${t('train_cost')}:</strong> ${costStr(showCost, rawCost)} `;
+  }
+
+  // Fallback (n.cost used when no explicit build/train/research_cost)
+  if (!html && n.cost) {
+    const label = isBuilding ? t('build_cost') : (n.type === 'unit' || n.type === 'upgrade' ? t('train_cost') : t('research_cost'));
+    const showCost = displayCost || rawCost || n.cost;
+    // rawCost may be null for buildings (they use build_cost); pass it as base only when it exists
+    html = `<strong>${label}:</strong> ${costStr(showCost, rawCost || null)} `;
+  }
+
+  if (html) document.getElementById('sp-cost').innerHTML = html;
 }
 
 document.getElementById('sp-sim-toggle').addEventListener('click', () => {

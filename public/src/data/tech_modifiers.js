@@ -19,8 +19,14 @@
 //   trample_damage_pct          Trample damage as % of base attack
 //   trample_radius              Trample blast radius (tiles)
 //   regeneration_per_minute     HP regeneration per minute
-//   replace_gold_with_food      Gold cost replaced by food cost
-//   replace_gold_with_wood      Gold cost replaced by wood cost
+//   cost_pct                    All-resource cost % change  (-15 = −15 % all resources)
+//   food_cost_pct               Food cost % change
+//   wood_cost_pct               Wood cost % change
+//   gold_cost_pct               Gold cost % change
+//   stone_cost_pct              Stone cost % change
+//   trade_cost_pct              Trade unit cost % change
+//   replace_gold_with_food      Gold cost replaced by food cost (1:1)
+//   replace_gold_with_wood      Gold cost replaced by wood cost (approx. 1:1)
 //   ignore_armor                Attacks ignore armor
 //   minimum_range               Minimum attack range override (0 = no minimum)
 //   accuracy_vs_stationary      Accuracy vs stationary targets (%)
