@@ -28,7 +28,15 @@
       "Bash(xargs -I{} basename {} .js)",
       "Bash(ls \"C:\\\\Users\\\\Usuario\\\\.claude\\\\projects\\\\D--Practicas-AOE\\\\\" 2>&1)",
       "Bash(ls /mnt/c/Users/Usuario/.claude/projects/D--Practicas-AOE/)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(node --input-type=module)",
+      "Bash(node --input-type=module --eval \"import './public/src/data/tech_effects.js'; console.log\\('tech_effects OK'\\);\")",
+      "Bash(node --input-type=module --eval \"import './public/src/data/tech_modifiers.js'; console.log\\('tech_modifiers OK'\\);\")",
+      "Bash(grep -n '\"mangonel\"\\\\|\"onager\"\\\\|\"siegeonager\"' D:/Practicas/AOE/public/src/data/civ/__TRACKED_VAR__.js)",
+      "Bash(Remove-Item \"D:\\\\Practicas\\\\AOE\\\\public\\\\src\\\\data\\\\tech_effects.js\" -Force)",
+      "Bash(Remove-Item \"D:\\\\Practicas\\\\AOE\\\\public\\\\src\\\\data\\\\tech_modifiers.js\" -Force)",
+      "Bash(Write-Output \"Deleted\")",
+      "Bash(git rm *)"
     ]
   }
 }
