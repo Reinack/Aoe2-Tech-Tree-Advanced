@@ -170,6 +170,16 @@ function applyTechs(base, activeTechs, unitId = '') {
   return s;
 }
 
+// Recomputes simCivStats / simCivCost based on the simulator's currently selected age.
+// Called on unit open and whenever the age selector changes.
+function recomputeSimCivBonuses() {
+  if (!simUnit || !simBaseStats) return;
+  simCivStats = computeCivModifiedStats(simBaseStats, simUnit.id, simMaxAge, simUnit.building ?? null);
+  simCivCost  = simBaseCost
+    ? computeModifiedCost(simBaseCost, simUnit.id, simMaxAge, 'cost_modifier')
+    : null;
+}
+
 function initSim(unitNode) {
   if (simUnit?.id !== unitNode.id) simMaxAge = 3;
   simUnit = unitNode;
@@ -179,6 +189,7 @@ function initSim(unitNode) {
     simEl.style.display = 'none';
     return;
   }
+  recomputeSimCivBonuses();
   simEl.style.display = 'block';
   updateSimToggleLabel();
   renderSimBody();
@@ -323,6 +334,7 @@ document.getElementById('sp-sim-ages').addEventListener('click', e => {
     const node = NODES.find(n => n.id === tid);
     if (node && node.age > simMaxAge) simActiveTechs.delete(tid);
   });
+  recomputeSimCivBonuses();
   if (simUnit) renderSimBody();
 });
 
