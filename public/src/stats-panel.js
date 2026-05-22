@@ -584,11 +584,11 @@ function showStatsPanel(ev, n) {
   // Afecta a (solo para tecnologías)
   const appEl = document.getElementById('sp-applies');
   if (n.type === 'tech' || n.type === 'upgrade' || n.type === 'unique') {
-    let affects = TECH_AFFECTS[n.id] || [];
+    let affects = TECHS[n.id]?.affects || [];
     // Si es una tecnología única genérica, buscar la específica de la civ
     if (n.id === 'uniquetech1' || n.id === 'uniquetech2') {
       const compositeId = `${currentCiv}_${n.id}`;
-      if (TECH_AFFECTS[compositeId]) affects = TECH_AFFECTS[compositeId];
+      if (TECHS[compositeId]?.affects) affects = TECHS[compositeId].affects;
     }
 
     if (affects.length > 0) {

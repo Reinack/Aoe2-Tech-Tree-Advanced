@@ -26,7 +26,7 @@ function getApplicableTechs(unitId) {
     .concat(extraClasses);
 
   const applicable = [];
-  for (const [techId, targets] of Object.entries(TECH_AFFECTS)) {
+  for (const [techId, entry] of Object.entries(TECHS)) {
     // Civ-specific unique techs (e.g. 'britons_uniquetech1') are not nodes in the tree.
     // They're available only if they belong to the current civ.
     const civMatch = techId.match(/^(.+)_uniquetech[12]$/);
@@ -34,9 +34,10 @@ function getApplicableTechs(unitId) {
       if (civMatch[1] !== currentCiv) continue;
     } else if (isMissing(techId)) continue;
 
-    const mod = TECH_MODIFIERS[techId];
+    const mod = entry.mod;
     if (!mod || Object.keys(mod).length === 0) continue;
 
+    const targets = entry.affects || [];
     const hits = targets.some(target => {
       if (target === unitId) return true;
       if (unitClasses.includes(target)) return true;
@@ -57,7 +58,7 @@ function applyTechsToCost(rawCost, activeTechs) {
   let modified = false;
 
   for (const tid of activeTechs) {
-    const mod = TECH_MODIFIERS[tid];
+    const mod = TECHS[tid]?.mod;
     if (!mod) continue;
 
     // ── All-resource percentage reduction (cost_pct, trade_cost_pct) ─────────
@@ -115,7 +116,7 @@ function applyTechs(base, activeTechs, unitId = '') {
     bonuses:      base.bonuses ? base.bonuses.map(b => ({ ...b })) : undefined,
   };
   for (const tid of activeTechs) {
-    const mod = TECH_MODIFIERS[tid];
+    const mod = TECHS[tid]?.mod;
     if (!mod) continue;
 
     // ── Standard stat deltas ────────────────────────────────────────────────

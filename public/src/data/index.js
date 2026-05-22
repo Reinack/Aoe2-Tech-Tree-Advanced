@@ -7,8 +7,7 @@ const BUILDINGS = NODES.filter(n => n.type === 'building');
 const DEFENSIVES = NODES.filter(n => n.type === 'defencive');
 import { UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS } from './units.js';
 import { IMG_MAP } from './img_map.js';
-import { UNIT_CLASSES, UNIQUE_UNIT_CLASSES, TECH_AFFECTS } from './tech_effects.js';
-import { TECH_MODIFIERS } from './tech_modifiers.js';
+import { UNIT_CLASSES, UNIQUE_UNIT_CLASSES, TECHS } from './tech_data.js';
 
 // ── CIVILIZATIONS INDEX ──────────────────────────────────────────────
 // Re-export all civ definitions from data/civ/
@@ -138,8 +137,7 @@ window.IMG_MAP = IMG_MAP;
 window.CIVS = CIVS;
 window.UNIT_CLASSES = UNIT_CLASSES;
 window.UNIQUE_UNIT_CLASSES = UNIQUE_UNIT_CLASSES;
-window.TECH_AFFECTS = TECH_AFFECTS;
-window.TECH_MODIFIERS = TECH_MODIFIERS;
+window.TECHS = TECHS;
 
 export default CIVS;
 export { AGES, AGE_COLORS, BUILDINGS, DEFENSIVES, NODES, UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS, IMG_MAP, CIVS };
