@@ -555,19 +555,34 @@ const STAT_ICONS = {
   los:           'img/Icon/los.webp',
 };
 
+// All building node IDs that can appear in the tech tree or stats panel
+const ALL_BUILDING_IDS = [
+  // Production
+  'barracks', 'archery', 'stable', 'siege', 'dock', 'harbor',
+  'university', 'monastery', 'fortified_church', 'castle', 'krepost', 'donjon', 'blacksmith',
+  // Economic
+  'tc', 'market', 'mill', 'lumber', 'mining', 'house', 'folwark', 'tahsili', 'mulecart', 'pasture',
+  'feitoria', 'caravanserai',
+  // Defense
+  'outpost', 'watchtower', 'guardtower', 'keep', 'bombardtower',
+  'palisadewall', 'palisadegate', 'stonewall', 'gate', 'fortifiedwall',
+  // Other
+  'wonder',
+];
+
 // Maps civ bonus scope names → unit ID lists for stat modifier lookup
 const CIV_BONUS_SCOPE_MAP = {
-  infantry:        () => UNIT_CLASSES['infantry']      || [],
-  cavalry:         () => UNIT_CLASSES['cavalry']       || [],
-  cavalry_archer:  () => UNIT_CLASSES['mounted_archer']|| [],
-  foot_archer:     () => UNIT_CLASSES['foot_archer']   || [],
-  ship:            () => UNIT_CLASSES['navy']          || [],
-  gunpowder:       () => UNIT_CLASSES['gunpowder']     || [],
-  siege:           () => UNIT_CLASSES['siege']         || [],
+  // ── Military units ──────────────────────────────────────────────────────────
+  infantry:        () => UNIT_CLASSES['infantry']       || [],
+  cavalry:         () => UNIT_CLASSES['cavalry']        || [],
+  cavalry_archer:  () => UNIT_CLASSES['mounted_archer'] || [],
+  foot_archer:     () => UNIT_CLASSES['foot_archer']    || [],
+  ship:            () => UNIT_CLASSES['navy']           || [],
+  gunpowder:       () => UNIT_CLASSES['gunpowder']      || [],
+  siege:           () => UNIT_CLASSES['siege']          || [],
   light_cavalry:   () => ['scout','lightcav','hussar','winged_hussar'],
   steppe_lancer:   () => ['steppe_lancer','elite_steppe_lancer'],
-  villager:        () => ['villager'],
-  monk:            () => UNIT_CLASSES['religious']     || [],
+  monk:            () => UNIT_CLASSES['religious']      || [],
   unique_unit:     () => ['uniqueunit','eliteunique'],
   camel:           () => ['camel','heavycamel','imp_camel'],
   eagle:           () => ['eaglescout','eaglewarrior','eliteeagle'],
@@ -575,6 +590,38 @@ const CIV_BONUS_SCOPE_MAP = {
   elephant:        () => ['battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
   // "Barracks and Stable Units" — infantry + non-camel cavalry
   barracks_stable: () => [...(UNIT_CLASSES['infantry'] || []), ...(UNIT_CLASSES['cavalry'] || [])],
+  // ── Civilian units ──────────────────────────────────────────────────────────
+  villager:        () => ['villager'],
+  // Villager sub-roles all map to the villager node (work-speed bonuses)
+  farmer:          () => ['villager'],
+  lumberjack:      () => ['villager'],
+  shepherd:        () => ['villager'],
+  hunter:          () => ['villager'],
+  forager:         () => ['villager'],
+  fisher:          () => ['villager'],
+  stone_miner:     () => ['villager'],
+  gold_miner:      () => ['villager'],
+  miner:           () => ['villager'],
+  builder:         () => ['villager'],
+  // ── Ships (specific sub-groups) ─────────────────────────────────────────────
+  galley:          () => ['galley','wargalley','galleon'],
+  transport_ship:  () => ['transportship'],
+  // ── Buildings ───────────────────────────────────────────────────────────────
+  building:        () => ALL_BUILDING_IDS,
+  tc:              () => ['tc'],
+  tc_tower:        () => ['tc', ...(UNIT_CLASSES['towers'] || [])],
+  tc_dock:         () => ['tc', 'dock', 'harbor'],
+  tower:           () => UNIT_CLASSES['towers']      || [],
+  castle:          () => UNIT_CLASSES['castles']     || [],
+  dock:            () => ['dock', 'harbor'],
+  // Units + buildings (e.g. Georgian elevation damage reduction)
+  unit_building:   () => [
+    ...(UNIT_CLASSES['infantry'] || []), ...(UNIT_CLASSES['cavalry'] || []),
+    ...(UNIT_CLASSES['foot_archer'] || []), ...(UNIT_CLASSES['mounted_archer'] || []),
+    ...(UNIT_CLASSES['navy'] || []), ...(UNIT_CLASSES['siege'] || []),
+    ...(UNIT_CLASSES['religious'] || []), 'villager',
+    ...ALL_BUILDING_IDS,
+  ],
 };
 
 // Returns stats after applying current civ's stat_modifier bonuses, or null if none apply.
@@ -613,15 +660,16 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0) {
     // Skip neutral values: multiply by 1 = no change, add 0 = no change
     if (op === 'multiply' ? value === 1 : value === 0) continue;
 
-    if (stat === 'hp')           { m.hp       = op === 'multiply' ? Math.round(m.hp       * value) : m.hp       + value; }
-    if (stat === 'attack')       { m.attack   = op === 'multiply' ? Math.round(m.attack   * value) : m.attack   + value; }
-    if (stat === 'armor')        { m.armor    = m.armor.map(a => op === 'multiply' ? Math.round(a * value) : a + value); }
-    if (stat === 'armor_melee')  { m.armor[0] = op === 'multiply' ? Math.round(m.armor[0] * value) : m.armor[0] + value; }
-    if (stat === 'armor_pierce') { m.armor[1] = op === 'multiply' ? Math.round(m.armor[1] * value) : m.armor[1] + value; }
-    if (stat === 'range')        { m.range    = op === 'multiply' ? +(m.range  * value).toFixed(1) : m.range    + value; }
-    if (stat === 'speed')        { m.speed    = op === 'multiply' ? +(m.speed  * value).toFixed(2) : m.speed    + value; }
-    if (stat === 'rof')          { m.rof      = op === 'multiply' ? +(m.rof    * value).toFixed(2) : m.rof      + value; }
-    if (stat === 'los')          { m.los      = op === 'multiply' ? Math.round(m.los      * value)  : m.los      + value; }
+    const apply = (cur, v) => op === 'multiply' ? cur * v : cur + v;
+    if (stat === 'hp')           { m.hp       = Math.round(apply(m.hp       ?? 0, value)); }
+    if (stat === 'attack')       { m.attack   = Math.round(apply(m.attack   ?? 0, value)); }
+    if (stat === 'armor')        { m.armor    = m.armor.map(a => Math.round(apply(a, value))); }
+    if (stat === 'armor_melee')  { m.armor[0] = Math.round(apply(m.armor[0], value)); }
+    if (stat === 'armor_pierce') { m.armor[1] = Math.round(apply(m.armor[1], value)); }
+    if (stat === 'range' && m.range  !== undefined) { m.range = +(apply(m.range, value)).toFixed(1); }
+    if (stat === 'speed' && m.speed  !== undefined) { m.speed = +(apply(m.speed, value)).toFixed(2); }
+    if (stat === 'rof'   && m.rof    !== undefined) { m.rof   = +(apply(m.rof,   value)).toFixed(2); }
+    if (stat === 'los')          { m.los = Math.round(apply(m.los ?? 0, value)); }
   }
 
   return m;
@@ -669,17 +717,23 @@ function renderStatsGrid(rawStats, displayStats, isUnit, activeLabel) {
   const B = rawStats;      // baseline for deltas
   const D = displayStats;  // what to display
   const d = (bv, dv) => (dv !== undefined && dv !== null && dv !== bv) ? dv : undefined;
+  // Helper: only render a stat row when the base value exists
+  const maybeRow = (icon, label, bv, dv, rofMode = false) => {
+    if (bv === undefined || bv === null) return '';
+    return statRow(icon, label, bv, dv, rofMode);
+  };
 
   const rows = [];
-  rows.push(statRow(statIcon('hp'),     t('hp'),            B.hp       ?? '—', d(B.hp,        D.hp)));
+  rows.push(statRow(statIcon('hp'),    t('hp'),         B.hp         ?? '—', d(B.hp,         D.hp)));
   if (isUnit || B.attack !== undefined)
-    rows.push(statRow(statIcon('attack'), t('attack'),       B.attack   ?? '—', d(B.attack,    D.attack)));
-  rows.push(statRow(statIcon('armor'),  t('armor_m'),        B.armor?.[0] ?? '—', d(B.armor?.[0], D.armor?.[0])));
-  rows.push(statRow(statIcon('parmor'), t('armor_p'),        B.armor?.[1] ?? '—', d(B.armor?.[1], D.armor?.[1])));
-  rows.push(statRow(statIcon('range'),  t('range'),          B.range    ?? '—', d(B.range,     D.range)));
-  rows.push(statRow(statIcon('speed'),  t('speed'),          B.speed    ?? '—', d(B.speed,     D.speed)));
-  rows.push(statRow(statIcon('rof'),    t('rof') || 'ROF',   B.rof      ?? '—', d(B.rof,       D.rof), true));
-  rows.push(statRow(statIcon('los'),    t('los'),            B.los      ?? '—', d(B.los,       D.los)));
+    rows.push(statRow(statIcon('attack'), t('attack'),  B.attack     ?? '—', d(B.attack,     D.attack)));
+  rows.push(statRow(statIcon('armor'), t('armor_m'),    B.armor?.[0] ?? '—', d(B.armor?.[0], D.armor?.[0])));
+  rows.push(statRow(statIcon('parmor'),t('armor_p'),    B.armor?.[1] ?? '—', d(B.armor?.[1], D.armor?.[1])));
+  // Range / Speed / ROF / LOS: only render if the unit/building actually has the stat
+  rows.push(maybeRow(statIcon('range'), t('range'),     B.range,               d(B.range,     D.range)));
+  rows.push(maybeRow(statIcon('speed'), t('speed'),     B.speed,               d(B.speed,     D.speed)));
+  rows.push(maybeRow(statIcon('rof'),   t('rof')||'ROF',B.rof,                 d(B.rof,       D.rof), true));
+  rows.push(maybeRow(statIcon('los'),   t('los'),       B.los,                 d(B.los,       D.los)));
 
   if (B.bonuses?.length) {
     for (const b of B.bonuses) {
@@ -723,7 +777,9 @@ function showStatsPanel(ev, n) {
   const stats = getStatsForNode(n);
   // Compute civ bonuses — pass unit's age so min_age restrictions are respected
   const civMod = stats ? computeCivModifiedStats(stats, n.id, n.age ?? 0) : null;
-  const isUnit = n.type === 'unit' || n.type === 'upgrade' || n.id === 'uniqueunit' || n.id === 'eliteunique';
+  // isUnit: show attack row even when base attack is 0 (units always have an attack stat)
+  const isUnit = n.type === 'unit' || n.type === 'upgrade'
+    || n.id === 'uniqueunit' || n.id === 'eliteunique';
 
   // Store for sim: clear active techs only when switching unit
   if (!simUnit || simUnit.id !== n.id) simActiveTechs.clear();
@@ -831,9 +887,10 @@ function showStatsPanel(ev, n) {
   statsPanel.classList.remove('sp-animate');
   requestAnimationFrame(() => statsPanel.classList.add('sp-animate'));
 
-  // Show simulator only for units/upgrades
+  // Show simulator for units, upgrades, buildings, and defensive structures
   const isSimulable = n.type === 'unit' || n.type === 'upgrade'
-    || n.id === 'uniqueunit' || n.id === 'eliteunique';
+    || n.id === 'uniqueunit' || n.id === 'eliteunique'
+    || n.type === 'building' || n.type === 'defencive';
   if (isSimulable) initSim(n);
   else document.getElementById('sp-tech-sim').style.display = 'none';
 }
@@ -886,12 +943,12 @@ function getApplicableTechs(unitId) {
   return applicable;
 }
 
-function applyTechs(base, activeTechs) {
+function applyTechs(base, activeTechs, unitId = '') {
   const s = {
     hp:     base.hp,
-    attack: base.attack ?? 0,
-    armor:  [...(base.armor || [0, 0])],
-    range:  base.range ?? 0,
+    attack: base.attack,          // keep undefined for buildings with no attack
+    armor:  base.armor ? [...base.armor] : [0, 0],
+    range:  base.range,
     speed:  base.speed,
     rof:    base.rof,
     los:    base.los,
@@ -900,16 +957,36 @@ function applyTechs(base, activeTechs) {
   for (const tid of activeTechs) {
     const mod = TECH_MODIFIERS[tid];
     if (!mod) continue;
-    if (mod.hp)           s.hp      += mod.hp;
-    if (mod.hp_pct)       s.hp       = Math.round(s.hp * (1 + mod.hp_pct / 100));
-    if (mod.attack)       s.attack  += mod.attack;
-    if (mod.attack_pct)   s.attack   = Math.round(s.attack * (1 + mod.attack_pct / 100));
-    if (mod.armor_melee)  s.armor[0]+= mod.armor_melee;
-    if (mod.armor_pierce) s.armor[1]+= mod.armor_pierce;
-    if (mod.range)        s.range   += mod.range;
-    if (mod.speed_pct)    s.speed    = +(s.speed * (1 + mod.speed_pct / 100)).toFixed(2);
-    if (mod.rof_pct)      s.rof      = +(s.rof   * (1 + mod.rof_pct   / 100)).toFixed(2);
-    if (mod.los)          s.los     += mod.los;
+
+    // ── Standard stat deltas ────────────────────────────────────────────────
+    if (mod.hp)           s.hp       = (s.hp ?? 0) + mod.hp;
+    if (mod.hp_pct)       s.hp       = Math.round((s.hp ?? 0) * (1 + mod.hp_pct / 100));
+    if (mod.attack_pct)   s.attack   = Math.round((s.attack ?? 0) * (1 + mod.attack_pct / 100));
+    if (mod.armor_melee)  s.armor[0] += mod.armor_melee;
+    if (mod.armor_pierce) s.armor[1] += mod.armor_pierce;
+    if (mod.range  && s.range  !== undefined) s.range  += mod.range;
+    if (mod.los    && s.los    !== undefined) s.los    += mod.los;
+    if (mod.speed_pct && s.speed !== undefined)
+      s.speed = +(s.speed * (1 + mod.speed_pct / 100)).toFixed(2);
+    if (mod.rof_pct && s.rof !== undefined)
+      s.rof = +(s.rof * (1 + mod.rof_pct / 100)).toFixed(2);
+
+    // attack_speed_pct: e.g. 20 means attacks 20 % faster → ROF × (1 / 1.20)
+    if (mod.attack_speed_pct && s.rof !== undefined)
+      s.rof = +(s.rof / (1 + mod.attack_speed_pct / 100)).toFixed(2);
+
+    // ── Attack: flat (general + tower-specific) ──────────────────────────────
+    // General flat attack (archers, siege, navy, etc.)
+    if (mod.attack && !mod.watchtower_attack) {
+      s.attack = (s.attack ?? 0) + mod.attack;
+    }
+    // Tower-specific attack from Arrowslits (different bonus per tower tier)
+    if (mod.watchtower_attack && unitId === 'watchtower')
+      s.attack = (s.attack ?? 0) + mod.watchtower_attack;
+    if (mod.guardtower_attack && unitId === 'guardtower')
+      s.attack = (s.attack ?? 0) + mod.guardtower_attack;
+    if (mod.keep_attack && (unitId === 'keep' || unitId === 'donjon' || unitId === 'krepost'))
+      s.attack = (s.attack ?? 0) + mod.keep_attack;
   }
   return s;
 }
@@ -972,11 +1049,13 @@ function renderSimBody() {
 // Applies active techs on top of civ-modified (or base) stats and updates the main grid
 function refreshSimStats() {
   if (!simBaseStats) return;
-  const isUnit = simUnit?.type === 'unit' || simUnit?.id === 'uniqueunit' || simUnit?.id === 'eliteunique';
+  const isUnit = simUnit?.type === 'unit' || simUnit?.type === 'upgrade'
+    || simUnit?.id === 'uniqueunit' || simUnit?.id === 'eliteunique'
+    || simUnit?.type === 'building' || simUnit?.type === 'defencive';
 
   const startFrom = simCivStats || simBaseStats;
   const combined  = simActiveTechs.size > 0
-    ? applyTechs(startFrom, simActiveTechs)
+    ? applyTechs(startFrom, simActiveTechs, simUnit?.id ?? '')
     : startFrom;
 
   const civName = (currentCiv !== 'generic')

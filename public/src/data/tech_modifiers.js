@@ -97,11 +97,25 @@ export const TECH_MODIFIERS = {
     vs_building_attack_pct:       20,   // Siege +20 % bonus damage vs buildings
     demolition_vs_building_attack_pct: 40  // Petards / Demo ships +40 % vs buildings
   },
+  'chemistry': {
+    attack: 1,                     // All projectile units (archers, towers, ships) +1 attack
+    passive_effect: 'enables_gunpowder'
+  },
   'arrowslits': {
-    // Watch Towers +1, Guard Towers +2, Keeps and Donjons +3 attack
+    // Watch Towers +1, Guard Towers +2, Keeps/Donjons/Krepost +3 attack
     watchtower_attack: 1,
     guardtower_attack: 2,
     keep_attack:       3
+  },
+  'murderhole': {
+    passive_effect: 'removes_minimum_range'  // Towers and TCs lose minimum attack range
+  },
+  'heatedshot': {
+    attack: 3,                     // Towers and TCs +3 attack vs ships
+    passive_effect: 'vs_ships_attack_bonus'
+  },
+  'hoardings': {
+    hp: 1500                       // Castle/Krepost/Donjon +1500 HP
   },
   'treadmillcrane': {
     build_speed_pct: 20            // Villagers build +20 % faster
