@@ -39,13 +39,13 @@
       "value_by_age": [0, 1, 2, 3],
       "min_age": 1
     },
-    // Monks regain faith +50% faster
+    // Monks regain faith +100% faster (double speed)
     {
       "type": "stat_modifier",
       "scope": "monk",
       "stat": "faith",
       "op": "multiply",
-      "value": 1.5
+      "value": 2.0
     },
     // Caravan free
     {
