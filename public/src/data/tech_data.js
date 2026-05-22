@@ -667,7 +667,7 @@ export const TECHS = {
     affects: ['infantry'],
     mod: { vs_cavalry_attack: 5, vs_camel_attack: 4 }
   },
-  'vikings_uniquetech2': { affects: ['foot_archer', 'navy'], mod: { attack: 1 } }, // Bogsveigar
+  'vikings_uniquetech2': { affects: ['foot_archer', 'longboat'], mod: { attack: 1 } }, // Bogsveigar
 
   // Wei ──────────────────────────────────────────────────────────────────────
   'wei_uniquetech1': { affects: ['infantry', 'archer', 'cavalry', 'siege', 'navy'], mod: { passive_effect: 'soldiers_produce_food' } }, // Tuntian
