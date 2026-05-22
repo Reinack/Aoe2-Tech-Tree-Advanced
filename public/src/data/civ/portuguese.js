@@ -28,7 +28,8 @@
       "scope": "ship",
       "stat": "hp",
       "op": "multiply",
-      "value": 1.2
+      "value_by_age": [1.0, 1.10, 1.15, 1.20],
+      "min_age": 1
     },
     "house",
   ],

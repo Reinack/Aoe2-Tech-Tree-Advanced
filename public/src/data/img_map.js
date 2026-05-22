@@ -74,6 +74,7 @@ const IMG_MAP = {
   'grenadier': 'img/Unit/462.png',
   'xianbei_raider': 'img/Unit/433.png',
   'bolas_rider': 'img/Unit/547.png',
+  'elite_bolas_rider': 'img/Unit/548.png',
   'slinger': 'img/Unit/143.png',
   'genitour': 'img/Unit/201.png',
 

@@ -22,7 +22,8 @@
       "scope": "infantry",
       "stat": "armor_pierce",
       "op": "add",
-      "value": 3
+      "value_by_age": [0, 1, 2, 3],
+      "min_age": 1
     }
   ],
   "teamBonus": {

@@ -14,7 +14,8 @@
       "scope": "cavalry",
       "stat": "rof",
       "op": "multiply",
-      "value": 0.75
+      "value": 0.75,
+      "min_age": 1
     },
     // Siege Engineers available in Castle Age
     {

@@ -10,7 +10,8 @@
       "scope": "infantry",
       "stat": "hp",
       "op": "multiply",
-      "value": 1.2
+      "value": 1.2,
+      "min_age": 1
     },
     // Warships cost -10/15/20% in Feudal/Castle/Imperial Age
     {
