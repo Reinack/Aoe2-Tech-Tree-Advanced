@@ -1,4 +1,4 @@
-const GURJARAS = {
+﻿const GURJARAS = {
   "bonuses": [
     // Start with 2 Forage Bushes near the Town Center
     {
@@ -33,7 +33,7 @@ const GURJARAS = {
   ],
   "teamBonus": {
     "type": "creation_speed",
-    "scope": "military_unit",
+    "scope": "camel_elephant",
     "op": "multiply",
     "value": 0.75
   },
