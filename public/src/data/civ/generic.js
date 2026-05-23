@@ -156,22 +156,6 @@
     "incendiaries",
     "gate"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 500,
-        "gold": 500
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2

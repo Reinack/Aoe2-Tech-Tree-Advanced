@@ -197,22 +197,6 @@
     "outpost",
     "bombardtower"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 400,
-        "gold": 350
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 600,
-        "stone": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,

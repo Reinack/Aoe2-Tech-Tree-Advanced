@@ -177,22 +177,6 @@
     "outpost",
     "gate"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 1000,
-        "gold": 600
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,

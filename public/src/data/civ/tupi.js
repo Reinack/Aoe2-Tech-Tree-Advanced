@@ -166,22 +166,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 400,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 600
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,

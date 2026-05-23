@@ -185,22 +185,6 @@
     "watchtower",
     "bombardtower"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "gold": 250
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 500,
-        "gold": 200
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,

@@ -188,22 +188,6 @@
     "outpost",
     "arrowslits"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 750,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,

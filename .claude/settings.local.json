@@ -41,7 +41,8 @@
       "WebFetch(domain:unitstatistics.com)",
       "WebFetch(domain:aoecoach.com)",
       "Bash(gh repo *)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "Bash(grep -o \"train_cost: { [^}]*, imgPath:\" public/src/data/nodes.js)"
     ]
   }
 }

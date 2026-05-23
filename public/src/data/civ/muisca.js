@@ -200,22 +200,6 @@
     "gate",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 350
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 450,
-        "gold": 350
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,

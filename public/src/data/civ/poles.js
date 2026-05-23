@@ -181,22 +181,6 @@
     "bombardtower",
     "arrowslits"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 500,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 750,
-        "gold": 550
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,

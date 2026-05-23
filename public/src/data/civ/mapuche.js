@@ -176,22 +176,6 @@
     "siphons",
     "incendiaries"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 350
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 500,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
