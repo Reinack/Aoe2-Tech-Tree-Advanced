@@ -36,7 +36,12 @@
       "Bash(Remove-Item \"D:\\\\Practicas\\\\AOE\\\\public\\\\src\\\\data\\\\tech_effects.js\" -Force)",
       "Bash(Remove-Item \"D:\\\\Practicas\\\\AOE\\\\public\\\\src\\\\data\\\\tech_modifiers.js\" -Force)",
       "Bash(Write-Output \"Deleted\")",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:unitstatistics.com)",
+      "WebFetch(domain:aoecoach.com)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)"
     ]
   }
 }
