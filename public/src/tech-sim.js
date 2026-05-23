@@ -156,14 +156,13 @@ function applyTechs(base, activeTechs, unitId = '') {
       s.attack = (s.attack ?? 0) + mod.keep_attack;
 
     // ── Attack bonuses vs specific targets (e.g. Sappers for Villagers) ──────
-    if (mod.vs_bonuses && s.bonuses) {
+    // Initialise bonuses array if the unit has none so new vs_bonuses can be added
+    if (mod.vs_bonuses) {
+      if (!s.bonuses) s.bonuses = [];
       for (const vb of mod.vs_bonuses) {
         const existing = s.bonuses.find(b => b.vs === vb.vs);
-        if (existing) {
-          existing.value += vb.add;
-        } else {
-          s.bonuses = [...s.bonuses, { vs: vb.vs, value: vb.add }];
-        }
+        if (existing) existing.value += vb.add;
+        else s.bonuses.push({ vs: vb.vs, value: vb.add });
       }
     }
   }

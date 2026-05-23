@@ -396,7 +396,7 @@ export const TECHS = {
   'burgundians_uniquetech2': { affects: ['flemish_militia'] }, // Flemish Revolution (spawns militia, passive)
 
   // Burmese ──────────────────────────────────────────────────────────────────
-  'burmese_uniquetech1': { affects: ['cavalry'],                   mod: { vs_archer_attack: 4 } },             // Manipur Cavalry
+  'burmese_uniquetech1': { affects: ['cavalry'], mod: { vs_bonuses: [{ vs: 'archer', add: 4 }] } }, // Manipur Cavalry
   'burmese_uniquetech2': { affects: ['battleeleph', 'eliteeleph'], mod: { armor_melee: 1, armor_pierce: 1 } }, // Howdah
 
   // Byzantines ───────────────────────────────────────────────────────────────
