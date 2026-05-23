@@ -185,10 +185,12 @@
       "imgPic": 46,
       "eliteImgPic": 473
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 300 } },
+    { research_cost: { food: 700, gold: 600 } }
   ]
 };
-
-
 
 
 window.FRANKS = FRANKS;

@@ -173,10 +173,12 @@
     {
       "age": 2
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 200 } },
+    { research_cost: { food: 650, gold: 600 } }
   ]
 };
-
-
 
 
 window.TUPI = TUPI;

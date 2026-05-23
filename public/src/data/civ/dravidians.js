@@ -210,10 +210,12 @@
       "imgPic": 386,
       "eliteImgPic": 515
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 300 } },
+    { research_cost: { food: 700, gold: 550 } }
   ]
 };
-
-
 
 
 window.DRAVIDIANS = DRAVIDIANS;

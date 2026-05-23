@@ -201,10 +201,12 @@
       "eliteImgPic": 520,
       "cost": { "gold": 60 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 200 } },
+    { research_cost: { food: 800, gold: 700 } }
   ]
 };
-
-
 
 
 window.BENGALIS = BENGALIS;

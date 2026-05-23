@@ -186,10 +186,12 @@
       "imgPic": 356,
       "eliteImgPic": 512
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 300 } },
+    { research_cost: { food: 750, gold: 550 } }
   ]
 };
-
-
 
 
 window.SICILIANS = SICILIANS;

@@ -194,10 +194,12 @@
       "imgPic": 230,
       "eliteImgPic": 504
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { food: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.BURMESE = BURMESE;

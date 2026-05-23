@@ -190,10 +190,12 @@
       "imgPic": 44,
       "eliteImgPic": 483
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 350, gold: 250 } },
+    { research_cost: { wood: 550, gold: 300 } }
   ]
 };
-
-
 
 
 window.JAPANESE = JAPANESE;

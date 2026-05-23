@@ -192,10 +192,12 @@
       "imgPic": 117,
       "eliteImgPic": 490
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, gold: 200 } },
+    { research_cost: { wood: 700, gold: 400 } }
   ]
 };
-
-
 
 
 window.KOREANS = KOREANS;

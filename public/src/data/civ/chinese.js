@@ -223,10 +223,12 @@
       "imgPic": 36,
       "eliteImgPic": 482
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, stone: 200 } },
+    { research_cost: { food: 1100, gold: 900 } }
   ]
 };
-
-
 
 
 window.CHINESE = CHINESE;

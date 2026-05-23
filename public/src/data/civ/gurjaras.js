@@ -193,10 +193,12 @@
       "imgPic": 390,
       "eliteImgPic": 517
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { food: 650, gold: 600 } }
   ]
 };
-
-
 
 
 window.GURJARAS = GURJARAS;

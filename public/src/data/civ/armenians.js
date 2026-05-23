@@ -225,12 +225,12 @@
       "age": 2,       
       "row": 5
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { wood: 350, gold: 250 } },
+    { research_cost: { food: 800, gold: 600 } }
+  ]
 };
-
-
-
 
 window.ARMENIANS = ARMENIANS;
 export default ARMENIANS;
-

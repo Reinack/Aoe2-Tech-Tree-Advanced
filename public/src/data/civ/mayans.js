@@ -170,10 +170,12 @@
       "imgPic": 108,
       "eliteImgPic": 488
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 300 } },
+    { research_cost: { food: 850, gold: 700 } }
   ]
 };
-
-
 
 
 window.MAYANS = MAYANS;

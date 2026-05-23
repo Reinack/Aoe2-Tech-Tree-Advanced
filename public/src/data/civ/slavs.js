@@ -183,10 +183,12 @@
       "eliteImgPic": 494,
       "cost": { "food": 60, "gold": 70 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, gold: 200 } },
+    { research_cost: { food: 700, gold: 600 } }
   ]
 };
-
-
 
 
 window.SLAVS = SLAVS;

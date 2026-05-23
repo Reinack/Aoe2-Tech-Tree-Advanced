@@ -188,10 +188,12 @@
       "imgPic": 39,
       "eliteImgPic": 480
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 150 } },
+    { research_cost: { food: 600, gold: 650 } }
   ]
 };
-
-
 
 
 window.TURKS = TURKS;

@@ -193,10 +193,12 @@
     {
       "age": 2
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 200, gold: 150 } },
+    { research_cost: { food: 400, gold: 300 } }
   ]
 };
-
-
 
 
 window.LITHUANIANS = LITHUANIANS;

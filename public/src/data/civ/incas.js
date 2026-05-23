@@ -170,10 +170,12 @@
       "imgPic": 97,
       "eliteImgPic": 495
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 200 } },
+    { research_cost: { food: 550, gold: 450 } }
   ]
 };
-
-
 
 
 window.INCAS = INCAS;

@@ -16,12 +16,12 @@ function populateCivSelect() {
     opt.textContent = LOCALE[currentLang]?.civs?.[key]?.name || key;
     civSelect.appendChild(opt);
   });
-  civSelect.value = saved || 'generic';
+  civSelect.value = saved || Object.keys(CIVS)[0];
 }
 
 // ── Build civ info HTML from locale ──────────────────────────────────────────
 function buildCivInfo(civId) {
-  const c = CIVS[civId] || CIVS.generic;
+  const c = CIVS[civId] || CIVS[currentCiv];
   const lc = LOCALE[currentLang]?.civs?.[civId] || {};
 
   let html = '';
@@ -76,13 +76,8 @@ civSelect.addEventListener('change', () => {
   // Update civ shield
   const shield = document.getElementById('civ-shield');
   if (shield) {
-    if (currentCiv !== 'generic') {
-      shield.src = `img/Civs/${currentCiv}.png`;
-      shield.style.display = 'block';
-    } else {
-      shield.src = '';
-      shield.style.display = 'none';
-    }
+    shield.src = `img/Civs/${currentCiv}.png`;
+    shield.style.display = 'block';
   }
 
   civInfo.innerHTML = buildCivInfo(currentCiv);

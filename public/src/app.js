@@ -2,7 +2,7 @@
 // INIT
 // ═══════════════════════════════════════════════════════════
 
-let currentCiv = 'generic';
+let currentCiv = 'armenians';
 let viewMode = 'classic';
 
 window.addEventListener('load', () => {
@@ -65,8 +65,8 @@ svgD3.on('wheel', event => {
     d3.zoomIdentity.translate(t.x - delta * 0.8, lockedTY).scale(t.k));
 }, { passive: false });
 
-function getCiv() { return CIVS[currentCiv] || CIVS.generic; }
-const ALWAYS_AVAILABLE = new Set(['feudalage', 'castleage', 'imperialage', 'wonder']);
+function getCiv() { return CIVS[currentCiv]; }
+const ALWAYS_AVAILABLE = new Set(['feudalage', 'castleage', 'imperialage', 'wonder', 'uniquetech1', 'uniquetech2']);
 function isMissing(id) { return !ALWAYS_AVAILABLE.has(id) && !getCiv().available.includes(id); }
 
 // ── Helper: locale data for a civ ────────────────────────────────────────────
@@ -108,27 +108,31 @@ function updateUniqueForCiv() {
   }
 
   // Unique tech 1 (Castle Age)
-  const ut1Tech1Id = `${currentCiv}_uniquetech1`;
-  const ut1Data = LOCALE[currentLang].uniqueTechsById?.[ut1Tech1Id];
-  const ut1Node = NODES.find(n => n.id === ut1Tech1Id);
-  if (ut1 && ut1Data) {
-    ut1.name = ut1Data.name || '';
-    ut1.cost = ut1Node?.research_cost || { food: 300, gold: 300 };
-    ut1.effect = ut1Data.effect || '';
-    ut1.imgPath = ut1Node?.imgPath || `img/Tech/33.png`;
-    IMG_MAP['uniquetech1'] = ut1.imgPath;
+  if (civ.uniqueTechs && civ.uniqueTechs.length > 0) {
+    const ut1Tech = civ.uniqueTechs[0];
+    const lcUT1 = lc.uniqueTechs?.[0] || {};
+    if (ut1) {
+      ut1.name = lcUT1.name || 'Unique Tech';
+      ut1.research_cost = ut1Tech.research_cost || { food: 300, gold: 300 };
+      ut1.cost = ut1.research_cost;
+      ut1.effect = lcUT1.effect || '';
+      ut1.imgPath = ut1Tech.imgPic !== undefined ? `img/Tech/${ut1Tech.imgPic}.png` : 'img/Tech/33.png';
+      IMG_MAP['uniquetech1'] = ut1.imgPath;
+    }
   }
 
   // Unique tech 2 (Imperial Age)
-  const ut2Tech2Id = `${currentCiv}_uniquetech2`;
-  const ut2Data = LOCALE[currentLang].uniqueTechsById?.[ut2Tech2Id];
-  const ut2Node = NODES.find(n => n.id === ut2Tech2Id);
-  if (ut2 && ut2Data) {
-    ut2.name = ut2Data.name || '';
-    ut2.cost = ut2Node?.research_cost || { wood: 800, gold: 500 };
-    ut2.effect = ut2Data.effect || '';
-    ut2.imgPath = ut2Node?.imgPath || `img/Tech/107.png`;
-    IMG_MAP['uniquetech2'] = ut2.imgPath;
+  if (civ.uniqueTechs && civ.uniqueTechs.length > 1) {
+    const ut2Tech = civ.uniqueTechs[1];
+    const lcUT2 = lc.uniqueTechs?.[1] || {};
+    if (ut2) {
+      ut2.name = lcUT2.name || 'Unique Tech';
+      ut2.research_cost = ut2Tech.research_cost || { wood: 800, gold: 500 };
+      ut2.cost = ut2.research_cost;
+      ut2.effect = lcUT2.effect || '';
+      ut2.imgPath = ut2Tech.imgPic !== undefined ? `img/Tech/${ut2Tech.imgPic}.png` : 'img/Tech/107.png';
+      IMG_MAP['uniquetech2'] = ut2.imgPath;
+    }
   }
   // Sincronizar unidades únicas también
   const uuNode = displayNodes.find(n => n.id === 'uniqueunit');
@@ -197,8 +201,11 @@ function render() {
 
   displayNodes = activeNodes
     .filter(n => {
-      // Hide special units if they are missing for this civ (unless generic view)
-      if (n.special && isMissing(n.id) && currentCiv !== 'generic') return false;
+      // Exclude civ-specific unique tech nodes (e.g. 'armenians_uniquetech1') — they exist
+      // only for the tech simulator. The generic 'uniquetech1'/'uniquetech2' slots are used
+      // for display and are updated per-civ by updateUniqueForCiv().
+      if (/^.+_uniquetech[12]$/.test(n.id)) return false;
+      if (n.special && isMissing(n.id)) return false;
       return true;
     });
 

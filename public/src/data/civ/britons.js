@@ -176,10 +176,12 @@
       "imgPic": 41,
       "eliteImgPic": 472
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 300 } },
+    { research_cost: { wood: 800, gold: 500 } }
   ]
 };
-
-
 
 
 window.BRITONS = BRITONS;

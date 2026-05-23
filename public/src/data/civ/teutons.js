@@ -201,10 +201,12 @@
       "imgPic": 45,
       "eliteImgPic": 477
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 300 } },
+    { research_cost: { food: 600, stone: 400 } }
   ]
 };
-
-
 
 
 window.TEUTONS = TEUTONS;

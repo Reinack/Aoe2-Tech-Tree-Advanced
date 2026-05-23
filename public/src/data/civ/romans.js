@@ -181,10 +181,12 @@
       "eliteImgPic": 521,
       "cost": { "food": 75, "gold": 85 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 300 } },
+    { research_cost: { food: 800, gold: 600 } }
   ]
 };
-
-
 
 
 window.ROMANS = ROMANS;

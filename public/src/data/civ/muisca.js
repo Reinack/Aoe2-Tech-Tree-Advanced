@@ -207,10 +207,12 @@
     {
       "age": 2
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { wood: 450, gold: 350 } }
   ]
 };
-
-
 
 
 window.MUISCA = MUISCA;

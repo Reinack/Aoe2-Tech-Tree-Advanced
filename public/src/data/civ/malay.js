@@ -184,10 +184,12 @@
       "imgPic": 233,
       "eliteImgPic": 503
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 300 } },
+    { research_cost: { food: 700, gold: 600 } }
   ]
 };
-
-
 
 
 window.MALAY = MALAY;

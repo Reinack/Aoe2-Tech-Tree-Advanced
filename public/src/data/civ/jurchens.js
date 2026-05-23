@@ -206,12 +206,12 @@
     "siegeengineers": {
       "age": 2
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { wood: 400, stone: 200 } },
+    { research_cost: { food: 700, gold: 600 } }
+  ]
 };
-
-
-
 
 window.JURCHENS = JURCHENS;
 export default JURCHENS;
-

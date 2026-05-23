@@ -187,10 +187,12 @@
       "cost": { "food": 40, "gold": 40 },
       "elite_cost": { "food": 800, "gold": 650 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { food: 800, gold: 700 } }
   ]
 };
-
-
 
 
 window.KHITANS = KHITANS;

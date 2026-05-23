@@ -176,10 +176,12 @@
       "imgPic": 110,
       "eliteImgPic": 486
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 350 } },
+    { research_cost: { food: 450, gold: 750 } }
   ]
 };
-
-
 
 
 window.AZTECS = AZTECS;

@@ -193,10 +193,12 @@
       "cost": { "wood": 45, "gold": 45 },
       "elite_cost": { "food": 800, "gold": 800 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 250 } },
+    { research_cost: { food: 800, gold: 700 } }
   ]
 };
-
-
 
 
 window.WU = WU;

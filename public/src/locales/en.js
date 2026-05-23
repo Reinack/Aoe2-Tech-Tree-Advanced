@@ -377,19 +377,6 @@ const LOCALE_EN = {
   },
 
   civs: {
-    generic: {
-      name: "— Generic (all civs) —",
-      bonuses: [
-        "Shows the full tech tree without restrictions."
-      ],
-      uniqueTechs: [
-        { name: "Unique Technology I", effect: "Castle Age exclusive technology." },
-        { name: "Unique Technology II", effect: "Imperial Age exclusive technology." }
-      ],
-      uniqueUnits: [
-        { name: "Unique Unit", upgradeName: "Elite Unique Unit" }
-      ]
-    },
     armenians: {
       name: "Armenians",
       type: "Infantry and Naval civilization",

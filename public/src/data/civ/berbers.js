@@ -187,10 +187,12 @@
       "imgPic": 191,
       "eliteImgPic": 498
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, stone: 200 } },
+    { research_cost: { food: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.BERBERS = BERBERS;

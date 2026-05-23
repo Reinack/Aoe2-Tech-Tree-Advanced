@@ -181,10 +181,12 @@
       "imgPic": 195,
       "eliteImgPic": 501
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 200 } },
+    { research_cost: { wood: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.ETHIOPIANS = ETHIOPIANS;

@@ -187,10 +187,12 @@
       "imgPic": 42,
       "eliteImgPic": 484
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { } },
+    { research_cost: { wood: 500, gold: 450 } }
   ]
 };
-
-
 
 
 window.MONGOLS = MONGOLS;

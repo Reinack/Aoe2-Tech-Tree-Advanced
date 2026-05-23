@@ -191,10 +191,12 @@
       "eliteImgPic": 523,
       "cost": { "food": 60, "gold": 45 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 350, gold: 250 } },
+    { research_cost: { food: 750, gold: 600 } }
   ]
 };
-
-
 
 
 window.GEORGIANS = GEORGIANS;

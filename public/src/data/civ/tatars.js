@@ -187,10 +187,12 @@
       "eliteImgPic": 507,
       "cost": { "food": 60, "gold": 40 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 350, stone: 200 } },
+    { research_cost: { wood: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.TATARS = TATARS;

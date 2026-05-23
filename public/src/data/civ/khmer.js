@@ -181,10 +181,12 @@
       "imgPic": 231,
       "eliteImgPic": 502
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 250 } },
+    { research_cost: { food: 750, gold: 600 } }
   ]
 };
-
-
 
 
 window.KHMER = KHMER;

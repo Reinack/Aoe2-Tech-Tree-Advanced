@@ -43,7 +43,11 @@
       "Bash(gh repo *)",
       "Bash(gh api *)",
       "Bash(grep -o \"train_cost: { [^}]*, imgPath:\" public/src/data/nodes.js)",
-      "Bash(node -c public/src/app.js)"
+      "Bash(node -c public/src/app.js)",
+      "Bash(node server.js)",
+      "Bash(cat /tmp/server.log && lsof -i :8000 2>/dev/null || echo \"Checking port 8000...\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__navigate"
     ]
   }
 }

@@ -198,12 +198,12 @@
     "cappedram": {
       "age": 1
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { food: 200, gold: 200 } },
+    { research_cost: { food: 600, gold: 500 } }
+  ]
 };
-
-
-
 
 window.CUMANS = CUMANS;
 export default CUMANS;
-

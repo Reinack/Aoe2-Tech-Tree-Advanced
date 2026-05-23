@@ -201,10 +201,12 @@
       "imgPic": 106,
       "eliteImgPic": 489
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 300 } },
+    { research_cost: { food: 400, gold: 250 } }
   ]
 };
-
-
 
 
 window.SPANISH = SPANISH;

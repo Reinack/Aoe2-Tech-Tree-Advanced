@@ -192,10 +192,12 @@
       "imgPic": 47,
       "eliteImgPic": 475
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 200 } },
+    { research_cost: { food: 750, gold: 450 } }
   ]
 };
-
-
 
 
 window.CELTS = CELTS;

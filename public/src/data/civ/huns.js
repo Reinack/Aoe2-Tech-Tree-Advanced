@@ -180,10 +180,12 @@
       "eliteImgPic": 487,
       "cost": { "food": 60, "gold": 60 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 200 } },
+    { research_cost: { wood: 300, food: 500 } }
   ]
 };
-
-
 
 
 window.HUNS = HUNS;

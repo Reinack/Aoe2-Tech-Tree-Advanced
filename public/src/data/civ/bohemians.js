@@ -199,12 +199,12 @@
     "chemistry": {
       "age": 2
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 300 } },
+    { research_cost: { food: 700, gold: 600 } }
+  ]
 };
-
-
-
 
 window.BOHEMIANS = BOHEMIANS;
 export default BOHEMIANS;
-

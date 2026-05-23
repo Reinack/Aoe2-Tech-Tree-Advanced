@@ -188,10 +188,12 @@
       "imgPic": 232,
       "eliteImgPic": 505
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { food: 750, gold: 600 } }
   ]
 };
-
-
 
 
 window.VIETNAMESE = VIETNAMESE;

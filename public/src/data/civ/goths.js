@@ -186,10 +186,12 @@
       "imgPic": 50,
       "eliteImgPic": 478
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 450, gold: 250 } },
+    { research_cost: { wood: 400, gold: 600 } }
   ]
 };
-
-
 
 
 window.GOTHS = GOTHS;

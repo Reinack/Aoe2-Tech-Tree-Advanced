@@ -169,10 +169,12 @@
       "eliteImgPic": 493,
       "cost": { "food": 35, "gold": 45 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 300 } },
+    { research_cost: { food: 750, gold: 600 } }
   ]
 };
-
-
 
 
 window.MAGYARS = MAGYARS;

@@ -377,19 +377,6 @@ const LOCALE_ES = {
   },
 
   civs: {
-    generic: {
-      name: "— Genérico (todas las civs) —",
-      bonuses: [
-        "Muestra el árbol completo sin restricciones."
-      ],
-      uniqueTechs: [
-        { name: "Tecnología Única I", effect: "Tecnología exclusiva Edad Castillos." },
-        { name: "Tecnología Única II", effect: "Tecnología exclusiva Edad Imperial." }
-      ],
-      uniqueUnits: [
-        { name: "Unidad Única", upgradeName: "Unidad Única Elite" }
-      ]
-    },
     armenians: {
       name: "Armenios",
       type: "Civilización de infantería y naval",

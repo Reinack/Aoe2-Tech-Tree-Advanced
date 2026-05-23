@@ -217,12 +217,12 @@
     "handcart": {
       "age": 1
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 300 } },
+    { research_cost: { food: 600, gold: 500 } }
+  ]
 };
-
-
-
 
 window.BURGUNDIANS = BURGUNDIANS;
 export default BURGUNDIANS;
-

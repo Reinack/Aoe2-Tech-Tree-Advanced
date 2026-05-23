@@ -524,7 +524,7 @@ function showStatsPanel(ev, n) {
   simBaseStats = stats;
   simCivStats  = civMod;
 
-  const civLabel = (civMod && currentCiv !== 'generic')
+  const civLabel = civMod
     ? (currentLang === 'es'
         ? `★ Bonuses de ${LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv}`
         : `★ ${LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv} bonuses`)

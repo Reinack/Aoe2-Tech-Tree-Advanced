@@ -201,10 +201,12 @@
       "imgPic": 133,
       "eliteImgPic": 492
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 250 } },
+    { research_cost: { food: 700, gold: 550 } }
   ]
 };
-
-
 
 
 window.ITALIANS = ITALIANS;

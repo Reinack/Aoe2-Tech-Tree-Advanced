@@ -278,9 +278,7 @@ function refreshSimStats() {
     ? applyTechs(startFrom, simActiveTechs, simUnit?.id ?? '')
     : startFrom;
 
-  const civName = (currentCiv !== 'generic')
-    ? (LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv)
-    : null;
+  const civName = LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv;
 
   let label = null;
   if (simCivStats && civName && simActiveTechs.size > 0) {

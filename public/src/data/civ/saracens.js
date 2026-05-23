@@ -193,10 +193,12 @@
       "eliteImgPic": 479,
       "cost": { "food": 55, "gold": 85 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 300, gold: 200 } },
+    { research_cost: { food: 650, gold: 500 } }
   ]
 };
-
-
 
 
 window.SARACENS = SARACENS;

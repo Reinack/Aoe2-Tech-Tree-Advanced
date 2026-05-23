@@ -219,10 +219,12 @@
       "eliteImgPic": 476,
       "cost": { "food": 70, "gold": 75 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 300 } },
+    { research_cost: { food: 800, gold: 600 } }
   ]
 };
-
-
 
 
 window.BYZANTINES = BYZANTINES;

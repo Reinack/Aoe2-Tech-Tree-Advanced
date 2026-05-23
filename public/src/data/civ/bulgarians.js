@@ -184,10 +184,12 @@
       "eliteImgPic": 506,
       "cost": { "food": 60, "gold": 70 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 200, gold: 200 } },
+    { research_cost: { food: 550, gold: 450 } }
   ]
 };
-
-
 
 
 window.BULGARIANS = BULGARIANS;

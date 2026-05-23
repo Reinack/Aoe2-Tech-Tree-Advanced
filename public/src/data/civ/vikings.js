@@ -174,10 +174,12 @@
       "imgPic": 38,
       "eliteImgPic": 485
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 600, gold: 450 } },
+    { research_cost: { food: 650, gold: 500 } }
   ]
 };
-
-
 
 
 window.VIKINGS = VIKINGS;

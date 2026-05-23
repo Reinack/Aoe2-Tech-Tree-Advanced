@@ -216,8 +216,8 @@
   { id: 'petard', type: 'unit', age: 2, building: 'castle', row: 5, col: 3, prereqs: [], train_cost: { food: 65, gold: 35 }, imgPath: 'img/Unit/113.png' },
   { id: 'uniqueunit', type: 'unique', age: 2, building: 'castle', row: 5, col: 2, prereqs: [], train_cost: { food: 0, gold: 0 } },
   { id: 'eliteunique', type: 'unique', age: 3, building: 'castle', row: 6, col: 2, prereqs: ['uniqueunit'], research_cost: { food: 0, gold: 0 }, train_cost: { food: 0, gold: 0 } },
-  { id: 'uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], imgPath: 'img/Tech/33.png'},
-  { id: 'uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], imgPath: 'img/Tech/107.png'},
+  { id: 'uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 0, gold: 0 }, imgPath: 'img/Tech/33.png'},
+  { id: 'uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 0, gold: 0 }, imgPath: 'img/Tech/107.png'},
 
   // ── Unique Techs by Civilization (Update 169123 costs from halfon) ────────
   // Castle Age (uniquetech1) — 53 civilizations
