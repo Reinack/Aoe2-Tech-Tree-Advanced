@@ -66,7 +66,7 @@ svgD3.on('wheel', event => {
 }, { passive: false });
 
 function getCiv() { return CIVS[currentCiv]; }
-const ALWAYS_AVAILABLE = new Set(['feudalage', 'castleage', 'imperialage', 'wonder', 'uniquetech1', 'uniquetech2']);
+const ALWAYS_AVAILABLE = new Set(['feudalage', 'castleage', 'imperialage', 'wonder', 'uniquetech1', 'uniquetech2', 'farm', 'fishtrap', 'tc_castle']);
 function isMissing(id) { return !ALWAYS_AVAILABLE.has(id) && !getCiv().available.includes(id); }
 
 // ── Helper: locale data for a civ ────────────────────────────────────────────
