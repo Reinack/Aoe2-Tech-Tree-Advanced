@@ -18,7 +18,7 @@
     // Foot Archers (except Skirmishers) +1/+2 range in Castle/Imperial Age
     {
       "type": "stat_modifier",
-      "scope": "foot_archer",
+      "scope": "foot_archer_no_skirm",
       "stat": "range",
       "op": "add",
       "value_by_age": [0, 0, 1, 2],
