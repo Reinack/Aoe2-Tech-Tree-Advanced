@@ -476,8 +476,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las Reliquias son visibles en el mapa al inicio de la partida",
       uniqueTechs: [
-        { name: "Howdah", effect: "Elefantes de Combate +1/+1 armadura." },
-        { name: "Caballería Manipur", effect: "Caballería y Arambai +6 ataque vs edificios." }
+        { name: "Caballería Manipur", effect: "Caballería +4 de ataque vs arqueros." },
+        { name: "Howdah", effect: "Elefantes de Batalla +1/+1 armadura." }
       ],
       uniqueUnits: [
         { name: "Arambai", upgradeName: "Arambai Elite" }

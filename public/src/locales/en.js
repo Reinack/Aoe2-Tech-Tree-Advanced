@@ -475,8 +475,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Relics visible on the map at the start of the game",
       uniqueTechs: [
-        { name: "Howdah", effect: "Battle Elephants +1/+1 armor." },
-        { name: "Manipur Cavalry", effect: "Cavalry and Arambai +6 attack vs buildings." }
+        { name: "Manipur Cavalry", effect: "Cavalry +4 attack vs archers." },
+        { name: "Howdah", effect: "Battle Elephants +1/+1 armor." }
       ],
       uniqueUnits: [
         { name: "Arambai", upgradeName: "Elite Arambai" }
