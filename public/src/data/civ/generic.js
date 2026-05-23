@@ -116,8 +116,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -154,7 +152,9 @@
     "carvel_hull",
     "siphons",
     "incendiaries",
-    "gate"
+    "gate",
+    "uniquetech1",
+    "uniquetech2",
   ],
   "uniqueUnits": [
     {

@@ -400,7 +400,7 @@ function render() {
     const p = pos[n.id];
     if (!p) return;
     const miss = isMissing(n.id);
-    const label = n.type === 'defencive' ? n.name : tData(n, 'name', n.type === 'unit' ? 'units' : 'techs');
+    const label = n.name || (n.type === 'defencive' ? n.name : tData(n, 'name', n.type === 'unit' ? 'units' : 'techs'));
     const iconStr = n.type === 'unit' ? '⚔️' : n.type === 'tech' ? '🧪' : n.type === 'upgrade' ? '⭐' : n.type === 'defencive' ? '🏰' : '🌟';
 
     // Clases de variante: castle slots usan type:'unique'; especiales usan n.variant
