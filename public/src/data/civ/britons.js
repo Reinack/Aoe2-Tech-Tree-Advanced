@@ -15,7 +15,7 @@
       "op": "multiply",
       "value": 0.5
     },
-    // Foot Archers +1/+2 range in Castle/Imperial Age
+    // Foot Archers (except Skirmishers) +1/+2 range in Castle/Imperial Age
     {
       "type": "stat_modifier",
       "scope": "foot_archer",
@@ -202,4 +202,6 @@
 
 window.BRITONS = BRITONS;
 export default BRITONS;
+
+
 

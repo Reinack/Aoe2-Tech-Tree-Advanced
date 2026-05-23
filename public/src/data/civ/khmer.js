@@ -28,7 +28,7 @@
   ],
   "teamBonus": {
     "type": "stat_modifier",
-    "scope": "unit",
+    "scope": "scorpion",
     "stat": "range",
     "op": "add",
     "value": 1

@@ -27,7 +27,8 @@
       "scope": "all_tech",
       "resource": "all",
       "op": "multiply",
-      "value": 0.85
+      "value_by_age": [1.0, 0.95, 0.90, 0.85],
+      "min_age": 1
     },
     // Town Centers +7 line of sight
     {

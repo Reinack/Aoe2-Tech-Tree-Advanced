@@ -1,4 +1,4 @@
-const BENGALIS = {
+﻿const BENGALIS = {
   "bonuses": [
     // Town Centers spawn 2 Villagers when the next Age is reached
     {

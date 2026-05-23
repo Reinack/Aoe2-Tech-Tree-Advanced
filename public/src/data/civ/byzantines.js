@@ -46,7 +46,7 @@
     // Fire Ships and Dromons attack +25% faster (rof multiplier 0.75)
     {
       "type": "stat_modifier",
-      "scope": "ship",
+      "scope": "fire_ship",
       "stat": "rof",
       "op": "multiply",
       "value": 0.75

@@ -6,15 +6,14 @@
       "op": "multiply",
       "value": 0.85
     },
-    // Foot Archers and Condottieri +1 melee armor and +1 pierce armor
-    {
-      "type": "stat_modifier",
-      "scope": "condottiero",
-      "stat": "armor_melee_and_pierce",
-      "op": "add",
-      "value_melee": 1,
-      "value_pierce": 1
-    },
+    // Foot Archers +1 melee armor
+    { "type": "stat_modifier", "scope": "foot_archer", "stat": "armor_melee", "op": "add", "value": 1 },
+    // Foot Archers +1 pierce armor
+    { "type": "stat_modifier", "scope": "foot_archer", "stat": "armor_pierce", "op": "add", "value": 1 },
+    // Condottieri +1 melee armor
+    { "type": "stat_modifier", "scope": "condottiero", "stat": "armor_melee", "op": "add", "value": 1 },
+    // Condottieri +1 pierce armor
+    { "type": "stat_modifier", "scope": "condottiero", "stat": "armor_pierce", "op": "add", "value": 1 },
     // Dock and University technologies cost -25%
     {
       "type": "tech_cost_modifier",

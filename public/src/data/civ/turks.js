@@ -3,7 +3,7 @@
     // Gold miners work +25% faster
     {
       "type": "building_work_speed",
-      "scope": "miner",
+      "scope": "gold_miner",
       "op": "multiply",
       "value": 1.25
     },

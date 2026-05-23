@@ -2,9 +2,9 @@
   "bonuses": [
     // Buildings cost -15% wood
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "building_cost_modifier",
+      "scope": "building",
+      "resource": "wood",
       "op": "multiply",
       "value": 0.85
     },
@@ -28,7 +28,7 @@
   ],
   "teamBonus": {
     "type": "building_work_speed",
-    "scope": "building",
+    "scope": "university",
     "op": "multiply",
     "value": 1.8
   },

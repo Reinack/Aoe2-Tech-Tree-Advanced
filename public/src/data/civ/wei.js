@@ -13,10 +13,18 @@
       "value_by_age": [1.0, 1.0, 1.2, 1.3],
       "min_age": 2
     },
-    // Traction Trebuchets and Lou Chuans cost -25%
+    // Traction Trebuchets cost -25%
     {
       "type": "cost_modifier",
-      "scope": "unit",
+      "scope": "traction_treb",
+      "resource": "all",
+      "op": "multiply",
+      "value": 0.75
+    },
+    // Lou Chuans cost -25%
+    {
+      "type": "cost_modifier",
+      "scope": "lou_chuan",
       "resource": "all",
       "op": "multiply",
       "value": 0.75

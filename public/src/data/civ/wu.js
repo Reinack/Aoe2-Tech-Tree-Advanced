@@ -17,13 +17,23 @@
       "value_by_age": [0, 10, 15, 30],
       "min_age": 1
     },
-    // Jian Swordsmen and Hei Guang Cavalry +2 attack in Imperial Age
+    // Hei Guang Cavalry +2 attack in Imperial Age
     {
       "type": "stat_modifier",
       "scope": "cavalry",
       "stat": "attack",
       "op": "add",
-      "value": 2
+      "value": 2,
+      "min_age": 3
+    },
+    // Jian Swordsmen +2 attack in Imperial Age
+    {
+      "type": "stat_modifier",
+      "scope": "jian_swordsman",
+      "stat": "attack",
+      "op": "add",
+      "value": 2,
+      "min_age": 3
     },
     // Careening and Dry Dock free
     {

@@ -2,8 +2,8 @@
   "bonuses": [
     // Mule Carts cost -25%
     {
-      "type": "cost_modifier",
-      "scope": "unit",
+      "type": "building_cost_modifier",
+      "scope": "mulecart",
       "resource": "all",
       "op": "multiply",
       "value": 0.75

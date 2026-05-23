@@ -1,4 +1,4 @@
-const BULGARIANS = {
+﻿const BULGARIANS = {
   "bonuses": [
     // Militia-line upgrades free
     {
