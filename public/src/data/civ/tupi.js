@@ -107,6 +107,7 @@
     "arrowslits",
     "murderhole",
     "treadmillcrane",
+    "stonewall",
     "fortifiedwall",
     "keep",
     "heatedshot",
