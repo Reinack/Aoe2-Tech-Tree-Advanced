@@ -42,7 +42,8 @@
       "WebFetch(domain:aoecoach.com)",
       "Bash(gh repo *)",
       "Bash(gh api *)",
-      "Bash(grep -o \"train_cost: { [^}]*, imgPath:\" public/src/data/nodes.js)"
+      "Bash(grep -o \"train_cost: { [^}]*, imgPath:\" public/src/data/nodes.js)",
+      "Bash(node -c public/src/app.js)"
     ]
   }
 }

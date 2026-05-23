@@ -107,25 +107,28 @@ function updateUniqueForCiv() {
     }
   }
 
-  if (civ.uniqueTechs && civ.uniqueTechs[0]) {
-    const lcT1 = lc.uniqueTechs?.[0] || {};
-    if (ut1) {
-      ut1.name = lcT1.name || '';
-      ut1.cost = civ.uniqueTechs[0].cost;
-      ut1.effect = lcT1.effect || '';
-      ut1.imgPath = civ.uniqueTechs[0].imgPic !== undefined ? `img/Tech/${civ.uniqueTechs[0].imgPic}.png` : `img/Tech/33.png`;
-      IMG_MAP['uniquetech1'] = ut1.imgPath;
-    }
+  // Unique tech 1 (Castle Age)
+  const ut1Tech1Id = `${currentCiv}_uniquetech1`;
+  const ut1Data = LOCALE[currentLang].uniqueTechsById?.[ut1Tech1Id];
+  const ut1Node = NODES.find(n => n.id === ut1Tech1Id);
+  if (ut1 && ut1Data) {
+    ut1.name = ut1Data.name || '';
+    ut1.cost = ut1Node?.research_cost || { food: 300, gold: 300 };
+    ut1.effect = ut1Data.effect || '';
+    ut1.imgPath = ut1Node?.imgPath || `img/Tech/33.png`;
+    IMG_MAP['uniquetech1'] = ut1.imgPath;
   }
-  if (civ.uniqueTechs && civ.uniqueTechs[1]) {
-    const lcT2 = lc.uniqueTechs?.[1] || {};
-    if (ut2) {
-      ut2.name = lcT2.name || '';
-      ut2.cost = civ.uniqueTechs[1].cost;
-      ut2.effect = lcT2.effect || '';
-      ut2.imgPath = civ.uniqueTechs[1].imgPic !== undefined ? `img/Tech/${civ.uniqueTechs[1].imgPic}.png` : `img/Tech/107.png`;
-      IMG_MAP['uniquetech2'] = ut2.imgPath;
-    }
+
+  // Unique tech 2 (Imperial Age)
+  const ut2Tech2Id = `${currentCiv}_uniquetech2`;
+  const ut2Data = LOCALE[currentLang].uniqueTechsById?.[ut2Tech2Id];
+  const ut2Node = NODES.find(n => n.id === ut2Tech2Id);
+  if (ut2 && ut2Data) {
+    ut2.name = ut2Data.name || '';
+    ut2.cost = ut2Node?.research_cost || { wood: 800, gold: 500 };
+    ut2.effect = ut2Data.effect || '';
+    ut2.imgPath = ut2Node?.imgPath || `img/Tech/107.png`;
+    IMG_MAP['uniquetech2'] = ut2.imgPath;
   }
   // Sincronizar unidades únicas también
   const uuNode = displayNodes.find(n => n.id === 'uniqueunit');
