@@ -67,6 +67,7 @@ const CIV_BONUS_SCOPE_MAP = {
   cavalry:         () => UNIT_CLASSES['cavalry']        || [],
   cavalry_archer:  () => UNIT_CLASSES['mounted_archer'] || [],
   foot_archer:     () => UNIT_CLASSES['foot_archer']    || [],
+  foot_archer_no_skirm: () => (UNIT_CLASSES['foot_archer'] || []).filter(id => !['skirmisher','eliteskirm','imp_skirmisher'].includes(id)),
   ship:            () => UNIT_CLASSES['navy']           || [],
   gunpowder:       () => UNIT_CLASSES['gunpowder']      || [],
   siege:           () => UNIT_CLASSES['siege']          || [],
@@ -111,8 +112,18 @@ const CIV_BONUS_SCOPE_MAP = {
   // ── Ships (specific sub-groups) ─────────────────────────────────────────────
   galley:          () => ['galley','wargalley','galleon'],
   transport_ship:  () => ['transportship'],
+  fire_ship:       () => ['firegalley','fireship','fastfireship','dromon'],
+  traction_treb:   () => ['traction_treb'],
+  lou_chuan:       () => ['lou_chuan'],
+  scorpion:        () => ['scorpion','heavyscorpion'],
+  // ── Specific infantry / unique units ────────────────────────────────────────
+  condottiero:     () => ['condottiero'],
+  jian_swordsman:  () => ['jian_swordsman'],
+  // ── Combined groups ──────────────────────────────────────────────────────────
+  camel_elephant:  () => ['camel','heavycamel','imp_camel','battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
   // ── Buildings ───────────────────────────────────────────────────────────────
   building:        () => ALL_BUILDING_IDS,
+  mulecart:        () => ['mulecart'],
   tc:              () => ['tc'],
   tc_tower:        () => ['tc', ...(UNIT_CLASSES['towers'] || [])],
   tc_dock:         () => ['tc', 'dock', 'harbor'],

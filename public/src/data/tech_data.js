@@ -49,7 +49,7 @@ export const UNIT_CLASSES = {
     'condottiero', 'flemish_militia', 'gbeto', 'woad_raider', 'shotel', 'karambit', 'obuch',
     'fire_lancer', 'elite_fire_lancer',
     'champiscout', 'champirunner', 'champiwarrior', 'elitechampi',
-    'jian_swordsman'
+    'jian_swordsman', 'warrior_priest'
   ],
   'mounted': [
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
@@ -111,7 +111,7 @@ export const UNIT_CLASSES = {
     'tradecart', 'tradecog'
   ],
   'buildings': [
-    'watchtower', 'guardtower', 'keep', 'bombardtower', 'castle', 'tc', 'krepost', 'donjon'
+    'watchtower', 'guardtower', 'keep', 'bombardtower', 'castle', 'fortified_church', 'tc', 'krepost', 'donjon'
   ],
 
   // --- Clases de Edificios ---
@@ -273,7 +273,7 @@ export const TECHS = {
     mod: { passive_effect: 'removes_minimum_range' }
   },
   'heatedshot': {
-    affects: ['towers', 'town_centers'],
+    affects: ['towers', 'town_centers', 'fortified_church'],
     mod: { attack: 3, passive_effect: 'vs_ships_attack_bonus' }
   },
   'hoardings': { affects: ['castles'], mod: { hp: 1500 } },
@@ -287,13 +287,13 @@ export const TECHS = {
   'incendiaries': { affects: ['firegalley', 'fireship', 'fastfireship'], mod: { passive_effect: 'death_explosion' } },
 
   // ── DOCK ──────────────────────────────────────────────────────────────────
-  'shipwright':    { affects: ['navy', 'fishingship', 'tradecog'], mod: { wood_cost_pct: -20, production_speed_pct: 54 } },
+  'shipwright':    { affects: ['navy', 'fishingship', 'tradecog'], mod: { cost_pct: -20, production_speed_pct: 54 } },
   'fishing_lines': { affects: ['fishingship'],                     mod: { gather_speed_pct: 10, carry_capacity: 5 } },
   'gillnets':      { affects: ['fishingship'],                     mod: { gather_speed_pct: 10, carry_capacity: 5 } },
 
   // ── MONASTERY ─────────────────────────────────────────────────────────────
-  'sanctity':      { affects: ['monk', 'warrior_priest'] },
-  'fervor':        { affects: ['monk', 'warrior_priest'] },
+  'sanctity':      { affects: ['monk', 'warrior_priest'], mod: { hp: 15 } },
+  'fervor':        { affects: ['monk', 'warrior_priest'], mod: { speed_pct: 15 } },
   'theocracy':     { affects: ['monk'] },
   'blockprinting': { affects: ['monk'] },
   'redemption':    { affects: ['monk'] },
@@ -328,6 +328,16 @@ export const TECHS = {
       ]
     }
   },
+
+  // ── MULE CART (Armenians & Georgians — replaces Lumber/Mining camp techs) ──
+  // Standard effectiveness; Armenians apply ×1.4 via tech_effectiveness bonus.
+  'doublebitaxe_m': { affects: ['villager'], mod: { gather_speed_pct: 20 } },
+  'bowsaw_m':       { affects: ['villager'], mod: { gather_speed_pct: 20 } },
+  'twomansaw_m':    { affects: ['villager'], mod: { gather_speed_pct: 10 } },
+  'goldmining_m':   { affects: ['villager'], mod: { gather_speed_pct: 15 } },
+  'goldshaft_m':    { affects: ['villager'], mod: { gather_speed_pct: 15 } },
+  'stonemining_m':  { affects: ['villager'], mod: { gather_speed_pct: 15 } },
+  'stoneshaft_m':   { affects: ['villager'], mod: { gather_speed_pct: 15 } },
 
   // ═══════════════════════════════════════════════════════════════════════════
   // UNIQUE TECHNOLOGIES
@@ -380,7 +390,7 @@ export const TECHS = {
   // Britons ──────────────────────────────────────────────────────────────────
   'britons_uniquetech1': {  // Yeomen
     affects: ['foot_archer', 'watchtower', 'guardtower', 'keep'],
-    mod: { range: 1, watchtower_attack: 2 }
+    mod: { range: 1, watchtower_attack: 2, guardtower_attack: 2, keep_attack: 2 }
   },
   'britons_uniquetech2': {  // Warwolf
     affects: ['trebuchet'],
@@ -396,7 +406,7 @@ export const TECHS = {
   'burgundians_uniquetech2': { affects: ['flemish_militia'] }, // Flemish Revolution (spawns militia, passive)
 
   // Burmese ──────────────────────────────────────────────────────────────────
-  'burmese_uniquetech1': { affects: ['cavalry'], mod: { vs_bonuses: [{ vs: 'archer', add: 4 }] } }, // Manipur Cavalry
+  'burmese_uniquetech1': { affects: ['cavalry'], mod: { vs_bonuses: [{ vs: 'archers', add: 4 }] } }, // Manipur Cavalry
   'burmese_uniquetech2': { affects: ['battleeleph', 'eliteeleph'], mod: { armor_melee: 1, armor_pierce: 1 } }, // Howdah
 
   // Byzantines ───────────────────────────────────────────────────────────────
@@ -406,12 +416,12 @@ export const TECHS = {
   },
   'byzantines_uniquetech2': {  // Logistica
     affects: ['uniqueunit', 'eliteunique'],
-    mod: { vs_infantry_attack: 6, passive_effect: 'cataphract_trample_damage' }
+    mod: { vs_bonuses: [{ vs: 'infantry', add: 6 }], passive_effect: 'cataphract_trample_damage' }
   },
 
   // Celts ────────────────────────────────────────────────────────────────────
   'celts_uniquetech1': {  // Stronghold
-    affects: ['infantry'],
+    affects: ['castle', 'watchtower', 'guardtower', 'keep'],
     mod: { attack_speed_pct: 33, passive_effect: 'castle_heals_infantry' }
   },
   'celts_uniquetech2': { affects: ['siege'], mod: { hp_pct: 40 } },  // Furor Celtica
@@ -488,19 +498,29 @@ export const TECHS = {
 
   // Incas ────────────────────────────────────────────────────────────────────
   'incas_uniquetech1': {  // Andean Sling
-    affects: ['skirmishers'],
+    affects: ['skirmishers', 'slinger'],
     mod: { attack: 1, minimum_range: 0 }
   },
   'incas_uniquetech2': {  // Fabric Shields
     affects: ['uniqueunit', 'eliteunique', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'],
     mod: { armor_melee: 1, armor_pierce: 1 }
   },
+  'champiscout_innate': {  // Champi Scout inherent attack bonuses vs specific armor classes
+    affects: ['champiscout'],
+    mod: {
+      vs_bonuses: [
+        { vs: 'cavalry', add: 1 },
+        { vs: 'camel_units', add: 1 },
+        { vs: 'shock_infantry', add: 3 }
+      ]
+    }
+  },
 
   // Italians ─────────────────────────────────────────────────────────────────
   'italians_uniquetech1': { affects: ['trade_units'], mod: { trade_cost_pct: -50 } },  // Silk Road
-  'italians_uniquetech2': {                                                              // Pavise
+  'italians_uniquetech2': {                                                              // Pirotechnia
     affects: ['handcannon'],
-    mod: { armor_melee: 1, armor_pierce: 1, pass_through_damage_pct: 15, accuracy: 90 }
+    mod: { pass_through_damage_pct: 15, accuracy: 90 }
   },
 
   // Japanese ─────────────────────────────────────────────────────────────────
@@ -568,7 +588,7 @@ export const TECHS = {
   'persians_uniquetech1': { affects: ['archer', 'crossbow', 'arbalester'], mod: { replace_gold_with_wood: true } }, // Kamandaran
   'persians_uniquetech2': {  // Citadels
     affects: ['castle'],
-    mod: { attack: 4, vs_ram_attack: 3, vs_infantry_attack: 3, damage_reduction_pct: 25 }
+    mod: { attack: 4, vs_bonuses: [{ vs: 'rams', add: 3 }, { vs: 'infantry', add: 3 }], damage_reduction_pct: 25 }
   },
 
   // Poles ────────────────────────────────────────────────────────────────────
@@ -591,7 +611,7 @@ export const TECHS = {
     mod: { attack_speed_pct: 33, galley_attack: 2 }
   },
   'romans_uniquetech2': {  // Comitatenses
-    affects: ['militia', 'manatarms', 'longsword', 'twohanded', 'champion', 'uniqueunit', 'eliteunique'],
+    affects: ['militia', 'manatarms', 'longsword', 'twohanded', 'champion', 'knight', 'cavalier', 'paladin', 'uniqueunit', 'eliteunique'],
     mod: { production_speed_pct: 50, passive_effect: 'charge_attack' }
   },
 
@@ -665,7 +685,7 @@ export const TECHS = {
   // Vikings ──────────────────────────────────────────────────────────────────
   'vikings_uniquetech1': {  // Chieftains
     affects: ['infantry'],
-    mod: { vs_cavalry_attack: 5, vs_camel_attack: 4 }
+    mod: { vs_bonuses: [{ vs: 'cavalry', add: 5 }, { vs: 'camel_units', add: 4 }] }
   },
   'vikings_uniquetech2': { affects: ['foot_archer', 'longboat'], mod: { attack: 1 } }, // Bogsveigar
 

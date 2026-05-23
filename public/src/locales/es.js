@@ -301,7 +301,7 @@ const LOCALE_ES = {
     faith:        { name: 'Fe',                    effect: 'Unidades muy resistentes a la conversión.' },
     warrior_priest:{ name: 'Sacerdote Guerrero',   effect: '[Solo Armenios] Monje capaz de combatir.' },
     missionary:   { name: 'Misionero',             effect: '[Solo Españoles] Monje montado.' },
-    fortified_church: { name: 'Iglesia Fortificada', effect: '[Armenios y Georgianos] Monasterio defensivo.' },
+    fortified_church: { name: 'Iglesia Fortificada', effect: '[Armenios y Georgianos] Monasterio defensivo. Dispara cuando guarnecido con Aldeanos o Reliquias; +5 ataque vs. barcos, +1 vs. camellos.' },
 
     // ── Castillo ─────────────────────────────────────────────
     trebuchet:    { name: 'Trebuchet',             effect: 'Lanzaproyectiles de largo alcance. Debe plegarse.' },
@@ -414,7 +414,6 @@ const LOCALE_ES = {
       name: "Aztecas",
       type: "Civilización de infantería y monjes",
       bonuses: [
-        "Empiezan con un Águila Exploradora",
         "Empiezan con +50 de oro",
         "Los aldeanos transportan +3 recursos",
         "Las unidades militares se entrenan +15% más rápido",
@@ -515,7 +514,7 @@ const LOCALE_ES = {
       teamBonus: "Los Mercados trabajan +80% más rápido",
       uniqueTechs: [
         { name: "Wagenburg Tactics", effect: "Unidades de pólvora se mueven 15% más rápido." },
-        { name: "Hussite Reforms", effect: "Monjes cuestan madera en vez de oro." }
+        { name: "Hussite Reforms", effect: "Monjes y tecnologías de Monasterio: coste de oro reemplazado por comida." }
       ],
       uniqueUnits: [
         { name: "Carro Husita", upgradeName: "Carro Husita Elite" }
@@ -585,7 +584,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Talleres de Asedio trabajan +20% más rápido",
       uniqueTechs: [
-        { name: "Stronghold", effect: "Torres y Castillos disparan 33% más rápido." },
+        { name: "Stronghold", effect: "Castillos y línea de Torre Vigía atacan 33% más rápido; los Castillos curan Infantería aliada en un radio de 7 casillas." },
         { name: "Furor Celticus", effect: "Unidades del Taller de Asedio +40% PV." }
       ],
       uniqueUnits: [
@@ -714,7 +713,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Puestos de Avanzada tienen +3 de alcance visual y no cuestan piedra",
       uniqueTechs: [
-        { name: "Royal Heirs", effect: "Guerreros Shotel aparecen ya entrenados desde el CU." },
+        { name: "Royal Heirs", effect: "Guerreros Shotel y Jinetes de Camello reciben -3 de daño de unidades montadas." },
         { name: "Torsion Engines", effect: "Unidades del Taller de Asedio disparan proyectiles extra." }
       ],
       uniqueUnits: [
@@ -843,8 +842,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Empiezan con una Llama gratis",
       uniqueTechs: [
-        { name: "Huaracas", effect: "Los guerrilleros y los soldados con honda no tienen alcance mínimo; los soldados con honda ganan +1 de ataque" },
-        { name: "Escudos de tela", effect: "Los kamayuks, los soldados con honda y los guerreros champi ganan +1 de armadura y +1 de armadura perforante" }
+        { name: "Eslinga Andina", effect: "Los guerrilleros y los soldados con honda no tienen alcance mínimo; los soldados con honda ganan +1 de ataque." },
+        { name: "Escudos de tela", effect: "Los kamayuks, los soldados con honda y los guerreros champi ganan +1 de armadura y +1 de armadura perforante." }
       ],
       uniqueUnits: [
         { name: "Kamayuk", upgradeName: "Kamayuk Elite" }
@@ -1135,7 +1134,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las tecnologías se investigan +25% más rápido",
       uniqueTechs: [
-        { name: "Carrack", effect: "Navíos +1/+1 armadura." },
+        { name: "Circunnavegación", effect: "Todo el mapa se revela como explorado; los barcos se entrenan 33% más rápido." },
         { name: "Arquebus", effect: "Unidades de pólvora con 100% precisión." }
       ],
       uniqueUnits: [
@@ -1154,7 +1153,7 @@ const LOCALE_ES = {
       teamBonus: "El rango mínimo de los Escorpiones se reduce",
       uniqueTechs: [
         { name: "Ballistas", effect: "Escorpiones y Galeras de guerra disparan 33% más rápido." },
-        { name: "Comitatenses", effect: "Infanteía y caballería se crean un 50% más rápido; carga de ataque." }
+        { name: "Comitatenses", effect: "Infantería y caballería se crean un 50% más rápido; carga de ataque." }
       ],
       uniqueUnits: [
         { name: "Legionario", upgradeName: "Centurión" }

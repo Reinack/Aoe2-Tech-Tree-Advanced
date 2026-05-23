@@ -301,7 +301,7 @@ const LOCALE_EN = {
     faith:        { name: 'Faith',                  effect: 'Units are more resistant to conversion.' },
     warrior_priest:{ name: 'Warrior Priest',        effect: '[Armenians only] Fighting Monk unit.' },
     missionary:   { name: 'Missionary',             effect: '[Spanish only] Mounted Monk.' },
-    fortified_church: { name: 'Fortified Church',   effect: '[Armenians & Georgians] Defensive monastery.' },
+    fortified_church: { name: 'Fortified Church',   effect: '[Armenians & Georgians] Defensive monastery. Fires when garrisoned with Villagers or Relics; +5 attack vs Ships, +1 vs Camel Units.' },
 
     // ── Castle ───────────────────────────────────────────────
     trebuchet:    { name: 'Trebuchet',              effect: 'Long-range siege engine. Must unpack to fire.' },
@@ -514,7 +514,7 @@ const LOCALE_EN = {
       teamBonus: "Markets work +80% faster",
       uniqueTechs: [
         { name: "Wagenburg Tactics", effect: "Hand Cannoneers move 15% faster." },
-        { name: "Hussite Reforms", effect: "Monks cost wood instead of gold." }
+        { name: "Hussite Reforms", effect: "Monks and Monastery technologies: gold cost replaced by food." }
       ],
       uniqueUnits: [
         { name: "Hussite Wagon", upgradeName: "Elite Hussite Wagon" }
@@ -548,7 +548,7 @@ const LOCALE_EN = {
       ],
       teamBonus: "Archery Ranges work +10% faster",
       uniqueTechs: [
-        { name: "Yeomen", effect: "Foot archers +1 range; Towers attack 20% faster." },
+        { name: "Yeomen", effect: "Foot archers +1 range; Towers +2 attack." },
         { name: "Warwolf", effect: "Trebuchets 100% accuracy and deal area damage." }
       ],
       uniqueUnits: [
@@ -584,8 +584,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Siege Workshops work +20% faster",
       uniqueTechs: [
-        { name: "Stronghold", effect: "Towers and Castles fire 33% faster." },
-        { name: "Furor Celtica", effect: "Ships and Siege +50% HP." }
+        { name: "Stronghold", effect: "Castles and Watch Tower-line attack 33% faster; Castles heal allied Infantry in a 7-tile radius." },
+        { name: "Furor Celtica", effect: "Siege Weapons +40% HP." }
       ],
       uniqueUnits: [
         { name: "Woad Raider", upgradeName: "Elite Woad Raider" }
@@ -711,7 +711,7 @@ const LOCALE_EN = {
       ],
       teamBonus: "Outposts +3 line of sight and cost no stone",
       uniqueTechs: [
-        { name: "Royal Heirs", effect: "Shotel Warriors start already trained from the Castle." },
+        { name: "Royal Heirs", effect: "Shotel Warriors and Camel Riders receive -3 damage from Mounted Units." },
         { name: "Torsion Engines", effect: "Siege Workshop units fire extra projectiles." }
       ],
       uniqueUnits: [
@@ -747,8 +747,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Building repairs cost -25%",
       uniqueTechs: [
-        { name: "Svan Towers", effect: "Guard Towers +5 attack and garrison more units." },
-        { name: "Aznauri Cavalry", effect: "Cavalry gains HP when attacking buildings." }
+        { name: "Svan Towers", effect: "Fortifications +2 attack; Watch Tower-line deals pass-through damage." },
+        { name: "Aznauri Cavalry", effect: "Mounted Units take -20% population space." }
       ],
       uniqueUnits: [
         { name: "Monaspa", upgradeName: "Elite Monaspa" }
@@ -802,8 +802,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Scout Cavalry-line and Camel Units +2 attack vs. buildings",
       uniqueTechs: [
-        { name: "Grand Trunk Road", effect: "Traders generate +10 gold per trip." },
-        { name: "Shatagni", effect: "Hand Cannoneers +1 range." }
+        { name: "Grand Trunk Road", effect: "All gold income +10% faster; Market trading fee reduced to 10%." },
+        { name: "Shatagni", effect: "Hand Cannoneers +2 range." }
       ],
       uniqueUnits: [
         { name: "Ghulam", upgradeName: "Elite Ghulam" }
@@ -838,8 +838,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Start with a free Llama",
       uniqueTechs: [
-        { name: "Tapiales", effect: "Stone Walls and Fortifications are built 5× faster." },
-        { name: "Andean Sling", effect: "Slingers have no minimum attack range." }
+        { name: "Andean Sling", effect: "Skirmishers and Slingers have no minimum range; Slingers +1 attack." },
+        { name: "Fabric Shields", effect: "Kamayuks and Champi Warriors +1/+1 armor." }
       ],
       uniqueUnits: [
         { name: "Kamayuk", upgradeName: "Elite Kamayuk" }
@@ -857,8 +857,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Condottiero available at the Barracks in Imperial Age",
       uniqueTechs: [
-        { name: "Pavise", effect: "Foot Archers and Genoese Crossbowmen +1/+1 armor." },
-        { name: "Silk Road", effect: "Trade Carts cost -50%." }
+        { name: "Silk Road", effect: "Trade Units cost -50%." },
+        { name: "Pirotechnia", effect: "Hand Cannoneers deal +15% pass-through damage and are more accurate." }
       ],
       uniqueUnits: [
         { name: "Genoese Crossbowman", upgradeName: "Elite Genoese Crossbowman" }
@@ -1128,7 +1128,7 @@ const LOCALE_EN = {
       ],
       teamBonus: "Technologies research +25% faster",
       uniqueTechs: [
-        { name: "Carrack", effect: "Ships +1/+1 armor." },
+        { name: "Circumnavigation", effect: "Sets the entire map to explored; Ships train 33% faster." },
         { name: "Arquebus", effect: "Gunpowder units 100% accuracy." }
       ],
       uniqueUnits: [

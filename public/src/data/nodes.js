@@ -207,7 +207,7 @@ export const NODES = [
   { id: 'faith', type: 'tech', age: 3, building: 'monastery', row: 6, col: 5, prereqs: ['fervor'], research_cost: { food: 550, gold: 750 } },
 
   // ── Monastery special / unique ───────────────────────────
-  { id: 'warrior_priest', type: 'unit', age: 2, building: 'monastery', row: 5, col: 7, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
+  { id: 'warrior_priest', type: 'unit', age: 2, building: 'monastery', row: 5, col: 7, special: true, variant: 'unique', prereqs: [], train_cost: { food: 40, gold: 50 } },
   { id: 'missionary', type: 'unit', age: 2, building: 'monastery', row: 5, col: 7, special: true, variant: 'unique', prereqs: [], train_cost: { gold: 100 } },
 
 
@@ -218,7 +218,118 @@ export const NODES = [
   { id: 'eliteunique', type: 'unique', age: 3, building: 'castle', row: 6, col: 2, prereqs: ['uniqueunit'], research_cost: { food: 0, gold: 0 }, train_cost: { food: 0, gold: 0 } },
   { id: 'uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [],},
   { id: 'uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [],},
-  
+
+  // ── Unique Techs by Civilization (Update 169123 costs from halfon) ────────
+  // Castle Age (uniquetech1) — 53 civilizations
+  { id: 'armenians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 350, gold: 250 } }, // Cilician Fleet
+  { id: 'aztecs_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 350 } }, // Atlatl
+  { id: 'bengalis_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 200 } }, // Paiks
+  { id: 'berbers_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 400, stone: 200 } }, // Kasbah
+  { id: 'bohemians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 350, gold: 300 } }, // Wagenburg Tactics
+  { id: 'britons_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 300 } }, // Yeomen
+  { id: 'bulgarians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 200, gold: 200 } }, // Stirrups
+  { id: 'burgundians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 300 } }, // Burgundian Vineyards
+  { id: 'burmese_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 350 } }, // Manipur Cavalry
+  { id: 'byzantines_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 250, gold: 300 } }, // Greek Fire
+  { id: 'celts_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 250, gold: 200 } }, // Stronghold
+  { id: 'chinese_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 400, stone: 200 } }, // Great Wall
+  { id: 'cumans_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 200, gold: 200 } }, // Steppe Husbandry
+  { id: 'dravidians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 250, gold: 300 } }, // Medical Corps
+  { id: 'ethiopians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 250, gold: 200 } }, // Royal Heirs
+  { id: 'franks_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 300 } }, // Bearded Axe
+  { id: 'georgians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 350, gold: 250 } }, // Svan Towers
+  { id: 'goths_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 450, gold: 250 } }, // Anarchy
+  { id: 'gurjaras_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 350 } }, // Kshatriyas
+  { id: 'hindustanis_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 200 } }, // Grand Trunk Road
+  { id: 'huns_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 250, gold: 200 } }, // Marauders
+  { id: 'incas_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 200 } }, // Andean Sling
+  { id: 'italians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 350, gold: 250 } }, // Silk Road
+  { id: 'japanese_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 350, gold: 250 } }, // Yasama
+  { id: 'jurchens_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 400, stone: 200 } }, // Fortified Bastions
+  { id: 'khitans_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 350 } }, // Lamellar Armor
+  { id: 'khmer_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 250 } }, // Tusk Swords
+  { id: 'koreans_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 400, gold: 200 } }, // Eupseong
+  { id: 'lithuanians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 200, gold: 150 } }, // Hill Forts
+  { id: 'magyars_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 300 } }, // Corvinian Army
+  { id: 'malay_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 350, gold: 300 } }, // Thalassocracy
+  { id: 'malians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 250, gold: 200 } }, // Tigui
+  { id: 'mapuche_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 350 } }, // Malon
+  { id: 'mayans_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 350, gold: 300 } }, // Hul'che Javelineers
+  { id: 'mongols_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { } }, // Nomads
+  { id: 'muisca_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 350 } }, // Herbalism
+  { id: 'persians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 350, gold: 300 } }, // Kamandaran
+  { id: 'poles_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 250 } }, // Szlachta Privileges
+  { id: 'portuguese_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 250, gold: 200 } }, // Circumnavigation
+  { id: 'romans_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 300 } }, // Ballistas
+  { id: 'saracens_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 300, gold: 200 } }, // Bimaristan
+  { id: 'shu_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 350 } }, // Coiled Serpent Array
+  { id: 'sicilians_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 300 } }, // First Crusade
+  { id: 'slavs_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 400, gold: 200 } }, // Detinets
+  { id: 'spanish_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 300 } }, // Inquisition
+  { id: 'tatars_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { wood: 350, stone: 200 } }, // Silk Armor
+  { id: 'teutons_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 300 } }, // Ironclad
+  { id: 'tupi_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 200 } }, // Caciques
+  { id: 'turks_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 350, gold: 150 } }, // Sipahi
+  { id: 'vietnamese_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 350 } }, // Chatras
+  { id: 'vikings_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 600, gold: 450 } }, // Chieftains
+  { id: 'wei_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 300, gold: 200 } }, // Tuntian
+  { id: 'wu_uniquetech1', type: 'unique', age: 2, building: 'castle', row: 5, col: 5, prereqs: [], research_cost: { food: 400, gold: 250 } }, // Red Cliffs Tactics
+
+  // Imperial Age (uniquetech2) — 53 civilizations
+  { id: 'armenians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 800, gold: 600 } }, // Fereters
+  { id: 'aztecs_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 450, gold: 750 } }, // Garland Wars
+  { id: 'bengalis_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 800, gold: 700 } }, // Mahayana
+  { id: 'berbers_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 500 } }, // Maghrebi Camels
+  { id: 'bohemians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 600 } }, // Hussite Reforms
+  { id: 'britons_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 800, gold: 500 } }, // Warwolf
+  { id: 'bulgarians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 550, gold: 450 } }, // Bagains
+  { id: 'burgundians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 500 } }, // Flemish Revolution
+  { id: 'burmese_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 500 } }, // Howdah
+  { id: 'byzantines_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 800, gold: 600 } }, // Logistica
+  { id: 'celts_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 750, gold: 450 } }, // Furor Celtica
+  { id: 'chinese_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 1100, gold: 900 } }, // Rocketry
+  { id: 'cumans_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 500 } }, // Cuman Mercenaries
+  { id: 'dravidians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 550 } }, // Wootz Steel
+  { id: 'ethiopians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 600, gold: 500 } }, // Torsion Engines
+  { id: 'franks_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 600 } }, // Chivalry
+  { id: 'georgians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 750, gold: 600 } }, // Aznauri Cavalry
+  { id: 'goths_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 400, gold: 600 } }, // Perfusion
+  { id: 'gurjaras_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 650, gold: 600 } }, // Frontier Guards
+  { id: 'hindustanis_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 500 } }, // Shatagni
+  { id: 'huns_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 300, food: 500 } }, // Atheism
+  { id: 'incas_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 550, gold: 450 } }, // Fabric Shields
+  { id: 'italians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 550 } }, // Pirotechnia
+  { id: 'japanese_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 550, gold: 300 } }, // Kataparuto
+  { id: 'jurchens_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 600 } }, // Thunderclap Bombs
+  { id: 'khitans_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 800, gold: 700 } }, // Ordo Cavalry
+  { id: 'khmer_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 750, gold: 600 } }, // Double Crossbow
+  { id: 'koreans_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 700, gold: 400 } }, // Shinkichon
+  { id: 'lithuanians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 400, gold: 300 } }, // Tower Shields
+  { id: 'magyars_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 750, gold: 600 } }, // Recurve Bow
+  { id: 'malay_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 600 } }, // Forced Levy
+  { id: 'malians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 500 } }, // Farimba
+  { id: 'mapuche_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 500, gold: 450 } }, // Butalmapu
+  { id: 'mayans_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 850, gold: 700 } }, // Holcans
+  { id: 'mongols_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 500, gold: 450 } }, // Drill
+  { id: 'muisca_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 450, gold: 350 } }, // Huaracas
+  { id: 'persians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 600, gold: 300 } }, // Citadels
+  { id: 'poles_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 750, gold: 600 } }, // Lechitic Legacy
+  { id: 'portuguese_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 500 } }, // Arquebus
+  { id: 'romans_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 800, gold: 600 } }, // Comitatenses
+  { id: 'saracens_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 650, gold: 500 } }, // Counterweights
+  { id: 'shu_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 850, gold: 700 } }, // Bolt Magazine
+  { id: 'sicilians_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 750, gold: 550 } }, // Hauberk
+  { id: 'slavs_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 600 } }, // Druzhina
+  { id: 'spanish_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 400, gold: 250 } }, // Supremacy
+  { id: 'tatars_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { wood: 600, gold: 500 } }, // Timurid Siegecraft
+  { id: 'teutons_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, stone: 400 } }, // Crenellations
+  { id: 'tupi_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 650, gold: 600 } }, // Curare
+  { id: 'turks_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 600, gold: 650 } }, // Artillery
+  { id: 'vietnamese_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 750, gold: 600 } }, // Paper Money
+  { id: 'vikings_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 650, gold: 500 } }, // Bogsveigar
+  { id: 'wei_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 700, gold: 600 } }, // Ming Guang Armor
+  { id: 'wu_uniquetech2', type: 'unique', age: 3, building: 'castle', row: 6, col: 5, prereqs: [], research_cost: { food: 800, gold: 700 } }, // Sitting Tiger
+
   { id: 'hoardings', type: 'tech', age: 3, building: 'castle', row: 6, col: 6, prereqs: [], research_cost: { food: 400, wood: 400 } },
   { id: 'conscription', type: 'tech', age: 3, building: 'castle', row: 6, col: 7, prereqs: [], research_cost: { food: 150, gold: 150 } },
   { id: 'sappers', type: 'tech', age: 3, building: 'castle', row: 7, col: 6, prereqs: [], research_cost: { food: 400, wood: 200 } },
@@ -309,10 +420,10 @@ export const NODES = [
   { type: 'building', id: 'university', name: 'Universidad',       icon: '🎓', age: 2, row: 4, prereqs: [],           build_cost: { wood: 200 }, stats: { hp: 2100, armor: [2, 9] } },
   // ── Torres (columna vertical compartida) ──────────────────
   { type: 'building', id: 'outpost',       name: 'Puesto Avanz.',   icon: '🗼', age: 0, row: 0, col: 0, prereqs: [],              build_cost: { wood: 25,  stone: 5   }, stats: { hp:  500, armor: [0, 0]               } },
-  { type: 'defencive', id: 'watchtower',    name: 'Torre Vigía',     icon: '🏗️', age: 1, row: 2, col: 0,prereqs: [],              build_cost: { wood: 125, stone: 50  }, stats: { hp: 1020, armor: [1, 7], attack:   5, range: 8 } },
-  { type: 'defencive', id: 'guardtower',    name: 'Torre Guardia',   icon: '🏗️', age: 2, row: 4, col: 0,prereqs: ['watchtower'],  build_cost: { wood: 125, stone: 50  }, stats: { hp: 1500, armor: [2, 8], attack:   7, range: 8 } },
-  { type: 'defencive', id: 'keep',          name: 'Torreón',         icon: '🏗️', age: 3, row: 6, col: 0, prereqs: ['guardtower'],  build_cost: { wood: 125, stone: 50  }, stats: { hp: 2250, armor: [3, 9], attack:   8, range: 8 } },
-  { type: 'defencive', id: 'bombardtower',  name: 'Torre Bombarda',  icon: '💣', age: 3, row: 7, col: 0, prereqs: [],              build_cost: { wood: 125, stone: 125 }, stats: { hp: 2220, armor: [3, 9], attack: 120, range: 12 } },
+  { type: 'defencive', id: 'watchtower',    name: 'Torre Vigía',     icon: '🏗️', age: 1, row: 2, col: 0,prereqs: [],              build_cost: { wood: 35, stone: 125  }, stats: { hp: 850,  armor: [1, 7], attack:   5, range: 8, los: 10, bonuses: [{ vs: 'camel_units', value: 1 }, { vs: 'ships', value: 6 }, { vs: 'fishing_ships', value: 7 }] } },
+  { type: 'defencive', id: 'guardtower',    name: 'Torre Guardia',   icon: '🏗️', age: 2, row: 4, col: 0,prereqs: ['watchtower'],  build_cost: { wood: 35,  stone: 125 }, stats: { hp: 1500, armor: [2, 8], attack:   7, range: 8, los: 10, bonuses: [{ vs: 'camel_units', value: 1 }, { vs: 'ships', value: 8 }, { vs: 'fishing_ships', value: 9 }] } },
+  { type: 'defencive', id: 'keep',          name: 'Torreón',         icon: '🏗️', age: 3, row: 6, col: 0, prereqs: ['guardtower'],  build_cost: { wood: 35,  stone: 125 }, stats: { hp: 2250, armor: [3, 9], attack:   8, range: 8, los: 10, bonuses: [{ vs: 'camel_units', value: 1 }, { vs: 'ships', value: 9 }, { vs: 'fishing_ships', value: 10 }] } },
+  { type: 'defencive', id: 'bombardtower',  name: 'Torre Bombarda',  icon: '💣', age: 3, row: 7, col: 0, prereqs: [],              build_cost: { stone: 125, gold: 100 }, stats: { hp: 2220, armor: [3, 9], attack: 120, range: 12, los: 10 } },
   // ── Murallas (columna vertical compartida) ────────────────
   { type: 'building', id: 'palisadewall',  name: 'Empalizada',      icon: '🪵', age: 0, row: 0,col: 1, prereqs: [],               build_cost: { wood: 2   }, stats: { hp:  250, armor: [ 2,  2] }},
   { type: 'defencive', id: 'palisadegate',  name: 'Puerta Empaliz.', icon: '🚪', age: 0, row: 1,col: 1, prereqs: [],               build_cost: { wood: 20  }, stats: { hp:  400, armor: [ 2,  2] }},
@@ -323,7 +434,7 @@ export const NODES = [
   { type: 'building', id: 'castle',         name: 'Castillo',         icon: '🏯', age: 2, row: 4, prereqs: [],         build_cost: { stone: 650 }, stats: { hp: 4800, armor: [8, 11], attack: 11, range: 8 } },
   { type: 'building', id: 'wonder',         name: 'Maravilla',        icon: '🏰', age: 3, row: 6, prereqs: [],         build_cost: { wood: 1000, stone: 1000, gold: 1000 }, stats: { hp: 4800, armor: [3, 5] } },
   { type: 'building', id: 'monastery',      name: 'Monasterio',       icon: '⛪', age: 2, row: 4, prereqs: [],         build_cost: { wood: 175 }, stats: { hp: 2100, armor: [0, 7] } },
-  { type: 'building', id: 'fortified_church', name: 'Iglesia Fort.',variant: 'regional',  icon: '⛪', age: 2, row: 4, prereqs: [],         build_cost: { wood: 200 }, stats: { hp: 2500, armor: [0, 8] }, replaces: ['monastery'] },
+  { type: 'building', id: 'fortified_church', name: 'Iglesia Fort.', variant: 'regional', icon: '⛪', age: 2, row: 4, prereqs: [], build_cost: { wood: 200 }, stats: { hp: 2400, armor: [4, 10], attack: 5, range: 4, los: 10, bonuses: [{ vs: 'ships', value: 5 }, { vs: 'camel_units', value: 1 }] }, replaces: ['monastery'] },
   // ── Economía ──────────────────────────────────────────────
   { type: 'building', id: 'tc',      name: 'Centro Urbano', icon: '🏰', age: 0, row: 0, prereqs: [], build_cost: { wood: 275, stone: 100 }, stats: { hp: 2400, armor: [3, 5], attack: 5, range: 6 } },
   { type: 'building', id: 'house',   name: 'Casa',          icon: '',   age: 0, row: 0, prereqs: [], build_cost: { wood: 25  }, stats: { hp: 1000, armor: [0, 7] } },

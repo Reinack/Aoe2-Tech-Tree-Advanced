@@ -51,6 +51,31 @@ function getApplicableTechs(unitId) {
 
 // Applies active tech cost modifiers to a cost object.
 // Returns a modified copy if anything changed, otherwise null.
+// Returns the effectiveness multiplier for a tech (e.g. Armenians ×1.4 for _m techs).
+function getTechEffectiveness(tid) {
+  const civ = getCiv();
+  if (!civ?.bonuses) return 1;
+  for (const b of civ.bonuses) {
+    if (b.type !== 'tech_effectiveness') continue;
+    if (b.scope === 'mule_cart_tech' && tid.endsWith('_m')) return b.value ?? 1;
+  }
+  return 1;
+}
+
+// Returns a copy of mod with all numeric stat/pct values scaled by factor.
+function scaleMod(mod, factor) {
+  if (factor === 1) return mod;
+  const scaled = { ...mod };
+  const PCT_KEYS = ['hp_pct', 'attack_pct', 'speed_pct', 'rof_pct', 'attack_speed_pct',
+                    'production_speed_pct', 'gather_speed_pct', 'cost_pct', 'gold_cost_pct',
+                    'wood_cost_pct', 'food_cost_pct'];
+  const FLAT_KEYS = ['hp', 'attack', 'armor_melee', 'armor_pierce', 'range', 'los',
+                     'blast_radius', 'carry_capacity'];
+  for (const k of PCT_KEYS)  { if (scaled[k] != null) scaled[k] = scaled[k] * factor; }
+  for (const k of FLAT_KEYS) { if (scaled[k] != null) scaled[k] = Math.round(scaled[k] * factor); }
+  return scaled;
+}
+
 function applyTechsToCost(rawCost, activeTechs) {
   if (!rawCost || activeTechs.size === 0) return null;
 
@@ -58,8 +83,9 @@ function applyTechsToCost(rawCost, activeTechs) {
   let modified = false;
 
   for (const tid of activeTechs) {
-    const mod = TECHS[tid]?.mod;
-    if (!mod) continue;
+    const rawMod = TECHS[tid]?.mod;
+    if (!rawMod) continue;
+    const mod = scaleMod(rawMod, getTechEffectiveness(tid));
 
     // ── All-resource percentage reduction (cost_pct, trade_cost_pct) ─────────
     const allPct = mod.cost_pct ?? mod.trade_cost_pct;
@@ -116,8 +142,9 @@ function applyTechs(base, activeTechs, unitId = '') {
     bonuses:      base.bonuses ? base.bonuses.map(b => ({ ...b })) : undefined,
   };
   for (const tid of activeTechs) {
-    const mod = TECHS[tid]?.mod;
-    if (!mod) continue;
+    const rawMod = TECHS[tid]?.mod;
+    if (!rawMod) continue;
+    const mod = scaleMod(rawMod, getTechEffectiveness(tid));
 
     // ── Standard stat deltas ────────────────────────────────────────────────
     if (mod.hp)           s.hp       = (s.hp ?? 0) + mod.hp;
@@ -217,7 +244,8 @@ function renderSimBody() {
   });
 
   const filtered = applicable.filter(techId => {
-    const node = NODES.find(n => n.id === techId);
+    const slotKey = techId.replace(/^.+_(uniquetech[12])$/, '$1');
+    const node = NODES.find(n => n.id === techId) || NODES.find(n => n.id === slotKey);
     return node ? node.age <= simMaxAge : true;
   });
 
