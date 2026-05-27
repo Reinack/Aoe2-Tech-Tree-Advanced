@@ -144,8 +144,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -188,22 +186,6 @@
     "outpost",
     "keep"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 300,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 500
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -211,10 +193,12 @@
       "eliteImgPic": 479,
       "cost": { "food": 55, "gold": 85 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 300, gold: 200 } },
+    { research_cost: { food: 650, gold: 500 } }
   ]
 };
-
-
 
 
 window.SARACENS = SARACENS;

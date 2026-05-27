@@ -140,8 +140,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -184,32 +182,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "gold": 250
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 550,
-        "wood": 200
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 232,
       "eliteImgPic": 505
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { food: 750, gold: 600 } }
   ]
 };
-
-
 
 
 window.VIETNAMESE = VIETNAMESE;

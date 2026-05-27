@@ -111,11 +111,13 @@
     "architecture",
     "ballistics",
     "chemistry",
+    "watchtower",
     "guardtower",
+    "keep",
     "murderhole",
     "treadmillcrane",
+    "stonewall",
     "fortifiedwall",
-    "keep",
     "heatedshot",
     "monk",
     "redemption",
@@ -130,8 +132,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -166,32 +166,18 @@
     "clinker_construction",
     "incendiaries"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 750,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 108,
       "eliteImgPic": 488
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 300 } },
+    { research_cost: { food: 850, gold: 700 } }
   ]
 };
-
-
 
 
 window.MAYANS = MAYANS;

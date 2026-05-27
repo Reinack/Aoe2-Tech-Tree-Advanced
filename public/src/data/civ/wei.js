@@ -13,10 +13,18 @@
       "value_by_age": [1.0, 1.0, 1.2, 1.3],
       "min_age": 2
     },
-    // Traction Trebuchets and Lou Chuans cost -25%
+    // Traction Trebuchets cost -25%
     {
       "type": "cost_modifier",
-      "scope": "unit",
+      "scope": "traction_treb",
+      "resource": "all",
+      "op": "multiply",
+      "value": 0.75
+    },
+    // Lou Chuans cost -25%
+    {
+      "type": "cost_modifier",
+      "scope": "lou_chuan",
       "resource": "all",
       "op": "multiply",
       "value": 0.75
@@ -126,8 +134,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -169,22 +175,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "wood": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 600,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -193,10 +183,12 @@
       "cost": { "food": 60, "gold": 80 },
       "elite_cost": { "food": 1000, "gold": 800 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 200 } },
+    { research_cost: { food: 700, gold: 600 } }
   ]
 };
-
-
 
 
 window.WEI = WEI;

@@ -140,8 +140,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -184,32 +182,18 @@
     "outpost",
     "bombardtower"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "wood": 150
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 700,
-        "gold": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 190,
       "eliteImgPic": 496
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 200 } },
+    { research_cost: { food: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.PORTUGUESE = PORTUGUESE;

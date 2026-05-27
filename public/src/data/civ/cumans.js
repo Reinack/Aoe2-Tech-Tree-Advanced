@@ -142,8 +142,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -186,22 +184,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 200,
-        "wood": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -216,12 +198,12 @@
     "cappedram": {
       "age": 1
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { food: 200, gold: 200 } },
+    { research_cost: { food: 600, gold: 500 } }
+  ]
 };
-
-
-
 
 window.CUMANS = CUMANS;
 export default CUMANS;
-

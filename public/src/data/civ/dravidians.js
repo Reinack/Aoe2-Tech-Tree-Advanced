@@ -1,4 +1,4 @@
-const DRAVIDIANS = {
+﻿const DRAVIDIANS = {
   "bonuses": [
     // Fishermen and Fishing Ships carry +15
     {
@@ -164,8 +164,6 @@ const DRAVIDIANS = {
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -206,32 +204,18 @@ const DRAVIDIANS = {
     "outpost",
     "gate"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 550
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 386,
       "eliteImgPic": 515
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 300 } },
+    { research_cost: { food: 700, gold: 550 } }
   ]
 };
-
-
 
 
 window.DRAVIDIANS = DRAVIDIANS;

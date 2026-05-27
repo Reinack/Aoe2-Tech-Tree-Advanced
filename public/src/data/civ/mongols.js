@@ -139,8 +139,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -183,32 +181,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 300,
-        "gold": 150
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 500,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 42,
       "eliteImgPic": 484
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { } },
+    { research_cost: { wood: 500, gold: 450 } }
   ]
 };
-
-
 
 
 window.MONGOLS = MONGOLS;

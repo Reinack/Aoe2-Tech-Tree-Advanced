@@ -28,7 +28,7 @@
   ],
   "teamBonus": {
     "type": "stat_modifier",
-    "scope": "unit",
+    "scope": "scorpion",
     "stat": "range",
     "op": "add",
     "value": 1
@@ -132,8 +132,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -177,32 +175,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 300,
-        "gold": 450
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 700,
-        "gold": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 231,
       "eliteImgPic": 502
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 250 } },
+    { research_cost: { food: 750, gold: 600 } }
   ]
 };
-
-
 
 
 window.KHMER = KHMER;

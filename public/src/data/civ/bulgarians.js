@@ -1,4 +1,4 @@
-const BULGARIANS = {
+﻿const BULGARIANS = {
   "bonuses": [
     // Militia-line upgrades free
     {
@@ -137,8 +137,6 @@ const BULGARIANS = {
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "tradecart",
@@ -179,22 +177,6 @@ const BULGARIANS = {
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 400,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 900,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -202,10 +184,12 @@ const BULGARIANS = {
       "eliteImgPic": 506,
       "cost": { "food": 60, "gold": 70 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 200, gold: 200 } },
+    { research_cost: { food: 550, gold: 450 } }
   ]
 };
-
-
 
 
 window.BULGARIANS = BULGARIANS;

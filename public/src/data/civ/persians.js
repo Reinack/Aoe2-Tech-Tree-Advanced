@@ -22,14 +22,14 @@
       "op": "multiply",
       "value": 2
     },
-    // TC works +5/10/15/20% faster → Villagers train faster
+    // TC works +5/10/15/20% faster ? Villagers train faster
     {
       "type": "building_work_speed",
       "scope": "tc",
       "op": "multiply",
       "value_by_age": [1.05, 1.10, 1.15, 1.20]
     },
-    // Dock works +5/10/15/20% faster → Ships train faster
+    // Dock works +5/10/15/20% faster ? Ships train faster
     {
       "type": "building_work_speed",
       "scope": "dock",
@@ -161,8 +161,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "tradecart",
@@ -207,22 +205,6 @@
     "outpost",
     "arrowslits"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 400,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 600,
-        "gold": 300
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -230,10 +212,12 @@
       "eliteImgPic": 481,
       "cost": { "food": 170, "gold": 85 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 300 } },
+    { research_cost: { wood: 600, gold: 300 } }
   ]
 };
-
-
 
 
 window.PERSIANS = PERSIANS;

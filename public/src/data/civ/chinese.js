@@ -27,7 +27,8 @@
       "scope": "all_tech",
       "resource": "all",
       "op": "multiply",
-      "value": 0.85
+      "value_by_age": [1.0, 0.95, 0.90, 0.85],
+      "min_age": 1
     },
     // Town Centers +7 line of sight
     {
@@ -178,8 +179,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "tradecart",
@@ -218,32 +217,18 @@
     "outpost",
     "gate"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 400,
-        "stone": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 935,
-        "gold": 765
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 36,
       "eliteImgPic": 482
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, stone: 200 } },
+    { research_cost: { food: 1100, gold: 900 } }
   ]
 };
-
-
 
 
 window.CHINESE = CHINESE;

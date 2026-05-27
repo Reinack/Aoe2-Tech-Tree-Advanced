@@ -139,8 +139,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -186,22 +184,6 @@
     "outpost",
     "gate"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 550,
-        "gold": 250
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -209,10 +191,12 @@
       "eliteImgPic": 523,
       "cost": { "food": 60, "gold": 45 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 350, gold: 250 } },
+    { research_cost: { food: 750, gold: 600 } }
   ]
 };
-
-
 
 
 window.GEORGIANS = GEORGIANS;

@@ -242,7 +242,7 @@ function populateCivSelect() {
 
 // ── Build civ info HTML from locale ──────────────────────────────────────────
 function buildCivInfo(civId) {
-  const civ = CIVS[civId ?? currentCiv] || CIVS.generic;
+  const civ = CIVS[civId ?? currentCiv];
   const lc  = civLocale(civId ?? currentCiv);
   const infoEl = document.getElementById('civ-info');
   infoEl.innerHTML = '';

@@ -138,8 +138,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "tradecart",
@@ -182,22 +180,6 @@
     "outpost",
     "bombardtower"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 400,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 500,
-        "gold": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -205,10 +187,12 @@
       "eliteImgPic": 507,
       "cost": { "food": 60, "gold": 40 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 350, stone: 200 } },
+    { research_cost: { wood: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.TATARS = TATARS;

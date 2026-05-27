@@ -140,8 +140,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -183,32 +181,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "gold": 250
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 700,
-        "gold": 300
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 191,
       "eliteImgPic": 498
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, stone: 200 } },
+    { research_cost: { food: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.BERBERS = BERBERS;

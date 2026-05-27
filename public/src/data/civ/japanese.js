@@ -145,8 +145,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -186,32 +184,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "wood": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 550,
-        "gold": 300
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 44,
       "eliteImgPic": 483
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 350, gold: 250 } },
+    { research_cost: { wood: 550, gold: 300 } }
   ]
 };
-
-
 
 
 window.JAPANESE = JAPANESE;

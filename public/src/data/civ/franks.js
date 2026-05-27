@@ -134,8 +134,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -181,32 +179,18 @@
     "gate",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 600,
-        "gold": 500
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 46,
       "eliteImgPic": 473
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 300 } },
+    { research_cost: { food: 700, gold: 600 } }
   ]
 };
-
-
 
 
 window.FRANKS = FRANKS;

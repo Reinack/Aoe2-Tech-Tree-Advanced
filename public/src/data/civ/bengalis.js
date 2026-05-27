@@ -1,4 +1,4 @@
-const BENGALIS = {
+﻿const BENGALIS = {
   "bonuses": [
     // Town Centers spawn 2 Villagers when the next Age is reached
     {
@@ -155,8 +155,6 @@ const BENGALIS = {
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "tradecart",
@@ -196,22 +194,6 @@ const BENGALIS = {
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 375,
-        "gold": 275
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 800,
-        "gold": 650
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -219,10 +201,12 @@ const BENGALIS = {
       "eliteImgPic": 520,
       "cost": { "gold": 60 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 200 } },
+    { research_cost: { food: 800, gold: 700 } }
   ]
 };
-
-
 
 
 window.BENGALIS = BENGALIS;

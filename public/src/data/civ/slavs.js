@@ -134,8 +134,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -178,22 +176,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 400,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 900,
-        "gold": 500
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -201,10 +183,12 @@
       "eliteImgPic": 494,
       "cost": { "food": 60, "gold": 70 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, gold: 200 } },
+    { research_cost: { food: 700, gold: 600 } }
   ]
 };
-
-
 
 
 window.SLAVS = SLAVS;

@@ -6,15 +6,14 @@
       "op": "multiply",
       "value": 0.85
     },
-    // Foot Archers and Condottieri +1 melee armor and +1 pierce armor
-    {
-      "type": "stat_modifier",
-      "scope": "condottiero",
-      "stat": "armor_melee_and_pierce",
-      "op": "add",
-      "value_melee": 1,
-      "value_pierce": 1
-    },
+    // Foot Archers +1 melee armor
+    { "type": "stat_modifier", "scope": "foot_archer", "stat": "armor_melee", "op": "add", "value": 1 },
+    // Foot Archers +1 pierce armor
+    { "type": "stat_modifier", "scope": "foot_archer", "stat": "armor_pierce", "op": "add", "value": 1 },
+    // Condottieri +1 melee armor
+    { "type": "stat_modifier", "scope": "condottiero", "stat": "armor_melee", "op": "add", "value": 1 },
+    // Condottieri +1 pierce armor
+    { "type": "stat_modifier", "scope": "condottiero", "stat": "armor_pierce", "op": "add", "value": 1 },
     // Dock and University technologies cost -25%
     {
       "type": "tech_cost_modifier",
@@ -155,8 +154,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -198,32 +195,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "gold": 250
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 500
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 133,
       "eliteImgPic": 492
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 250 } },
+    { research_cost: { food: 700, gold: 550 } }
   ]
 };
-
-
 
 
 window.ITALIANS = ITALIANS;

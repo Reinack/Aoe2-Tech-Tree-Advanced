@@ -46,7 +46,7 @@
     // Fire Ships and Dromons attack +25% faster (rof multiplier 0.75)
     {
       "type": "stat_modifier",
-      "scope": "ship",
+      "scope": "fire_ship",
       "stat": "rof",
       "op": "multiply",
       "value": 0.75
@@ -171,8 +171,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -214,22 +212,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 250,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 800,
-        "gold": 600
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -237,10 +219,12 @@
       "eliteImgPic": 476,
       "cost": { "food": 70, "gold": 75 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 300 } },
+    { research_cost: { food: 800, gold: 600 } }
   ]
 };
-
-
 
 
 window.BYZANTINES = BYZANTINES;

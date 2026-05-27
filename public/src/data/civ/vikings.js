@@ -125,8 +125,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -170,32 +168,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 600,
-        "gold": 450
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 500
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 38,
       "eliteImgPic": 485
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 600, gold: 450 } },
+    { research_cost: { food: 650, gold: 500 } }
   ]
 };
-
-
 
 
 window.VIKINGS = VIKINGS;

@@ -107,6 +107,7 @@
     "arrowslits",
     "murderhole",
     "treadmillcrane",
+    "stonewall",
     "fortifiedwall",
     "keep",
     "heatedshot",
@@ -126,8 +127,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -166,22 +165,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 400,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 600
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -191,10 +174,12 @@
     {
       "age": 2
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 200 } },
+    { research_cost: { food: 650, gold: 600 } }
   ]
 };
-
-
 
 
 window.TUPI = TUPI;

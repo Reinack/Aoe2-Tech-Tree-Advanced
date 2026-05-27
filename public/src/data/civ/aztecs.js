@@ -128,8 +128,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "warrior_priest",
@@ -172,32 +170,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 400,
-        "gold": 350
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 450,
-        "gold": 750
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 110,
       "eliteImgPic": 486
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 350 } },
+    { research_cost: { food: 450, gold: 750 } }
   ]
 };
-
-
 
 
 window.AZTECS = AZTECS;

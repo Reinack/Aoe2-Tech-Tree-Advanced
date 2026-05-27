@@ -147,8 +147,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "tradecart",
@@ -190,22 +188,6 @@
     "outpost",
     "arrowslits"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 500,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -217,12 +199,12 @@
     "chemistry": {
       "age": 2
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 300 } },
+    { research_cost: { food: 700, gold: 600 } }
+  ]
 };
-
-
-
 
 window.BOHEMIANS = BOHEMIANS;
 export default BOHEMIANS;
-

@@ -142,8 +142,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -185,22 +183,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 350,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 750
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -209,10 +191,12 @@
       "cost": { "food": 60, "gold": 15 },
       "elite_cost": { "food": 900, "gold": 500 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 400, gold: 350 } },
+    { research_cost: { food: 850, gold: 700 } }
   ]
 };
-
-
 
 
 window.SHU = SHU;

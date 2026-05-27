@@ -2,8 +2,8 @@
   "bonuses": [
     // Mule Carts cost -25%
     {
-      "type": "cost_modifier",
-      "scope": "unit",
+      "type": "building_cost_modifier",
+      "scope": "mulecart",
       "resource": "all",
       "op": "multiply",
       "value": 0.75
@@ -142,8 +142,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -188,22 +186,6 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 350,
-        "gold": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 550,
-        "gold": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -243,12 +225,12 @@
       "age": 2,       
       "row": 5
     }
-  }
+  },
+  "uniqueTechs": [
+    { research_cost: { wood: 350, gold: 250 } },
+    { research_cost: { food: 800, gold: 600 } }
+  ]
 };
-
-
-
 
 window.ARMENIANS = ARMENIANS;
 export default ARMENIANS;
-

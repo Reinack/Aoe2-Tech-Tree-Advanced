@@ -6,7 +6,7 @@
       "stat": "food",
       "op": "multiply",
       "value": 1.2
-    },   // Los recolectores entregan +20% mÃ¡s de comida
+    },   // Los recolectores entregan +20% más de comida
     // Settlements (Tahsili) can train Spearman-line and Skirmishers
     {
       "type": "unit_availability",
@@ -111,12 +111,14 @@
     "masonry",
     "ballistics",
     "chemistry",
+    "watchtower",
     "guardtower",
+    "keep",
     "arrowslits",
     "murderhole",
     "treadmillcrane",
+    "stonewall",
     "fortifiedwall",
-    "keep",
     "heatedshot",
     "bombardtower",
     "monk",
@@ -135,8 +137,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -176,22 +176,6 @@
     "siphons",
     "incendiaries"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 350
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 500,
-        "gold": 450
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -202,10 +186,12 @@
     {
       "age": 2
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { food: 500, gold: 450 } }
   ]
 };
-
-
 
 
 window.MAPUCHE = MAPUCHE;

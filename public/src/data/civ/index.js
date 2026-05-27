@@ -54,10 +54,8 @@ import VIETNAMESE from './vietnamese.js';
 import VIKINGS from './vikings.js';
 import WEI from './wei.js';
 import WU from './wu.js';
-import GENERIC from './generic.js';
 
 const CIVS = {
-  generic: GENERIC,
   armenians: ARMENIANS,
   aztecs: AZTECS,
   bengalis: BENGALIS,

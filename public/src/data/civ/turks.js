@@ -3,7 +3,7 @@
     // Gold miners work +25% faster
     {
       "type": "building_work_speed",
-      "scope": "miner",
+      "scope": "gold_miner",
       "op": "multiply",
       "value": 1.25
     },
@@ -141,8 +141,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -184,32 +182,18 @@
     "outpost",
     "bombardtower"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 350,
-        "gold": 150
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 600,
-        "gold": 650
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 39,
       "eliteImgPic": 480
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 350, gold: 150 } },
+    { research_cost: { food: 600, gold: 650 } }
   ]
 };
-
-
 
 
 window.TURKS = TURKS;

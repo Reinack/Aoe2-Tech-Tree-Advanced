@@ -15,10 +15,10 @@
       "op": "multiply",
       "value": 0.5
     },
-    // Foot Archers +1/+2 range in Castle/Imperial Age
+    // Foot Archers (except Skirmishers) +1/+2 range in Castle/Imperial Age
     {
       "type": "stat_modifier",
-      "scope": "foot_archer",
+      "scope": "foot_archer_no_skirm",
       "stat": "range",
       "op": "add",
       "value_by_age": [0, 0, 1, 2],
@@ -129,8 +129,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -172,34 +170,22 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 750,
-        "gold": 450
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 800,
-        "gold": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 41,
       "eliteImgPic": 472
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 300 } },
+    { research_cost: { wood: 800, gold: 500 } }
   ]
 };
 
 
-
-
 window.BRITONS = BRITONS;
 export default BRITONS;
+
+
 

@@ -131,8 +131,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "tradecart",
@@ -175,22 +173,6 @@
     "outpost",
     "gate"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "wood": 300,
-        "gold": 200
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 500,
-        "wood": 300
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -198,10 +180,12 @@
       "eliteImgPic": 487,
       "cost": { "food": 60, "gold": 60 }
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 200 } },
+    { research_cost: { wood: 300, food: 500 } }
   ]
 };
-
-
 
 
 window.HUNS = HUNS;

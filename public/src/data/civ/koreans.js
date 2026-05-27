@@ -145,8 +145,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "conscription",
     "sappers",
     "turtle_ship",
@@ -188,32 +186,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "wood": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 1100,
-        "gold": 800
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 117,
       "eliteImgPic": 490
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { wood: 400, gold: 200 } },
+    { research_cost: { wood: 700, gold: 400 } }
   ]
 };
-
-
 
 
 window.KOREANS = KOREANS;

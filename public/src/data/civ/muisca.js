@@ -39,13 +39,13 @@
       "value_by_age": [0, 1, 2, 3],
       "min_age": 1
     },
-    // Monks regain faith +100% faster (double speed)
+    // Monks regain faith +50% faster
     {
       "type": "stat_modifier",
       "scope": "monk",
       "stat": "faith",
       "op": "multiply",
-      "value": 2.0
+      "value": 1.5
     },
     // Caravan free
     {
@@ -155,8 +155,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -200,22 +198,6 @@
     "gate",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 300,
-        "gold": 350
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "wood": 450,
-        "gold": 350
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
@@ -225,10 +207,12 @@
     {
       "age": 2
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { wood: 450, gold: 350 } }
   ]
 };
-
-
 
 
 window.MUISCA = MUISCA;

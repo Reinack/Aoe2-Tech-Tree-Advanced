@@ -1,4 +1,4 @@
-const GURJARAS = {
+﻿const GURJARAS = {
   "bonuses": [
     // Start with 2 Forage Bushes near the Town Center
     {
@@ -33,7 +33,7 @@ const GURJARAS = {
   ],
   "teamBonus": {
     "type": "creation_speed",
-    "scope": "military_unit",
+    "scope": "camel_elephant",
     "op": "multiply",
     "value": 0.75
   },
@@ -142,8 +142,6 @@ const GURJARAS = {
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -189,32 +187,18 @@ const GURJARAS = {
     "outpost",
     "gate"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 500,
-        "gold": 450
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 800,
-        "gold": 700
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 390,
       "eliteImgPic": 517
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 300, gold: 350 } },
+    { research_cost: { food: 650, gold: 600 } }
   ]
 };
-
-
 
 
 window.GURJARAS = GURJARAS;

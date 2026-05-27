@@ -2,9 +2,9 @@
   "bonuses": [
     // Buildings cost -15% wood
     {
-      "type": "cost_modifier",
-      "scope": "unit",
-      "resource": "all",
+      "type": "building_cost_modifier",
+      "scope": "building",
+      "resource": "wood",
       "op": "multiply",
       "value": 0.85
     },
@@ -28,7 +28,7 @@
   ],
   "teamBonus": {
     "type": "building_work_speed",
-    "scope": "building",
+    "scope": "university",
     "op": "multiply",
     "value": 1.8
   },
@@ -136,8 +136,6 @@
     "petard",
     "uniqueunit",
     "eliteunique",
-    "uniquetech1",
-    "uniquetech2",
     "hoardings",
     "conscription",
     "sappers",
@@ -180,32 +178,18 @@
     "outpost",
     "house"
   ],
-  "uniqueTechs": [
-    {
-      "age": 2,
-      "cost": {
-        "food": 200,
-        "wood": 300
-      }
-    },
-    {
-      "age": 3,
-      "cost": {
-        "food": 650,
-        "gold": 400
-      }
-    }
-  ],
   "uniqueUnits": [
     {
       "age": 2,
       "imgPic": 197,
       "eliteImgPic": 500
     }
+  ],
+  "uniqueTechs": [
+    { research_cost: { food: 250, gold: 200 } },
+    { research_cost: { food: 600, gold: 500 } }
   ]
 };
-
-
 
 
 window.MALIANS = MALIANS;
