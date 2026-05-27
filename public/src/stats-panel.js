@@ -547,8 +547,10 @@ function showStatsPanel(ev, n) {
   const trainTime = civMod?.train ?? stats?.train ?? null;
 
   let costHtml = '';
-  if (n.build_cost)
-    costHtml += `<strong>${t('build_cost')}:</strong> ${costStr(modBuildCost || n.build_cost, modBuildCost ? n.build_cost : null)} `;
+  if (n.build_cost) {
+    const btStr = n.build_time != null ? `  ${timeIcon} ${n.build_time}s` : '';
+    costHtml += `<strong>${t('build_cost')}:</strong> ${costStr(modBuildCost || n.build_cost, modBuildCost ? n.build_cost : null)}${btStr} `;
+  }
   if (n.train_cost) {
     const tStr = trainTime != null ? `  ${timeIcon} ${trainTime}s` : '';
     costHtml += `<strong>${t('train_cost')}:</strong> ${costStr(modTrainCost || n.train_cost, modTrainCost ? n.train_cost : null)}${tStr} `;
