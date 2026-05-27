@@ -73,6 +73,10 @@ langSelect.addEventListener('change', () => {
 civSelect.addEventListener('change', () => {
   currentCiv = civSelect.value;
 
+  // Reset ally team when main civ changes
+  simTeamCivs  = [];
+  simTeamStats = null;
+
   // Update civ shield
   const shield = document.getElementById('civ-shield');
   if (shield) {

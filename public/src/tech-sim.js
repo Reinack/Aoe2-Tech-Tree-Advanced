@@ -2,14 +2,16 @@
 // TECH SIMULATOR
 // ═══════════════════════════════════════════════════════════
 
-let simUnit       = null;
+let simUnit        = null;
 let simActiveTechs = new Set();
 let simMaxAge      = 3;
 let simExpanded    = false;
 let simBaseStats   = null;   // raw unit stats (before any bonuses)
 let simCivStats    = null;   // stats after civ stat_modifier bonuses
+let simTeamStats   = null;   // stats after applying allied civs' team bonuses
 let simBaseCost    = null;   // raw unit train cost (before any bonuses)
 let simCivCost     = null;   // train cost after civ cost_modifier bonuses
+let simTeamCivs    = [];     // ally civ IDs selected by the user (max 7)
 
 function getApplicableTechs(unitId) {
   // For unique unit slots, resolve actual class membership from the civ's UU
@@ -196,14 +198,61 @@ function applyTechs(base, activeTechs, unitId = '') {
   return s;
 }
 
-// Recomputes simCivStats / simCivCost based on the simulator's currently selected age.
-// Called on unit open and whenever the age selector changes.
+// Applies the teamBonus of each allied civ in simTeamCivs to the given stats.
+// Returns modified stats object if anything changed, otherwise null.
+function computeTeamBonusStats(stats, unitId, unitAge, trainingBuilding = null) {
+  if (simTeamCivs.length === 0 || !stats) return null;
+  const m = {
+    hp:     stats.hp,
+    attack: stats.attack,
+    armor:  stats.armor ? [...stats.armor] : [0, 0],
+    range:  stats.range,
+    speed:  stats.speed,
+    rof:    stats.rof,
+    los:    stats.los,
+    train:  stats.train,
+  };
+  let anyChanged = false;
+  for (const civId of simTeamCivs) {
+    const civ = CIVS[civId];
+    if (!civ?.teamBonus) continue;
+    const tb = civ.teamBonus;
+    if (tb.min_age !== undefined && unitAge < tb.min_age) continue;
+    const getter = CIV_BONUS_SCOPE_MAP[tb.scope];
+    const hits = getter ? getter().includes(unitId)
+                        : (UNIT_CLASSES[tb.scope]?.includes(unitId) ?? false);
+    if (!hits) continue;
+    const value = tb.value;
+    const apply = (cur, v) => tb.op === 'multiply' ? cur * v : cur + v;
+    if (tb.type === 'stat_modifier') {
+      if (tb.stat === 'hp'            && m.hp     !== undefined) { m.hp     = Math.round(apply(m.hp ?? 0, value)); anyChanged = true; }
+      if (tb.stat === 'attack'        && m.attack !== undefined) { m.attack = Math.round(apply(m.attack ?? 0, value)); anyChanged = true; }
+      if (tb.stat === 'armor')        { m.armor = m.armor.map(a => Math.round(apply(a, value))); anyChanged = true; }
+      if (tb.stat === 'armor_melee')  { m.armor[0] = Math.round(apply(m.armor[0], value)); anyChanged = true; }
+      if (tb.stat === 'armor_pierce') { m.armor[1] = Math.round(apply(m.armor[1], value)); anyChanged = true; }
+      if (tb.stat === 'range' && m.range !== undefined) { m.range = +(apply(m.range, value)).toFixed(1); anyChanged = true; }
+      if (tb.stat === 'speed' && m.speed !== undefined) { m.speed = +(apply(m.speed, value)).toFixed(2); anyChanged = true; }
+      if (tb.stat === 'rof'   && m.rof   !== undefined) { m.rof   = +(apply(m.rof,   value)).toFixed(2); anyChanged = true; }
+      if (tb.stat === 'los')  { m.los = Math.round(apply(m.los ?? 0, value)); anyChanged = true; }
+    } else if (tb.type === 'creation_speed' && m.train != null) {
+      m.train = Math.round(m.train * value); anyChanged = true;
+    } else if (tb.type === 'building_work_speed' && m.train != null && tb.scope === trainingBuilding) {
+      m.train = Math.round(m.train / value); anyChanged = true;
+    }
+  }
+  return anyChanged ? m : null;
+}
+
+// Recomputes simCivStats / simCivCost / simTeamStats based on the simulator's currently selected age.
+// Called on unit open and whenever the age selector or team composition changes.
 function recomputeSimCivBonuses() {
   if (!simUnit || !simBaseStats) return;
-  simCivStats = computeCivModifiedStats(simBaseStats, simUnit.id, simMaxAge, simUnit.building ?? null);
-  simCivCost  = simBaseCost
+  simCivStats  = computeCivModifiedStats(simBaseStats, simUnit.id, simMaxAge, simUnit.building ?? null);
+  simCivCost   = simBaseCost
     ? computeModifiedCost(simBaseCost, simUnit.id, simMaxAge, 'cost_modifier')
     : null;
+  const baseForTeam = simCivStats || simBaseStats;
+  simTeamStats = computeTeamBonusStats(baseForTeam, simUnit.id, simMaxAge, simUnit.building ?? null);
 }
 
 function initSim(unitNode) {
@@ -263,36 +312,42 @@ function renderSimBody() {
     </button>`;
   }).join('');
 
+  renderTeamPicker();
   refreshSimStats();
 }
 
-// Applies active techs on top of civ-modified (or base) stats and updates the main grid
+// Applies active techs on top of civ/team-modified (or base) stats and updates the main grid
 function refreshSimStats() {
   if (!simBaseStats) return;
   const isUnit = simUnit?.type === 'unit' || simUnit?.type === 'upgrade'
     || simUnit?.id === 'uniqueunit' || simUnit?.id === 'eliteunique'
     || simUnit?.type === 'building' || simUnit?.type === 'defencive';
 
-  const startFrom = simCivStats || simBaseStats;
+  // Chain: base → civ bonuses → team bonuses → active techs
+  const startFrom = simTeamStats || simCivStats || simBaseStats;
   const combined  = simActiveTechs.size > 0
     ? applyTechs(startFrom, simActiveTechs, simUnit?.id ?? '')
     : startFrom;
 
-  const civName = LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv;
+  const civName    = LOCALE[currentLang]?.civs?.[currentCiv]?.name || currentCiv;
+  const teamCount  = simTeamCivs.length;
+  const techCount  = simActiveTechs.size;
 
   let label = null;
-  if (simCivStats && civName && simActiveTechs.size > 0) {
-    label = currentLang === 'es'
-      ? `★ Bonuses de ${civName} + ${simActiveTechs.size} tecn.`
-      : `★ ${civName} bonuses + ${simActiveTechs.size} tech(s)`;
-  } else if (simCivStats && civName) {
-    label = currentLang === 'es'
-      ? `★ Bonuses de ${civName}`
-      : `★ ${civName} bonuses`;
-  } else if (simActiveTechs.size > 0) {
-    label = currentLang === 'es'
-      ? `★ ${simActiveTechs.size} tecnología(s) activa(s)`
-      : `★ ${simActiveTechs.size} active tech(s)`;
+  if (simCivStats || simTeamStats || techCount > 0) {
+    const parts = [];
+    if (simCivStats) {
+      parts.push(currentLang === 'es' ? `${civName}` : `${civName}`);
+    }
+    if (teamCount > 0) {
+      parts.push(currentLang === 'es'
+        ? `${teamCount} aliado${teamCount !== 1 ? 's' : ''}`
+        : `${teamCount} ${teamCount === 1 ? 'ally' : 'allies'}`);
+    }
+    if (techCount > 0) {
+      parts.push(currentLang === 'es' ? `${techCount} tecn.` : `${techCount} tech(s)`);
+    }
+    if (parts.length > 0) label = `★ ${parts.join(' + ')}`;
   }
 
   renderStatsGrid(simBaseStats, combined, isUnit, label);
@@ -312,8 +367,8 @@ function refreshSimCost() {
   const displayCost = techCost || baseCostForTechs;
   const rawCost     = simBaseCost;
 
-  // Current sim train time (base → civ → techs)
-  const simStartFrom = simCivStats || simBaseStats;
+  // Current sim train time (base → civ → team → techs)
+  const simStartFrom = simTeamStats || simCivStats || simBaseStats;
   const simCombined  = simActiveTechs.size > 0 ? applyTechs(simStartFrom, simActiveTechs, n.id ?? '') : simStartFrom;
   const simTrainTime = simCombined?.train ?? null;
   const timeIcon     = `<img src="img/Icon/reload.webp" class="res-icon" alt="time">`;
@@ -345,6 +400,39 @@ function refreshSimCost() {
   if (html) document.getElementById('sp-cost').innerHTML = html;
 }
 
+function renderTeamPicker() {
+  const chipsEl  = document.getElementById('sp-sim-team-chips');
+  const countEl  = document.getElementById('sp-sim-team-count');
+  const selectEl = document.getElementById('sp-sim-team-select');
+  if (!chipsEl || !countEl || !selectEl) return;
+
+  countEl.textContent = `${simTeamCivs.length}/7`;
+
+  chipsEl.innerHTML = simTeamCivs.map(civId => {
+    const name   = LOCALE[currentLang]?.civs?.[civId]?.name || civId;
+    const tbText = LOCALE[currentLang]?.civs?.[civId]?.teamBonus || '';
+    return `<div class="sim-team-chip" title="${tbText}">
+      <img src="img/Civs/${civId}.png" class="sim-team-shield" onerror="this.style.display='none'" alt="">
+      <span class="sim-team-name">${name}</span>
+      <button class="sim-team-remove" data-civ="${civId}" title="Quitar">✕</button>
+    </div>`;
+  }).join('');
+
+  const excluded = new Set([currentCiv, ...simTeamCivs]);
+  selectEl.innerHTML = `<option value="">${currentLang === 'es' ? '+ Añadir aliado…' : '+ Add ally…'}</option>`;
+  Object.keys(CIVS)
+    .filter(id => !excluded.has(id))
+    .sort((a, b) => (LOCALE[currentLang]?.civs?.[a]?.name || a)
+                      .localeCompare(LOCALE[currentLang]?.civs?.[b]?.name || b))
+    .forEach(id => {
+      const opt = document.createElement('option');
+      opt.value = id;
+      opt.textContent = LOCALE[currentLang]?.civs?.[id]?.name || id;
+      selectEl.appendChild(opt);
+    });
+  selectEl.disabled = simTeamCivs.length >= 7;
+}
+
 document.getElementById('sp-sim-toggle').addEventListener('click', () => {
   simExpanded = !simExpanded;
   updateSimToggleLabel();
@@ -370,5 +458,24 @@ document.getElementById('sp-sim-chips').addEventListener('click', e => {
   if (simActiveTechs.has(techId)) simActiveTechs.delete(techId);
   else simActiveTechs.add(techId);
   chip.classList.toggle('active', simActiveTechs.has(techId));
+  refreshSimStats();
+});
+
+document.getElementById('sp-sim-team-chips').addEventListener('click', e => {
+  const btn = e.target.closest('.sim-team-remove');
+  if (!btn) return;
+  simTeamCivs = simTeamCivs.filter(id => id !== btn.dataset.civ);
+  recomputeSimCivBonuses();
+  renderTeamPicker();
+  refreshSimStats();
+});
+
+document.getElementById('sp-sim-team-select').addEventListener('change', e => {
+  const civId = e.target.value;
+  if (!civId || simTeamCivs.includes(civId) || simTeamCivs.length >= 7) return;
+  simTeamCivs.push(civId);
+  e.target.value = '';
+  recomputeSimCivBonuses();
+  renderTeamPicker();
   refreshSimStats();
 });
