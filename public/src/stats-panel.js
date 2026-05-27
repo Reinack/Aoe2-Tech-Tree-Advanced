@@ -156,11 +156,14 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0, trainingBuilding = 
     return UNIT_CLASSES[b.scope]?.includes(unitId) ?? false;
   };
 
-  const statMods     = civ.bonuses.filter(b => b.type === 'stat_modifier'  && scopeMatches(b));
-  const creationMods = civ.bonuses.filter(b => b.type === 'creation_speed' && scopeMatches(b));
+  // Team bonus always applies to the civ's own units too (not just teammates)
+  const allBonuses = civ.teamBonus ? [...civ.bonuses, civ.teamBonus] : civ.bonuses;
+
+  const statMods     = allBonuses.filter(b => b.type === 'stat_modifier'  && scopeMatches(b));
+  const creationMods = allBonuses.filter(b => b.type === 'creation_speed' && scopeMatches(b));
   // building_work_speed for training: scope must match the unit's training building
   const bldgSpeedMods = (trainingBuilding && stats.train != null)
-    ? civ.bonuses.filter(b => b.type === 'building_work_speed' && b.scope === trainingBuilding
+    ? allBonuses.filter(b => b.type === 'building_work_speed' && b.scope === trainingBuilding
         && (b.min_age === undefined || unitAge >= b.min_age))
     : [];
 
@@ -231,7 +234,8 @@ function computeModifiedCost(rawCost, unitId, unitAge = 0, bonusType = 'cost_mod
   const civ = getCiv();
   if (!civ || !civ.bonuses) return null;
 
-  const mods = civ.bonuses.filter(b => {
+  const allBonuses = civ.teamBonus ? [...civ.bonuses, civ.teamBonus] : civ.bonuses;
+  const mods = allBonuses.filter(b => {
     if (b.type !== bonusType) return false;
     if (b.min_age !== undefined && unitAge < b.min_age) return false;
     const getter = CIV_BONUS_SCOPE_MAP[b.scope];
