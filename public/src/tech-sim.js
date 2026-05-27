@@ -427,7 +427,9 @@ function renderTeamPicker() {
     .forEach(id => {
       const opt = document.createElement('option');
       opt.value = id;
-      opt.textContent = LOCALE[currentLang]?.civs?.[id]?.name || id;
+      const name = LOCALE[currentLang]?.civs?.[id]?.name || id;
+      const tb   = LOCALE[currentLang]?.civs?.[id]?.teamBonus || '';
+      opt.textContent = tb ? `${name} — ${tb}` : name;
       selectEl.appendChild(opt);
     });
   selectEl.disabled = simTeamCivs.length >= 7;
@@ -464,6 +466,7 @@ document.getElementById('sp-sim-chips').addEventListener('click', e => {
 document.getElementById('sp-sim-team-chips').addEventListener('click', e => {
   const btn = e.target.closest('.sim-team-remove');
   if (!btn) return;
+  e.stopPropagation(); // prevent document click from closing stats panel
   simTeamCivs = simTeamCivs.filter(id => id !== btn.dataset.civ);
   recomputeSimCivBonuses();
   renderTeamPicker();
