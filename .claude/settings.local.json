@@ -48,7 +48,11 @@
       "Bash(cat /tmp/server.log && lsof -i :8000 2>/dev/null || echo \"Checking port 8000...\")",
       "mcp__Claude_in_Chrome__tabs_context_mcp",
       "mcp__Claude_in_Chrome__navigate",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(grep -rL \"Tecnologías aplicables\" \"D:/Boveda/Aoe/units\" --include=\"*.md\" 2>/dev/null | grep -v \"index.md\" | grep -v \"trade-cart\" | grep -v \"villager\" | sort)",
+      "Bash(grep -rL \"Unidades afectadas\" \"D:/Boveda/Aoe/technologies/unique\" --include=\"*.md\" 2>/dev/null | sort)",
+      "Read(//d/Boveda/Aoe/**)",
+      "Bash(grep -n \"## Notas\" buildings/military/stable.md buildings/military/archery-range.md buildings/military/blacksmith.md buildings/military/siege-workshop.md buildings/military/monastery.md buildings/military/dock.md buildings/economy/market.md buildings/economy/mill.md buildings/economy/house.md buildings/economy/palisade-wall.md buildings/economy/university.md buildings/defense/farm.md buildings/defense/wonder.md)"
     ]
   }
 }
