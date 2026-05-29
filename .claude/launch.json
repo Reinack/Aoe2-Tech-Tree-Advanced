@@ -6,6 +6,12 @@
       "runtimeExecutable": "node",
       "runtimeArgs": ["server.js"],
       "port": 8000
+    },
+    {
+      "name": "urban-map-planner",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["D:\\Practicas\\urban-map-planner\\server.js"],
+      "port": 3000
     }
   ]
 }
