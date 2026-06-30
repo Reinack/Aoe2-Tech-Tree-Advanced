@@ -1,34 +1,47 @@
-# Age of Empires II Technology Tree Viewer
+# Age of Empires II — Advanced Tech Tree Viewer
 
-A web application for viewing Age of Empires 2 technology trees with civilization-specific data.
+Visor web del árbol tecnológico de *Age of Empires II*, con datos por civilización
+(unidades, edificios, tecnologías y estadísticas de juego) y soporte multi-idioma.
+Reimplementación propia del renderizado y el layout sobre los datos e imágenes del juego.
 
-## Project Structure
+🌐 **Demo en vivo:** https://aoe2-tech-tree-advanced.onrender.com/
 
-- `src/` - Source code
-  - `layout.js` - Layout computation functions
-  - `tree.js` - Tree rendering and UI
-  - `ui.js` - User interface handlers
-  - `app.js` - Main application entry
-  - `data/` - Data files
-    - `index.js` - Main data exports
-    - `ages.js` - Age definitions
-    - `buildings.js` - Building definitions
-    - `nodes.js` - Technology tree nodes
-    - `units.js` - Unit statistics
-    - `img_map.js` - Image mappings
-    - `civ/` - Civilization definitions
-  - `locales/` - Translation files
-- `public/` - Public assets and built files
-  - `index.html` - Main HTML file
-  - `style.css` - Stylesheet
-  - `img/` - Images
-- `scripts/` - Build and utility scripts
-- `ref/` - Reference data and original files
+## Características
 
-## Development
+- Árbol tecnológico interactivo por civilización (unidades, edificios y tecnologías).
+- Estadísticas de juego por nodo (coste, HP, ataque, investigación…).
+- Localización (varios idiomas) vía archivos de `locales/`.
+- Layout y render propios (`src/layout.js`, `src/tree.js`) — no depende del visor original.
 
-To run the application, open `public/index.html` in a web browser.
+Este visor es además la capa visual integrada en
+[aoe2-codex](https://github.com/Reinack/aoe2-codex), donde el árbol se cablea a un grafo
+Neo4j + GraphRAG.
 
-## Building
+## Estructura
 
-Run build scripts in `scripts/` to update data files.
+```
+src/        Código fuente (layout.js, tree.js, ui.js, app.js)
+  data/     Datos del árbol (ages, buildings, nodes, units, civ/)
+  locales/  Traducciones
+public/     index.html, style.css, img/  (assets servidos)
+scripts/    Scripts de build de datos
+```
+
+## Desarrollo
+
+Abrí `public/index.html` en el navegador. Los scripts de `scripts/` regeneran los
+archivos de datos.
+
+## Atribuciones
+
+- **Imágenes** y **datos del árbol** (unidades, edificios, tecnologías, localización)
+  provienen del proyecto [aoe2techtree](https://github.com/SiegeEngineers/aoe2techtree)
+  (SiegeEngineers), bajo licencia **MIT**. El layout y el renderizado de este repo son una
+  implementación propia.
+- *Age of Empires II*, sus imágenes, nombres y datos de juego son © **Microsoft Corporation**.
+  Proyecto educativo / no comercial, sin afiliación ni respaldo de Microsoft.
+- Código propio de este repositorio: licencia **MIT** (ver [`LICENSE`](LICENSE)).
+
+## Licencia
+
+[MIT](LICENSE) © Reinack
