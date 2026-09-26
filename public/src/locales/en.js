@@ -3,6 +3,7 @@ const LOCALE_EN = {
 
   ui: {
     legend:             "Legend",
+    language:           "Language",
     unit:               "Unit",
     building:           "Building",
     tech:               "Technology",
@@ -15,19 +16,16 @@ const LOCALE_EN = {
     zoom_in:            "Zoom In",
     zoom_out:           "Zoom Out",
     fit:                "Fit",
-    search_placeholder: "Search...",
     hp:                 "HP",
     attack:             "ATK",
     armor_m:            "M.Arm",
     armor_p:            "P.Arm",
     range:              "RNG",
-    melee_range:        "Mel.",
     speed:              "SPD",
     rof:                "RoF",
     blast_r:            "Blast R.",
     los:                "LoS",
     train:              "Train",
-    cost:               "Cost",
     build_cost:         "Build Cost",
     research_cost:      "Research Cost",
     train_cost:         "Train Cost",
@@ -35,7 +33,29 @@ const LOCALE_EN = {
     build_efficiency:   "Build time vs. workers  ·  3t⁄(n+2)",
     prereq:             "Prerequisites",
     missing:            "Not available for this civilization",
-    bonus_dmg:          "Bonus damage",
+    click_simulate:     "Click to simulate",
+    click_details:      "Click for details",
+    relevant_units:     "Relevant Units",
+    classic_tree:       "Classic Tree",
+    close:              "Close",
+    unique_unit:        "Unique Unit",
+    unique_units:       "Unique Units",
+    unique_techs:       "Unique Technologies",
+    team_bonus:         "Team Bonus",
+    bonus_affected:     "Affected by Bonuses",
+    elite_version:      "Elite version",
+    ally_team:          "Allied Team",
+    add_ally:           "+ Add ally…",
+    remove:             "Remove",
+    simulate:           "Simulate with technologies",
+    applies_to:         "Applies to",
+    no_data:            "No specific data for this civilization.",
+    no_stats:           "Stats not available.",
+    civ_bonuses:        "Bonuses:",
+    techs_short:        "tech(s)",
+    ally:               "ally",
+    allies:             "allies",
+    bonus_hint:         "Highlights what it affects in the tree · click to pin",
   },
 
   bonus_targets: {
@@ -62,24 +82,29 @@ const LOCALE_EN = {
     long_range_warship:  "Long-range Warship",
     siege_weapons:       "Siege Weapons",
     elephant_units:      "Elephant Units",
+    heavy_warships:      "Heavy Warships",
+    unique_units:        "Unique Units",
+    walls:               "Walls & Gates",
+    castles:             "Castles",
+    cavalry_archers:     "Mounted Archers",
+    heroes:              "Heroes & Kings",
+    skirmishers:         "Skirmishers",
+    houses:              "Houses",
   },
 
-  types: {
-    infantry:   "Infantry civilization",
-    cavalry:    "Cavalry civilization",
-    archers:    "Archer civilization",
-    naval:      "Naval civilization",
-    defensive:  "Defensive civilization",
-    monks:      "Monk civilization",
-    siege:      "Siege civilization",
-    gunpowder:  "Gunpowder civilization",
-  },
 
   ages: {
     0: "Dark Age",
     1: "Feudal Age",
     2: "Castle Age",
     3: "Imperial Age",
+  },
+
+  ages_short: {
+    0: "Dark",
+    1: "Feudal",
+    2: "Castle",
+    3: "Imperial",
   },
 
   buildings: {
@@ -96,7 +121,6 @@ const LOCALE_EN = {
     blacksmith:     "Blacksmith",
     tc:             "Town Center",
     tc_castle:      "Additional Town Center",
-    towncenter:     "Town Center",
     mill:           "Mill",
     farm:           "Farm",
     fishtrap:       "Fish Trap",
@@ -104,18 +128,25 @@ const LOCALE_EN = {
     mining:         "Mining Camp",
     tahsili:        "Settlement",
     mulecart:       "Mule Cart",
-    // Towers
     outpost:        "Outpost",
     watchtower:     "Watch Tower",
-    guardtower_b:   "Guard Tower",
-    keep_b:         "Keep",
-    bombardtower_b: "Bombard Tower",
-    // Walls
     palisadewall:   "Palisade Wall",
     palisadegate:   "Palisade Gate",
     stonewall:      "Stone Wall",
     gate:           "Gate",
-    fortifiedwall_b:"Fortified Wall",
+    guardtower:     "Guard Tower",
+    keep:           "Keep",
+    bombardtower:   "Bombard Tower",
+    fortifiedwall:  "Fortified Wall",
+    house:          "House",
+    pasture:        "Pasture",
+    krepost:        "Krepost",
+    donjon:         "Donjon",
+    feitoria:       "Feitoria",
+    folwark:        "Folwark",
+    caravanserai:   "Caravanserai",
+    fortified_church: "Fortified Church",
+    harbor:         "Harbor",
   },
 
   // ── Nodes: { name, effect } by ID ────────────────────────
@@ -194,7 +225,6 @@ const LOCALE_EN = {
     imp_camel:    { name: 'Imperial Camel Rider',   effect: '[Hindustanis only] Ultimate Camel upgrade.' },
     steppe_lancer:{ name: 'Steppe Lancer',          effect: '[Steppe civs] Cavalry with extended attack range.' },
     elite_steppe_lancer: { name: 'Elite Steppe Lancer', effect: 'Elite version.' },
-    xolotl_warrior:{ name: 'Xolotl Warrior',        effect: '[American civs only] Captured cavalry unit.' },
     shrivamsha:   { name: 'Shrivamsha Rider',       effect: '[Gurjaras only] Cavalry that can dodge projectiles.' },
     elite_shrivamsha: { name: 'Elite Shrivamsha Rider', effect: 'Elite version.' },
     hei_guang:    { name: 'Hei Guang Cavalry',      effect: '[Three Kingdoms civs] Regional heavy cavalry.' },
@@ -269,7 +299,8 @@ const LOCALE_EN = {
     lou_chuan:    { name: 'Lou Chuan',              effect: '[Chinese civs] Large regional warship.' },
     catapult_gall:{ name: 'Catapult Galley',        effect: '[American civs only] Siege ship.' },
     turtle_ship:  { name: 'Turtle Ship',            effect: '[Koreans only] Armored close-range warship.' },
-    longboat:     { name: 'Longboat',               effect: '[Vikings only] Warship that fires multiple arrows.' },
+    longship:     { name: 'Longship',               effect: '[Regional: Danes, Saxons, Varangians, Vikings] Warship that fires multiple arrows. Formerly the Viking unique Longboat.' },
+    elite_longship:{ name: 'Elite Longship',        effect: 'Longship upgrade: +5 HP, +2 attack, +1 range and +1/+3 armor.' },
     caravel_d:    { name: 'Caravel',                effect: '[Portuguese only] Warship with pass-through attack.' },
     thirisadai:   { name: 'Thirisadai',             effect: '[Dravidians only] Massive warship.' },
     harbor:       { name: 'Harbor',                 effect: '[Malay only] Defensive dock that shoots arrows.' },
@@ -377,6 +408,37 @@ const LOCALE_EN = {
     goldshaft_m:    { name: 'Gold Shaft Mining',  effect: 'Gold shaft mining +15% speed.' },
     stonemining_m:  { name: 'Stone Mining',       effect: 'Stone mining +15% speed.' },
     stoneshaft_m:   { name: 'Stone Shaft Mining', effect: 'Stone shaft mining +15% speed.' },
+
+    // ── The Viking Sagas (update 185872) ─────────────────────
+    mounted_crossbow:       { name: 'Mounted Crossbowman',         effect: '[Regional] Mounted archer with a powerful but slow attack. Replaces the Cavalry Archer for most European civs.' },
+    heavy_mounted_crossbow: { name: 'Heavy Mounted Crossbowman',   effect: 'Mounted Crossbowman upgrade: +10 HP and +1 attack.' },
+    cranequins:             { name: 'Cranequins',                  effect: 'Mounted Crossbowmen +1 range and +2 attack vs. infantry.' },
+    varangian_guard:        { name: 'Varangian Guard',             effect: '[Regional] Shock infantry that generates gold when fighting other units.' },
+    elite_varangian_guard:  { name: 'Elite Varangian Guard',       effect: 'Varangian Guard upgrade: +10 HP, +4 attack and +1 pierce armor.' },
+
+    // ── Tower and wall upgrades (University) ─────────────────
+    guardtower_tech:    { name: 'Guard Tower',     effect: 'Upgrades Watch Towers to Guard Towers.' },
+    keep_tech:          { name: 'Keep',            effect: 'Upgrades Guard Towers to Keeps.' },
+    bombardtower_tech:  { name: 'Bombard Tower',   effect: 'Allows building Bombard Towers (requires Chemistry).' },
+    fortifiedwall_tech: { name: 'Fortified Wall',  effect: 'Upgrades Stone Walls to Fortified Walls.' },
+
+    // ── Other game-tree nodes ─────────────────────────────────
+    fishtrap:     { name: 'Fish Trap',             effect: 'Floating farm: a food source for Fishing Ships.' },
+    spy:          { name: 'Spies/Treason',         effect: 'Reveals all enemy units and buildings.' },
+    devotion:     { name: 'Devotion',              effect: 'Own units resist +1 conversion attempt (min and max).' },
+    caravan:      { name: 'Caravan',               effect: 'Trade units +50% speed.' },
+    domestication:{ name: 'Domestication',         effect: '[Pasture] Pastures produce more food (+115).' },
+    pastoralism:  { name: 'Pastoralism',           effect: '[Pasture] Pastures produce more food (+230).' },
+    transhumance: { name: 'Transhumance',          effect: '[Pasture] Pastures produce more food (+345).' },
+    elite_genitour:     { name: 'Elite Genitour',            effect: 'Genitour upgrade.' },
+    elite_turtle_ship:  { name: 'Elite Turtle Ship',         effect: 'Turtle Ship upgrade.' },
+    elite_caravel:      { name: 'Elite Caravel',             effect: 'Caravel upgrade.' },
+    elite_bolas_rider:  { name: 'Elite Bolas Rider',         effect: 'Bolas Rider upgrade.' },
+    elite_temple_guard: { name: 'Elite Temple Guard',        effect: 'Temple Guard upgrade.' },
+    elite_ibirapema:    { name: 'Elite Ibirapema Warrior',   effect: 'Ibirapema Warrior upgrade.' },
+    cao_cao:      { name: 'Cao Cao',               effect: '[Wei hero] Can be trained once at the Castle.' },
+    liu_bei:      { name: 'Liu Bei',               effect: '[Shu hero] Can be trained once at the Castle.' },
+    sun_jian:     { name: 'Sun Jian',              effect: '[Wu hero] Can be trained once at the Castle.' },
   },
 
   civs: {
@@ -392,12 +454,12 @@ const LOCALE_EN = {
       ],
       teamBonus: "Infantry +2 line of sight",
       uniqueTechs: [
-        { name: "Cilician Fleet", effect: "Demolition Ships: +20% blast radius; Dromons and Galley-line: +1 range." },
-        { name: "Feretorios", effect: "Infantry except Spearman-line: +30 HP; War Monks: +100% healing speed." }
+        { name: "Cilician Fleet", effect: "Demolition Ships +20% blast radius; Galley-line and Dromons +1 range." },
+        { name: "Fereters", effect: "Infantry (except Spearman-line) +30 HP; Warrior Priests heal +100% faster." }
       ],
       uniqueUnits: [
         { name: "Composite Bowman", subtitle: "foot archer", upgradeName: "Elite Composite Bowman" },
-        { name: "War Monk", subtitle: "infantry" }
+        { name: "Warrior Priest", subtitle: "infantry" }
       ]
     },
     aztecs: {
@@ -485,7 +547,7 @@ const LOCALE_EN = {
       teamBonus: "Monks heal +100% faster",
       uniqueTechs: [
         { name: "Greek Fire", effect: "Fire Ships +1 range." },
-        { name: "Logistica", effect: "Cataphracts deal trample damage; +6 attack vs infantry." }
+        { name: "Logistica", effect: "Cataphracts and Varangian Guards deal trample damage." }
       ],
       uniqueUnits: [
         { name: "Cataphract", upgradeName: "Elite Cataphract" }
@@ -503,7 +565,7 @@ const LOCALE_EN = {
       ],
       teamBonus: "Markets work +80% faster",
       uniqueTechs: [
-        { name: "Wagenburg Tactics", effect: "Hand Cannoneers move 15% faster." },
+        { name: "Wagenburg Tactics", effect: "Gunpowder units move 10% faster." },
         { name: "Hussite Reforms", effect: "Monks and Monastery technologies: gold cost replaced by food." }
       ],
       uniqueUnits: [
@@ -635,6 +697,24 @@ const LOCALE_EN = {
         { name: "Kipchak", upgradeName: "Elite Kipchak" }
       ]
     },
+    danes: {
+      name: "Danes",
+      type: "Infantry and Siege civilization",
+      bonuses: [
+        "Fishing Ships and Villagers drop off +5% food",
+        "Loot 25% of the resource cost of each destroyed building",
+        "Barracks and Siege Workshop upgrades cost -66% gold",
+        "Varangian Guards and Longships move +10% faster"
+      ],
+      teamBonus: "Siege Weapons +2 line of sight",
+      uniqueTechs: [
+        { name: "Hamask", effect: "Infantry deal more damage as they lose HP." },
+        { name: "Northmen's Fury", effect: "Mangonel-line and Catapult Galleons +1 range; Siege Weapons and Siege Warships +40% attack vs buildings." }
+      ],
+      uniqueUnits: [
+        { name: "Jomsviking", subtitle: "infantry", upgradeName: "Elite Jomsviking" }
+      ]
+    },
     dravidians: {
       name: "Dravidians",
       type: "Infantry and Naval civilization",
@@ -719,8 +799,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Knight-line +2 line of sight",
       uniqueTechs: [
-        { name: "Chivalry", effect: "Stables work 40% faster." },
-        { name: "Beeldenstorm", effect: "Monasteries demolished; Monks cost -100%." }
+        { name: "Ordonnance Companies", effect: "Mounted Crossbowmen cost -40% gold." },
+        { name: "Chivalry", effect: "Stables work +40% faster." }
       ],
       uniqueUnits: [
         { name: "Throwing Axeman", upgradeName: "Elite Throwing Axeman" }
@@ -769,8 +849,7 @@ const LOCALE_EN = {
       bonuses: [
         "Start with 2 Forage Bushes",
         "Can garrison livestock in Mills to passively produce food",
-        "Mounted Units deal +20/30/40% bonus damage in Feudal/Castle/Imperial Age",
-        "Docks +5 garrison capacity"
+        "Mounted Units deal +20/30/40% bonus damage in Feudal/Castle/Imperial Age"
       ],
       teamBonus: "Camel and Elephant Units train +25% faster",
       uniqueTechs: [
@@ -811,7 +890,7 @@ const LOCALE_EN = {
       teamBonus: "Stables work +20% faster",
       uniqueTechs: [
         { name: "Marauders", effect: "Tarkans producible at Stables." },
-        { name: "Atheism", effect: "Wonders need 50 extra years; Spies -50%." }
+        { name: "Atheism", effect: "Enemy (and neutral) Relics generate -50% resources; enemy Wonder and Relic victories take +100 years (stackable)." }
       ],
       uniqueUnits: [
         { name: "Tarkan", upgradeName: "Elite Tarkan" }
@@ -884,11 +963,11 @@ const LOCALE_EN = {
       ],
       teamBonus: "Gunpowder Units +2 line of sight",
       uniqueTechs: [
-        { name: "Unique Technology I", effect: "Mod effect." },
-        { name: "Unique Technology II", effect: "Mod effect." }
+        { name: "Fortified Bastions", effect: "Fortifications regenerate 500 HP per minute." },
+        { name: "Thunderclap Bombs", effect: "Rocket Carts, Grenadiers and Lou Chuans detonate when defeated; projectiles produce additional explosions." }
       ],
       uniqueUnits: [
-        { name: "Unique Unit", upgradeName: "Elite Unique Unit" }
+        { name: "Iron Pagoda", upgradeName: "Elite Iron Pagoda" }
       ]
     },
     khmer: {
@@ -920,11 +999,11 @@ const LOCALE_EN = {
       ],
       teamBonus: "Infantry +2 attack vs. Ranged Soldiers",
       uniqueTechs: [
-        { name: "Unique Technology I", effect: "Mod effect." },
-        { name: "Unique Technology II", effect: "Mod effect." }
+        { name: "Lamellar Armor", effect: "Infantry and Skirmishers reflect 25% melee damage back to the attacker." },
+        { name: "Ordo Cavalry", effect: "Cavalry regenerates HP in combat." }
       ],
       uniqueUnits: [
-        { name: "Unique Unit", upgradeName: "Elite Unique Unit" }
+        { name: "Liao Dao", upgradeName: "Elite Liao Dao" }
       ]
     },
     lithuanians: {
@@ -954,8 +1033,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Mounted Archers train +25% faster",
       uniqueTechs: [
-        { name: "Magyar Mercenaries", effect: "Magyar Huszar costs no gold." },
-        { name: "Recurve Bow", effect: "Cavalry Archers +1 range and +1 attack." }
+        { name: "Corvinian Army", effect: "Magyar Huszar gold cost is replaced by additional food cost." },
+        { name: "Recurve Bow", effect: "Mounted Archers +1 attack, +1 range." }
       ],
       uniqueUnits: [
         { name: "Magyar Huszar", upgradeName: "Elite Magyar Huszar" }
@@ -1026,8 +1105,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Walls cost -50%",
       uniqueTechs: [
-        { name: "Obsidian Arrows", effect: "Archers +6 attack vs buildings." },
-        { name: "El Dorado", effect: "Eagle Warriors +40 HP." }
+        { name: "Hul'che Javelineers", effect: "Skirmishers fire an additional projectile." },
+        { name: "Holcans", effect: "Eagle Warriors +40 HP." }
       ],
       uniqueUnits: [
         { name: "Plumed Archer", upgradeName: "Elite Plumed Archer" }
@@ -1062,8 +1141,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Natural gold sources last +15% longer",
       uniqueTechs: [
-        { name: "Herbalismo", effect: "Increases movement speed of Archers and Champi Warriors." },
-        { name: "Huaracas", effect: "Increases range and training speed of Slingers." }
+        { name: "Herbalism", effect: "Archer-line and Champi Warriors move +15% faster." },
+        { name: "Huaracas", effect: "Slingers +1 range; train +50% faster." }
       ],
       uniqueUnits: [
         { name: "Guecha Warrior", subtitle: "skirmisher", upgradeName: "Elite Guecha Warrior" },
@@ -1140,7 +1219,7 @@ const LOCALE_EN = {
         { name: "Comitatenses", effect: "Infantry and cavalry created 50% faster; charge attack." }
       ],
       uniqueUnits: [
-        { name: "Legionary", upgradeName: "Centurion" }
+        { name: "Centurion", subtitle: "cavalry", upgradeName: "Elite Centurion" }
       ]
     },
     saracens: {
@@ -1154,11 +1233,29 @@ const LOCALE_EN = {
       ],
       teamBonus: "Foot Archers and Skirmishers +2 attack vs. buildings",
       uniqueTechs: [
-        { name: "Bimaristan", effect: "Medical Caravan heals nearby units." },
-        { name: "Madrasah", effect: "Monks refund 33% of their cost upon death." }
+        { name: "Bimaristan", effect: "Monks passively heal multiple nearby units." },
+        { name: "Counterweights", effect: "Trebuchets and Mangonel-line +15% attack." }
       ],
       uniqueUnits: [
         { name: "Mameluke", upgradeName: "Elite Mameluke" }
+      ]
+    },
+    saxons: {
+      name: "Saxons",
+      type: "Infantry and Defensive civilization",
+      bonuses: [
+        "Mills, Lumber- and Mining Camps provide +35 food and +10 stone when built",
+        "Foot Soldiers cost -5% per Town Center or Castle controlled (maximum -20%)",
+        "Towers and Castles fire +100% base arrows starting in Castle Age",
+        "Longships and Catapult Galleons +20% HP"
+      ],
+      teamBonus: "Repairers work +25% faster",
+      uniqueTechs: [
+        { name: "Clerical Recruitment", effect: "Monks +1 conversion range; train +33% faster." },
+        { name: "Shield Wall", effect: "Infantry gain additional armor when massed." }
+      ],
+      uniqueUnits: [
+        { name: "Hearth Troop", subtitle: "infantry", upgradeName: "Elite Hearth Troop" }
       ]
     },
     shu: {
@@ -1171,11 +1268,11 @@ const LOCALE_EN = {
       ],
       teamBonus: "Foot Archers +2 line of sight",
       uniqueTechs: [
-        { name: "Unique Technology I", effect: "Mod effect." },
-        { name: "Unique Technology II", effect: "Mod effect." }
+        { name: "Coiled Serpent Array", effect: "Spearman-line and White Feather Guards gain additional HP when near each other." },
+        { name: "Bolt Magazine", effect: "Archer-line, War Chariots and Lou Chuans fire additional projectiles." }
       ],
       uniqueUnits: [
-        { name: "Unique Unit", upgradeName: "Elite Unique Unit" }
+        { name: "White Feather Guard", upgradeName: "Elite White Feather Guard" }
       ]
     },
     sicilians: {
@@ -1190,8 +1287,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Transport Ships +5 line of sight and cost -50%",
       uniqueTechs: [
-        { name: "First Crusade", effect: "Each Town Center spawns 7 Serjeants when researched." },
-        { name: "Scutage", effect: "Each ally receives 15 gold per tributed unit." }
+        { name: "First Crusade", effect: "Up to 5 Town Centers spawn 5 Serjeants each; units more resistant to conversion." },
+        { name: "Hauberk", effect: "Knight-line +1 melee/+2 pierce armor." }
       ],
       uniqueUnits: [
         { name: "Serjeant", upgradeName: "Elite Serjeant" }
@@ -1221,7 +1318,7 @@ const LOCALE_EN = {
       bonuses: [
         "Farms cost -40%",
         "Town Centers +10 garrison capacity; Towers +5 garrison capacity",
-        "Barracks and Stable Units +1/+2 melee armor in Castle/Imperial Age",
+        "Infantry and Mounted Units +1/+2 melee armor in Castle/Imperial Age",
         "Monks +100% healing range",
         "Murder Holes, Herbal Medicine free"
       ],
@@ -1271,13 +1368,31 @@ const LOCALE_EN = {
         { name: "Ibirapema Warrior", subtitle: "area infantry", upgradeName: "Elite Ibirapema Warrior" }
       ]
     },
+    varangians: {
+      name: "Varangians",
+      type: "Cavalry and Naval civilization",
+      bonuses: [
+        "Shepherding, fishing, and hunting also generate gold",
+        "Bloodlines and Caravan effects +50%",
+        "Varangian Guards attack +25% faster and generate +50% gold",
+        "Longships and Catapult Galleons attack +15% faster"
+      ],
+      teamBonus: "Knight-line +1 attack vs. Infantry",
+      uniqueTechs: [
+        { name: "Vendel Legacy", effect: "Knight-line deals trample damage." },
+        { name: "Gothikon", effect: "Varangian Guards throw axes periodically." }
+      ],
+      uniqueUnits: [
+        { name: "Jarl", subtitle: "cavalry", upgradeName: "Elite Jarl" }
+      ]
+    },
     vietnamese: {
       name: "Vietnamese",
       type: "Archer civilization",
       bonuses: [
         "Enemy Town Centers are revealed at the start of the game",
         "Economic upgrades cost no wood and research +100% faster",
-        "Archery Range units and Fire Lancers +20% HP",
+        "Foot Archers and Skirmishers +20% HP",
         "Conscription free"
       ],
       teamBonus: "Imperial Skirmisher upgrade available in Imperial Age",
@@ -1299,8 +1414,8 @@ const LOCALE_EN = {
       ],
       teamBonus: "Docks cost -15%",
       uniqueTechs: [
-        { name: "Chieftains", effect: "Infantry +5 attack vs cavalry." },
-        { name: "Berserkergang", effect: "Berserks regenerate HP automatically." }
+        { name: "Chieftains", effect: "Infantry +5 attack vs. Cavalry, +4 vs. Camel Units." },
+        { name: "Bogsveigar", effect: "Archer-line and Longships +1 attack." }
       ],
       uniqueUnits: [
         { name: "Berserk", upgradeName: "Elite Berserk" }
@@ -1316,11 +1431,11 @@ const LOCALE_EN = {
       ],
       teamBonus: "Cavalry +2 attack vs. Siege Weapons",
       uniqueTechs: [
-        { name: "Unique Technology I", effect: "Mod effect." },
-        { name: "Unique Technology II", effect: "Mod effect." }
+        { name: "Tuntian", effect: "Soldiers passively produce food." },
+        { name: "Ming Guang Armor", effect: "Mounted Units +4 melee armor." }
       ],
       uniqueUnits: [
-        { name: "Unique Unit", upgradeName: "Elite Unique Unit" }
+        { name: "Tiger Cavalry", upgradeName: "Elite Tiger Cavalry" }
       ]
     },
     wu: {
@@ -1334,123 +1449,12 @@ const LOCALE_EN = {
       ],
       teamBonus: "Houses built +100% faster",
       uniqueTechs: [
-        { name: "Unique Technology I", effect: "Mod effect." },
-        { name: "Unique Technology II", effect: "Mod effect." }
+        { name: "Red Cliffs Tactics", effect: "Demolition Ships and Fire Archers deal fire damage to ships and buildings." },
+        { name: "Sitting Tiger", effect: "Traction Trebuchets and Lou Chuan trebuchet weapons fire additional projectiles." }
       ],
       uniqueUnits: [
-        { name: "Unique Unit", upgradeName: "Elite Unique Unit" }
+        { name: "Fire Archer", upgradeName: "Elite Fire Archer" }
       ]
     }
-  },
-
-  uniqueTechsById: {
-    "ui_uniquetech1": { name: "Unique Technology I", effect: "Unique technology for Castle Age." },
-    "ui_uniquetech2": { name: "Unique Technology II", effect: "Unique technology for Imperial Age." },
-    "armenians_uniquetech1": { name: "Cilician Fleet", effect: "Demolition Ships and Dromon fire additional projectile." },
-    "armenians_uniquetech2": { name: "Fereters", effect: "Infantry except Spearmen line: +30 HP; Warrior Priests: +100% healing speed." },
-    "aztecs_uniquetech1": { name: "Jaguar Claws", effect: "Jaguar Warriors +4 attack." },
-    "aztecs_uniquetech2": { name: "Flowery Wars", effect: "Units lose 5 HP when killing but gain +4 attack." },
-    "bengalis_uniquetech1": { name: "Palanquin of the Queen", effect: "Villagers work +35% faster." },
-    "bengalis_uniquetech2": { name: "Mastery of Dwyaja", effect: "Battle Elephants +15 HP and +1 armor." },
-    "berbers_uniquetech1": { name: "Berber Cavalry", effect: "Camels -30% research cost and train +30% faster." },
-    "berbers_uniquetech2": { name: "Berber Cavalry", effect: "Camels -30% research cost and train +30% faster." },
-    "bohemians_uniquetech1": { name: "Hussite Wagenburg", effect: "War Wagons shoot from melee range; garrisoned infantry shoots arrows." },
-    "bohemians_uniquetech2": { name: "Hussite Wagenburg", effect: "War Wagons shoot from melee range; garrisoned infantry shoots arrows." },
-    "britons_uniquetech1": { name: "Yeomen", effect: "Foot archers +1 range; Towers +2 attack." },
-    "britons_uniquetech2": { name: "Warwolf", effect: "Trebuchets 100% accuracy and deal area damage." },
-    "bulgarians_uniquetech1": { name: "Bulgarian Fire Launcher", effect: "Fire Launchers train +100% faster and cost -30%." },
-    "bulgarians_uniquetech2": { name: "Boyar Blood", effect: "Boyars regenerate 10 HP per minute." },
-    "burgundians_uniquetech1": { name: "First Crusade", effect: "Each Castle creates 5 Sergeants; improved conversion resistance." },
-    "burgundians_uniquetech2": { name: "Hauberque", effect: "Knight line +1/+2 armor." },
-    "burmese_uniquetech1": { name: "Elephant Battle Wagon", effect: "Battle Elephants available in Feudal Age; +3 HP regeneration." },
-    "burmese_uniquetech2": { name: "Isolating Wall", effect: "Buildings +3 pierce armor." },
-    "byzantines_uniquetech1": { name: "Cataphract Sarmatians", effect: "Cataphracts +30% HP." },
-    "byzantines_uniquetech2": { name: "Greek Fire", effect: "Fire Ships and Dromon fire Greek fire." },
-    "celts_uniquetech1": { name: "Celtic Fury", effect: "Infantry +25% attack speed." },
-    "celts_uniquetech2": { name: "Celtic Fury", effect: "Infantry +25% attack speed." },
-    "chinese_uniquetech1": { name: "Emperor Strategy", effect: "All Men-at-Arms +20 HP." },
-    "chinese_uniquetech2": { name: "Powder Refinement", effect: "Gunpowder units fire +15% faster." },
-    "cumans_uniquetech1": { name: "Cuman Horse Archers", effect: "Cavalry trains +25% faster." },
-    "cumans_uniquetech2": { name: "Mongol Basaks", effect: "Cavalry +20% HP and +1/+2 armor." },
-    "dravidians_uniquetech1": { name: "Shrivamsha Cavalry", effect: "Shrivamsha Cavalry +15 HP and +1 armor." },
-    "dravidians_uniquetech2": { name: "Short Arm", effect: "Peons and Warrior Priests +20% attack speed." },
-    "ethiopians_uniquetech1": { name: "Ethiopian Fire", effect: "Slingers +20 HP; Gunpowder +100% damage." },
-    "ethiopians_uniquetech2": { name: "Ethiopian Fire", effect: "Slingers +20 HP; Gunpowder +100% damage." },
-    "franks_uniquetech1": { name: "Frankish Cavalry", effect: "Cavalry trains +20% faster and costs -20%." },
-    "franks_uniquetech2": { name: "Frankish Cavalry", effect: "Cavalry trains +20% faster and costs -20%." },
-    "georgians_uniquetech1": { name: "Derbazi", effect: "Infantry +50 HP in Castle Age; +75 HP in Imperial Age." },
-    "georgians_uniquetech2": { name: "Georgian Pride", effect: "Horses and Castles shoot arrows; infantry regenerate HP." },
-    "goths_uniquetech1": { name: "Ironsides", effect: "Infantry -5/+10 melee armor in Feudal/Castle Age." },
-    "goths_uniquetech2": { name: "Ironsides", effect: "Infantry -5/+10 melee armor in Feudal/Castle Age." },
-    "gurjaras_uniquetech1": { name: "Battle Wagons", effect: "War Wagons available in Feudal Age; +3 attack speed." },
-    "gurjaras_uniquetech2": { name: "Shrivamsha Cavalry", effect: "Men-at-Arms +20 HP; Shrivamsha Cavalry +3 attack." },
-    "hindustanis_uniquetech1": { name: "Siege Elephant", effect: "Battle Elephants train +100% faster." },
-    "hindustanis_uniquetech2": { name: "Fiery Mamelukes", effect: "Janissaries +15 HP." },
-    "huns_uniquetech1": { name: "Nomads", effect: "Buildings construct without foundation." },
-    "huns_uniquetech2": { name: "Frankish Cavalry", effect: "Cavalry +30% HP." },
-    "incas_uniquetech1": { name: "Siege Platform", effect: "Siege trains +50% faster." },
-    "incas_uniquetech2": { name: "Terraces", effect: "Economy +15%; Villagers gather +15% faster." },
-    "italians_uniquetech1": { name: "Italian Battle Line", effect: "Infantry and crossbowmen +20% attack speed." },
-    "italians_uniquetech2": { name: "Italian Battle Line", effect: "Infantry and crossbowmen +20% attack speed." },
-    "japanese_uniquetech1": { name: "Samurai", effect: "Samurai train +50% faster." },
-    "japanese_uniquetech2": { name: "Samurai", effect: "Samurai train +50% faster." },
-    "jurchens_uniquetech1": { name: "Jurchen Armor", effect: "Infantry +2/+1 melee/pierce armor." },
-    "jurchens_uniquetech2": { name: "Jurchen Cavalry", effect: "Cavalry train +33% faster." },
-    "khitans_uniquetech1": { name: "Khitan Cataphract Sword", effect: "Infantry +30 HP." },
-    "khitans_uniquetech2": { name: "Khitan Cavalry", effect: "Cavalry +20 HP and +1 armor." },
-    "khmer_uniquetech1": { name: "Rice Gatherer", effect: "Villagers harvest farm +35% faster." },
-    "khmer_uniquetech2": { name: "Battle Elephant", effect: "Battle Elephants +15 HP and +1 armor." },
-    "koreans_uniquetech1": { name: "Goryeo Dynasty", effect: "Monks +50% HP and regenerate HP." },
-    "koreans_uniquetech2": { name: "Turtle Ship", effect: "Turtle Ships train +50% faster." },
-    "lithuanians_uniquetech1": { name: "Lithuanian Cavalry", effect: "Cavalry +20 HP and +1 armor." },
-    "lithuanians_uniquetech2": { name: "Tribute", effect: "Each Castle generates gold passively." },
-    "magyars_uniquetech1": { name: "Magyar Cavalry", effect: "Cavalry train +35% faster." },
-    "magyars_uniquetech2": { name: "Magyar Cavalry", effect: "Cavalry train +35% faster." },
-    "malay_uniquetech1": { name: "Malay War Wagon", effect: "War Wagons train +100% faster and cost -50%." },
-    "malay_uniquetech2": { name: "Malay War Wagon", effect: "War Wagons train +100% faster and cost -50%." },
-    "malians_uniquetech1": { name: "Griot Bow", effect: "Foot archers +4 attack." },
-    "malians_uniquetech2": { name: "Gold Armor", effect: "Infantry +4/+4 armor." },
-    "mapuche_uniquetech1": { name: "Mapuche Cavalry", effect: "Scout Cavalry +30 HP." },
-    "mapuche_uniquetech2": { name: "Mapuche Cavalry", effect: "Scout Cavalry +30 HP." },
-    "mayans_uniquetech1": { name: "El Dorado", effect: "Jaguars +4 attack; Puma Warriors train faster." },
-    "mayans_uniquetech2": { name: "Observatory", effect: "University research +50% faster." },
-    "mongols_uniquetech1": { name: "Mongol Composite Bow", effect: "Mounted archers +2 range." },
-    "mongols_uniquetech2": { name: "Mongol Composite Bow", effect: "Mounted archers +2 range." },
-    "muisca_uniquetech1": { name: "Muisca Cavalry", effect: "Cavalry +20 HP and train faster." },
-    "muisca_uniquetech2": { name: "Muisca Cavalry", effect: "Cavalry +20 HP and train faster." },
-    "persians_uniquetech1": { name: "Persian Battle Elephant", effect: "Battle Elephants +20 HP." },
-    "persians_uniquetech2": { name: "Horse Race", effect: "Cavalry train +40% faster." },
-    "poles_uniquetech1": { name: "Polish Hussars", effect: "Light cavalry train faster and have better armor." },
-    "poles_uniquetech2": { name: "Polish Hussars", effect: "Light cavalry train faster and have better armor." },
-    "portuguese_uniquetech1": { name: "Horse Race", effect: "Cavalry train +20% faster." },
-    "portuguese_uniquetech2": { name: "Horse Race", effect: "Cavalry train +20% faster." },
-    "romans_uniquetech1": { name: "Legionary", effect: "Infantry +50% HP." },
-    "romans_uniquetech2": { name: "Legionary", effect: "Infantry +50% HP." },
-    "saracens_uniquetech1": { name: "Saracen Cavalry", effect: "Light cavalry +20% HP." },
-    "saracens_uniquetech2": { name: "Saracen Cavalry", effect: "Light cavalry +20% HP." },
-    "shu_uniquetech1": { name: "Shu Cavalry", effect: "Cavalry +15 HP and +1 armor." },
-    "shu_uniquetech2": { name: "Shu Administration", effect: "Villagers work +35% faster." },
-    "sicilians_uniquetech1": { name: "Sicilian Fury", effect: "Infantry and cavalry +25% attack speed." },
-    "sicilians_uniquetech2": { name: "Sicilian Fury", effect: "Infantry and cavalry +25% attack speed." },
-    "slavs_uniquetech1": { name: "Slavic Infantry", effect: "Infantry +25% attack speed." },
-    "slavs_uniquetech2": { name: "Slavic Infantry", effect: "Infantry +25% attack speed." },
-    "spanish_uniquetech1": { name: "Conquest", effect: "Conquistadors train +33% faster." },
-    "spanish_uniquetech2": { name: "Ship", effect: "Trade Cog train +100% faster." },
-    "tatars_uniquetech1": { name: "Silk Armor", effect: "Steppe Lancers and Light Cavalry +1/+1 armor." },
-    "tatars_uniquetech2": { name: "Timurid Siegecraft", effect: "Trebuchets +2 range; enables Fire Camel." },
-    "teutons_uniquetech1": { name: "Ironclad", effect: "Siege +4 melee armor." },
-    "teutons_uniquetech2": { name: "Crenellations", effect: "Castles +3 range; garrisoned infantry can shoot." },
-    "turks_uniquetech1": { name: "Sipahi", effect: "Mounted archers +20 HP." },
-    "turks_uniquetech2": { name: "Artillery", effect: "Bombard Cannons +2 range." },
-    "tupi_uniquetech1": { name: "Caciques", effect: "Champi Warriors and slingers attack faster." },
-    "tupi_uniquetech2": { name: "Curare", effect: "Foot archers and fortifications deal poison damage." },
-    "vietnamese_uniquetech1": { name: "Weapon Armament", effect: "All Archers cost -30% and train faster." },
-    "vietnamese_uniquetech2": { name: "Fire Explosion", effect: "Gunpowder fire +50% faster." },
-    "vikings_uniquetech1": { name: "Viking Fury", effect: "Infantry +25% attack speed." },
-    "vikings_uniquetech2": { name: "Longboat", effect: "Longboats shoot arrows." },
-    "wei_uniquetech1": { name: "Wei Cavalry", effect: "Cavalry +15 HP and +1 armor." },
-    "wei_uniquetech2": { name: "Wei Administration", effect: "Monks +40 HP and regenerate HP." },
-    "wu_uniquetech1": { name: "Red Cliff Tactics", effect: "Demolition Ships and Fire Archers deal flame damage to ships and buildings." },
-    "wu_uniquetech2": { name: "Sitting Tiger", effect: "Traction Trebuchets and Lou Chuans shoot additional projectiles." }
   }
 };

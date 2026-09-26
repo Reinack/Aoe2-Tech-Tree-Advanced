@@ -46,22 +46,25 @@ export const UNIT_CLASSES = {
     'militia', 'manatarms', 'longsword', 'twohanded', 'champion',
     'spearman', 'pikeman', 'halberdier',
     'eaglescout', 'eaglewarrior', 'eliteeagle',
-    'condottiero', 'flemish_militia', 'gbeto', 'woad_raider', 'shotel', 'karambit', 'obuch',
+    'condottiero', 'flemish_militia',
     'fire_lancer', 'elite_fire_lancer',
     'champiscout', 'champirunner', 'champiwarrior', 'elitechampi',
-    'jian_swordsman', 'warrior_priest'
+    'jian_swordsman', 'warrior_priest',
+    'varangian_guard', 'elite_varangian_guard'
   ],
   'mounted': [
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
     'camel', 'heavycamel', 'imp_camel', 'battleeleph', 'eliteeleph', 'steppe_lancer', 'elite_steppe_lancer',
     'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'missionary',
     'hei_guang', 'heavy_hei_guang', 'war_chariot_s', 'xianbei_raider', 'bolas_rider', 'elite_bolas_rider',
-    'armored_elephant', 'siege_elephant'
+    'armored_elephant', 'siege_elephant',
+    'mounted_crossbow', 'heavy_mounted_crossbow'
   ],
   'archer': [
     'archer', 'crossbow', 'arbalester', 'skirmisher', 'eliteskirm', 'imp_skirmisher',
     'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour', 'handcannon',
-    'slinger', 'bolas_rider', 'elite_bolas_rider'
+    'slinger', 'bolas_rider', 'elite_bolas_rider',
+    'mounted_crossbow', 'heavy_mounted_crossbow'
   ],
   'siege': [
     'batteringram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager',
@@ -72,7 +75,8 @@ export const UNIT_CLASSES = {
     'galley', 'wargalley', 'galleon', 'firegalley', 'fireship', 'fastfireship',
     'demoraft', 'demoship', 'heavydemo', 'cannongalleon', 'elitecannon',
     'hulk', 'war_hulk', 'carrack',
-    'dromon', 'turtle_ship', 'longboat', 'carvel_hull', 'lou_chuan'
+    'dromon', 'turtle_ship', 'elite_turtle_ship', 'longship', 'elite_longship', 'catapult_gall', 'lou_chuan',
+    'caravel_d', 'elite_caravel', 'dragon_ship', 'thirisadai'
   ],
   'civilians': [
     'villager', 'tradecart', 'tradecog', 'fishingship'
@@ -88,7 +92,8 @@ export const UNIT_CLASSES = {
   ],
   'mounted_archer': [
     'cavarcher', 'hcavarcher', 'elephant_archer', 'elite_elephant_archer', 'genitour',
-    'xianbei_raider', 'bolas_rider', 'elite_bolas_rider'
+    'xianbei_raider', 'bolas_rider', 'elite_bolas_rider',
+    'mounted_crossbow', 'heavy_mounted_crossbow'
   ],
   'cavalry': [
     'scout', 'lightcav', 'hussar', 'winged_hussar', 'knight', 'cavalier', 'paladin', 'savar',
@@ -100,7 +105,7 @@ export const UNIT_CLASSES = {
     'skirmisher', 'eliteskirm', 'imp_skirmisher', 'genitour', 'slinger'
   ],
   'gunpowder': [
-    'handcannon', 'bombcannon', 'cannongalleon', 'elitecannon', 'bombardtower', 'janissary', 'conquistador',
+    'handcannon', 'bombcannon', 'cannongalleon', 'elitecannon', 'bombardtower',
     'rocket_cart', 'heavy_rocket_cart'
   ],
   // Ranged siege units that fire projectiles — used by Chemistry (+1 attack)
@@ -192,7 +197,10 @@ export const UNIQUE_UNIT_CLASSES = {
   'Liao Dao': ['infantry'],
   'Caballería Tigre': ['cavalry', 'mounted'],
   'Guardián de Pluma Blanca': ['infantry'],
-  'Liu Bei': ['infantry']
+  'Liu Bei': ['infantry'],
+  'Vikingo de Jomsborg': ['infantry'],
+  'Tropas del Hogar': ['infantry'],
+  'Jarl': ['cavalry', 'mounted']
 };
 
 export const TECHS = {
@@ -240,6 +248,10 @@ export const TECHS = {
     affects: ['mounted_archer'],
     mod: { armor_melee: 1, armor_pierce: 2, vs_spearman_attack: 2 }
   },
+  'cranequins': {
+    affects: ['mounted_crossbow', 'heavy_mounted_crossbow'],
+    mod: { range: 1, vs_bonuses: [{ vs: 'infantry', add: 2 }] }
+  },
 
   // ── UNIVERSITY ────────────────────────────────────────────────────────────
   'ballistics': {
@@ -260,10 +272,10 @@ export const TECHS = {
   },
   'masonry':      { affects: ['buildings'], mod: { hp_pct: 10, armor_melee: 1, armor_pierce: 1, building_armor: 3 } },
   'architecture': { affects: ['buildings'], mod: { hp_pct: 10, armor_melee: 1, armor_pierce: 1, building_armor: 3 } },
-  'fortifiedwall': { affects: ['walls'] },
-  'guardtower':    { affects: ['watchtower'] },
-  'keep':          { affects: ['guardtower'] },
-  'bombardtower':  { affects: ['keep'] },
+  'fortifiedwall_tech': { affects: ['walls'] },
+  'guardtower_tech':    { affects: ['watchtower'] },
+  'keep_tech':          { affects: ['guardtower'] },
+  'bombardtower_tech':  { affects: ['keep'] },
   'arrowslits': {
     affects: ['watchtower', 'guardtower', 'keep'],
     mod: { watchtower_attack: 1, guardtower_attack: 2, keep_attack: 3 }
@@ -359,7 +371,7 @@ export const TECHS = {
 
   // Bengalis ─────────────────────────────────────────────────────────────────
   'bengalis_uniquetech1': {  // Paiks
-    affects: ['ratha', 'battleeleph', 'eliteeleph', 'elephant_archer', 'elite_elephant_archer'],
+    affects: ['uniqueunit', 'eliteunique', 'battleeleph', 'eliteeleph', 'elephant_archer', 'elite_elephant_archer'],
     mod: { attack_speed_pct: 20 }
   },
   'bengalis_uniquetech2': {  // Mahayana
@@ -380,7 +392,7 @@ export const TECHS = {
   // Bohemians ────────────────────────────────────────────────────────────────
   'bohemians_uniquetech1': {  // Wagenburg Tactics
     affects: ['handcannon', 'bombcannon', 'houfnice', 'cannongalleon', 'elitecannon'],
-    mod: { speed_pct: 15 }
+    mod: { speed_pct: 10 }  // parche 185872: 15% → 10%
   },
   'bohemians_uniquetech2': {  // Hussite Reforms
     affects: ['religious'],
@@ -415,8 +427,8 @@ export const TECHS = {
     mod: { range: 1, passive_effect: 'dromons_tower_blast_radius' }
   },
   'byzantines_uniquetech2': {  // Logistica
-    affects: ['uniqueunit', 'eliteunique'],
-    mod: { vs_bonuses: [{ vs: 'infantry', add: 6 }], passive_effect: 'cataphract_trample_damage' }
+    affects: ['uniqueunit', 'eliteunique', 'varangian_guard', 'elite_varangian_guard'],
+    mod: { passive_effect: 'trample_damage' }  // parche 185872: el +6 vs infantería pasó al Catafracto base
   },
 
   // Celts ────────────────────────────────────────────────────────────────────
@@ -464,7 +476,7 @@ export const TECHS = {
   },
 
   // Franks ───────────────────────────────────────────────────────────────────
-  'franks_uniquetech1': { affects: ['uniqueunit', 'eliteunique'], mod: { range: 2 } },              // Bearded Axe
+  'franks_uniquetech1': { affects: ['mounted_crossbow', 'heavy_mounted_crossbow'], mod: { gold_cost_pct: -40 } }, // Ordonnance Companies (reemplaza a Bearded Axe)
   'franks_uniquetech2': { affects: ['stable'],                    mod: { production_speed_pct: 40 } }, // Chivalry
 
   // Georgians ────────────────────────────────────────────────────────────────
@@ -682,12 +694,27 @@ export const TECHS = {
   'vietnamese_uniquetech1': { affects: ['battleeleph', 'eliteeleph'], mod: { hp: 100 } },                       // Chatras
   'vietnamese_uniquetech2': { affects: ['civilians'],                  mod: { passive_effect: 'wood_to_gold' } }, // Paper Money
 
+  // Danes ────────────────────────────────────────────────────────────────────
+  'danes_uniquetech1': { affects: ['infantry', 'uniqueunit', 'eliteunique'], mod: { passive_effect: 'attack_per_hp_lost' } }, // Hamask (+1 ataque por cada 10% de PV perdido)
+  'danes_uniquetech2': {  // Northmen's Fury
+    affects: ['mangonel', 'onager', 'siegeonager', 'catapult_gall'],
+    mod: { range: 1, vs_building_attack_pct: 40 }
+  },
+
+  // Saxons ───────────────────────────────────────────────────────────────────
+  'saxons_uniquetech1': { affects: ['monk'], mod: { production_speed_pct: 33, conversion_range: 1 } },  // Clerical Recruitment
+  'saxons_uniquetech2': { affects: ['infantry', 'uniqueunit', 'eliteunique'], mod: { passive_effect: 'massed_armor' } }, // Shield Wall (hasta +3/+3)
+
+  // Varangians ───────────────────────────────────────────────────────────────
+  'varangians_uniquetech1': { affects: ['knight', 'cavalier', 'paladin'], mod: { passive_effect: 'trample_damage' } },            // Vendel Legacy
+  'varangians_uniquetech2': { affects: ['varangian_guard', 'elite_varangian_guard'], mod: { passive_effect: 'throwing_axes' } }, // Gothikon
+
   // Vikings ──────────────────────────────────────────────────────────────────
   'vikings_uniquetech1': {  // Chieftains
     affects: ['infantry'],
     mod: { vs_bonuses: [{ vs: 'cavalry', add: 5 }, { vs: 'camel_units', add: 4 }] }
   },
-  'vikings_uniquetech2': { affects: ['foot_archer', 'longboat'], mod: { attack: 1 } }, // Bogsveigar
+  'vikings_uniquetech2': { affects: ['archer', 'crossbow', 'arbalester', 'longship', 'elite_longship'], mod: { attack: 1 } }, // Bogsveigar
 
   // Wei ──────────────────────────────────────────────────────────────────────
   'wei_uniquetech1': { affects: ['infantry', 'archer', 'cavalry', 'siege', 'navy'], mod: { passive_effect: 'soldiers_produce_food' } }, // Tuntian

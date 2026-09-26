@@ -3,6 +3,7 @@ const LOCALE_ES = {
 
   ui: {
     legend:             "Leyenda",
+    language:           "Idioma",
     unit:               "Unidad",
     building:           "Edificio",
     tech:               "Tecnología",
@@ -15,19 +16,16 @@ const LOCALE_ES = {
     zoom_in:            "Acercar",
     zoom_out:           "Alejar",
     fit:                "Ajustar",
-    search_placeholder: "Buscar...",
     hp:                 "PV",
     attack:             "ATQ",
     armor_m:            "ARM-C",
     armor_p:            "ARM-P",
     range:              "ALC",
-    melee_range:        "CaC",
     speed:              "VEL",
     rof:                "CdF",
     blast_r:            "R. Expl.",
     los:                "LDV",
     train:              "Prod.",
-    cost:               "Costo",
     build_cost:         "Costo de Construcción",
     research_cost:      "Costo de Investigación",
     train_cost:         "Costo de Entrenamiento",
@@ -35,7 +33,29 @@ const LOCALE_ES = {
     build_efficiency:   "Tiempo de construcción vs. aldeanos  ·  3t⁄(n+2)",
     prereq:             "Requisitos",
     missing:            "No disponible para esta civilización",
-    bonus_dmg:          "Daño adicional",
+    click_simulate:     "Click para simular",
+    click_details:      "Click para ver detalles",
+    relevant_units:     "Unidades relevantes",
+    classic_tree:       "Árbol clásico",
+    close:              "Cerrar",
+    unique_unit:        "Unidad única",
+    unique_units:       "Unidades únicas",
+    unique_techs:       "Tecnologías únicas",
+    team_bonus:         "Bono de equipo",
+    bonus_affected:     "Afectadas por bonus",
+    elite_version:      "Versión élite",
+    ally_team:          "Equipo aliado",
+    add_ally:           "+ Añadir aliado…",
+    remove:             "Quitar",
+    simulate:           "Simular con tecnologías",
+    applies_to:         "Afecta a",
+    no_data:            "Sin datos específicos para esta civilización.",
+    no_stats:           "Stats no disponibles.",
+    civ_bonuses:        "Bonus de",
+    techs_short:        "tecn.",
+    ally:               "aliado",
+    allies:             "aliados",
+    bonus_hint:         "Resalta en el árbol lo que afecta · click para fijarlo",
   },
 
   bonus_targets: {
@@ -62,24 +82,29 @@ const LOCALE_ES = {
     long_range_warship:  "Barco de Guerra de Largo Alcance",
     siege_weapons:       "Armas de Asedio",
     elephant_units:      "Unid. Elefante",
+    heavy_warships:      "Barcos de Guerra Pesados",
+    unique_units:        "Unidades Únicas",
+    walls:               "Murallas y Puertas",
+    castles:             "Castillos",
+    cavalry_archers:     "Arqueros Montados",
+    heroes:              "Héroes y Reyes",
+    skirmishers:         "Escaramuzadores",
+    houses:              "Casas",
   },
 
-  types: {
-    infantry:   "Civilización de infantería",
-    cavalry:    "Civilización de caballería",
-    archers:    "Civilización de arqueros",
-    naval:      "Civilización naval",
-    defensive:  "Civilización defensiva",
-    monks:      "Civilización de monjes",
-    siege:      "Civilización de asedio",
-    gunpowder:  "Civilización de pólvora",
-  },
 
   ages: {
     0: "Alta Edad Media",
     1: "Edad Feudal",
     2: "Edad de los Castillos",
     3: "Edad Imperial",
+  },
+
+  ages_short: {
+    0: "Oscura",
+    1: "Feudal",
+    2: "Castillos",
+    3: "Imperial",
   },
 
   buildings: {
@@ -96,7 +121,6 @@ const LOCALE_ES = {
     blacksmith:     "Herrería",
     tc:             "Centro Urbano",
     tc_castle:      "Centro Urbano adicional",
-    towncenter:     "Centro Urbano",
     mill:           "Molino",
     farm:           "Granja",
     fishtrap:       "Trampa para Peces",
@@ -104,18 +128,25 @@ const LOCALE_ES = {
     mining:         "Camp. Minero",
     tahsili:        "Asentamiento",
     mulecart:       "Mula de Carga",
-    // Torres
     outpost:        "Puesto Avanzado",
     watchtower:     "Torre de Vigilancia",
-    guardtower_b:   "Torre de Guardia",
-    keep_b:         "Torreón",
-    bombardtower_b: "Torre de Bombarda",
-    // Murallas
     palisadewall:   "Empalizada",
     palisadegate:   "Puerta de Empalizada",
     stonewall:      "Muro de Piedra",
     gate:           "Puerta",
-    fortifiedwall_b:"Muro Fortificado",
+    guardtower:     "Torre de Guardia",
+    keep:           "Torreón",
+    bombardtower:   "Torre de Bombarda",
+    fortifiedwall:  "Muro Fortificado",
+    house:          "Casa",
+    pasture:        "Pastizal",
+    krepost:        "Krepost",
+    donjon:         "Torre del Homenaje",
+    feitoria:       "Factoría",
+    folwark:        "Folwark",
+    caravanserai:   "Caravasar",
+    fortified_church: "Iglesia Fortificada",
+    harbor:         "Puerto",
   },
 
   // ── Nodos: { name, effect } por ID ───────────────────────
@@ -194,7 +225,6 @@ const LOCALE_ES = {
     imp_camel:    { name: 'Camello Imperial',      effect: '[Solo Hindustanís] Máxima mejora de camello.' },
     steppe_lancer:{ name: 'Lancero Estepario',     effect: '[Civs Esteparias] Caballería con mayor rango de ataque.' },
     elite_steppe_lancer: { name: 'Lancero Estep. Elite', effect: 'Élite.' },
-    xolotl_warrior:{ name: 'Guerrero Xolotl',     effect: '[Solo Americanos] Caballería capturada.' },
     shrivamsha:   { name: 'Jinete Shrivamsha',     effect: '[Solo Gurjaras] Caballería capaz de esquivar proyectiles.' },
     elite_shrivamsha: { name: 'Shrivamsha Elite', effect: 'Élite.' },
     hei_guang:    { name: 'Caballería Hei Guang',  effect: '[Civs Tres Reinos] Caballería pesada regional.' },
@@ -269,7 +299,8 @@ const LOCALE_ES = {
     lou_chuan:    { name: 'Lou Chuan',             effect: '[Civs Dinásticas] Navío de guerra de asedio. Modo anti-edificio: trebuchet (rng 13). Modo anti-unidad: flechas (rng 10).' },
     catapult_gall:{ name: 'Galera de Catapulta',   effect: '[Solo Americanos] Barco de asedio.' },
     turtle_ship:  { name: 'Barco Tortuga',         effect: '[Solo Coreanos] Barco acorazado de corto alcance.' },
-    longboat:     { name: 'Drakkar',               effect: '[Solo Vikingos] Barco de guerra que dispara múltiples flechas.' },
+    longship:     { name: 'Drakkar',               effect: '[Regional: Daneses, Sajones, Varegos, Vikingos] Barco de guerra que dispara varias flechas. Antes era la UU vikinga (Longboat).' },
+    elite_longship:{ name: 'Drakkar de Élite',     effect: 'Mejora del Drakkar: +5 PV, +2 ataque, +1 alcance y +1/+3 de armadura.' },
     caravel_d:    { name: 'Carabela',              effect: '[Solo Portugueses] Barco de guerra con daño de área.' },
     thirisadai:   { name: 'Thirisadai',            effect: '[Solo Dravídicos] Navío masivo de guerra.' },
     harbor:       { name: 'Puerto',                effect: '[Solo Malayos] Muelle defensivo que dispara flechas.' },
@@ -377,6 +408,37 @@ const LOCALE_ES = {
     goldshaft_m:    { name: 'Pozos de Oro',          effect: 'Minería de oro +15% velocidad.' },
     stonemining_m:  { name: 'Minería de Piedra',     effect: 'Minería de piedra +15% velocidad.' },
     stoneshaft_m:   { name: 'Pozos de Piedra',       effect: 'Minería de piedra +15% velocidad.' },
+
+    // ── The Viking Sagas (parche 185872) ─────────────────────
+    mounted_crossbow:       { name: 'Ballestero Montado',          effect: '[Regional] Arquero a caballo de ataque potente pero lento. Reemplaza al Arquero a Caballo en la mayoría de las civs europeas.' },
+    heavy_mounted_crossbow: { name: 'Ballestero Montado Pesado',   effect: 'Mejora del Ballestero Montado: +10 PV y +1 ataque.' },
+    cranequins:             { name: 'Molinetes',                   effect: 'Ballesteros Montados +1 alcance y +2 ataque contra infantería.' },
+    varangian_guard:        { name: 'Guardia Varega',              effect: '[Regional] Infantería de choque que genera oro al pelear contra otras unidades.' },
+    elite_varangian_guard:  { name: 'Guardia Varega de Élite',     effect: 'Mejora de la Guardia Varega: +10 PV, +4 ataque y +1 armadura perforante.' },
+
+    // ── Mejoras de torres y murallas (Universidad) ────────────
+    guardtower_tech:    { name: 'Torre de Guardia',   effect: 'Mejora las Torres de Vigilancia a Torres de Guardia.' },
+    keep_tech:          { name: 'Torreón',            effect: 'Mejora las Torres de Guardia a Torreones.' },
+    bombardtower_tech:  { name: 'Torre de Bombarda',  effect: 'Permite construir Torres de Bombarda (requiere Química).' },
+    fortifiedwall_tech: { name: 'Muro Fortificado',   effect: 'Mejora los Muros de Piedra a Muros Fortificados.' },
+
+    // ── Otros nodos del árbol del juego ───────────────────────
+    fishtrap:     { name: 'Trampa para Peces',     effect: 'Granja flotante: fuente de comida para los Barcos Pesqueros.' },
+    spy:          { name: 'Espías/Traición',       effect: 'Revela todas las unidades y edificios enemigos.' },
+    devotion:     { name: 'Devoción',              effect: 'Las unidades propias resisten +1 intento de conversión (mín. y máx.).' },
+    caravan:      { name: 'Caravana',              effect: 'Unidades comerciales +50% de velocidad.' },
+    domestication:{ name: 'Domesticación',         effect: '[Pastizal] Los pastizales producen más comida (+115).' },
+    pastoralism:  { name: 'Pastoreo',              effect: '[Pastizal] Los pastizales producen más comida (+230).' },
+    transhumance: { name: 'Trashumancia',          effect: '[Pastizal] Los pastizales producen más comida (+345).' },
+    elite_genitour:     { name: 'Jinete Genitour de Élite',       effect: 'Mejora del Jinete Genitour.' },
+    elite_turtle_ship:  { name: 'Barco Tortuga de Élite',         effect: 'Mejora del Barco Tortuga.' },
+    elite_caravel:      { name: 'Carabela de Élite',              effect: 'Mejora de la Carabela.' },
+    elite_bolas_rider:  { name: 'Jinete de Bolas de Élite',       effect: 'Mejora del Jinete de Bolas.' },
+    elite_temple_guard: { name: 'Guardia del Templo de Élite',    effect: 'Mejora de la Guardia del Templo.' },
+    elite_ibirapema:    { name: 'Guerrero Ibirapema de Élite',    effect: 'Mejora del Guerrero Ibirapema.' },
+    cao_cao:      { name: 'Cao Cao',               effect: '[Héroe de Wei] Se entrena una sola vez en el Castillo.' },
+    liu_bei:      { name: 'Liu Bei',               effect: '[Héroe de Shu] Se entrena una sola vez en el Castillo.' },
+    sun_jian:     { name: 'Sun Jian',              effect: '[Héroe de Wu] Se entrena una sola vez en el Castillo.' },
   },
 
   civs: {
@@ -485,7 +547,7 @@ const LOCALE_ES = {
       teamBonus: "Los monjes curan +100% más rápido",
       uniqueTechs: [
         { name: "Fuego Griego", effect: "Barcos de Fuego +1 rango." },
-        { name: "Logística", effect: "Catafractos causan daño de pisoteo; +6 ataque vs infantería." }
+        { name: "Logística", effect: "Catafractos y Guardias Varegas causan daño de arrollamiento." }
       ],
       uniqueUnits: [
         { name: "Catafracto", upgradeName: "Catafracto Elite" }
@@ -503,7 +565,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Mercados trabajan +80% más rápido",
       uniqueTechs: [
-        { name: "Wagenburg Tactics", effect: "Unidades de pólvora se mueven 15% más rápido." },
+        { name: "Wagenburg Tactics", effect: "Unidades de pólvora se mueven 10% más rápido." },
         { name: "Hussite Reforms", effect: "Monjes y tecnologías de Monasterio: coste de oro reemplazado por comida." }
       ],
       uniqueUnits: [
@@ -637,6 +699,24 @@ const LOCALE_ES = {
         { name: "Kipchak", upgradeName: "Kipchak Elite" }
       ]
     },
+    danes: {
+      name: "Daneses",
+      type: "Civilización de infantería y asedio",
+      bonuses: [
+        "Los buques de pesca y los aldeanos dejan un 5 % más de comida",
+        "Se obtiene un botín equivalente al 25 % del coste en recursos de cada edificio destruido",
+        "Las mejoras del cuartel y el taller de maquinaria de asedio cuestan un 66 % menos de oro",
+        "Los guardias varegos y los drakkars se mueven un 10 % más rápido"
+      ],
+      teamBonus: "Las armas de asedio: +2 de campo de visión",
+      uniqueTechs: [
+        { name: "Hamask", effect: "La infantería inflige más daño a medida que pierden PR." },
+        { name: "Furia nórdica", effect: "Línea de mangoneles y galeones con catapulta: +1 de alcance; armas de asedio y barcos de guerra de asedio: +40 % de ataque contra edificios." }
+      ],
+      uniqueUnits: [
+        { name: "Vikingo de Jomsborg", subtitle: "infantería", upgradeName: "Vikingo de Jomsborg Elite" }
+      ]
+    },
     dravidians: {
       name: "Dravídicos",
       type: "Civilización de infantería y naval",
@@ -721,7 +801,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Caballeros tiene +2 de alcance visual",
       uniqueTechs: [
-        { name: "Hacha con Barba", effect: "Hacha Arrojadiza +2 rango." },
+        { name: "Compagnies d'ordonnance", effect: "Los Ballesteros Montados cuestan -40% de oro." },
         { name: "Chivalry", effect: "Establos trabajan 40% más rápido." }
       ],
       uniqueUnits: [
@@ -771,8 +851,7 @@ const LOCALE_ES = {
       bonuses: [
         "Empieza con 2 arbustos",
         "Se puede guarnecer ganado en el molino para producir comida de forma pasiva",
-        "Las unidades montadas infligen un 20/30/40 % más de daño en las edades Feudal/de los Castillos/Imperial",
-        "Los muelles tienen +5 de capacidad de guarnición"
+        "Las unidades montadas infligen un 20/30/40 % más de daño en las edades Feudal/de los Castillos/Imperial"
       ],
       teamBonus: "Las unidades del camello y el elefante entrenan un 25 % más rápido",
       uniqueTechs: [
@@ -815,7 +894,7 @@ const LOCALE_ES = {
       teamBonus: "Los Establos trabajan +20% más rápido",
       uniqueTechs: [
         { name: "Razias", effect: "Crear tarcanos en establos" },
-        { name: "Ateísmo", effect: "Las reliquias enemigas generan un 50 % menos de recursos; las victorias por maravillas y reliquias tardan 100 años más" }
+        { name: "Ateísmo", effect: "Las reliquias enemigas (y neutrales) generan un 50 % menos de recursos; las victorias por maravilla y reliquias de los rivales tardan 100 años más (acumulable)." }
       ],
       uniqueUnits: [
         { name: "Tarcano", subtitle: "caballería", upgradeName: "Tarcano Elite" }
@@ -1146,7 +1225,7 @@ const LOCALE_ES = {
         { name: "Comitatenses", effect: "Infantería y caballería se crean un 50% más rápido; carga de ataque." }
       ],
       uniqueUnits: [
-        { name: "Legionario", upgradeName: "Centurión" }
+        { name: "Centurión", subtitle: "caballería", upgradeName: "Centurión Elite" }
       ]
     },
     saracens: {
@@ -1165,6 +1244,24 @@ const LOCALE_ES = {
       ],
       uniqueUnits: [
         { name: "Mameluco", upgradeName: "Mameluco Elite" }
+      ]
+    },
+    saxons: {
+      name: "Sajones",
+      type: "Civilización de infantería y defensa",
+      bonuses: [
+        "Los molinos, los campamentos madereros y los campamentos mineros proporcionan +35 de comida y +10 de piedra al construirlos",
+        "La infantería cuesta un 5 % menos por cada centro urbano o castillo que controles (hasta un máximo de un 20 % menos)",
+        "Las torres y los castillos disparan un 100 % más de flechas básicas a partir de la Edad de los Castillos",
+        "Drakkars y galeones con catapulta: 20 % más de PR"
+      ],
+      teamBonus: "Los reparadores trabajan un 25 % más rápido",
+      uniqueTechs: [
+        { name: "Reclutamiento administrativo", effect: "Monjes: +1 de alcance de conversión; entrenan un 33 % más rápido." },
+        { name: "Muralla escudo", effect: "La infantería obtiene armadura adicional cuando se agrupa." }
+      ],
+      uniqueUnits: [
+        { name: "Tropas del Hogar", subtitle: "infantería", upgradeName: "Tropas del Hogar Elite" }
       ]
     },
     shu: {
@@ -1227,7 +1324,7 @@ const LOCALE_ES = {
       bonuses: [
         "Las granjas cuestan -40%",
         "Los Centros Urbanos tienen +10 de capacidad de guarnición; las Torres tienen +5 de capacidad de guarnición",
-        "Las unidades del Cuartel y del Establo tienen +1/+2 de armadura cuerpo a cuerpo en Edad de los Castillos/Imperial",
+        "La infantería y las unidades montadas tienen +1/+2 de armadura cuerpo a cuerpo en Edad de los Castillos/Imperial",
         "Los monjes tienen +100% de rango de curación",
         "Aspilleras y Medicina Herbal son gratuitas"
       ],
@@ -1277,13 +1374,31 @@ const LOCALE_ES = {
         { name: "Guerrero Ibirapema", subtitle: "infantería de área", upgradeName: "Guerrero Ibirapema Elite" }
       ]
     },
+    varangians: {
+      name: "Varegos",
+      type: "Civilización de caballería y naval",
+      bonuses: [
+        "El pastoreo, la pesca y la caza también generan oro",
+        "Efectos de pureza de sangre y caravanas: +50 %",
+        "Los guardias varegos atacan un 25 % más rápido y generan un 50 % más de oro",
+        "Los drakkars y los galeones con catapulta atacan un 15 % más rápido"
+      ],
+      teamBonus: "Línea de caballeros: +1 de ataque contra infantería",
+      uniqueTechs: [
+        { name: "Legado de Vendel", effect: "La línea de caballeros inflige daño de arrollamiento." },
+        { name: "Gothikon", effect: "Los guardias varegos lanzan hachas periódicamente." }
+      ],
+      uniqueUnits: [
+        { name: "Jarl", subtitle: "caballería", upgradeName: "Jarl Elite" }
+      ]
+    },
     vietnamese: {
       name: "Vietnamitas",
       type: "Civilización de arqueros",
       bonuses: [
         "Los Centros Urbanos enemigos se revelan al inicio de la partida",
         "Las mejoras económicas no cuestan madera y se investigan +100% más rápido",
-        "Las unidades de Galería de Tiro y los Lanceros de Fuego tienen +20% de PV",
+        "Los arqueros a pie y los escaramuzadores tienen +20% de PV",
         "El Reclutamiento es gratuito"
       ],
       teamBonus: "La mejora de Escaramuzador Imperial disponible en la Edad Imperial",
@@ -1306,8 +1421,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Muelles cuestan -15%",
       uniqueTechs: [
-        { name: "Chieftains", effect: "Infantería +5 ataque vs caballería, +4 vs camellos; genera oro al matar aldeanos y comerciantes." },
-        { name: "Bogsveigar", effect: "Arqueros y Longboats +1 ataque." }
+        { name: "Chieftains", effect: "Infantería +5 ataque vs. caballería y +4 vs. camellos (ya no genera oro)." },
+        { name: "Bogsveigar", effect: "Línea de arqueros y Drakkars +1 ataque." }
       ],
       uniqueUnits: [
         { name: "Berserk", upgradeName: "Berserk Elite" }
@@ -1350,116 +1465,5 @@ const LOCALE_ES = {
         { name: "Espadachín Jian", subtitle: "infantería", upgradeName: "Espadachín Jian Elite" }
       ]
     }
-  },
-
-  uniqueTechsById: {
-    "ui_uniquetech1": { name: "Tecnología Única I", effect: "Tecnología exclusiva Edad Castillos." },
-    "ui_uniquetech2": { name: "Tecnología Única II", effect: "Tecnología exclusiva Edad Imperial." },
-    "armenians_uniquetech1": { name: "Flota ciliciana", effect: "Buques de demolición y Dromones disparan un proyectil adicional." },
-    "armenians_uniquetech2": { name: "Feretorios", effect: "Infantería, excepto línea de lanceros: +30 PV; sacerdotes guerreros: +100% de velocidad de curación." },
-    "aztecs_uniquetech1": { name: "Garras de Jaguar", effect: "Guerreros Jaguar tienen +4 de ataque." },
-    "aztecs_uniquetech2": { name: "Ritual Florido", effect: "Unidades pierden 5 PV al matar pero reciben +4 de ataque." },
-    "bengalis_uniquetech1": { name: "Palanquín de la Reina", effect: "Villagers trabajan +35% más rápido." },
-    "bengalis_uniquetech2": { name: "Maestría Dwyaja", effect: "Elefantes de Batalla tienen +15 PV y +1 de armadura." },
-    "berbers_uniquetech1": { name: "Mejora de Caballería Beréber", effect: "Camellos reciben -30% de costo de investigación y se entrenan +30% más rápido." },
-    "berbers_uniquetech2": { name: "Mejora de Caballería Beréber", effect: "Camellos reciben -30% de costo de investigación y se entrenan +30% más rápido." },
-    "bohemians_uniquetech1": { name: "Husita Wagenburg", effect: "Carros de Guerra disparan desde rango melee; infantería garnisonada dispara flecha." },
-    "bohemians_uniquetech2": { name: "Husita Wagenburg", effect: "Carros de Guerra disparan desde rango melee; infantería garnisonada dispara flecha." },
-    "britons_uniquetech1": { name: "Yeomen", effect: "Arqueros a pie +1 rango; Torres +2 ataque." },
-    "britons_uniquetech2": { name: "Warwolf", effect: "Trebuchets 100% precisión y daño en área." },
-    "bulgarians_uniquetech1": { name: "Lanzadera de Fuego Búlgara", effect: "Lanzaderas de Fuego se entrenan +100% más rápido y cuestan -30%." },
-    "bulgarians_uniquetech2": { name: "Boyar Sangre", effect: "Boyars regeneran 10 PV por minuto." },
-    "burgundians_uniquetech1": { name: "Primera Cruzada", effect: "Cada Castillo crea 5 Sargentos; mayor resistencia a la conversión." },
-    "burgundians_uniquetech2": { name: "Hauberque", effect: "Línea de Caballeros +1/+2 de armadura." },
-    "burmese_uniquetech1": { name: "Carro de Batalla Elefante", effect: "Elefantes de Batalla disponibles en Edad Feudal; +3 PV regeneración." },
-    "burmese_uniquetech2": { name: "Muro Aislador", effect: "Edificios +3 de armadura perforante." },
-    "byzantines_uniquetech1": { name: "Catafractos Sármatas", effect: "Catafractos tienen +30% de PV." },
-    "byzantines_uniquetech2": { name: "Fuego Griego", effect: "Galeras de Fuego y Dromones disparan fuego griego." },
-    "celts_uniquetech1": { name: "Furor Celta", effect: "Infantería +25% de velocidad de ataque." },
-    "celts_uniquetech2": { name: "Furor Celta", effect: "Infantería +25% de velocidad de ataque." },
-    "chinese_uniquetech1": { name: "Estrategia del Emperador", effect: "Todos los Hombres de Armas +20 PV." },
-    "chinese_uniquetech2": { name: "Refinación de Pólvora", effect: "Unidades de pólvora disparan +15% más rápido." },
-    "cumans_uniquetech1": { name: "Jinetes Cumanos", effect: "Caballería se entrena +25% más rápido." },
-    "cumans_uniquetech2": { name: "Baskaks Mongoles", effect: "Caballería tiene +20% de PV y +1/+2 de armadura." },
-    "dravidians_uniquetech1": { name: "Shrivamsha Cavalry", effect: "Caballos de Shrivamsha tienen +15 PV y +1 de armadura." },
-    "dravidians_uniquetech2": { name: "Brazo Corto", effect: "Peons y Sacerdotes Guerreros tienen +20% de velocidad de ataque." },
-    "ethiopians_uniquetech1": { name: "Fuego Etíope", effect: "Honderos tienen +20 PV; Pólvora +100% de daño." },
-    "ethiopians_uniquetech2": { name: "Fuego Etíope", effect: "Honderos tienen +20 PV; Pólvora +100% de daño." },
-    "franks_uniquetech1": { name: "Caballería Franca", effect: "Caballería se entrena +20% más rápido y cuesta -20%." },
-    "franks_uniquetech2": { name: "Caballería Franca", effect: "Caballería se entrena +20% más rápido y cuesta -20%." },
-    "georgians_uniquetech1": { name: "Derbazi", effect: "Infantería tiene +50 PV en Edad Castillos; +75 PV en Edad Imperial." },
-    "georgians_uniquetech2": { name: "Orgullo Georgiano", effect: "Caballos y Castillos disparan flechas; infantería regenera HP." },
-    "goths_uniquetech1": { name: "Ironsides", effect: "Infantería -5/+10 armadura cuerpo a cuerpo en Edad Feudal/Castillos." },
-    "goths_uniquetech2": { name: "Ironsides", effect: "Infantería -5/+10 armadura cuerpo a cuerpo en Edad Feudal/Castillos." },
-    "gurjaras_uniquetech1": { name: "Chariots de Carro de Batalla", effect: "Carros de Guerra disponibles en Edad Feudal; +3 de velocidad de ataque." },
-    "gurjaras_uniquetech2": { name: "Shrivamsha Cavalry", effect: "Hombres de Armas tienen +20 PV; Caballos de Shrivamsha +3 de ataque." },
-    "hindustanis_uniquetech1": { name: "Elefante de Asedio", effect: "Elefantes de Batalla se entrenan +100% más rápido." },
-    "hindustanis_uniquetech2": { name: "Mamelucos de Fuego", effect: "Jenízaros tienen +15 PV." },
-    "huns_uniquetech1": { name: "Nómadas", effect: "Edificios se construyen sin cimiento." },
-    "huns_uniquetech2": { name: "Caballería Franca", effect: "Caballería tiene +30% de PV." },
-    "incas_uniquetech1": { name: "Plataforma de Asedio", effect: "Asedio se entrena +50% más rápido." },
-    "incas_uniquetech2": { name: "Andenes", effect: "Economía +15%; Aldeanos cosechan +15% más rápido." },
-    "italians_uniquetech1": { name: "Línea de Batalla Italiana", effect: "Infantería y crossbowmen tienen +20% de velocidad de ataque." },
-    "italians_uniquetech2": { name: "Línea de Batalla Italiana", effect: "Infantería y crossbowmen tienen +20% de velocidad de ataque." },
-    "japanese_uniquetech1": { name: "Samurái", effect: "Samurais se entrenan +50% más rápido." },
-    "japanese_uniquetech2": { name: "Samurái", effect: "Samurais se entrenan +50% más rápido." },
-    "jurchens_uniquetech1": { name: "Corazas de Jurchen", effect: "Infantería tiene +2/+1 armadura cuerpo a cuerpo/piercing." },
-    "jurchens_uniquetech2": { name: "Caballería Jurchen", effect: "Caballería se entrena +33% más rápido." },
-    "khitans_uniquetech1": { name: "Espada Catafracta Khitan", effect: "Infantería tiene +30 PV." },
-    "khitans_uniquetech2": { name: "Caballería Khitan", effect: "Caballería tiene +20 PV y +1 armadura." },
-    "khmer_uniquetech1": { name: "Recolector de Arroz", effect: "Aldeanos cosechan granja +35% más rápido." },
-    "khmer_uniquetech2": { name: "Batalla Elefante", effect: "Elefantes de Batalla tienen +15 PV y +1 armadura." },
-    "koreans_uniquetech1": { name: "Dinastía Goryeo", effect: "Monjes tienen +50% de PV y regeneran HP." },
-    "koreans_uniquetech2": { name: "Tortuga Marina", effect: "Barcos de Tortugas se entrenan +50% más rápido." },
-    "lithuanians_uniquetech1": { name: "Caballería Lituania", effect: "Caballería tiene +20 PV y +1 armadura." },
-    "lithuanians_uniquetech2": { name: "Tributo", effect: "Cada Castillo genera oro pasivamente." },
-    "magyars_uniquetech1": { name: "Caballería Magiar", effect: "Caballería se entrena +35% más rápido." },
-    "magyars_uniquetech2": { name: "Caballería Magiar", effect: "Caballería se entrena +35% más rápido." },
-    "malay_uniquetech1": { name: "Carro de Batalla Malayo", effect: "Carros de Guerra se entrenan +100% más rápido y cuestan -50%." },
-    "malay_uniquetech2": { name: "Carro de Batalla Malayo", effect: "Carros de Guerra se entrenan +100% más rápido y cuestan -50%." },
-    "malians_uniquetech1": { name: "Arco Compuesto Griót", effect: "Arqueros a pie tienen +4 de ataque." },
-    "malians_uniquetech2": { name: "Armadura de Oro", effect: "Infantería tiene +4/+4 armadura." },
-    "mapuche_uniquetech1": { name: "Caballería Mapuche", effect: "Caballería Exploradora tiene +30 PV." },
-    "mapuche_uniquetech2": { name: "Caballería Mapuche", effect: "Caballería Exploradora tiene +30 PV." },
-    "mayans_uniquetech1": { name: "El Dorado", effect: "Jaguares tienen +4 de ataque y Guerreros Puma se entrenan más rápido." },
-    "mayans_uniquetech2": { name: "Observatorio", effect: "Tecnologías de investigación +50% más rápidas en Universidades." },
-    "mongols_uniquetech1": { name: "Arco Compuesto Mongol", effect: "Arqueros a caballo tienen +2 de rango." },
-    "mongols_uniquetech2": { name: "Arco Compuesto Mongol", effect: "Arqueros a caballo tienen +2 de rango." },
-    "muisca_uniquetech1": { name: "Caballería Muisca", effect: "Caballería tiene +20 PV y se entrena más rápido." },
-    "muisca_uniquetech2": { name: "Caballería Muisca", effect: "Caballería tiene +20 PV y se entrena más rápido." },
-    "persians_uniquetech1": { name: "Elefante de Batalla Persa", effect: "Elefantes de Batalla tienen +20 PV." },
-    "persians_uniquetech2": { name: "Carrera de Caballos", effect: "Caballería se entrena +40% más rápido." },
-    "poles_uniquetech1": { name: "Husares Polacos", effect: "Caballería ligera se entrena más rápido y tiene mejor armadura." },
-    "poles_uniquetech2": { name: "Husares Polacos", effect: "Caballería ligera se entrena más rápido y tiene mejor armadura." },
-    "portuguese_uniquetech1": { name: "Carrera de Caballos", effect: "Caballería se entrena +20% más rápido." },
-    "portuguese_uniquetech2": { name: "Carrera de Caballos", effect: "Caballería se entrena +20% más rápido." },
-    "romans_uniquetech1": { name: "Legionario", effect: "Infantería tiene +50% de PV." },
-    "romans_uniquetech2": { name: "Legionario", effect: "Infantería tiene +50% de PV." },
-    "saracens_uniquetech1": { name: "Caballería Sárracena", effect: "Caballería ligera tiene +20% de PV." },
-    "saracens_uniquetech2": { name: "Caballería Sárracena", effect: "Caballería ligera tiene +20% de PV." },
-    "shu_uniquetech1": { name: "Caballería Shu", effect: "Caballería tiene +15 PV y +1 armadura." },
-    "shu_uniquetech2": { name: "Administración Shu", effect: "Aldeanos trabajan +35% más rápido." },
-    "sicilians_uniquetech1": { name: "Furor Siciliano", effect: "Infantería y Caballería tienen +25% de velocidad de ataque." },
-    "sicilians_uniquetech2": { name: "Furor Siciliano", effect: "Infantería y Caballería tienen +25% de velocidad de ataque." },
-    "slavs_uniquetech1": { name: "Infantería Eslava", effect: "Infantería +25% de velocidad de ataque." },
-    "slavs_uniquetech2": { name: "Infantería Eslava", effect: "Infantería +25% de velocidad de ataque." },
-    "spanish_uniquetech1": { name: "Conquista", effect: "Conquistadores se entrenan +33% más rápido." },
-    "spanish_uniquetech2": { name: "Navío", effect: "Navío Mercante se entrena +100% más rápido." },
-    "tatars_uniquetech1": { name: "Silk Armor", effect: "Lanceros de Estepa y Caballería Ligera +1/+1 armadura." },
-    "tatars_uniquetech2": { name: "Timurid Siegecraft", effect: "Trebuchets +2 rango; habilita Camellos Ardientes." },
-    "teutons_uniquetech1": { name: "Ironclad", effect: "Asedio +4 armadura cuerpo a cuerpo." },
-    "teutons_uniquetech2": { name: "Crenellations", effect: "Castillos +3 rango; infantería garnisonada puede disparar." },
-    "turks_uniquetech1": { name: "Sipahi", effect: "Arqueros a Caballo +20 PV." },
-    "turks_uniquetech2": { name: "Artillery", effect: "Cañones de Bombarda +2 rango." },
-    "tupi_uniquetech1": { name: "Caciques", effect: "Champi Warriors y honderos atacan más rápido." },
-    "tupi_uniquetech2": { name: "Curare", effect: "Arqueros a pie y fortificaciones causan daño por veneno." },
-    "vietnamese_uniquetech1": { name: "Alquiler de Armas", effect: "Todos los Arqueros cuestan -30% y se entrenan más rápido." },
-    "vietnamese_uniquetech2": { name: "Explosión de Fuego", effect: "Pólvora dispara +50% más rápido." },
-    "vikings_uniquetech1": { name: "Furor Vikingo", effect: "Infantería +25% de velocidad de ataque." },
-    "vikings_uniquetech2": { name: "Barco Largo", effect: "Barcos de Larga Distancia disparan flechas." },
-    "wei_uniquetech1": { name: "Caballería Wei", effect: "Caballería tiene +15 PV y +1 armadura." },
-    "wei_uniquetech2": { name: "Administración Wei", effect: "Monjes tienen +40 PV y regeneran HP." },
-    "wu_uniquetech1": { name: "Tácticas del Acantilado Rojo", effect: "Barcos de demolición y Arqueros de Fuego causan daño de llamas a barcos y edificios." },
-    "wu_uniquetech2": { name: "Tigre Sentado", effect: "Trebuchets de Tracción y Lou Chuans disparan proyectiles adicionales." }
   }
 };
