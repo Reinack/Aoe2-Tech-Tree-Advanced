@@ -357,12 +357,12 @@ export const TECHS = {
 
   // Armenians ────────────────────────────────────────────────────────────────
   'armenians_uniquetech1': {  // Cilician Fleet
-    affects: ['demoship', 'galley', 'wargalley', 'galleon', 'dromon'],
+    affects: ['galley', 'wargalley', 'galleon', 'dromon'],
     mod: { range: 1, demolition_blast_radius_pct: 20 }
   },
   'armenians_uniquetech2': {  // Fereters
-    affects: ['infantry', 'warrior_priest'],
-    mod: { hp: 30, heal_speed_pct: 100 }
+    affects: ['militia', 'manatarms', 'longsword', 'twohanded', 'champion'],
+    mod: { hp: 30 }
   },
 
   // Aztecs ───────────────────────────────────────────────────────────────────
@@ -401,7 +401,7 @@ export const TECHS = {
 
   // Britons ──────────────────────────────────────────────────────────────────
   'britons_uniquetech1': {  // Yeomen
-    affects: ['foot_archer', 'watchtower', 'guardtower', 'keep'],
+    affects: ['archer', 'crossbow', 'arbalester', 'uniqueunit', 'eliteunique', 'watchtower', 'guardtower', 'keep'],
     mod: { range: 1, watchtower_attack: 2, guardtower_attack: 2, keep_attack: 2 }
   },
   'britons_uniquetech2': {  // Warwolf
@@ -423,7 +423,7 @@ export const TECHS = {
 
   // Byzantines ───────────────────────────────────────────────────────────────
   'byzantines_uniquetech1': {  // Greek Fire
-    affects: ['firegalley', 'fireship', 'fastfireship', 'bombardtower', 'dromon'],
+    affects: ['firegalley', 'fireship', 'fastfireship'],
     mod: { range: 1, passive_effect: 'dromons_tower_blast_radius' }
   },
   'byzantines_uniquetech2': {  // Logistica
@@ -436,7 +436,7 @@ export const TECHS = {
     affects: ['castle', 'watchtower', 'guardtower', 'keep'],
     mod: { attack_speed_pct: 33, passive_effect: 'castle_heals_infantry' }
   },
-  'celts_uniquetech2': { affects: ['siege'], mod: { hp_pct: 40 } },  // Furor Celtica
+  'celts_uniquetech2': { affects: ['batteringram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager', 'scorpion', 'heavyscorpion', 'bombcannon', 'siegetower'], mod: { hp_pct: 40 } },  // Furor Celtica
 
   // Chinese ──────────────────────────────────────────────────────────────────
   'chinese_uniquetech1': {  // Great Wall
@@ -494,7 +494,7 @@ export const TECHS = {
   'goths_uniquetech2': { affects: ['barracks'], mod: { production_speed_pct: 100 } },               // Perfusion
 
   // Gurjaras ─────────────────────────────────────────────────────────────────
-  'gurjaras_uniquetech1': { affects: ['infantry'],                                                        mod: { food_cost_pct: -25 } }, // Kshatriyas
+  'gurjaras_uniquetech1': { affects: ['infantry', 'foot_archer', 'cavalry', 'mounted_archer', 'siege', 'elephant_archer', 'elite_elephant_archer'],                                                        mod: { food_cost_pct: -25 } }, // Kshatriyas
   'gurjaras_uniquetech2': { affects: ['camel', 'heavycamel', 'elephant_archer', 'elite_elephant_archer'], mod: { armor_melee: 4 } },    // Frontier Guards
 
   // Hindustanis ──────────────────────────────────────────────────────────────
@@ -510,11 +510,11 @@ export const TECHS = {
 
   // Incas ────────────────────────────────────────────────────────────────────
   'incas_uniquetech1': {  // Andean Sling
-    affects: ['skirmishers', 'slinger'],
-    mod: { attack: 1, minimum_range: 0 }
+    affects: ['slinger'],
+    mod: { attack: 1 }
   },
   'incas_uniquetech2': {  // Fabric Shields
-    affects: ['uniqueunit', 'eliteunique', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'],
+    affects: ['uniqueunit', 'eliteunique', 'slinger', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'],
     mod: { armor_melee: 1, armor_pierce: 1 }
   },
   'champiscout_innate': {  // Champi Scout inherent attack bonuses vs specific armor classes
@@ -563,7 +563,7 @@ export const TECHS = {
 
   // Lithuanians ──────────────────────────────────────────────────────────────
   'lithuanians_uniquetech1': { affects: ['tc'],                                mod: { range: 3 } },        // Hill Forts
-  'lithuanians_uniquetech2': { affects: ['spearman', 'pikeman', 'halberdier'], mod: { armor_pierce: 2 } }, // Tower Shields
+  'lithuanians_uniquetech2': { affects: ['spearman', 'pikeman', 'halberdier', 'skirmisher', 'eliteskirm', 'imp_skirmisher'], mod: { armor_pierce: 2 } }, // Tower Shields
 
   // Magyars ──────────────────────────────────────────────────────────────────
   'magyars_uniquetech1': { affects: ['uniqueunit', 'eliteunique'], mod: { replace_gold_with_food: true } }, // Corvinian Army
@@ -590,7 +590,7 @@ export const TECHS = {
 
   // Mongols ──────────────────────────────────────────────────────────────────
   'mongols_uniquetech1': { affects: ['civilians'], mod: { passive_effect: 'nomad_pop' } }, // Nomads
-  'mongols_uniquetech2': { affects: ['siege'],     mod: { speed_pct: 50 } },               // Drill
+  'mongols_uniquetech2': { affects: ['batteringram', 'cappedram', 'siegeram', 'mangonel', 'onager', 'siegeonager', 'scorpion', 'heavyscorpion', 'bombcannon', 'siegetower'], mod: { speed_pct: 50 } },               // Drill
 
   // Muisca ───────────────────────────────────────────────────────────────────
   'muisca_uniquetech1': { affects: ['champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], mod: { speed_pct: 15 } }, // Herbalism
@@ -680,10 +680,10 @@ export const TECHS = {
 
   // Teutons ──────────────────────────────────────────────────────────────────
   'teutons_uniquetech1': { affects: ['siege'],            mod: { armor_melee: 4 } },                                       // Ironclad
-  'teutons_uniquetech2': { affects: ['castle', 'infantry'], mod: { range: 3, passive_effect: 'infantry_fire_arrows_garrisoned' } }, // Crenellations
+  'teutons_uniquetech2': { affects: ['castle'], mod: { range: 3, passive_effect: 'infantry_fire_arrows_garrisoned' } }, // Crenellations
 
   // Tupi ─────────────────────────────────────────────────────────────────────
-  'tupi_uniquetech1': { affects: ['champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], mod: { attack_speed_pct: 25 } },  // Caciques
+  'tupi_uniquetech1': { affects: ['slinger', 'champiscout', 'champirunner', 'champiwarrior', 'elitechampi'], mod: { attack_speed_pct: 25 } },  // Caciques
   'tupi_uniquetech2': { affects: ['foot_archer', 'buildings'],                                    mod: { passive_effect: 'poison_damage' } }, // Curare
 
   // Turks ────────────────────────────────────────────────────────────────────

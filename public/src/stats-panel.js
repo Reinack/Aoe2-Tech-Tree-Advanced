@@ -126,6 +126,17 @@ const CIV_BONUS_SCOPE_MAP = {
   condottiero:     () => ['condottiero'],
   jian_swordsman:  () => ['jian_swordsman'],
   knight:          () => ['knight', 'cavalier', 'paladin'],
+  spearman:        () => ['spearman', 'pikeman', 'halberdier'],
+  spear_skirm:     () => ['spearman', 'pikeman', 'halberdier', 'skirmisher', 'eliteskirm', 'imp_skirmisher'],
+  elephant_archer: () => ['elephant_archer', 'elite_elephant_archer'],
+  battleeleph:     () => ['battleeleph', 'eliteeleph'],
+  fire_lancer:     () => ['fire_lancer', 'elite_fire_lancer'],
+  fireship:        () => ['firegalley', 'fireship', 'fastfireship'],
+  galley_dromon:   () => ['galley', 'wargalley', 'galleon', 'dromon'],
+  champiwarrior:   () => ['champiscout', 'champirunner', 'champiwarrior', 'elitechampi'],
+  hei_guang:       () => ['hei_guang', 'heavy_hei_guang'],
+  hei_guang_xianbei: () => ['hei_guang', 'heavy_hei_guang', 'xianbei_raider'],
+  scout_camel:     () => ['scout', 'lightcav', 'hussar', 'winged_hussar', 'camel', 'heavycamel', 'imp_camel'],
   // ── The Viking Sagas (parche 185872) ────────────────────────────────────────
   infantry_mounted: () => [
     ...(UNIT_CLASSES['infantry'] || []), ...(UNIT_CLASSES['cavalry'] || []),
@@ -139,6 +150,8 @@ const CIV_BONUS_SCOPE_MAP = {
   camel_elephant:  () => ['camel','heavycamel','imp_camel','battleeleph','eliteeleph','elephant_archer','elite_elephant_archer'],
   // ── Buildings ───────────────────────────────────────────────────────────────
   building:        () => ALL_BUILDING_IDS,
+  palisade:        () => ['palisadewall', 'palisadegate'],
+  all_walls:       () => ['palisadewall', 'palisadegate', 'stonewall', 'gate', 'fortifiedwall'],
   mulecart:        () => ['mulecart'],
   eco_camps:       () => ['mill', 'lumber', 'mining'],
   tc:              () => ['tc'],
@@ -157,6 +170,14 @@ const CIV_BONUS_SCOPE_MAP = {
   ],
 };
 
+// ¿El alcance de un bonus incluye este nodo?
+function bonusScopeIncludes(scope, unitId) {
+  const getter = CIV_BONUS_SCOPE_MAP[scope];
+  if (getter) return getter().includes(unitId);
+  if (UNIT_CLASSES[scope]) return UNIT_CLASSES[scope].includes(unitId);
+  return scope === unitId;
+}
+
 // Returns stats after applying current civ's stat_modifier / creation_speed / building_work_speed bonuses,
 // or null if none apply.
 // unitAge: the node's age (0=Dark, 1=Feudal, 2=Castle, 3=Imperial); bonuses with min_age are skipped if younger.
@@ -168,9 +189,7 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0, trainingBuilding = 
   // Helper: does this bonus's scope include the given unitId?
   const scopeMatches = (b) => {
     if (b.min_age !== undefined && unitAge < b.min_age) return false;
-    const getter = CIV_BONUS_SCOPE_MAP[b.scope];
-    if (getter) return getter().includes(unitId);
-    return UNIT_CLASSES[b.scope]?.includes(unitId) ?? false;
+    return bonusScopeIncludes(b.scope, unitId);
   };
 
   // Team bonus always applies to the civ's own units too (not just teammates)
@@ -213,10 +232,14 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0, trainingBuilding = 
     if (stat === 'armor')        { m.armor    = m.armor.map(a => Math.round(apply(a, value))); }
     if (stat === 'armor_melee')  { m.armor[0] = Math.round(apply(m.armor[0], value)); }
     if (stat === 'armor_pierce') { m.armor[1] = Math.round(apply(m.armor[1], value)); }
+    if (stat === 'armor_melee_and_pierce') {
+      m.armor[0] = Math.round(apply(m.armor[0], mod.value_melee ?? value));
+      m.armor[1] = Math.round(apply(m.armor[1], mod.value_pierce ?? value));
+    }
     if (stat === 'range' && m.range  !== undefined) { m.range = +(apply(m.range, value)).toFixed(1); }
     if (stat === 'speed' && m.speed  !== undefined) { m.speed = +(apply(m.speed, value)).toFixed(2); }
     if (stat === 'rof'   && m.rof    !== undefined) { m.rof   = +(apply(m.rof,   value)).toFixed(2); }
-    if (stat === 'los')          { m.los = Math.round(apply(m.los ?? 0, value)); }
+    if (stat === 'los' && m.los !== undefined) { m.los = Math.round(apply(m.los, value)); }
   }
 
   // ── creation_speed bonuses → reduce train time ─────────────────────────────
@@ -255,9 +278,7 @@ function computeModifiedCost(rawCost, unitId, unitAge = 0, bonusType = 'cost_mod
   const mods = allBonuses.filter(b => {
     if (b.type !== bonusType) return false;
     if (b.min_age !== undefined && unitAge < b.min_age) return false;
-    const getter = CIV_BONUS_SCOPE_MAP[b.scope];
-    if (getter) return getter().includes(unitId);
-    return UNIT_CLASSES[b.scope]?.includes(unitId) ?? false;
+    return bonusScopeIncludes(b.scope, unitId);
   });
 
   if (mods.length === 0) return null;

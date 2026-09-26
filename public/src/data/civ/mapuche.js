@@ -21,7 +21,8 @@
       "scope": "infantry",
       "stat": "hp",
       "op": "add",
-      "value": 15
+      "value_by_age": [0, 5, 10, 15],
+      "min_age": 1
     },
     {
       "line": 2,
@@ -29,7 +30,8 @@
       "scope": "skirmisher",
       "stat": "hp",
       "op": "add",
-      "value": 15
+      "value_by_age": [0, 5, 10, 15],
+      "min_age": 1
     },
     // Mounted Units generate +3 gold when defeating enemy military units
     {
@@ -49,7 +51,7 @@
   ],
   "teamBonus": {
     "type": "stat_modifier",
-    "scope": "spearman",
+    "scope": "spear_skirm",
     "stat": "los",
     "op": "add",
     "value": 2

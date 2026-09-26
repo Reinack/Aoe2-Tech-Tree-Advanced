@@ -34,8 +34,8 @@
   ],
   "teamBonus": {
     "type": "stat_modifier",
-    "scope": "light_cavalry",
-    "stat": "attack",
+    "scope": "scout_camel",
+    "stat": "attack_vs_buildings",
     "op": "add",
     "value": 2
   },

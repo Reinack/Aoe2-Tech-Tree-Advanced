@@ -10,7 +10,7 @@
     {
       "line": 1,
       "type": "stat_modifier",
-      "scope": "cavalry",
+      "scope": "hei_guang_xianbei",
       "stat": "hp",
       "op": "multiply",
       "value_by_age": [1.0, 1.0, 1.2, 1.3],
@@ -39,7 +39,7 @@
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "cavalry",
-    "stat": "attack",
+    "stat": "attack_vs_siege",
     "op": "add",
     "value": 2
   },

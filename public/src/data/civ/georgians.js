@@ -26,7 +26,7 @@
     },
     // Fortified Churches provide Villagers in a 9-tile radius with +10% work rate
     {
-      "type": "building_work_speed",
+      "type": "aura",
       "scope": "fortified_church",
       "op": "multiply",
       "value": 1.1

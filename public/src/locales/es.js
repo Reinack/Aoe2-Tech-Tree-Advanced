@@ -1185,7 +1185,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "La línea de Caballería Exploradora tiene +1 de ataque vs. soldados a distancia",
       uniqueTechs: [
-        { name: "Szlachta Privileges", effect: "Caballería Ligera cuesta -60% oro." },
+        { name: "Szlachta Privileges", effect: "La línea de Caballeros cuesta -60% de oro." },
         { name: "Lechitic Legacy", effect: "Caballería genera oro al matar enemigos." }
       ],
       uniqueUnits: [

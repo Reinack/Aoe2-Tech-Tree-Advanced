@@ -23,7 +23,7 @@
     {
       "line": 2,
       "type": "stat_modifier",
-      "scope": "cavalry",
+      "scope": "hei_guang",
       "stat": "attack",
       "op": "add",
       "value": 2,

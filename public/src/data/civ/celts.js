@@ -34,16 +34,6 @@
       "stat": "rof",
       "op": "multiply",
       "value": 0.75
-    },
-    // Monks can convert herdable animals even if enemy units are nearby
-    {
-      "line": null,
-      "type": "stat_modifier",
-      "scope": "monk",
-      "stat": "convert_herds",
-      "op": "add",
-      "value": 1,
-      "passive_effect": "monk_convert_herds_near_enemy"
     }
   ],
   "teamBonus": {

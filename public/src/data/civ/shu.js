@@ -12,8 +12,8 @@
     // Archery Unit technologies at Archery Range and Blacksmith cost -25%
     {
       "line": 1,
-      "type": "cost_modifier",
-      "scope": "archer",
+      "type": "tech_cost_modifier",
+      "scope": "archer_unit_techs",
       "resource": "all",
       "op": "multiply",
       "value": 0.75

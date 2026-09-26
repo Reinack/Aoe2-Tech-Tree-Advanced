@@ -2,8 +2,8 @@
   "bonuses": [
     // Farms cost -40%
     {
-      "type": "cost_modifier",
-      "scope": "farmer",
+      "type": "building_cost_modifier",
+      "scope": "farm",
       "resource": "all",
       "op": "multiply",
       "value": 0.6

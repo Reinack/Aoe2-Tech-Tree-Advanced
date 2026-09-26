@@ -22,8 +22,9 @@
     },
     // Heavy Cavalry Archer upgrade available in Castle Age and costs -50%
     {
-      "type": "cost_modifier",
-      "scope": "cavalry_archer",
+      "type": "tech_cost_modifier",
+      "scope": "hcavarcher_upgrade",
+      "techs": ["hcavarcher"],
       "resource": "all",
       "op": "multiply",
       "value": 0.5

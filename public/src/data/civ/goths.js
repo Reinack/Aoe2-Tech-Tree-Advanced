@@ -25,7 +25,7 @@
     {
       "type": "stat_modifier",
       "scope": "infantry",
-      "stat": "attack",
+      "stat": "attack_vs_buildings",
       "op": "add",
       "value_by_age": [0, 1, 2, 3],
       "min_age": 1

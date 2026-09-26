@@ -13,6 +13,12 @@ let simBaseCost    = null;   // raw unit train cost (before any bonuses)
 let simCivCost     = null;   // train cost after civ cost_modifier bonuses
 let simTeamCivs    = [];     // ally civ IDs selected by the user (max 7)
 
+// Nombres que son a la vez id de nodo y clase de UNIT_CLASSES:
+// 'archer' en `affects` es la unidad Arquero (no toda la clase de tiradores) y
+// 'siege' es la clase de armas de asedio (no el edificio Taller de Asedio).
+const ID_ONLY_TARGETS = new Set(['archer']);
+const CLASS_ONLY_TARGETS = new Set(['siege']);
+
 function getApplicableTechs(unitId) {
   // For unique unit slots, resolve actual class membership from the civ's UU
   let extraClasses = [];
@@ -41,7 +47,8 @@ function getApplicableTechs(unitId) {
 
     const targets = entry.affects || [];
     const hits = targets.some(target => {
-      if (target === unitId) return true;
+      if (target === unitId) return !CLASS_ONLY_TARGETS.has(target);
+      if (ID_ONLY_TARGETS.has(target)) return false;
       if (unitClasses.includes(target)) return true;
       if (UNIT_CLASSES[target]) return UNIT_CLASSES[target].includes(unitId);
       return false;
@@ -219,9 +226,10 @@ function computeTeamBonusStats(stats, unitId, unitAge, trainingBuilding = null) 
     if (!civ?.teamBonus) continue;
     const tb = civ.teamBonus;
     if (tb.min_age !== undefined && unitAge < tb.min_age) continue;
-    const getter = CIV_BONUS_SCOPE_MAP[tb.scope];
-    const hits = getter ? getter().includes(unitId)
-                        : (UNIT_CLASSES[tb.scope]?.includes(unitId) ?? false);
+    // En building_work_speed el alcance es el edificio que entrena la unidad
+    const hits = tb.type === 'building_work_speed'
+      ? tb.scope === trainingBuilding
+      : bonusScopeIncludes(tb.scope, unitId);
     if (!hits) continue;
     const value = tb.value;
     const apply = (cur, v) => tb.op === 'multiply' ? cur * v : cur + v;
@@ -234,7 +242,7 @@ function computeTeamBonusStats(stats, unitId, unitAge, trainingBuilding = null) 
       if (tb.stat === 'range' && m.range !== undefined) { m.range = +(apply(m.range, value)).toFixed(1); anyChanged = true; }
       if (tb.stat === 'speed' && m.speed !== undefined) { m.speed = +(apply(m.speed, value)).toFixed(2); anyChanged = true; }
       if (tb.stat === 'rof'   && m.rof   !== undefined) { m.rof   = +(apply(m.rof,   value)).toFixed(2); anyChanged = true; }
-      if (tb.stat === 'los')  { m.los = Math.round(apply(m.los ?? 0, value)); anyChanged = true; }
+      if (tb.stat === 'los' && m.los !== undefined) { m.los = Math.round(apply(m.los, value)); anyChanged = true; }
     } else if (tb.type === 'creation_speed' && m.train != null) {
       m.train = Math.round(m.train * value); anyChanged = true;
     } else if (tb.type === 'building_work_speed' && m.train != null && tb.scope === trainingBuilding) {

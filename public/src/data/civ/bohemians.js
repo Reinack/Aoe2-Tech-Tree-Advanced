@@ -11,7 +11,7 @@
       "line": 2,
       "type": "stat_modifier",
       "scope": "spearman",
-      "stat": "attack",
+      "stat": "bonus_damage",
       "op": "multiply",
       "value": 1.25
     },

@@ -60,7 +60,7 @@
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "knight",
-    "stat": "attack",
+    "stat": "attack_vs_archers",
     "op": "add",
     "value": 2
   },

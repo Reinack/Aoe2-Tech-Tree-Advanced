@@ -1179,7 +1179,7 @@ const LOCALE_EN = {
       ],
       teamBonus: "Scout Cavalry-line +1 attack vs. Ranged Soldiers",
       uniqueTechs: [
-        { name: "Szlachta Privileges", effect: "Light Cavalry costs -60% gold." },
+        { name: "Szlachta Privileges", effect: "Knight-line costs -60% gold." },
         { name: "Lechitic Legacy", effect: "Cavalry generates gold when killing enemies." }
       ],
       uniqueUnits: [

@@ -38,7 +38,7 @@
   ],
   "teamBonus": {
     "type": "building_cost_modifier",
-    "scope": "stonewall",
+    "scope": "all_walls",
     "resource": "all",
     "op": "multiply",
     "value": 0.5

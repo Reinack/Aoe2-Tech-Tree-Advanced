@@ -23,9 +23,9 @@
     },
     // Archery Range and Barracks upgrades cost -50% food
     {
-      "type": "cost_modifier",
-      "scope": "archer",
-      "resource": "all",
+      "type": "tech_cost_modifier",
+      "scope": "archery_barracks",
+      "resource": "food",
       "op": "multiply",
       "value": 0.5
     }

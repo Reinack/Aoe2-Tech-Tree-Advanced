@@ -25,9 +25,10 @@
     },
     // Bloodlines and Scout Cavalry-line upgrades cost -50% food
     {
-      "type": "cost_modifier",
-      "scope": "light_cavalry",
-      "resource": "all",
+      "type": "tech_cost_modifier",
+      "scope": "bloodlines_scout_upgrades",
+      "techs": ["bloodlines", "lightcav", "hussar", "winged_hussar"],
+      "resource": "food",
       "op": "multiply",
       "value": 0.5
     }
@@ -35,7 +36,7 @@
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "light_cavalry",
-    "stat": "attack",
+    "stat": "attack_vs_archers",
     "op": "add",
     "value": 1
   },

@@ -36,7 +36,7 @@
   "teamBonus": {
     "type": "stat_modifier",
     "scope": "foot_archer",
-    "stat": "attack",
+    "stat": "attack_vs_buildings",
     "op": "add",
     "value": 2
   },
