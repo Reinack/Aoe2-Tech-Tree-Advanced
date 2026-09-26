@@ -1046,6 +1046,37 @@ svg { width: 100%; height: 100%; display: block; }
 }
 .sim-chip-icon { color: var(--on-dark); font-size: 15px; }
 
+/* Efectos de las techs activas que no se reflejan en los números */
+#sp-sim-notes:empty { display: none; }
+#sp-sim-notes {
+  margin: -3px 0 11px;
+  padding: 7px 9px 8px;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--on-dark);
+  border: 1px solid var(--hair);
+  background: rgba(228, 212, 176, 0.04);
+}
+.sim-notes-title {
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--on-dark-dim);
+}
+#sp-sim-notes ul { list-style: none; }
+#sp-sim-notes li { position: relative; padding-left: 11px; margin-top: 2px; }
+#sp-sim-notes li::before {
+  content: '';
+  position: absolute;
+  left: 1px; top: 0.55em;
+  width: 4px; height: 4px;
+  transform: rotate(45deg);
+  background: var(--gold);
+}
+#sp-sim-notes b { color: var(--parch-50); font-weight: 600; }
+
 #sp-sim-team {
   padding-top: 10px;
   border-top: 1px solid var(--hair);

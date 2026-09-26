@@ -34,6 +34,7 @@ const LOCALE_ES = {
     prereq:             "Requisitos",
     missing:            "No disponible para esta civilización",
     click_simulate:     "Click para simular",
+    other_effects:      "Otros efectos (no numéricos)",
     click_details:      "Click para ver detalles",
     relevant_units:     "Unidades relevantes",
     classic_tree:       "Árbol clásico",
@@ -193,8 +194,8 @@ const LOCALE_ES = {
     handcannon:   { name: 'Arcabucero',             effect: '[Requiere Química] Unidad de pólvora.' },
     cavarcher:    { name: 'Arquero a Caballo',      effect: 'Arquero montado, muy móvil.' },
     hcavarcher:   { name: 'Arq. Cab. Pesado',       effect: '+1 ataque, +20 PV.' },
-    thumbring:    { name: 'Anillo Pulgar',          effect: '100% precisión, arcos disparan más rápido.' },
-    parthian:     { name: 'Tácticas Partas',        effect: '+2/+4 atq vs lanzas; Arq. Cab. disparan en retroceso.' },
+    thumbring:    { name: 'Anillo Pulgar',          effect: 'Las unidades de la Galería de Tiro atacan +15% más rápido; ellas y los Escaramuzadores disparan con 100% de precisión.' },
+    parthian:     { name: 'Tácticas Partas',        effect: 'Arqueros montados +1 de armadura cuerpo a cuerpo/+2 perforante; +2 de ataque vs. línea de Lanceros.' },
 
     imp_skirmisher:      { name: 'Escarm. Imperial',      effect: '[Solo Vietnamitas/Equipo] Máxima mejora del escaramuzador.' },
     elephant_archer:     { name: 'Elefante Arquero',      effect: '[Civs Indias] Arquero montado muy resistente.' },
@@ -266,9 +267,9 @@ const LOCALE_ES = {
     scalebarding:     { name: 'Barda Escamada',           effect: '+1/+1 armadura caballería.' },
     chainbarding:     { name: 'Barda de Malla',           effect: '+1/+1 armadura caballería.' },
     platebarding:     { name: 'Barda de Placas',          effect: '+1/+2 armadura caballería.' },
-    fletching:        { name: 'Emplumado',                effect: '+1 rango y +1 ataque para arqueros.' },
-    bodkinarrow:      { name: 'Flecha de Bodkin',         effect: '+1 rango y +1 ataque para arqueros.' },
-    bracer:           { name: 'Brazalete',                effect: '+1 rango y +1 ataque para arqueros.' },
+    fletching:        { name: 'Emplumado',                effect: 'Unidades de la Galería de Tiro, Escaramuzadores, barcos de guerra y fortificaciones a distancia +1 de ataque y +1 de alcance; Centros Urbanos +1 de ataque.' },
+    bodkinarrow:      { name: 'Flecha de Bodkin',         effect: 'Unidades de la Galería de Tiro, Escaramuzadores, barcos de guerra y fortificaciones a distancia +1 de ataque y +1 de alcance; Centros Urbanos +1 de ataque.' },
+    bracer:           { name: 'Brazalete',                effect: 'Unidades de la Galería de Tiro, Escaramuzadores, barcos de guerra y fortificaciones a distancia +1 de ataque y +1 de alcance; Centros Urbanos +1 de ataque.' },
 
     // ── Muelle ───────────────────────────────────────────────
     medium_warships:  { name: 'Barcos de Guerra Medianos', effect: 'Mejora galeras, barcos de fuego y hulks a galeras de guerra, barcos de fuego y war hulks.' },
@@ -290,8 +291,8 @@ const LOCALE_ES = {
     heavydemo:    { name: 'Buque de Demolición Pesado', effect: 'Más daño y radio de explosión.' },
     cannongalleon:{ name: 'Galeón de Artillería',  effect: '[Requiere Química] Barco de asedio de largo alcance.' },
     elitecannon:  { name: 'Galeón Artillería Élite', effect: 'Más rango y daño.' },
-    drydock:      { name: 'Dique Seco',            effect: 'Barcos +15% velocidad y +10 capacidad de transporte.' },
-    shipwright:   { name: 'Constructor Naval',     effect: 'Naves -20% costo; muelles construyen 10% más rápido.' },
+    drydock:      { name: 'Dique Seco',            effect: 'Barcos +1 de armadura perforante.' },
+    shipwright:   { name: 'Constructor Naval',     effect: 'Los barcos cuestan -20% de madera y se construyen +50% más rápido.' },
     fishing_lines:{ name: 'Líneas de Pesca',       effect: 'Barcos pesqueros trabajan +10% más rápido y cargan +5 recursos.' },
     gillnets:     { name: 'Redes de Malla',        effect: 'Barcos pesqueros trabajan 10% más rápido y cargan +5 recursos.' },
     dragon_ship:  { name: 'Barco Dragón',          effect: '[Solo Chinos] Mejora del Barco de Fuego.' },
@@ -319,7 +320,7 @@ const LOCALE_ES = {
     carvel_hull:      { name: 'Casco de Carabela',        effect: 'Barcos se mueven +10% más rápido.' },
     siphons:          { name: 'Sifones',                  effect: 'Barcos de Fuego obtienen un ataque de carga explosiva.' },
     incendiaries:     { name: 'Incendiarios',             effect: 'Barcos de Fuego detonan al hundirse, ganando radio de explosión.' },
-    arrowslits:       { name: 'Aspilleras',               effect: 'Torres +1 ataque.' },
+    arrowslits:       { name: 'Aspilleras',               effect: 'Torres de Vigilancia +1, Torres de Guardia +2, Torreones y Donjons +3 de ataque.' },
 
     // ── Monasterio ───────────────────────────────────────────
     monk:         { name: 'Monje',                 effect: 'Cura aliados y convierte enemigos.' },
@@ -328,11 +329,11 @@ const LOCALE_ES = {
     heresy:       { name: 'Herejía',               effect: 'Unidades convertidas por el enemigo mueren.' },
     sanctity:     { name: 'Santidad',              effect: 'Monjes +15 PV.' },
     fervor:       { name: 'Fervor',                effect: 'Monjes +15% velocidad.' },
-    herbalmedicine:{ name: 'Medicina Herbal',      effect: 'Unidades guarecidas sanan 4× más rápido.' },
-    illumination: { name: 'Iluminación',           effect: 'Los monjes se recargan más rápido.' },
+    herbalmedicine:{ name: 'Medicina Herbal',      effect: 'Las unidades guarnecidas en edificios se curan +500% más rápido.' },
+    illumination: { name: 'Iluminación',           effect: 'Las unidades del Monasterio recuperan la fe +100% más rápido tras una conversión.' },
     blockprinting:{ name: 'Imprenta de Bloques',   effect: 'Monjes +3 rango de conversión.' },
     theocracy:    { name: 'Teocracia',             effect: 'Solo un monje recarga tras conversión grupal.' },
-    faith:        { name: 'Fe',                    effect: 'Unidades muy resistentes a la conversión.' },
+    faith:        { name: 'Fe',                    effect: 'Las unidades son un 50% más difíciles de convertir para los Monjes enemigos.' },
     warrior_priest:{ name: 'Sacerdote Guerrero',   effect: '[Solo Armenios] Monje capaz de combatir.' },
     missionary:   { name: 'Misionero',             effect: '[Solo Españoles] Monje montado.' },
     fortified_church: { name: 'Iglesia Fortificada', effect: '[Armenios y Georgianos] Monasterio defensivo. Dispara cuando guarnecido con Aldeanos o Reliquias; +5 ataque vs. barcos, +1 vs. camellos.' },
@@ -344,36 +345,36 @@ const LOCALE_ES = {
     eliteunique:  { name: 'Unidad Única Elite',    effect: 'Versión mejorada de la unidad única.' },
     uniquetech1:  { name: 'Tecnología Única I',    effect: 'Tecnología exclusiva del Castillo (Edad Castillos).' },
     uniquetech2:  { name: 'Tecnología Única II',   effect: 'Tecnología exclusiva del Castillo (Edad Imperial).' },
-    hoardings:    { name: 'Almacenamiento',        effect: 'Castillos +500 PV.' },
+    hoardings:    { name: 'Almacenamiento',        effect: 'Castillos, Krepost y Donjons +1.000 PV.' },
     conscription: { name: 'Conscripción',          effect: 'Unidades se crean 33% más rápido.' },
-    sappers:      { name: 'Zapadores',             effect: 'Infantería +15 ataque vs edificios.' },
+    sappers:      { name: 'Zapadores',             effect: 'Aldeanos +15 de ataque vs. edificios y +3 vs. arietes.' },
     kipchak_c:    { name: 'Kipchak Mercenario',    effect: '[Solo Cumanos/Equipo] Arquero a caballo rápido.' },
     krepost:      { name: 'Krepost',               effect: '[Solo Búlgaros] Castillo menor. Crea Konniks.' },
     donjon:       { name: 'Donjon',                effect: '[Solo Sicilianos] Torre que entrena Sargentos.' },
 
     // ── Mercado ──────────────────────────────────────────────
     tradecart:    { name: 'Carro de Comercio',     effect: 'Genera oro comerciando con mercados aliados.' },
-    coinage:      { name: 'Acuñación',             effect: '-15% tributo recibido.' },
+    coinage:      { name: 'Acuñación',             effect: 'Los tributos a otros jugadores cuestan solo un 20% de comisión.' },
     banking:      { name: 'Banca',                 effect: 'Sin impuestos en tributos.' },
-    guilds:       { name: 'Gremios',               effect: 'Comerciantes trabajan 50% más rápido.' },
+    guilds:       { name: 'Gremios',               effect: 'La comisión de comercio del Mercado se reduce al 15%.' },
     feitoria:     { name: 'Feitoria',              effect: '[Solo Portugueses] Genera recursos automáticamente.' },
     caravanserai: { name: 'Caravasar',             effect: '[Hindustaníes y Persas] Cura y acelera carros de comercio.' },
 
     // ── Centro Urbano ────────────────────────────────────────
     villager:     { name: 'Aldeano',               effect: 'Unidad básica recolectora y constructora.' },
     loom:         { name: 'Telar',                 effect: 'Aldeanos +15 PV, +1/+2 armadura.' },
-    wheelbarrow:  { name: 'Carretilla',            effect: 'Aldeanos +3 capacidad de carga, +5% velocidad.' },
+    wheelbarrow:  { name: 'Carretilla',            effect: 'Aldeanos +25% de capacidad de carga y se mueven +10% más rápido.' },
     townwatch:    { name: 'Guardia Municipal',     effect: '+4 línea de visión para Centros Urbanos.' },
-    handcart:     { name: 'Carro de Mano',         effect: 'Aldeanos +7 carga, +10% velocidad.' },
-    townpatrol:   { name: 'Patrulla Urbana',       effect: '+6 LDV para Torres y CU.' },
+    handcart:     { name: 'Carro de Mano',         effect: 'Aldeanos +50% de capacidad de carga y se mueven +10% más rápido.' },
+    townpatrol:   { name: 'Patrulla Urbana',       effect: 'Edificios +4 de alcance visual.' },
     feudalage:    { name: 'Edad Feudal',           effect: 'Avanza a la Edad Feudal.' },
     castleage:    { name: 'Edad de los Castillos', effect: 'Avanza a la Edad de los Castillos.' },
     imperialage:  { name: 'Edad Imperial',         effect: 'Avanza a la Edad Imperial.' },
 
     // ── Molino ───────────────────────────────────────────────
     horsecollar:  { name: 'Collarín para Caballo', effect: 'Granjas producen 75 de comida extra.' },
-    heavyplow:    { name: 'Arado Pesado',          effect: 'Granjas producen 125 de comida extra.' },
-    croprotation: { name: 'Rotación de Cultivos',  effect: 'Granjas producen 375 de comida extra.' },
+    heavyplow:    { name: 'Arado Pesado',          effect: 'Las granjas nuevas dan +125 de comida y los granjeros cargan +1; las existentes dan una cantidad menor.' },
+    croprotation: { name: 'Rotación de Cultivos',  effect: 'Las granjas nuevas dan +175 de comida; las existentes dan una cantidad menor.' },
     folwark:      { name: 'Folwark',               effect: '[Solo Polacos] Reemplaza al Molino. Recolecta comida de granjas adyacentes instantáneamente.' },
     mule_cart:    { name: 'Carro Mula',            effect: '[Armenios y Georgianos] Campamento móvil de recursos.' },
 
@@ -390,8 +391,8 @@ const LOCALE_ES = {
 
     // ── Tahsili (Asentamiento) ───────────────────────────────
     horsecollar_t:  { name: 'Collarín para Caballo', effect: 'Granjas producen 75 de comida extra.' },
-    heavyplow_t:    { name: 'Arado Pesado',          effect: 'Granjas producen 125 de comida extra.' },
-    croprotation_t: { name: 'Rotación de Cultivos',  effect: 'Granjas producen 375 de comida extra.' },
+    heavyplow_t:    { name: 'Arado Pesado',          effect: 'Las granjas nuevas dan +125 de comida y los granjeros cargan +1; las existentes dan una cantidad menor.' },
+    croprotation_t: { name: 'Rotación de Cultivos',  effect: 'Las granjas nuevas dan +175 de comida; las existentes dan una cantidad menor.' },
     doublebitaxe_t: { name: 'Hacha Doble Filo',      effect: 'Tala de madera +20% velocidad.' },
     bowsaw_t:       { name: 'Sierra de Arco',        effect: 'Tala de madera +20% velocidad.' },
     twomansaw_t:    { name: 'Sierra de Dos Hombres', effect: 'Tala de madera +10% velocidad.' },
@@ -425,11 +426,11 @@ const LOCALE_ES = {
     // ── Otros nodos del árbol del juego ───────────────────────
     fishtrap:     { name: 'Trampa para Peces',     effect: 'Granja flotante: fuente de comida para los Barcos Pesqueros.' },
     spy:          { name: 'Espías/Traición',       effect: 'Revela todas las unidades y edificios enemigos.' },
-    devotion:     { name: 'Devoción',              effect: 'Las unidades propias resisten +1 intento de conversión (mín. y máx.).' },
-    caravan:      { name: 'Caravana',              effect: 'Unidades comerciales +50% de velocidad.' },
-    domestication:{ name: 'Domesticación',         effect: '[Pastizal] Los pastizales producen más comida (+115).' },
-    pastoralism:  { name: 'Pastoreo',              effect: '[Pastizal] Los pastizales producen más comida (+230).' },
-    transhumance: { name: 'Trashumancia',          effect: '[Pastizal] Los pastizales producen más comida (+345).' },
+    devotion:     { name: 'Devoción',              effect: 'Las unidades son un 15% más difíciles de convertir para los Monjes enemigos.' },
+    caravan:      { name: 'Caravana',              effect: 'Las unidades comerciales se mueven +20% más rápido.' },
+    domestication:{ name: 'Domesticación',         effect: 'Los pastizales nuevos dan +1 animal; los existentes dan una cantidad menor.' },
+    pastoralism:  { name: 'Pastoreo',              effect: 'Los pastizales nuevos dan +2 animales; los existentes dan una cantidad menor.' },
+    transhumance: { name: 'Trashumancia',          effect: 'Los pastizales nuevos dan +3 animales; los existentes dan una cantidad menor.' },
     elite_genitour:     { name: 'Jinete Genitour de Élite',       effect: 'Mejora del Jinete Genitour.' },
     elite_turtle_ship:  { name: 'Barco Tortuga de Élite',         effect: 'Mejora del Barco Tortuga.' },
     elite_caravel:      { name: 'Carabela de Élite',              effect: 'Mejora de la Carabela.' },
@@ -493,7 +494,7 @@ const LOCALE_ES = {
       teamBonus: "Las unidades de comercio generan +10% de comida además de oro",
       uniqueTechs: [
         { name: "Paiks", effect: "Ratha y unidades de elefante atacan 20% más rápido." },
-        { name: "Mahayana", effect: "Casas dan +10 población extra." }
+        { name: "Mahayana", effect: "Aldeanos y Monjes ocupan un 10% menos de espacio de población." }
       ],
       uniqueUnits: [
         { name: "Ratha", upgradeName: "Ratha Elite" }
@@ -509,8 +510,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "El Genitour disponible en la Galería de Tiro desde la Edad de los Castillos",
       uniqueTechs: [
-        { name: "Kasbah", effect: "Edificios únicos trabajan 25% más rápido." },
-        { name: "Camellos Magrebi", effect: "Camellos se auto-regeneran." }
+        { name: "Kasbah", effect: "Los Castillos del equipo trabajan +25% más rápido." },
+        { name: "Camellos Magrebi", effect: "Las unidades de camello regeneran 15 PV por minuto." }
       ],
       uniqueUnits: [
         { name: "Arquero en Camello", upgradeName: "Arquero en Camello Elite" }
@@ -527,7 +528,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las Reliquias son visibles en el mapa al inicio de la partida",
       uniqueTechs: [
-        { name: "Caballería Manipur", effect: "Caballería +4 de ataque vs arqueros." },
+        { name: "Caballería Manipur", effect: "Caballería +4 de ataque vs. soldados a distancia." },
         { name: "Howdah", effect: "Elefantes de Batalla +1/+1 armadura." }
       ],
       uniqueUnits: [
@@ -546,7 +547,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los monjes curan +100% más rápido",
       uniqueTechs: [
-        { name: "Fuego Griego", effect: "Barcos de Fuego +1 rango." },
+        { name: "Fuego Griego", effect: "Barcos de Fuego +1 de alcance; Dromones y Torres de Bombardeo con mayor radio de explosión." },
         { name: "Logística", effect: "Catafractos y Guardias Varegas causan daño de arrollamiento." }
       ],
       uniqueUnits: [
@@ -583,7 +584,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las Reliquias generan comida además de oro",
       uniqueTechs: [
-        { name: "Viñedos Borgoñones", effect: "Granjas también generan pequeñas cantidades de oro." },
+        { name: "Viñedos Borgoñones", effect: "Los granjeros generan oro lentamente además de comida." },
         { name: "Revolución Flamenca", effect: "Transforma todos los aldeanos en Milicia Flamenca." }
       ],
       uniqueUnits: [
@@ -600,8 +601,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las Galerías de Tiro trabajan +10% más rápido",
       uniqueTechs: [
-        { name: "Yeomen", effect: "Arqueros a pie +1 rango; Torres +2 ataque." },
-        { name: "Warwolf", effect: "Trebuchets 100% precisión y daño en área." }
+        { name: "Yeomen", effect: "Arqueros a pie y línea de Escaramuzadores +1 de alcance; línea de Torres de Vigilancia +2 de ataque." },
+        { name: "Warwolf", effect: "Los Trebuchets causan daño en área y son más precisos." }
       ],
       uniqueUnits: [
         { name: "Longbowman", upgradeName: "Longbowman Elite" }
@@ -673,7 +674,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los aldeanos tienen +3 de alcance visual",
       uniqueTechs: [
-        { name: "Eupseong", effect: "Torres (excepto Bombarda) +2 rango." },
+        { name: "Eupseong", effect: "Línea de Torres de Vigilancia +2 de alcance." },
         { name: "Shinkichon", effect: "Carros de Cohetes y Barcos Tortuga +1 rango; disparan cohetes adicionales." }
       ],
       uniqueUnits: [
@@ -692,8 +693,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las Murallas de Estacas tienen +33% de PV",
       uniqueTechs: [
-        { name: "Steppe Husbandry", effect: "Lanceros de Estepa y Cav. Ligera se crean 2× más rápido." },
-        { name: "Cuman Mercenaries", effect: "Aliados pueden crear Kipchaks Elite desde sus Castillos." }
+        { name: "Steppe Husbandry", effect: "La línea de Caballería Exploradora, los Lanceros de Estepa y los Arqueros a Caballo se entrenan +100% más rápido." },
+        { name: "Cuman Mercenaries", effect: "Todos los miembros del equipo pueden entrenar 5 Kipchaks Elite gratis por Castillo." }
       ],
       uniqueUnits: [
         { name: "Kipchak", upgradeName: "Kipchak Elite" }
@@ -729,7 +730,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Muelles proporcionan +5 de espacio de población",
       uniqueTechs: [
-        { name: "Medical Corps", effect: "Elefantes de Asedio/Combate se auto-regeneran." },
+        { name: "Medical Corps", effect: "Las unidades de elefante regeneran 30 PV por minuto." },
         { name: "Wootz Steel", effect: "Infantería y Caballería ignoran armadura del enemigo." }
       ],
       uniqueUnits: [
@@ -747,7 +748,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los edificios militares (excepto Castillos) proporcionan +5 de espacio de población",
       uniqueTechs: [
-        { name: "Detinets", effect: "Torres cuestan -25%." },
+        { name: "Detinets", effect: "Reemplaza el 40% del coste de piedra de los Castillos y la línea de Torres de Vigilancia por madera adicional." },
         { name: "Druzhina", effect: "Infantería causa daño de pisoteo." }
       ],
       uniqueUnits: [
@@ -766,8 +767,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las unidades de comercio generan +25% de oro",
       uniqueTechs: [
-        { name: "Inquisición", effect: "Monjes convierten más rápido." },
-        { name: "Supremacía", effect: "Aldeanos mejoran ataque, armadura y PV." }
+        { name: "Inquisición", effect: "Monjes y Misioneros convierten más rápido; Misioneros +1 de alcance." },
+        { name: "Supremacía", effect: "Aldeanos +40 PV, +6 de ataque y +2 de armadura cuerpo a cuerpo/+2 perforante." }
       ],
       uniqueUnits: [
         { name: "Conquistador", upgradeName: "Conquistador Elite" }
@@ -784,7 +785,7 @@ const LOCALE_ES = {
       teamBonus: "Los Puestos de Avanzada tienen +3 de alcance visual y no cuestan piedra",
       uniqueTechs: [
         { name: "Royal Heirs", effect: "Guerreros Shotel y Jinetes de Camello reciben -3 de daño de unidades montadas." },
-        { name: "Torsion Engines", effect: "Unidades del Taller de Asedio disparan proyectiles extra." }
+        { name: "Torsion Engines", effect: "Mayor radio de explosión para las unidades del Taller de Asedio." }
       ],
       uniqueUnits: [
         { name: "Guerrero Shotel", upgradeName: "Guerrero Shotel Elite" }
@@ -967,7 +968,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las unidades de pólvora tienen +2 de alcance visual",
       uniqueTechs: [
-        { name: "Bastiones Fortificados", effect: "Las defensas regeneran 500 PV/min." },
+        { name: "Bastiones Fortificados", effect: "Las fortificaciones y los Centros Urbanos regeneran 500 PV por minuto." },
         { name: "Bombas de Trueno", effect: "Carros de Cohetes, Granaderos y Lou Chuans detonan al morir." }
       ],
       uniqueUnits: [
@@ -1022,7 +1023,7 @@ const LOCALE_ES = {
       teamBonus: "Los Monasterios trabajan +20% más rápido",
       uniqueTechs: [
         { name: "Fuertes en las colinas", effect: "Centros urbanos: +3 de alcance" },
-        { name: "Escudo rectangular", effect: "Lanceros y guerrilleros: +2 de armadura" }
+        { name: "Escudo rectangular", effect: "Línea de Lanceros y Escaramuzadores +2 de armadura perforante." }
       ],
       uniqueUnits: [
         { name: "Leitis", subtitle: "caballería", upgradeName: "Leitis Elite" },
@@ -1186,7 +1187,7 @@ const LOCALE_ES = {
       teamBonus: "La línea de Caballería Exploradora tiene +1 de ataque vs. soldados a distancia",
       uniqueTechs: [
         { name: "Szlachta Privileges", effect: "La línea de Caballeros cuesta -60% de oro." },
-        { name: "Lechitic Legacy", effect: "Caballería genera oro al matar enemigos." }
+        { name: "Lechitic Legacy", effect: "La línea de Caballería Exploradora causa daño de arrollamiento." }
       ],
       uniqueUnits: [
         { name: "Obuch", upgradeName: "Obuch Elite" }
@@ -1204,7 +1205,7 @@ const LOCALE_ES = {
       teamBonus: "Las tecnologías se investigan +25% más rápido",
       uniqueTechs: [
         { name: "Circunnavegación", effect: "Todo el mapa se revela como explorado; los barcos se entrenan 33% más rápido." },
-        { name: "Arquebus", effect: "Unidades de pólvora con 100% precisión." }
+        { name: "Arquebus", effect: "Las unidades de pólvora disparan con más precisión a objetivos en movimiento." }
       ],
       uniqueUnits: [
         { name: "Órgano de Cañones", upgradeName: "Órgano de Cañones Elite" }
@@ -1221,8 +1222,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "El rango mínimo de los Escorpiones se reduce",
       uniqueTechs: [
-        { name: "Ballistas", effect: "Escorpiones y Galeras de guerra disparan 33% más rápido." },
-        { name: "Comitatenses", effect: "Infantería y caballería se crean un 50% más rápido; carga de ataque." }
+        { name: "Ballistas", effect: "Los Escorpiones atacan +33% más rápido; línea de Galeras +2 de ataque." },
+        { name: "Comitatenses", effect: "La línea de Milicia, la línea de Caballeros y los Centuriones se entrenan +50% más rápido y reciben un ataque de carga." }
       ],
       uniqueUnits: [
         { name: "Centurión", subtitle: "caballería", upgradeName: "Centurión Elite" }
@@ -1311,8 +1312,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Los Arqueros Montados tienen +2 de alcance visual",
       uniqueTechs: [
-        { name: "Silk Armor", effect: "Lanceros de Estepa y Cav. Ligera +1/+1 armadura." },
-        { name: "Timurid Siegecraft", effect: "Trebuchets +2 rango; habilita Camellos Ardientes." }
+        { name: "Silk Armor", effect: "La línea de Caballería Exploradora, los Lanceros de Estepa y los Arqueros a Caballo +1 de armadura cuerpo a cuerpo/+1 perforante." },
+        { name: "Timurid Siegecraft", effect: "Trebuchets +2 de alcance." }
       ],
       uniqueUnits: [
         { name: "Keshik", upgradeName: "Keshik Elite" }
@@ -1330,8 +1331,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las unidades son más resistentes a la conversión",
       uniqueTechs: [
-        { name: "Ironclad", effect: "Asedio +4 armadura cuerpo a cuerpo." },
-        { name: "Crenellations", effect: "Castillos +3 rango; infantería garnisonada puede disparar." }
+        { name: "Ironclad", effect: "Armas de asedio +4 de armadura cuerpo a cuerpo." },
+        { name: "Crenellations", effect: "Castillos +3 de alcance; la infantería guarnecida dispara flechas." }
       ],
       uniqueUnits: [
         { name: "Caballero Teutónico", upgradeName: "Cab. Teutónico Elite" }
@@ -1348,8 +1349,8 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las unidades de pólvora se entrenan +25% más rápido",
       uniqueTechs: [
-        { name: "Sipahi", effect: "Arqueros a Caballo +20 PV." },
-        { name: "Artillery", effect: "Cañones de Bombarda +2 rango." }
+        { name: "Sipahi", effect: "Arqueros montados +20 PV." },
+        { name: "Artillery", effect: "Torres de Bombardeo, Cañones de Bombarda y Galeones con Cañón +2 de alcance." }
       ],
       uniqueUnits: [
         { name: "Jenízaro", upgradeName: "Jenízaro Elite" }
@@ -1366,7 +1367,7 @@ const LOCALE_ES = {
       ],
       teamBonus: "Las Torres y Castillos proporcionan +10 de espacio de población",
       uniqueTechs: [
-        { name: "Caciques", effect: "Champi Warriors y honderos atacan más rápido." },
+        { name: "Caciques", effect: "Los Champi Warriors y los Honderos atacan +25% más rápido." },
         { name: "Curare", effect: "Arqueros a pie y fortificaciones causan daño por veneno." }
       ],
       uniqueUnits: [

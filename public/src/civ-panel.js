@@ -121,9 +121,7 @@ function bonusTargetIds(b) {
   const ids = VILLAGER_ROLE_NODES[scope] ? ['villager', ...VILLAGER_ROLE_NODES[scope]]
     : CIV_BONUS_SCOPE_MAP[scope]?.() || UNIT_CLASSES[scope] || SCOPE_TO_IDS[scope] || [scope];
   // La UU del Castillo entra si su clase coincide con el alcance del bonus
-  const uuName = LOCALE.es?.civs?.[currentCiv]?.uniqueUnits?.[0]?.name;
-  const uuClasses = UNIQUE_UNIT_CLASSES[uuName] || [];
-  return uuClasses.includes(SCOPE_CLASS_ALIAS[scope] || scope) ? [...ids, 'uniqueunit', 'eliteunique'] : ids;
+  return uniqueUnitClasses().includes(SCOPE_CLASS_ALIAS[scope] || scope) ? [...ids, 'uniqueunit', 'eliteunique'] : ids;
 }
 
 function nodeKeysFor(ids) {

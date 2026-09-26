@@ -195,7 +195,12 @@ La leyenda de la barra lateral usa los mismos tokens.
   - las edades son casillas como las de civilización: emblema en color sobre
     negro y rótulo en una franja roja, con la activa enmarcada en oro;
   - las tecnologías se ven con color parcial cuando están apagadas y con borde
-    dorado y ✓ cuando están activas.
+    dorado y ✓ cuando están activas;
+  - debajo de las tecnologías, la lista **"Otros efectos (no numéricos)"**
+    (`#sp-sim-notes`) muestra el texto de cada tecnología activa cuyo efecto no
+    cambia los números del panel (regeneración, conversión, daño de área…). Va
+    dentro de un recuadro con filete crema tenue, el título en Cinzel y viñetas
+    en rombo dorado.
 
 ### Ficha de la civ (`#civ-info`)
 - Hoja de pergamino sobre la madera.

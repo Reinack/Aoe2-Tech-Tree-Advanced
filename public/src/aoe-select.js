@@ -184,6 +184,15 @@ function enhanceSelect(select, { icon = null } = {}) {
 
   select.addEventListener('change', sync);
   new MutationObserver(build).observe(select, { childList: true, attributes: true, attributeFilter: ['disabled'] });
+  // Asignar `value`/`selectedIndex` por código no dispara 'change': se interceptan para sincronizar
+  for (const prop of ['value', 'selectedIndex']) {
+    const desc = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, prop);
+    Object.defineProperty(select, prop, {
+      configurable: true,
+      get() { return desc.get.call(this); },
+      set(v) { desc.set.call(this, v); sync(); },
+    });
+  }
   build();
   return { open, close, refresh: build };
 }

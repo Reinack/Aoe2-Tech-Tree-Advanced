@@ -3,7 +3,7 @@
 
 import { NODES } from './nodes.js';
 import { UNIT_STATS, REGIONAL_UNIT_STATS, UNIQUE_UNIT_STATS } from './units.js';
-import { UNIT_CLASSES, UNIQUE_UNIT_CLASSES, TECHS } from './tech_data.js';
+import { UNIT_CLASSES, UNIQUE_UNIT_CLASSES, UNIQUE_UNIT_EXCLUDES, TECHS } from './tech_data.js';
 import { CIV_TREES } from './civ_trees.js';
 import { UP_NODES } from './upstream_nodes.js';
 
@@ -145,6 +145,7 @@ window.IMG_MAP = IMG_MAP;
 window.CIVS = CIVS;
 window.UNIT_CLASSES = UNIT_CLASSES;
 window.UNIQUE_UNIT_CLASSES = UNIQUE_UNIT_CLASSES;
+window.UNIQUE_UNIT_EXCLUDES = UNIQUE_UNIT_EXCLUDES;
 window.TECHS = TECHS;
 window.CIV_TREES = CIV_TREES;
 window.UP_NODES = UP_NODES;

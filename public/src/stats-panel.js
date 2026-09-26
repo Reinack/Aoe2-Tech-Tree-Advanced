@@ -212,8 +212,10 @@ function computeCivModifiedStats(stats, unitId, unitAge = 0, trainingBuilding = 
     range:  stats.range,
     speed:  stats.speed,
     rof:    stats.rof,
+    blast_radius: stats.blast_radius,
     los:    stats.los,
     train:  stats.train,
+    bonuses: stats.bonuses ? stats.bonuses.map(x => ({ ...x })) : undefined,
   };
 
   // ── stat_modifier bonuses ──────────────────────────────────────────────────
@@ -615,36 +617,15 @@ function showStatsPanel(ev, n) {
   // Afecta a (solo para tecnologías)
   const appEl = document.getElementById('sp-applies');
   if (n.type === 'tech' || n.type === 'upgrade' || n.type === 'unique') {
-    let affects = TECHS[n.id]?.affects || [];
-    // Si es una tecnología única genérica, buscar la específica de la civ
-    if (n.id === 'uniquetech1' || n.id === 'uniquetech2') {
-      const compositeId = `${currentCiv}_${n.id}`;
-      if (TECHS[compositeId]?.affects) affects = TECHS[compositeId].affects;
-    }
+    // Tecnología única genérica del árbol → la específica de la civ
+    const techId = (n.id === 'uniquetech1' || n.id === 'uniquetech2') ? `${currentCiv}_${n.id}` : n.id;
 
-    if (affects.length > 0) {
-      // Resolver clases a unidades individuales
-      let unitIds = [];
-      affects.forEach(a => {
-        if (UNIT_CLASSES[a]) {
-          unitIds = unitIds.concat(UNIT_CLASSES[a]);
-        } else {
-          unitIds.push(a);
-        }
-      });
-
-      // Incluir unidad única si su clase coincide con las clases afectadas
-      const uuName = LOCALE['es']?.civs?.[currentCiv]?.uniqueUnits?.[0]?.name;
-      if (uuName && UNIQUE_UNIT_CLASSES[uuName]) {
-        const uuClasses = UNIQUE_UNIT_CLASSES[uuName];
-        const hasMatch = affects.some(a => uuClasses.includes(a));
-        if (hasMatch) {
-          unitIds.push('uniqueunit', 'eliteunique');
-        }
-      }
-
-      // Filtrar por disponibilidad y resolver placeholders únicos
-      const availableUnits = [...new Set(unitIds)].filter(uid => !isMissing(uid));
+    if (TECHS[techId]) {
+      // Mismo criterio que el simulador: las unidades disponibles a las que se ofrece esta tech
+      const seen = new Set();
+      const availableUnits = displayNodes
+        .filter(d => d.available && !seen.has(d.id) && seen.add(d.id) && getApplicableTechs(d.id).includes(techId))
+        .map(d => d.id);
 
       if (availableUnits.length > 0) {
         appEl.style.display = 'block';
