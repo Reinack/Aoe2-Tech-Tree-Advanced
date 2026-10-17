@@ -4,3 +4,8 @@ node_modules/
 Thumbs.db
 .claude/
 .kilo/
+
+# Archivos de agentes de IA (locales, no se publican)
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
